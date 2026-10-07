@@ -1,0 +1,405 @@
+{
+  "sourceAuditSha256": "70b640c563c2cc6dd541d216d5c2acfa47724d9421e6037ae16a80e9548d4553",
+  "toleranceMm": 0.001,
+  "distanceMetric": "GEOS discrete Hausdorff at boundary vertices",
+  "layers": [
+    {
+      "layer": "top",
+      "contoursChecked": 301,
+      "verticesBefore": 2666,
+      "verticesAfter": 2453,
+      "maximumDiscreteBoundaryDistanceMm": 0.0009608807909014985,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 0.003541771233000451
+    },
+    {
+      "layer": "inner1",
+      "contoursChecked": 149,
+      "verticesBefore": 5301,
+      "verticesAfter": 2771,
+      "maximumDiscreteBoundaryDistanceMm": 0.0009610000000002117,
+      "addedAreaMm2": 0.002373237553498385,
+      "removedAreaMm2": 0.025486397594510143
+    },
+    {
+      "layer": "inner2",
+      "contoursChecked": 149,
+      "verticesBefore": 5694,
+      "verticesAfter": 2565,
+      "maximumDiscreteBoundaryDistanceMm": 0.0009608807909022388,
+      "addedAreaMm2": 0.003184275984999561,
+      "removedAreaMm2": 0.012569524184498726
+    },
+    {
+      "layer": "bottom",
+      "contoursChecked": 149,
+      "verticesBefore": 2612,
+      "verticesAfter": 2420,
+      "maximumDiscreteBoundaryDistanceMm": 0.0008796781481158224,
+      "addedAreaMm2": 0.00010176258000013256,
+      "removedAreaMm2": 0.0032770678715005846
+    }
+  ],
+  "changedContours": [
+    {
+      "layer": "top",
+      "netId": "source_trace_11",
+      "accepted": true,
+      "verticesBefore": 158,
+      "verticesAfter": 135,
+      "boundaryDisplacementMm": 0.0007836094688177527,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 7.97632205000195e-5
+    },
+    {
+      "layer": "top",
+      "netId": "source_trace_3",
+      "accepted": true,
+      "verticesBefore": 172,
+      "verticesAfter": 143,
+      "boundaryDisplacementMm": 0.0007834354313330835,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 9.349477700005842e-5
+    },
+    {
+      "layer": "top",
+      "netId": "source_trace_15",
+      "accepted": true,
+      "verticesBefore": 204,
+      "verticesAfter": 200,
+      "boundaryDisplacementMm": 0.0009608807909014985,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 3.748567000000155e-5
+    },
+    {
+      "layer": "top",
+      "netId": "source_trace_40",
+      "accepted": true,
+      "verticesBefore": 91,
+      "verticesAfter": 70,
+      "boundaryDisplacementMm": 0.0007836094688185284,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 7.08158835000049e-5
+    },
+    {
+      "layer": "top",
+      "netId": "source_trace_1",
+      "accepted": true,
+      "verticesBefore": 81,
+      "verticesAfter": 68,
+      "boundaryDisplacementMm": 0.0006418430935979117,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 3.8089078999944906e-5
+    },
+    {
+      "layer": "top",
+      "netId": "source_trace_14",
+      "accepted": true,
+      "verticesBefore": 86,
+      "verticesAfter": 83,
+      "boundaryDisplacementMm": 0.000263592043171173,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 1.2299360499950767e-5
+    },
+    {
+      "layer": "top",
+      "netId": "source_trace_17",
+      "accepted": true,
+      "verticesBefore": 210,
+      "verticesAfter": 147,
+      "boundaryDisplacementMm": 0.0007836094688181406,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 0.00018896455949996908
+    },
+    {
+      "layer": "top",
+      "netId": "source_trace_4",
+      "accepted": true,
+      "verticesBefore": 194,
+      "verticesAfter": 144,
+      "boundaryDisplacementMm": 0.0007836094688188711,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 0.00016151115449992667
+    },
+    {
+      "layer": "top",
+      "netId": "source_net_93",
+      "accepted": true,
+      "verticesBefore": 1028,
+      "verticesAfter": 1021,
+      "boundaryDisplacementMm": 0.0008796781481158224,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 0.0028593475285005753
+    },
+    {
+      "layer": "inner1",
+      "netId": "source_trace_15",
+      "accepted": true,
+      "verticesBefore": 1567,
+      "verticesAfter": 688,
+      "boundaryDisplacementMm": 0.0009608807909019903,
+      "addedAreaMm2": 0.001092828040998828,
+      "removedAreaMm2": 0.006552533857505752
+    },
+    {
+      "layer": "inner1",
+      "netId": "source_trace_16",
+      "accepted": true,
+      "verticesBefore": 1571,
+      "verticesAfter": 685,
+      "boundaryDisplacementMm": 0.0009610000000002117,
+      "addedAreaMm2": 0.0009638554739995296,
+      "removedAreaMm2": 0.006161012215003276
+    },
+    {
+      "layer": "inner1",
+      "netId": "source_trace_1",
+      "accepted": true,
+      "verticesBefore": 157,
+      "verticesAfter": 156,
+      "boundaryDisplacementMm": 0.0008011386013195933,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 0.00022996197600005317
+    },
+    {
+      "layer": "inner1",
+      "netId": "source_trace_4",
+      "accepted": true,
+      "verticesBefore": 1073,
+      "verticesAfter": 443,
+      "boundaryDisplacementMm": 0.0009610000000002117,
+      "addedAreaMm2": 0.0003165540385000276,
+      "removedAreaMm2": 0.011320146748000847
+    },
+    {
+      "layer": "inner1",
+      "netId": "source_trace_17",
+      "accepted": true,
+      "verticesBefore": 241,
+      "verticesAfter": 173,
+      "boundaryDisplacementMm": 0.0009608498367785751,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 0.0010564544345001868
+    },
+    {
+      "layer": "inner1",
+      "netId": "source_trace_11",
+      "accepted": true,
+      "verticesBefore": 157,
+      "verticesAfter": 136,
+      "boundaryDisplacementMm": 0.00021980182761289566,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 5.4767392999997656e-5
+    },
+    {
+      "layer": "inner1",
+      "netId": "source_trace_3",
+      "accepted": true,
+      "verticesBefore": 167,
+      "verticesAfter": 140,
+      "boundaryDisplacementMm": 0.00022391193040294233,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 6.85155775000172e-5
+    },
+    {
+      "layer": "inner1",
+      "netId": "source_trace_40",
+      "accepted": true,
+      "verticesBefore": 92,
+      "verticesAfter": 74,
+      "boundaryDisplacementMm": 0.00022217122184722555,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 4.3005393000012666e-5
+    },
+    {
+      "layer": "inner2",
+      "netId": "source_trace_27",
+      "accepted": true,
+      "verticesBefore": 486,
+      "verticesAfter": 147,
+      "boundaryDisplacementMm": 0.0008373385419387457,
+      "addedAreaMm2": 0.00043912183299992105,
+      "removedAreaMm2": 0.0007123138284998794
+    },
+    {
+      "layer": "inner2",
+      "netId": "source_trace_26",
+      "accepted": true,
+      "verticesBefore": 333,
+      "verticesAfter": 182,
+      "boundaryDisplacementMm": 0.0008195928515070605,
+      "addedAreaMm2": 3.086089000006728e-6,
+      "removedAreaMm2": 0.00025797976849992286
+    },
+    {
+      "layer": "inner2",
+      "netId": "source_trace_11",
+      "accepted": true,
+      "verticesBefore": 3431,
+      "verticesAfter": 992,
+      "boundaryDisplacementMm": 0.0009608807909012517,
+      "addedAreaMm2": 0.0027419988979996337,
+      "removedAreaMm2": 0.007528189240999678
+    },
+    {
+      "layer": "inner2",
+      "netId": "source_trace_2",
+      "accepted": true,
+      "verticesBefore": 18,
+      "verticesAfter": 14,
+      "boundaryDisplacementMm": 0.0009608807909022388,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 0.0002237092735000441
+    },
+    {
+      "layer": "inner2",
+      "netId": "source_trace_3",
+      "accepted": true,
+      "verticesBefore": 170,
+      "verticesAfter": 141,
+      "boundaryDisplacementMm": 0.0007836094688162016,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 9.351159749993572e-5
+    },
+    {
+      "layer": "inner2",
+      "netId": "source_trace_28",
+      "accepted": true,
+      "verticesBefore": 62,
+      "verticesAfter": 54,
+      "boundaryDisplacementMm": 0.0009608807909014985,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 0.00021087997449992382
+    },
+    {
+      "layer": "inner2",
+      "netId": "source_trace_39",
+      "accepted": true,
+      "verticesBefore": 14,
+      "verticesAfter": 12,
+      "boundaryDisplacementMm": 0.0009605767150107132,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 1.3832944999994065e-5
+    },
+    {
+      "layer": "inner2",
+      "netId": "source_trace_40",
+      "accepted": true,
+      "verticesBefore": 143,
+      "verticesAfter": 106,
+      "boundaryDisplacementMm": 0.000960880790901621,
+      "addedAreaMm2": 6.91649999993788e-8,
+      "removedAreaMm2": 0.0015720440820003606
+    },
+    {
+      "layer": "inner2",
+      "netId": "source_trace_30",
+      "accepted": true,
+      "verticesBefore": 30,
+      "verticesAfter": 22,
+      "boundaryDisplacementMm": 0.0009608498367789852,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 0.0016801053959990119
+    },
+    {
+      "layer": "inner2",
+      "netId": "source_trace_1",
+      "accepted": true,
+      "verticesBefore": 79,
+      "verticesAfter": 68,
+      "boundaryDisplacementMm": 0.00021980182761235985,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 2.9057136499987796e-5
+    },
+    {
+      "layer": "inner2",
+      "netId": "source_trace_4",
+      "accepted": true,
+      "verticesBefore": 194,
+      "verticesAfter": 148,
+      "boundaryDisplacementMm": 0.0002221712218476497,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 0.00011159344799999965
+    },
+    {
+      "layer": "inner2",
+      "netId": "source_trace_17",
+      "accepted": true,
+      "verticesBefore": 206,
+      "verticesAfter": 151,
+      "boundaryDisplacementMm": 0.0002221712218476497,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 0.00013630749349998868
+    },
+    {
+      "layer": "bottom",
+      "netId": "source_net_56",
+      "accepted": true,
+      "verticesBefore": 1165,
+      "verticesAfter": 1151,
+      "boundaryDisplacementMm": 0.0008796781481158224,
+      "addedAreaMm2": 0.00010176258000013256,
+      "removedAreaMm2": 0.002833821430000581
+    },
+    {
+      "layer": "bottom",
+      "netId": "source_trace_11",
+      "accepted": true,
+      "verticesBefore": 157,
+      "verticesAfter": 136,
+      "boundaryDisplacementMm": 0.00021980182761289566,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 5.4767392999997656e-5
+    },
+    {
+      "layer": "bottom",
+      "netId": "source_trace_1",
+      "accepted": true,
+      "verticesBefore": 79,
+      "verticesAfter": 68,
+      "boundaryDisplacementMm": 0.00021980182761235985,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 2.9057136499987796e-5
+    },
+    {
+      "layer": "bottom",
+      "netId": "source_trace_3",
+      "accepted": true,
+      "verticesBefore": 167,
+      "verticesAfter": 140,
+      "boundaryDisplacementMm": 0.00022391193040294233,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 6.85155775000172e-5
+    },
+    {
+      "layer": "bottom",
+      "netId": "source_trace_4",
+      "accepted": true,
+      "verticesBefore": 194,
+      "verticesAfter": 148,
+      "boundaryDisplacementMm": 0.0002221712218476497,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 0.00011159344799999965
+    },
+    {
+      "layer": "bottom",
+      "netId": "source_trace_17",
+      "accepted": true,
+      "verticesBefore": 206,
+      "verticesAfter": 151,
+      "boundaryDisplacementMm": 0.0002221712218476497,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 0.00013630749349998868
+    },
+    {
+      "layer": "bottom",
+      "netId": "source_trace_40",
+      "accepted": true,
+      "verticesBefore": 92,
+      "verticesAfter": 74,
+      "boundaryDisplacementMm": 0.00022217122184722555,
+      "addedAreaMm2": 0.0,
+      "removedAreaMm2": 4.3005393000012666e-5
+    }
+  ]
+}

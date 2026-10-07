@@ -1,0 +1,37 @@
+[
+  {
+    "case": "dqs-source-vias",
+    "meshSizeMm": 0.4,
+    "tetrahedra": 91839,
+    "exportAndValidationSeconds": 129.189086352,
+    "nativePeakRssMiB": 1305.38671875,
+    "minimumMinSICN": 0.00037668790905966306,
+    "percentile01MinSICN": 0.044208853566590135,
+    "medianMinSICN": 0.4166836808260416,
+    "allSavedMeshChecksPassed": true
+  },
+  {
+    "case": "dqs-source-vias-refined-slab",
+    "meshSizeMm": 0.2,
+    "tetrahedra": 151669,
+    "exportAndValidationSeconds": 367.49188268300003,
+    "nativePeakRssMiB": 396.08203125,
+    "minimumMinSICN": 0.0005020240498455299,
+    "percentile01MinSICN": 0.10525714014479191,
+    "medianMinSICN": 0.5286737104778892,
+    "allSavedMeshChecksPassed": true
+  },
+  {
+    "case": "dqs-source-vias-corrected",
+    "meshSizeMm": 0.2,
+    "tetrahedra": 181224,
+    "exportAndValidationSeconds": 201.46228112100002,
+    "nativePeakRssMiB": 1574.6640625,
+    "minimumMinSICN": 0.0020092614116686124,
+    "percentile01MinSICN": 0.10857759661354377,
+    "medianMinSICN": 0.5288879698029307,
+    "allSavedMeshChecksPassed": true,
+    "qualityGate": 0.001,
+    "qualityGatePassed": true
+  }
+]

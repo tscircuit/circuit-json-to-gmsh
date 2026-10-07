@@ -73,6 +73,17 @@ export interface PreviewSolid {
 }
 export interface GeometryReport {
   gmshVersion: string
+  simplificationToleranceMm?: number
+  simplification?: {
+    layer: string
+    netId: string
+    accepted: boolean
+    verticesBefore: number
+    verticesAfter: number
+    boundaryDisplacementMm: number
+    addedAreaMm2: number
+    removedAreaMm2: number
+  }[]
   wallSeconds: number
   peakRssMiB: number
   cadSeconds: number
@@ -82,7 +93,7 @@ export interface GeometryReport {
   actualVolumeMm3: number
   tetrahedra: number
   sharedInterfaceFaces: number
-  minimumTetQuality?: number
+  minimumTetQuality?: number | null
   removedVolumeMm3: number
   repairs: {
     solid: {
@@ -106,4 +117,61 @@ export interface GmshResult {
   preview: PreviewSolid[]
   brepPath: string
   meshPath?: string
+  manifestPath?: string
+  validation?: MeshValidationReport
+}
+
+export interface MeshValidationRequirements {
+  terminals: {
+    name: string
+    netId: string
+    positionMm: [number, number, number]
+  }[]
+  connections: { from: string; to: string }[]
+}
+
+export interface MeshValidationReport {
+  schemaVersion: 1
+  passed: boolean
+  /** CAD ownership, PCB voids and requested endpoint paths were all checked. */
+  pcbChecksComplete?: boolean
+  gmshVersion?: string
+  units?: "mm"
+  wallSeconds?: number
+  meshSha256?: string
+  manifestSha256?: string
+  modelSha256?: string
+  requirementsSha256?: string
+  tetrahedra?: number
+  nodes?: number
+  quality?: {
+    minimum: number | null
+    percentile01: number | null
+    median: number | null
+    threshold: number
+    worstElements?: {
+      tag: number
+      volume: number
+      material?: string
+      minSICN: number
+      coordinatesMm: number[][]
+    }[]
+  }
+  copperComponents?: Record<string, number>
+  terminals?: Record<
+    string,
+    {
+      netId: string
+      positionMm: [number, number, number]
+      components: number[]
+      tetrahedra: number[]
+    }
+  >
+  checks: {
+    name: string
+    passed: boolean | null
+    errors?: (string | Record<string, unknown>)[]
+  }[]
+  connections?: { from: string; to: string; passed: boolean }[]
+  limitations?: string[]
 }

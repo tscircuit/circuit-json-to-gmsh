@@ -2,8 +2,29 @@ import { useState } from "react"
 import copper from "../examples/four-layer/copper.png"
 import cutaway from "../examples/four-layer/cutaway.png"
 import section from "../examples/four-layer/cross-section.png"
+import differentialSection from "../tests/__snapshots__/differential-via-cross-section.png"
+import differentialStubs from "../tests/__snapshots__/differential-via-stubs.png"
+import boardCutout from "../tests/__snapshots__/mesh-board-cutout.png"
 
 const views = [
+  {
+    label: "Board cutout",
+    image: boardCutout,
+    description:
+      "TSX-generated cutout through all four layers. The saved-mesh validator rejects a tetrahedron inserted into this opening. Thickness at 4×.",
+  },
+  {
+    label: "DQS via stubs",
+    image: differentialStubs,
+    description:
+      "Two independent signal nets with full through-via spans and retained lower-layer stubs. Thickness at 4×.",
+  },
+  {
+    label: "DQS cross-section",
+    image: differentialSection,
+    description:
+      "Native four-layer section through two hollow signal barrels. Saved-mesh validation checks their copper paths and voids. Thickness at 4×.",
+  },
   {
     label: "Copper",
     image: copper,

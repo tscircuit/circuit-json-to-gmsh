@@ -1,0 +1,14 @@
+{
+  "status": "stopped to apply bounded contour simplification; not a Boolean exception",
+  "elapsedSecondsObserved": 311.5599999999977,
+  "processMetrics": {
+    "VmHWM": "10363304 kB",
+    "VmRSS": "10256920 kB"
+  },
+  "progress": {
+    "stage": "partition_slab_interface",
+    "zMm": 0,
+    "solids": 217,
+    "partitionSeconds": 0.00018210397684015334
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "status": "resource_failure",
+  "stage": {
+    "stage": "partition_interfaces",
+    "solids": 766,
+    "elapsedSeconds": 85.8910820230085
+  },
+  "exitCode": 137,
+  "concurrentRefinementExitCode": 137,
+  "lastObservedFullRouteElapsedSeconds": 646,
+  "lastObservedFullRouteRssKiB": 13469560,
+  "workspaceMemoryLimitGiB": 16,
+  "exactPerRunPeakUnknown": true,
+  "note": "Concurrent native full-route global partition and source-via refinement exceeded the shared memory limit. This is not a reproduced Boolean topology exception or an isolated serial-memory benchmark. No conformal full-route mesh was produced."
+}

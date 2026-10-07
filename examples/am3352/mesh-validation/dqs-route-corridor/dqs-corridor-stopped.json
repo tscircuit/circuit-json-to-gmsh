@@ -1,0 +1,15 @@
+{
+  "status": "explicitly_stopped_after_diagnostic_budget",
+  "nativeElapsedSecondsObserved": 1273,
+  "processMetrics": {
+    "VmHWM": "2079072 kB",
+    "VmRSS": "2052804 kB"
+  },
+  "progress": {
+    "stage": "partition_slab_interface",
+    "zMm": 0.0994,
+    "solids": 227,
+    "partitionSeconds": 665.2243110160052
+  },
+  "note": "No mesh produced. First partition stage completed in 665 seconds; stopped during the next interface stage. This is a performance diagnostic, not a Boolean exception or isolated serial benchmark; smaller source-via and CAD checks ran concurrently."
+}

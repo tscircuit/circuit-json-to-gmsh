@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "kind": "native_export",
+  "exitCode": 143,
+  "progress": {
+    "stage": "partition_slab_interface",
+    "zMm": 0.0994,
+    "solids": 227,
+    "partitionSeconds": 665.2243110160052
+  },
+  "logPath": "/workspace/work/mesh-validation/dqs-route-corridor/gmsh.log"
+}

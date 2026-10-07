@@ -32,11 +32,13 @@ export function MultilayerBoard({
   layers = 4,
   sourceLayer = "top",
   referenceLayer = "top",
+  cutout = false,
 }: {
   innerPlane?: boolean
   layers?: 4 | 6
   referenceLayer?: "top" | "inner2"
   sourceLayer?: "top" | "bottom"
+  cutout?: boolean
 }) {
   return (
     <board
@@ -47,6 +49,9 @@ export function MultilayerBoard({
       schematicDisabled
     >
       <net name="GND" />
+      {cutout && (
+        <cutout shape="rect" pcbX={0} pcbY={-1.5} width={0.8} height={0.8} />
+      )}
       {[-2, 2].map((x, index) => (
         <chip
           key={index}

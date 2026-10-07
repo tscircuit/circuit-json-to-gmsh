@@ -17,6 +17,7 @@ const geometryTypes = new Set([
   "source_net",
   "source_port",
   "source_trace",
+  "source_component",
 ])
 
 /** Validate physical and connectivity elements; display and simulation metadata are ignored. */

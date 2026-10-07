@@ -10,6 +10,13 @@ import gmsh
 from cad import build_cad
 from planar import layer_copper
 from topology import TopologyError
+from mesh_manifest import mesh_manifest
+from shapely.geometry import box
+from planar import clean
+from partition import partition
+from simplify_copper import simplify_copper
+from route_corridor import route_corridor
+from shapely.geometry import mapping
 
 
 def preview_solids(solids):
@@ -48,11 +55,74 @@ def export(options):
     model = json.loads(Path(options.model).read_text())
     gmsh.initialize()
     gmsh.option.setNumber("General.Terminal", 1)
+    gmsh.option.setNumber("General.NumThreads", options.threads)
+    gmsh.option.setNumber("Geometry.OCCParallel", int(options.threads > 1))
     gmsh.option.setNumber("Geometry.Tolerance", 1e-6)
     gmsh.option.setNumber("Geometry.ToleranceBoolean", 1e-6)
     gmsh.model.add("pcb")
     try:
+        (destination / "progress.json").write_text(
+            json.dumps(
+                {"stage": "planar_copper", "elapsedSeconds": time.monotonic() - started}
+            )
+        )
         board, copper = layer_copper(model)
+        if options.corridor_nets:
+            region, expansions = route_corridor(
+                {
+                    "model": model,
+                    "netIds": options.corridor_nets.split(","),
+                    "marginMm": options.corridor_margin,
+                }
+            )
+            board = clean(board.intersection(region))
+            (destination / "route-corridor.json").write_text(
+                json.dumps(
+                    {
+                        "netIds": options.corridor_nets.split(","),
+                        "marginMm": options.corridor_margin,
+                        "expandedBarrelIndices": expansions,
+                        "region": mapping(board),
+                    },
+                    indent=2,
+                )
+            )
+            copper = {
+                layer: {
+                    net: clean(shape.intersection(board)) for net, shape in nets.items()
+                }
+                for layer, nets in copper.items()
+            }
+        if options.bounds:
+            board = clean(board.intersection(box(*options.bounds)))
+            copper = {
+                layer: {
+                    net: clean(shape.intersection(board)) for net, shape in nets.items()
+                }
+                for layer, nets in copper.items()
+            }
+        copper, simplifications = simplify_copper(
+            {
+                "model": model,
+                "board": board,
+                "copper": copper,
+                "toleranceMm": options.simplify_tolerance,
+            }
+        )
+        (destination / "simplification.json").write_text(
+            json.dumps(
+                {
+                    "toleranceMm": options.simplify_tolerance,
+                    "contours": simplifications,
+                },
+                indent=2,
+            )
+        )
+        (destination / "progress.json").write_text(
+            json.dumps(
+                {"stage": "cad_slabs", "elapsedSeconds": time.monotonic() - started}
+            )
+        )
         solids = build_cad(
             {
                 "model": model,
@@ -60,25 +130,31 @@ def export(options):
                 "copper": copper,
                 "cutawayX": options.cutaway_x,
                 "repairRadiusMm": options.repair_radius,
+                "boundsMm": options.bounds,
+                "clipBoard": bool(options.corridor_nets),
+                "progressPath": str(destination / "progress.json"),
             }
         )
         if not solids:
             raise ValueError("No geometry remains in the selected cutaway")
+        (destination / "cad-solids.json").write_text(json.dumps(solids, indent=2))
         if options.conformal and len(solids) > 1:
-            entities = [entity for solid in solids for entity in solid["entities"]]
-            _, mapping = gmsh.model.occ.fragment(entities[:1], entities[1:])
-            cursor = 0
-            for solid in solids:
-                count = len(solid["entities"])
-                solid["entities"] = sorted(
+            (destination / "progress.json").write_text(
+                json.dumps(
                     {
-                        e
-                        for m in mapping[cursor : cursor + len(solid["entities"])]
-                        for e in m
-                        if e[0] == 3
+                        "stage": "partition_interfaces",
+                        "solids": len(solids),
+                        "elapsedSeconds": time.monotonic() - started,
                     }
                 )
-                cursor += count
+            )
+            partition(
+                {
+                    "solids": solids,
+                    "strategy": options.fragment_strategy,
+                    "progressPath": str(destination / "progress.json"),
+                }
+            )
         gmsh.model.occ.synchronize()
         for solid in solids:
             for repair in solid["repairs"]:
@@ -107,6 +183,10 @@ def export(options):
             materials.append(
                 {"name": name, "attribute": attribute, "volumes": sorted(volumes)}
             )
+        if options.conformal:
+            (destination / "mesh-manifest.json").write_text(
+                json.dumps(mesh_manifest(solids), indent=2) + "\n"
+            )
         gmsh.write(str(destination / "board.brep"))
         if options.step:
             gmsh.write(str(destination / "board.step"))
@@ -132,7 +212,20 @@ def export(options):
         gmsh.option.setNumber("Mesh.ElementOrder", 1)
         mesh_started = time.monotonic()
         if not options.cad_only:
+            (destination / "progress.json").write_text(
+                json.dumps(
+                    {
+                        "stage": "tetrahedral_mesh"
+                        if options.conformal
+                        else "surface_mesh",
+                        "volumes": len(gmsh.model.getEntities(3)),
+                        "elapsedSeconds": time.monotonic() - started,
+                    }
+                )
+            )
             gmsh.model.mesh.generate(3 if options.conformal else 2)
+            if options.optimize_netgen and options.conformal:
+                gmsh.model.mesh.optimize("Netgen")
             gmsh.option.setNumber("Mesh.MshFileVersion", 2.2)
             gmsh.write(str(destination / "board.msh"))
         preview = [] if options.cad_only else preview_solids(solids)
@@ -157,6 +250,8 @@ def export(options):
             raise ValueError("Mesh contains inverted or degenerate tetrahedra")
         report = {
             "gmshVersion": gmsh.__version__,
+            "simplificationToleranceMm": options.simplify_tolerance,
+            "simplification": simplifications,
             "wallSeconds": time.monotonic() - started,
             "cadSeconds": cad_seconds,
             "meshSeconds": mesh_seconds,
@@ -181,6 +276,14 @@ def export(options):
             1024**2 if sys.platform == "darwin" else 1024
         )
         (destination / "report.json").write_text(json.dumps(report, indent=2))
+        (destination / "progress.json").write_text(
+            json.dumps(
+                {
+                    "stage": "export_complete",
+                    "elapsedSeconds": time.monotonic() - started,
+                }
+            )
+        )
         print(
             json.dumps(
                 {k: v for k, v in report.items() if k not in ["materials", "repairs"]}
@@ -206,4 +309,13 @@ if __name__ == "__main__":
     parser.add_argument("--cad-only", action="store_true")
     parser.add_argument("--step", action="store_true")
     parser.add_argument("--repair-radius", type=float, default=0.0001)
+    parser.add_argument("--bounds", type=float, nargs=4)
+    parser.add_argument("--threads", type=int, default=1)
+    parser.add_argument("--optimize-netgen", action="store_true")
+    parser.add_argument(
+        "--fragment-strategy", choices=["global", "slab"], default="global"
+    )
+    parser.add_argument("--simplify-tolerance", type=float, default=0)
+    parser.add_argument("--corridor-nets")
+    parser.add_argument("--corridor-margin", type=float, default=1)
     export(parser.parse_args())
