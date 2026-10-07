@@ -1,0 +1,18 @@
+{
+  "elapsedSeconds": 197.3120480600046,
+  "exitCode": 1,
+  "memoryLimitGiB": 14,
+  "containerState": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 1,
+    "Error": "",
+    "StartedAt": "2026-10-07T16:16:38.903152529Z",
+    "FinishedAt": "2026-10-07T16:19:52.986905366Z"
+  }
+}

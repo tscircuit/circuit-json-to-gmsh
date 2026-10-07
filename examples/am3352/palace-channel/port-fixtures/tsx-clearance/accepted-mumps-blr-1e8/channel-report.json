@@ -1,0 +1,54 @@
+{
+  "ports": [
+    "U1.OUT",
+    "U2.IN"
+  ],
+  "referenceImpedanceOhms": 50,
+  "portGeometrySha256": "6151854bef07b5d4599855bfd81f4789bfb05f90790b85183680b75e76ad6ff2",
+  "frequenciesHz": [
+    400000000.0
+  ],
+  "order": 1,
+  "sourceMeshSha256": "d77ee50b85c8de90fa4b293a6c2e1c8aa48b069afc2290eadf21b5efe50809ec",
+  "modelSha256": "d7d123dc78a5feaa4abafbd5818a7947c90050aa0fc1d486197763a1515c5233",
+  "sourceManifestSha256": "e531092ddd68dcc1e71bf5dd259a0e3a5cf021198b0ced546ca1855f18a6a840",
+  "tetrahedra": 79429,
+  "palaceMeshSha256": "30b1e06d1662aca7613918c1bde89d31561a42983245fd9c4b62c121ea0ce037",
+  "copperModel": "PEC cavities, no copper loss",
+  "nativeRuns": [
+    {
+      "excitedPort": 1,
+      "wallSecondsMeanRank": 10.538,
+      "gmresIterations": [
+        12
+      ],
+      "logSha256": "dc5e8d01636f66800b7701fc8a8704e7a21ee0fd0aefc6f323f266e157060616",
+      "csvSha256": "8baaa59e187a289c74a394fddd4508ba8342c3397b048f99a22531bcd1233e2e"
+    },
+    {
+      "excitedPort": 2,
+      "wallSecondsMeanRank": 11.017,
+      "gmresIterations": [
+        12
+      ],
+      "logSha256": "cc7fd20890eebf4aee8ec073d03ef05b2712b5732e278e251b0e099cc66dbc5b",
+      "csvSha256": "50780253ca76a80938ef643de4675dcadcf443bdb1ede772832e0aca25d3f06f"
+    }
+  ],
+  "maximumReciprocityError": 4.2823850464239837e-10,
+  "maximumScatteringSingularValue": 0.9999112448598628,
+  "reciprocityErrors": [
+    4.2823850464239837e-10
+  ],
+  "scatteringSingularValues": [
+    0.9999112448598628
+  ],
+  "numericalConsistencyPassed": true,
+  "convergenceProven": false,
+  "limitations": [
+    "Port references are explicit geometry assumptions, not inferred power/ground AC impedance.",
+    "Dielectric material assumptions and crop/enclosure sensitivity require independent checks.",
+    "Ideal PEC contact extensions alter near-port fields; fixture-size sensitivity and de-embedding are unproven."
+  ],
+  "touchstoneSha256": "62046d75ecdea163914f968c9948a790cd41f877cb09b7f7052bf43dd516edf1"
+}

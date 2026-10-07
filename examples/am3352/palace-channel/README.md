@@ -139,10 +139,16 @@ The oblique TSX control with 1 µm fixture clearance completes both SuperLU dire
 
 Both 0.8 mm coarse remeshes fail the same strict quality gate: [Delaunay](pad-crop/rejected-coarse-delaunay/receipt.json) has 641,674 tetrahedra and [HXT](pad-crop/rejected-coarse-hxt/receipt.json) has 649,575; each minimum quality is `0.0000384`, below `0.0001`. The other eight checks pass, including full connectivity. The offending element is air near an artificial tile plane. Neither mesh is accepted for a field solve; no threshold was relaxed.
 
-The 0.6 mm source mesh passes all nine checks: [740,499 tetrahedra, minimum quality `0.000174`](pad-crop/h06-mesh/receipt.json). Its explicit fixture mesh also passes all gates with unchanged PCB volumes. Its four Palace columns are being extracted. The 0.5 mm source mesh fails one strict air-element quality check ([minimum `0.0000203`](pad-crop/rejected-h05-delaunay/receipt.json)); it is excluded. The alternative 0.3 mm source mesh passes all nine checks: [1,345,567 tetrahedra, minimum quality `0.000283`](pad-crop/h03-mesh/receipt.json). Its ideal fixtures are being generated for a **0.6 → 0.4 → 0.3 mm** comparison. Native mesh gates remain unchanged.
+The 0.6 mm source mesh passes all nine checks: [740,499 tetrahedra, minimum quality `0.000174`](pad-crop/h06-mesh/receipt.json). Its explicit fixture mesh also passes all gates with unchanged PCB volumes. Its four Palace columns now complete, with maximum reciprocity error `7.04e-8` and maximum S singular value `0.999515`. [All native columns and raw data](pad-crop/h06-mumps-400mhz/receipt.json) are retained. The 0.5 mm source mesh fails one strict air-element quality check ([minimum `0.0000203`](pad-crop/rejected-h05-delaunay/receipt.json)); it is excluded. The alternative 0.3 mm source mesh passes all nine checks: [1,345,567 tetrahedra, minimum quality `0.000283`](pad-crop/h03-mesh/receipt.json). Its unrefined Delaunay fixture failed at minimum quality `0.0000674`; HXT also failed that boundary element. [Both native rejections](pad-crop/rejected-h03-fixtures/receipt.json) are retained. A native local sizing box resolves it: [1,348,108 tetrahedra, minimum quality `0.000244`, all nine gates and BRep valid](pad-crop/h03-local-fixture-mesh/receipt.json), in 283.98 s. PCB material volumes and the complete port geometry remain unchanged. The box adds 2,423 elements relative to the rejected Delaunay fixture. Native mesh gates remain unchanged.
 
 Refinement rereads native logs and CSV, invalidates a stale comparison output on failure, checks identical geometry/ports/reference impedances, and compares every complex single-ended entry. For a differential case, it also compares every mixed-mode entry using the same explicit polarity mapping. Both changes must meet the 0.01 criterion on the last two refinement steps. The regression demonstrates that mixed-mode changes can fail even when all single-ended changes pass.
 
+
+The completed **0.6 → 0.4 mm** pair already fails the criterion: maximum single-ended complex change **0.05804**, maximum mixed-mode change **0.06904**, required 0.01. [The two-mesh diagnostic](pad-crop/two-mesh-diagnostic.json) retains both complete numerical reports; it is not a completed three-level study. The valid finer fixture reaches the 14 GiB resource limit with exact MUMPS after 132.05 s and tight BLR (`1e-8`) after 122.83 s. Both containers record `OOMKilled: true`; [exact](pad-crop/rejected-h03-mumps/receipt.json) and [compressed](pad-crop/rejected-h03-mumps-blr/receipt.json) values are rejected. With eight MPI ranks, Krylov size 40 and BLR `1e-6`, native factorization instead fails with `DMUMPS INFOG(1)=-40` after 197.31 s, without an OOM kill. [That failure](pad-crop/rejected-h03-mumps-blr-1e6/receipt.json) is also rejected.
+
+The final exact shifted MUMPS attempt uses eight MPI ranks, a four-CPU cap and Krylov size 40. It reaches GMRES iteration 12, then is OOM-killed under 14 GiB after **304.94 s**. [Native log and container state](pad-crop/rejected-h03-exact8/receipt.json) are preserved. The valid finer mesh therefore has no complete accepted channel. Continuing this refinement requires a solver environment with more available memory; no exact minimum has been established. No accepted three-level refinement or routing-quality eye is claimed.
+
+The same shifted MUMPS BLR settings complete both directions of the smaller TSX control. Against its complete SuperLU solution, maximum complex S differences are [**`1.67e-9` at BLR `1e-8`**](port-fixtures/tsx-clearance/accepted-mumps-blr-1e8/comparison.json) and [**`2.08e-9` at BLR `1e-6`**](port-fixtures/tsx-clearance/accepted-mumps-blr-1e6/comparison.json). [BLR `1e-4` fails native factorization even on the control](port-fixtures/tsx-clearance/rejected-mumps-blr-1e4/receipt.json). A successful control cannot guarantee successful factorization of the larger board.
 
 ### Reproduction
 
@@ -170,13 +176,22 @@ Reimprint explicit port fixtures and repeat native validation without repeating 
   --mesh-directory work/am3352-fixtures --output work/port-fixtures.png
 ```
 
+For the finer 0.3 mm source, a local native sizing field repairs the rejected air wedge without editing CAD. The seven values are XYZ lower bounds, XYZ upper bounds and target size, all in mm; repeat the flag for multiple boxes. Each target must be positive and no larger than the global target. The transition thickness equals the local target. Source and resulting meshes must still pass the complete quality/PCB gates:
+
+```sh
+"$GMSH_PYTHON" scripts/palace/rectangularize-ports.py \
+  --mesh-directory work/am3352-h03 --output work/am3352-h03-fixtures \
+  --mesh-size 0.3 --threads 1 \
+  --refinement-box 2.0 -15.75 0.07 2.4 -15.35 0.15 0.05
+```
+
 Prepare the HSS diagnostic settings. This requires a Palace build with STRUMPACK:
 
 ```sh
 "$GMSH_PYTHON" scripts/palace/prepare-channel.py \
   --mesh-directory work/am3352-fixtures --output work/am3352-channel \
   --frequency-hz 400000000 --linear-solver STRUMPACK \
-  --strumpack-compression HSS --strumpack-compression-tolerance 0.000001 \
+  --compression HSS --compression-tolerance 0.000001 \
   --complex-coarse-solve --preconditioner-side Right \
   --max-iterations 500 --krylov-size 100
 # Run palace-1.json through palace-4.json, retaining palace-N.log.

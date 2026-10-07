@@ -1,0 +1,12 @@
+{
+  "case": "Native MUMPS BLR compression control at 0.0001",
+  "validChannel": false,
+  "scatteringValuesRejected": true,
+  "nativeError": "DMUMPS INFOG(1)=-40, numerical factorization failed",
+  "filesSha256": {
+    "palace-1.json": "4da7cfa534a6b4b84ea14181d1441b6ec73fc7bb78002233864697a666f5a794",
+    "palace-1.log": "87de5d7e4891b178a8c711d50fc0dffff5f4302d4bc47ed3e4bfbe3ab70e1168",
+    "solver-input.json": "979c5b1e976728114e531302818a6be67c52ac2759979a7c4503e7ee1a66cca2",
+    "status.json": "32677045e78127db30af6438198cd52efeaaafb712dbb29ee3bfb22ec5a4883b"
+  }
+}

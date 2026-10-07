@@ -227,14 +227,14 @@ For a Palace build with STRUMPACK, a compressed complex preconditioner can reduc
 "$GMSH_PYTHON" scripts/palace/prepare-channel.py \
   --mesh-directory work/fixtures --output work/channel-hss \
   --frequency-hz 400000000 --linear-solver STRUMPACK \
-  --strumpack-compression HSS --strumpack-compression-tolerance 0.000001 \
+  --compression HSS --compression-tolerance 0.000001 \
   --complex-coarse-solve --preconditioner-side Right \
   --max-iterations 500 --krylov-size 100
 ```
 
-The oblique TSX control completes both directions in five iterations with these settings, agreeing with SuperLU within `3.49e-9` in a complex S entry. This checks the linear solver on that control; it does not establish mesh refinement or actual-board accuracy. Available compression choices are `None`, `BLR` and `HSS`. Compression settings require `STRUMPACK`; a complex coarse solve requires a direct preconditioner. Native availability and memory depend on the Palace build.
+The oblique TSX control completes both directions in five iterations with these settings, agreeing with SuperLU within `3.49e-9` in a complex S entry. This checks the linear solver on that control; it does not establish mesh refinement or actual-board accuracy. Use `--compression` and `--compression-tolerance` (the earlier `--strumpack-*` names remain aliases). STRUMPACK supports `None`, `BLR` and `HSS`; MUMPS supports `None` and `BLR`. A complex coarse solve requires a direct preconditioner. Native availability and memory depend on the Palace build.
 
-A Palace build with MUMPS can instead use `--linear-solver MUMPS --shifted-preconditioner --preconditioner-side Right`. This selects the native real positive-definite preconditioner while retaining the original complex field equations. The control completes both directions in 12 iterations and agrees with SuperLU within `1.33e-9`. Shifted MUMPS cannot be combined with `--complex-coarse-solve` because the pinned native implementation selects positive-definite factorization for the shifted matrix.
+A Palace build with MUMPS can instead use `--linear-solver MUMPS --shifted-preconditioner --preconditioner-side Right`. This selects the native real positive-definite preconditioner while retaining the original complex field equations. The control completes both directions in 12 iterations and agrees with SuperLU within `1.33e-9`. For MUMPS, `--compression BLR --compression-tolerance 0.00000001` is also control-validated, agreeing with SuperLU within `1.67e-9`; compression does not establish board convergence or guarantee a successful factorization. Shifted MUMPS cannot be combined with `--complex-coarse-solve` because the pinned native implementation selects positive-definite factorization for the shifted matrix.
 
 Outputs include raw `channel.sNp`, complex `channel.npz` and `channel-report.json`. Incomplete sweeps and failed solvers are rejected. Reciprocity/passivity violations are reported without changing solver values. For four ports, use `--pairs '1,3;2,4'` to pair source positive/negative ports 1/3 and load ports 2/4; the power-normalized conversion writes `mixed-mode.csv` and `mixed-mode.npz`. At 50 Ω per leg the differential reference is 100 Ω and common-mode reference is 25 Ω.
 

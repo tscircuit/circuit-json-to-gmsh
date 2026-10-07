@@ -1,0 +1,33 @@
+{
+  "case": "Complete 0.6 mm AM3352 DQS0/DQSn0 Palace diagnostic",
+  "frequencyHz": 400000000,
+  "nativeColumnsComplete": 4,
+  "linearTolerance": 1e-08,
+  "numericalConsistencyPassed": true,
+  "discretizationConvergenceProven": false,
+  "physicalModelValidated": false,
+  "memoryLimitGiB": 12,
+  "filesSha256": {
+    "channel-report.json": "d0e9b819c37a2a79d0d64459f6e106b82bd3a8ff6c809845d555c5dbcbaa1825",
+    "channel.s4p": "e0e3dc0d3477a0d0b1e33ec1ba8a75244d383f32e819843ba43f27f05dbdb6e0",
+    "mixed-mode.csv": "a10f892e5e926dd6caf164f0037237aae2d47abf43db34401bd66099593f55f0",
+    "palace-1-resources.json": "da711baa422fd2512fde86a8733a44f5a18a2c20328050b40c7dd46c79148e2a",
+    "palace-1.json": "ff8f3d3bf3d85ff2a69f43cecc6231848fa742b5e27fa57e90bb791ba2656a0f",
+    "palace-1.log": "d722597c620dc482f3431118e7da22ff61224ff55e102115b345eda0db2b277a",
+    "palace-2-resources.json": "8ec75595f93cfdc989f0ce7fbb34269556e5498e9e3007ca4829a70999a1d552",
+    "palace-2.json": "34b8c5985d399c2d1402613e8aa8bd452a89d83d2af177817e75b4bc18d06ae2",
+    "palace-2.log": "609f7f7f3701f68b2de162dd08e6a2f4721936b4b9377847ceb74ea843275e93",
+    "palace-3-resources.json": "c37c2ec91a3edccd805fc9bbde9ea741e1512a2947e04871c758c6cdcf779d89",
+    "palace-3.json": "e8ca427b803caca7ee64a922da6ad72f3d45bc59abcb74127558ace754539db3",
+    "palace-3.log": "2cd6226b2a261ca0130d4905821abe2026815ba74eb55149954d59ef581a46df",
+    "palace-4-resources.json": "e5f1ab81530de25b4bc79a3635d25ea261f601d197b00b5cc65cd621835b62e6",
+    "palace-4.json": "3d0117014fc592ce7b8246531aeca82aa01eac2a01849a246422e46f1ac5fa86",
+    "palace-4.log": "c552f52121cdeca9d8657d393ed37a9c9d9e944dee1162c391d92273472cfff7",
+    "postpro/port-1/port-S.csv": "3f131d815f904ea3ee76872aa8a2449c90fb2fdaf13280451a58bb6f659939cd",
+    "postpro/port-2/port-S.csv": "a053bd3156181e94ae0cae3cd09ef6b7d4ef1632e319b6e9a7b88dab84a9e0c8",
+    "postpro/port-3/port-S.csv": "add3f92ca7ad64c95e00ecc8ef93a2ab05b8829de44857e9fc24a2c05261e6fc",
+    "postpro/port-4/port-S.csv": "fb3d3eb1fefc23f8b6e26089987a0bfc6da9b827e81bb93049ab5211d4c06fc5",
+    "solver-input.json": "979e595dc6c5aaf9e98cd51011b37a7fe4db5993774242318ec135acc7912a3b",
+    "status.json": "c3b095b42755445ff52e33a961bf07d5ed674f871e03983d91589bac490a3d2b"
+  }
+}

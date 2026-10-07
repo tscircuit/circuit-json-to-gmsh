@@ -1,0 +1,30 @@
+{
+  "case": "am3352-full-pad-h03-mumps-channel",
+  "acceptedChannel": false,
+  "scatteringValuesRejected": true,
+  "filesSha256": {
+    "palace-1-resources.json": "dff1008f13e0f89d7d0aaf4a73083206df8c9b959db98d3c8f0e1b57ace86578",
+    "palace-1.json": "ff8f3d3bf3d85ff2a69f43cecc6231848fa742b5e27fa57e90bb791ba2656a0f",
+    "palace-1.log": "966ab4e4f548f994233e55ecb26ba6271dc56f241179c1757bd78c0aaaadf984",
+    "solver-input.json": "8c56958d132595f2232189341b481daed953577ffe9fc6c95f42cedb708898d7",
+    "status.json": "7ae3ea86f915c223e3b5220caa852c229f2ff0372cfffd785dab5b2d786f0330"
+  },
+  "resourceFailure": {
+    "elapsedSeconds": 132.05067616398446,
+    "exitCode": 9,
+    "memoryLimitGiB": 14,
+    "containerState": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": true,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 9,
+      "Error": "",
+      "StartedAt": "2026-10-07T15:43:55.017196294Z",
+      "FinishedAt": "2026-10-07T15:46:03.772838661Z"
+    }
+  }
+}

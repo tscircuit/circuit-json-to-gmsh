@@ -1,0 +1,15 @@
+{
+  "case": "am3352-full-pad-h03-hxt-fixtures",
+  "acceptedChannel": false,
+  "scatteringValuesRejected": true,
+  "filesSha256": {
+    "brep-validation.json": "f191b47dbbd01214614cb1c6195d5d7bd09c1fe7f61bce0465221fe30225af91",
+    "ports.json": "8d52ea8b16ea5cd683358b109bc9fa716956e2f81cd19627ffa2da3af2a78c90",
+    "validation.json": "af90f6a7b2a6c593aa77a41ee291160b8b3bf4415c052e6ba3e0868d5b37bf3e"
+  },
+  "minimumTetQuality": 6.739872782631456e-05,
+  "requiredQuality": 0.0001,
+  "failedChecks": [
+    "positive_tetrahedra"
+  ]
+}

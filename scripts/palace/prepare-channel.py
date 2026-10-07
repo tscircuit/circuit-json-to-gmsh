@@ -65,10 +65,13 @@ def prepare(
     if linear_solver not in ["SuperLU", "AMS", "STRUMPACK", "MUMPS"]:
         raise ValueError("Unsupported linear solver")
     if strumpack_compression is not None and (
-        linear_solver != "STRUMPACK"
+        linear_solver not in ["STRUMPACK", "MUMPS"]
         or strumpack_compression not in ["None", "BLR", "HSS"]
+        or (linear_solver == "MUMPS" and strumpack_compression == "HSS")
     ):
-        raise ValueError("Compression requires STRUMPACK and None/BLR/HSS")
+        raise ValueError(
+            "Compression requires STRUMPACK (None/BLR/HSS) or MUMPS (None/BLR)"
+        )
     if not math.isfinite(strumpack_compression_tolerance) or not (
         0 < strumpack_compression_tolerance < 1
     ):
@@ -291,8 +294,19 @@ if __name__ == "__main__":
     p.add_argument("--krylov-size", type=int)
     p.add_argument("--ams-vector-interpolation", action="store_true")
     p.add_argument("--smoothing-iterations", type=int, default=1)
-    p.add_argument("--strumpack-compression", choices=["None", "BLR", "HSS"])
-    p.add_argument("--strumpack-compression-tolerance", type=float, default=1e-3)
+    p.add_argument(
+        "--compression",
+        "--strumpack-compression",
+        dest="strumpack_compression",
+        choices=["None", "BLR", "HSS"],
+    )
+    p.add_argument(
+        "--compression-tolerance",
+        "--strumpack-compression-tolerance",
+        dest="strumpack_compression_tolerance",
+        type=float,
+        default=1e-3,
+    )
     p.add_argument("--complex-coarse-solve", action="store_true")
     p.add_argument("--preconditioner-side", choices=["Left", "Right"])
     p.add_argument("--shifted-preconditioner", action="store_true")

@@ -59,6 +59,14 @@ test("oblique TSX pad ports get native-verified PEC contacts without changing th
     "0.6",
     "--threads",
     "1",
+    "--refinement-box",
+    "-1",
+    "-1",
+    "-0.2",
+    "1",
+    "1",
+    "0.6",
+    "0.3",
   ])
   if (built.code) throw new Error(built.error)
   const validation = await Bun.file(join(output, "validation.json")).json()
@@ -71,6 +79,13 @@ test("oblique TSX pad ports get native-verified PEC contacts without changing th
   expect(receipt.materialVolumesUnchanged).toBe(true)
   expect(receipt.nativeContactNetsValidated).toBe(true)
   expect(receipt.contactClearanceMm).toBe(0.001)
+  expect(receipt.localMeshRefinements).toEqual([
+    {
+      boundsMm: [-1, -1, -0.2, 1, 1, 0.6],
+      meshSizeMm: 0.3,
+      transitionThicknessMm: 0.3,
+    },
+  ])
   const brep = await Bun.file(join(output, "brep-validation.json")).json()
   expect(brep.valid).toBe(true)
   const ports = await Bun.file(join(output, "ports.json")).json()
@@ -165,11 +180,17 @@ test("oblique TSX pad ports get native-verified PEC contacts without changing th
     "--shifted-preconditioner",
     "--preconditioner-side",
     "Right",
+    "--compression",
+    "BLR",
+    "--compression-tolerance",
+    "0.00000001",
   ])
   if (shifted.code) throw new Error(shifted.error)
   const shiftedConfig = await Bun.file(join(solver, "palace-1.json")).json()
   expect(shiftedConfig.Solver.Linear.PCMatShifted).toBe(true)
   expect(shiftedConfig.Solver.Linear.Tol).toBe(1e-8)
+  expect(shiftedConfig.Solver.Linear.STRUMPACKCompressionType).toBe("BLR")
+  expect(shiftedConfig.Solver.Linear.STRUMPACKCompressionTol).toBe(1e-8)
   const invalidComplexShift = await python("prepare-channel.py", [
     "--mesh-directory",
     output,
@@ -186,6 +207,38 @@ test("oblique TSX pad ports get native-verified PEC contacts without changing th
   expect(invalidComplexShift.error).toContain(
     "Shifted MUMPS requires a real coarse solve",
   )
+  const invalidCompression = await python("prepare-channel.py", [
+    "--mesh-directory",
+    output,
+    "--output",
+    solver,
+    "--frequency-hz",
+    "400000000",
+    "--linear-solver",
+    "MUMPS",
+    "--compression",
+    "HSS",
+  ])
+  expect(invalidCompression.code).toBe(1)
+  expect(invalidCompression.error).toContain("MUMPS (None/BLR)")
+  const invalidBox = await python("rectangularize-ports.py", [
+    "--mesh-directory",
+    source,
+    "--output",
+    output,
+    "--mesh-size",
+    "0.6",
+    "--refinement-box",
+    "1",
+    "-1",
+    "-1",
+    "-1",
+    "1",
+    "1",
+    "0.3",
+  ])
+  expect(invalidBox.code).toBe(1)
+  expect(invalidBox.error).toContain("ordered XYZ bounds")
   ports[0].fixturePecFaces = ports[1].fixturePecFaces
   await Bun.write(join(output, "ports.json"), JSON.stringify(ports))
   const rejected = await python("prepare-channel.py", [

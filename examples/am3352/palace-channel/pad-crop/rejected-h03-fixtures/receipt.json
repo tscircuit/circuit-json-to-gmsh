@@ -1,0 +1,15 @@
+{
+  "case": "Complete actual AM3352 ideal PEC fixture mesh",
+  "passed": false,
+  "tetrahedra": 1345685,
+  "minimumTetQuality": 6.73987278272601e-05,
+  "requiredQuality": 0.0001,
+  "failedChecks": [
+    "positive_tetrahedra"
+  ],
+  "filesSha256": {
+    "brep-validation.json": "f191b47dbbd01214614cb1c6195d5d7bd09c1fe7f61bce0465221fe30225af91",
+    "ports.json": "8d52ea8b16ea5cd683358b109bc9fa716956e2f81cd19627ffa2da3af2a78c90",
+    "validation.json": "edf1452bb5b06aa2883dffea9c8d0dd1090a82fd35131d2d6c63db1faa8fbd0f"
+  }
+}

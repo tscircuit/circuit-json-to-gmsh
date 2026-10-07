@@ -34,8 +34,20 @@ def build(
     width_fraction,
     tetrahedral_algorithm="delaunay",
     contact_clearance=0.001,
+    refinement_boxes=None,
 ):
     started = time.monotonic()
+    refinement_boxes = refinement_boxes or []
+    for box in refinement_boxes:
+        if (
+            len(box) != 7
+            or not all(math.isfinite(v) for v in box)
+            or any(box[i] >= box[i + 3] for i in range(3))
+            or not 0 < box[6] <= size
+        ):
+            raise ValueError(
+                "Refinement boxes require ordered XYZ bounds and size <= global size"
+            )
     if tetrahedral_algorithm not in {"delaunay", "hxt"}:
         raise ValueError("Tetrahedral algorithm must be delaunay or hxt")
     validation = json.loads((source / "validation.json").read_text())
@@ -161,6 +173,24 @@ def build(
             gmsh.option.setNumber(name, size)
         for name in ["Mesh.MeshSizeFromCurvature", "Mesh.MeshSizeExtendFromBoundary"]:
             gmsh.option.setNumber(name, 0)
+        if refinement_boxes:
+            gmsh.option.setNumber(
+                "Mesh.MeshSizeMin", min(box[6] for box in refinement_boxes)
+            )
+            fields = []
+            for box in refinement_boxes:
+                field = gmsh.model.mesh.field.add("Box")
+                for name, value in zip(
+                    ["XMin", "YMin", "ZMin", "XMax", "YMax", "ZMax"], box[:6]
+                ):
+                    gmsh.model.mesh.field.setNumber(field, name, value)
+                gmsh.model.mesh.field.setNumber(field, "VIn", box[6])
+                gmsh.model.mesh.field.setNumber(field, "VOut", size)
+                gmsh.model.mesh.field.setNumber(field, "Thickness", box[6])
+                fields.append(field)
+            minimum = gmsh.model.mesh.field.add("Min")
+            gmsh.model.mesh.field.setNumbers(minimum, "FieldsList", fields)
+            gmsh.model.mesh.field.setAsBackgroundMesh(minimum)
         gmsh.option.setNumber("Mesh.Algorithm", 6)
         gmsh.option.setNumber(
             "Mesh.Algorithm3D", 10 if tetrahedral_algorithm == "hxt" else 1
@@ -226,6 +256,10 @@ def build(
         "widthFraction": width_fraction,
         "contactClearanceMm": contact_clearance,
         "meshSizeMm": size,
+        "localMeshRefinements": [
+            {"boundsMm": box[:6], "meshSizeMm": box[6], "transitionThicknessMm": box[6]}
+            for box in refinement_boxes
+        ],
         "minimumTetQuality": minimum_quality,
         "tetrahedralAlgorithm": tetrahedral_algorithm,
         "wallSeconds": time.monotonic() - started,
@@ -247,6 +281,13 @@ if __name__ == "__main__":
     p.add_argument("--width-fraction", type=float, default=0.95)
     p.add_argument("--contact-clearance", type=float, default=0.001)
     p.add_argument(
+        "--refinement-box",
+        type=float,
+        nargs=7,
+        action="append",
+        help="Native Gmsh Box field: xmin ymin zmin xmax ymax zmax size, all mm; repeatable",
+    )
+    p.add_argument(
         "--tetrahedral-algorithm", choices=["delaunay", "hxt"], default="delaunay"
     )
     a = p.parse_args()
@@ -258,4 +299,5 @@ if __name__ == "__main__":
         a.width_fraction,
         a.tetrahedral_algorithm,
         a.contact_clearance,
+        a.refinement_box,
     )

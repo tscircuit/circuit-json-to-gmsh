@@ -1,0 +1,33 @@
+{
+  "case": "Finer AM3352 exact shifted MUMPS, eight ranks and Krylov size 40",
+  "validChannel": false,
+  "scatteringValuesRejected": true,
+  "resourceResult": {
+    "elapsedSeconds": 304.9361020280048,
+    "exitCode": 9,
+    "memoryLimitGiB": 14,
+    "containerState": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": true,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 9,
+      "Error": "",
+      "StartedAt": "2026-10-07T16:23:10.281960503Z",
+      "FinishedAt": "2026-10-07T16:28:05.786911807Z"
+    }
+  },
+  "mpiProcesses": 8,
+  "cpuLimit": 4,
+  "nativeResidualTolerance": 1e-08,
+  "filesSha256": {
+    "palace-1.json": "92f16dc811d25a9df267e64bcbedcd38008a483d7b867aea99cf361e4dbccc4a",
+    "palace-1.log": "993eba621cc84b9c549a576d0de8a90396b6d93a2d8cc55900745f79c0ca84f0",
+    "palace-1-resources.json": "f060430b88e3dd7351186365b6a94b301b47434c717cf146e3ad2bfdceefdc51",
+    "solver-input.json": "04d0e538c56312c69abe4607dc3c3026abf114a4e43d63c050566a77f2b3f718",
+    "status.json": "cf85f4766fd7a3bae9fb92f0ab91673922af9e5efaf0898d9a1fead892179295"
+  }
+}
