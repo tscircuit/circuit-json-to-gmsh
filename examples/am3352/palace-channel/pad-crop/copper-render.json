@@ -1,0 +1,26 @@
+{
+  "source": "Actual AM3352 native CAD tile around source barrel 230; not a TSX example",
+  "previewSha256": "a3bf8f2b0d263e7ff47412755faef60c101c451dffc12267a090f3b587301ec0",
+  "boardInputSha256": "c9d7059fe536865784f175855e0dcc76510972319eec848c18b0ef6dcd2adb40",
+  "cacheJobSha256": "81f53b259f0b796e4c9eab0db12b3c63d33c6ca60312552a02fb8a3fe92a5aec",
+  "renderer": "PoppyGL",
+  "substrateVisible": false,
+  "displayZScale": 1,
+  "geometryOnly": true,
+  "completeRouteValidated": false,
+  "render": {
+    "width": 900,
+    "height": 750,
+    "camPos": [
+      1,
+      -30.7,
+      2.7
+    ],
+    "lookAt": [
+      -1.8,
+      -26.8,
+      0.75
+    ],
+    "fov": 35
+  }
+}

@@ -8,6 +8,7 @@ import boardCutout from "../tests/__snapshots__/mesh-board-cutout.png"
 import am3352Copper from "../examples/am3352/mesh-validation/dqs-source-vias-corrected/copper-only.png"
 import am3352Dqs from "../examples/am3352/mesh-validation/dqs-source-vias-corrected/dqs-copper-only.png"
 import am3352Cutaway from "../examples/am3352/mesh-validation/dqs-source-vias-corrected/copper-cutaway.png"
+import am3352PadCrop from "../examples/am3352/palace-channel/pad-crop/actual-copper-tile.png"
 
 const views = [
   {
@@ -27,6 +28,12 @@ const views = [
     image: am3352Cutaway,
     description:
       "Actual native CAD cut at x = 2.7 mm through the DQS0 source via. Substrate hidden; the hollow barrel is exposed. Thickness at 3×.",
+  },
+  {
+    label: "AM3352 pad crop",
+    image: am3352PadCrop,
+    description:
+      "Actual AM3352 native CAD tile around via 230 after preserving whole pads at the analysis boundary. Substrate hidden, physical thickness at 1×. Green: DDR_1V5; blue-gray: GND. Geometry only, not an EM field or complete-route validation.",
   },
   {
     label: "Board cutout",
@@ -96,8 +103,8 @@ export default function GeometryPage() {
       <p>{view.description}</p>
       <img src={view.image} alt={view.description} style={{ width: "100%" }} />
       <p>
-        Copper colors distinguish layers and highlighted DQS nets. Green is
-        dielectric. Exported CAD and mesh retain physical millimetres.
+        Colors and displayed thickness are described for each view. Exported CAD
+        and mesh retain physical millimetres.
       </p>
     </main>
   )
