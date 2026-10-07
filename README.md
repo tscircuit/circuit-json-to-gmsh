@@ -2,6 +2,10 @@
 
 Convert tscircuit **circuit-json** into physical PCB CAD and Gmsh meshes. Inspect copper, plated barrels, dielectric interfaces and cross-sections with **PoppyGL**. Tests generate their circuit-json from TSX.
 
+<img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/1af1ab0f-76b9-43f5-b2d8-a478a06cedfc" />
+
+<img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/00ed291d-a90c-4632-b804-d4333fc834b1" />
+
 ## Run on a tscircuit board
 
 Export your circuit's JSON, then supply its manufacturing stackup. Units are millimetres; circuit coordinates use +Y up and +Z towards top copper.
