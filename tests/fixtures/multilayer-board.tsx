@@ -33,12 +33,14 @@ export function MultilayerBoard({
   sourceLayer = "top",
   referenceLayer = "top",
   cutout = false,
+  portObstruction = false,
 }: {
   innerPlane?: boolean
   layers?: 4 | 6
   referenceLayer?: "top" | "inner2"
   sourceLayer?: "top" | "bottom"
   cutout?: boolean
+  portObstruction?: boolean
 }) {
   return (
     <board
@@ -49,6 +51,24 @@ export function MultilayerBoard({
       schematicDisabled
     >
       <net name="GND" />
+      {portObstruction && (
+        <chip
+          name="U3"
+          pcbX={-1.965}
+          pcbY={0.75}
+          pinLabels={{ pin1: "FLOAT" }}
+          footprint={
+            <footprint>
+              <smtpad
+                portHints={["pin1"]}
+                shape="rect"
+                width={0.04}
+                height={0.2}
+              />
+            </footprint>
+          }
+        />
+      )}
       {cutout && (
         <cutout shape="rect" pcbX={0} pcbY={-1.5} width={0.8} height={0.8} />
       )}

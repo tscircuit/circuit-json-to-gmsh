@@ -5,6 +5,31 @@ import { join } from "node:path"
 import { createMeshRequirements, exportGmsh, validateMesh } from "lib/index"
 import { renderBoard } from "./fixtures/render-board"
 
+test("a connected port gap touching a third TSX conductor is rejected", async () => {
+  const board = await renderBoard({ portObstruction: true })
+  const requirements = createMeshRequirements({
+    ...board,
+    connections: [
+      { from: "U1.OUT", to: "U2.IN" },
+      { from: "U1.GND", to: "U2.GND" },
+    ],
+  })
+  const referenceNetId = requirements.terminals.find(
+    (t) => t.name === "U1.GND",
+  )!.netId
+  await expect(
+    exportGmsh({
+      model: board.model,
+      outputDirectory: await mkdtemp(join(tmpdir(), "gmsh-obstructed-port-")),
+      conformal: true,
+      airPaddingMm: 1,
+      lumpedPorts: [
+        { terminal: requirements.terminals[0], referenceNetId, widthMm: 0.08 },
+      ],
+    }),
+  ).rejects.toThrow("third conductor")
+})
+
 test("a field mesh can fill a TSX cutout with air while the same laminate cell is rejected", async () => {
   const board = await renderBoard({ cutout: true })
   const requirements = createMeshRequirements({

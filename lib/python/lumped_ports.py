@@ -38,6 +38,8 @@ def prepare_ports(model, board, copper, requirements):
         source, target = nearest_points(contact, reference)
         dx, dy = target.x - source.x, target.y - source.y
         length = (dx * dx + dy * dy) ** 0.5
+        if length < 2e-6:
+            raise ValueError("Port has no resolvable signal/reference gap")
         line = LineString(
             [source, (target.x + dx / length * width, target.y + dy / length * width)]
         )
@@ -48,6 +50,18 @@ def prepare_ports(model, board, copper, requirements):
         if len(pieces) != 1 or len(pieces[0].interiors):
             raise ValueError(f"Port {terminal['name']} has an obstructed gap")
         patch = pieces[0]
+        for net, conductor in groups.items():
+            if conductor.is_empty or conductor.area == 0:
+                continue
+            if net in [terminal["netId"], requirement["referenceNetId"]]:
+                continue
+            if (
+                patch.boundary.intersection(conductor.boundary.buffer(2e-6)).length
+                > 2e-6
+            ):
+                raise ValueError(
+                    f"Port {terminal['name']} contacts a third conductor: {net}"
+                )
         if not board.buffer(1e-6).covers(patch):
             raise ValueError("Port aperture leaves the PCB analysis crop")
         for conductor in [signal, reference]:
