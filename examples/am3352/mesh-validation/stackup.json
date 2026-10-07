@@ -1,0 +1,91 @@
+{
+  "fabricator": "JLCPCB",
+  "nominalBoardThicknessMm": 1.6,
+  "stackupCode": "JLC04161H-3313",
+  "manufacturerTemplateId": "6381a6960c0a46dba4daf70c97bd5dce",
+  "status": "selected; dimensions calculated; copper migration and signoff incomplete",
+  "layers": [
+    {
+      "name": "top",
+      "function": "DDR_1V5 reference plane and local component escapes",
+      "copperThicknessMm": 0.035
+    },
+    {
+      "material": "3313 RC57%",
+      "dielectricThicknessMm": 0.0994,
+      "dielectricConstant": 4.1
+    },
+    {
+      "name": "inner1",
+      "function": "signals",
+      "copperThicknessMm": 0.0152
+    },
+    {
+      "material": "NP-155F core",
+      "dielectricThicknessMm": 1.265,
+      "dielectricConstant": 4.42
+    },
+    {
+      "name": "inner2",
+      "function": "signals",
+      "copperThicknessMm": 0.0152
+    },
+    {
+      "material": "3313 RC57%",
+      "dielectricThicknessMm": 0.0994,
+      "dielectricConstant": 4.1
+    },
+    {
+      "name": "bottom",
+      "function": "GND reference plane",
+      "copperThicknessMm": 0.035
+    }
+  ],
+  "routingTargets": {
+    "singleEnded": {
+      "ohms": 50,
+      "trackWidthMm": 0.14,
+      "calculatorOhms": 49.637857863
+    },
+    "usb": {
+      "ohms": 90,
+      "trackWidthMm": 0.1,
+      "edgeGapMm": 0.1,
+      "calculatorOhms": 90.0694608892
+    },
+    "ddrClockAndStrobes": {
+      "ohms": 100,
+      "trackWidthMm": 0.1,
+      "edgeGapMm": 0.18,
+      "calculatorOhms": 100.921304738
+    },
+    "hdmi": {
+      "ohms": 100,
+      "trackWidthMm": 0.1,
+      "edgeGapMm": 0.18,
+      "calculatorOhms": 100.921304738
+    }
+  },
+  "calculation": {
+    "provider": "JLCPCB calculator",
+    "referencePlanes": [
+      "L1",
+      "L4"
+    ],
+    "model": "OffsetStripline1B1A / DiffOffsetStripline1B1A",
+    "report": "references/jlcpcb/inner-signal-impedance-sweep.json",
+    "limitations": "Other signal layer is not a plane. Far-side mixed dielectric represented by series-effective permittivity; no solder mask, vias, pads, or plane discontinuities. Manufacturer coupon/engineering approval required."
+  },
+  "sources": [
+    "https://jlcpcb.com/impedance",
+    "https://jlcpcb.com/pcb-impedance-calculator",
+    "https://jlcpcb.com/api/jlcTools/impedance/selectPageImpedanceDefaultTemplate"
+  ],
+  "fabricationReady": false,
+  "remainingChecks": [
+    "Manufacturer must confirm actual four-layer outer-plane / inner-signal impedance coupon and TI +/-5 ohm single-ended tolerance.",
+    "Existing DDR copper is 0.10mm, not migrated to 0.14mm single-ended target.",
+    "Verify continuous top DDR_1V5 and bottom GND references, return-current stitching and pad/via discontinuities.",
+    "Independent native clearance/connectivity, timing, complete supply distribution and SI validation."
+  ]
+}

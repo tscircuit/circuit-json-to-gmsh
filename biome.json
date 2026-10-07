@@ -17,6 +17,7 @@
       "!**/cosmos-export",
       "!**/dist",
       "!**/package.json",
+      "!examples/am3352/mesh-validation/stackup.json",
       "!work/**",
       "!.venv/**"
     ]

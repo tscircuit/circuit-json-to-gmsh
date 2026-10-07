@@ -1,0 +1,265 @@
+{
+  "schemaVersion": 1,
+  "passed": true,
+  "pcbChecksComplete": true,
+  "gmshVersion": "4.13.1",
+  "units": "mm",
+  "wallSeconds": 4.049701849988196,
+  "meshSha256": "64af264c7dfd3e779c4dd96c57d14a76f68771e0c95d96a0cbe521b7c35c1396",
+  "manifestSha256": "261eafbe993937233dc527895563eff3ac3a8fe7207ae3ce3f7fe7059bc073d6",
+  "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+  "requirementsSha256": "bb059a60520c4b5deae284030b912895562f78219b22f39dd012dbd80fc952c8",
+  "tetrahedra": 91839,
+  "nodes": 20689,
+  "quality": {
+    "minimum": 0.00037668790905966306,
+    "percentile01": 0.044208853566590135,
+    "median": 0.4166836808260416,
+    "threshold": 0.0,
+    "worstElements": [
+      {
+        "tag": 84594,
+        "volume": 53,
+        "material": "copper:source_trace_1",
+        "minSICN": 0.00037668790905966306,
+        "coordinatesMm": [
+          [1.7, -5.601228, 0.7471000000000007],
+          [1.7, -5.601228, 0.4308500000000001],
+          [1.7, -5.598772, 0.7471000000000007],
+          [1.700040333333333, -5.6, 0.5889750000000004]
+        ]
+      },
+      {
+        "tag": 84600,
+        "volume": 53,
+        "material": "copper:source_trace_1",
+        "minSICN": 0.00037668790905966306,
+        "coordinatesMm": [
+          [1.7, -5.598772, 0.4308500000000001],
+          [1.7, -5.598772, 0.7471000000000007],
+          [1.7, -5.601228, 0.4308500000000001],
+          [1.700040333333333, -5.6, 0.5889750000000004]
+        ]
+      },
+      {
+        "tag": 84590,
+        "volume": 53,
+        "material": "copper:source_trace_1",
+        "minSICN": 0.00037668790905966354,
+        "coordinatesMm": [
+          [1.7, -5.601228, 0.4308500000000001],
+          [1.7, -5.601228, 0.1146],
+          [1.7, -5.598772, 0.4308500000000001],
+          [1.700040333333333, -5.6, 0.2727250000000001]
+        ]
+      },
+      {
+        "tag": 89606,
+        "volume": 59,
+        "material": "copper:source_trace_26",
+        "minSICN": 0.00037668790905966436,
+        "coordinatesMm": [
+          [1.7, -6.398772, 0.7471000000000007],
+          [1.7, -6.398772, 1.06335],
+          [1.7, -6.401228, 0.7471000000000007],
+          [1.700040333333333, -6.4, 0.9052250000000003]
+        ]
+      },
+      {
+        "tag": 89593,
+        "volume": 59,
+        "material": "copper:source_trace_26",
+        "minSICN": 0.0003766879090596644,
+        "coordinatesMm": [
+          [1.7, -6.401228, 0.7471000000000007],
+          [1.7, -6.398772, 1.06335],
+          [1.7, -6.401228, 1.06335],
+          [1.700040333333333, -6.4, 0.9052250000000003]
+        ]
+      }
+    ]
+  },
+  "copperComponents": {
+    "source_net_52": 1,
+    "source_net_53": 1,
+    "source_net_54": 1,
+    "source_net_56": 2,
+    "source_net_93": 2,
+    "source_trace_1": 2,
+    "source_trace_11": 1,
+    "source_trace_14": 1,
+    "source_trace_15": 1,
+    "source_trace_16": 1,
+    "source_trace_17": 2,
+    "source_trace_26": 1,
+    "source_trace_27": 1,
+    "source_trace_28": 1,
+    "source_trace_29": 2,
+    "source_trace_3": 1,
+    "source_trace_30": 1,
+    "source_trace_31": 1,
+    "source_trace_4": 1,
+    "source_trace_40": 1
+  },
+  "terminals": {
+    "U1.P1": {
+      "netId": "source_trace_15",
+      "positionMm": [3.6, -6.800000000000001, 1.5116999999999998],
+      "components": [4988],
+      "tetrahedra": [134224]
+    },
+    "U1.P2": {
+      "netId": "source_trace_16",
+      "positionMm": [3.6, -6, 1.5116999999999998],
+      "components": [5652],
+      "tetrahedra": [135803]
+    },
+    "U1.P1.bottomStub": {
+      "netId": "source_trace_15",
+      "positionMm": [2.7875, -7.6000000000000005, -0.0175],
+      "components": [4988],
+      "tetrahedra": [53261]
+    },
+    "U1.P2.bottomStub": {
+      "netId": "source_trace_16",
+      "positionMm": [4.087500000000001, -6.4, -0.0175],
+      "components": [5652],
+      "tetrahedra": [53939]
+    }
+  },
+  "connections": [
+    {
+      "from": "U1.P1",
+      "to": "U1.P1.bottomStub",
+      "passed": true
+    },
+    {
+      "from": "U1.P2",
+      "to": "U1.P2.bottomStub",
+      "passed": true
+    }
+  ],
+  "checks": [
+    {
+      "name": "linear_tetrahedra",
+      "passed": true,
+      "tetrahedra": 91839,
+      "unsupportedTypes": []
+    },
+    {
+      "name": "material_ownership",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "positive_tetrahedra",
+      "passed": true,
+      "minimum": 0.00037668790905966306,
+      "percentile01": 0.044208853566590135,
+      "median": 0.4166836808260416,
+      "threshold": 0.0,
+      "worstElements": [
+        {
+          "tag": 84594,
+          "volume": 53,
+          "material": "copper:source_trace_1",
+          "minSICN": 0.00037668790905966306,
+          "coordinatesMm": [
+            [1.7, -5.601228, 0.7471000000000007],
+            [1.7, -5.601228, 0.4308500000000001],
+            [1.7, -5.598772, 0.7471000000000007],
+            [1.700040333333333, -5.6, 0.5889750000000004]
+          ]
+        },
+        {
+          "tag": 84600,
+          "volume": 53,
+          "material": "copper:source_trace_1",
+          "minSICN": 0.00037668790905966306,
+          "coordinatesMm": [
+            [1.7, -5.598772, 0.4308500000000001],
+            [1.7, -5.598772, 0.7471000000000007],
+            [1.7, -5.601228, 0.4308500000000001],
+            [1.700040333333333, -5.6, 0.5889750000000004]
+          ]
+        },
+        {
+          "tag": 84590,
+          "volume": 53,
+          "material": "copper:source_trace_1",
+          "minSICN": 0.00037668790905966354,
+          "coordinatesMm": [
+            [1.7, -5.601228, 0.4308500000000001],
+            [1.7, -5.601228, 0.1146],
+            [1.7, -5.598772, 0.4308500000000001],
+            [1.700040333333333, -5.6, 0.2727250000000001]
+          ]
+        },
+        {
+          "tag": 89606,
+          "volume": 59,
+          "material": "copper:source_trace_26",
+          "minSICN": 0.00037668790905966436,
+          "coordinatesMm": [
+            [1.7, -6.398772, 0.7471000000000007],
+            [1.7, -6.398772, 1.06335],
+            [1.7, -6.401228, 0.7471000000000007],
+            [1.700040333333333, -6.4, 0.9052250000000003]
+          ]
+        },
+        {
+          "tag": 89593,
+          "volume": 59,
+          "material": "copper:source_trace_26",
+          "minSICN": 0.0003766879090596644,
+          "coordinatesMm": [
+            [1.7, -6.401228, 0.7471000000000007],
+            [1.7, -6.398772, 1.06335],
+            [1.7, -6.401228, 1.06335],
+            [1.700040333333333, -6.4, 0.9052250000000003]
+          ]
+        }
+      ],
+      "invertedOrDegenerate": 0,
+      "belowQualityThreshold": 0
+    },
+    {
+      "name": "cad_volume_coverage",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "manifold_tetrahedron_faces",
+      "passed": true,
+      "nonmanifoldFaces": 0
+    },
+    {
+      "name": "conformal_interfaces",
+      "passed": true,
+      "cadOwnershipChecked": true,
+      "errors": []
+    },
+    {
+      "name": "copper_net_separation",
+      "passed": true,
+      "shortedNodes": 0,
+      "coordinateToleranceMm": 1e-7,
+      "errors": []
+    },
+    {
+      "name": "drill_and_cutout_voids",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "terminal_connectivity",
+      "passed": true,
+      "errors": []
+    }
+  ],
+  "limitations": [
+    "Mesh validation is not EM convergence or solver validation.",
+    "Void checks exclude a 2e-6 mm boundary tolerance; projection overlap tolerance is 1e-10 mm\u00b2. Errors are capped at 20 examples.",
+    "Only linear tetrahedra and triangular boundaries are supported."
+  ]
+}

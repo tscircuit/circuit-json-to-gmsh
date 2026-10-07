@@ -1,0 +1,4 @@
+{
+  "concurrentJob": "The full-route corridor native partition was also running at approximately 1 GiB RSS.",
+  "note": "Reported native peak is per process; timings are diagnostic measurements, not a controlled performance comparison."
+}

@@ -1,0 +1,274 @@
+{
+  "exportAndValidationSeconds": 129.189086352,
+  "report": {
+    "gmshVersion": "4.13.1",
+    "wallSeconds": 124.13199786399491,
+    "cadSeconds": 118.87730070998077,
+    "meshSeconds": 4.997831345011946,
+    "volumeCount": 115,
+    "expectedVolumeMm3": 16.006325955815505,
+    "actualVolumeMm3": 16.006325955815516,
+    "tetrahedra": 91839,
+    "materials": [
+      {
+        "name": "copper:source_net_52",
+        "attribute": 1,
+        "volumes": [1, 17, 31, 52, 66, 86, 100]
+      },
+      {
+        "name": "copper:source_net_53",
+        "attribute": 2,
+        "volumes": [101]
+      },
+      {
+        "name": "copper:source_net_54",
+        "attribute": 3,
+        "volumes": [102]
+      },
+      {
+        "name": "copper:source_net_56",
+        "attribute": 4,
+        "volumes": [2, 3]
+      },
+      {
+        "name": "copper:source_net_93",
+        "attribute": 5,
+        "volumes": [4, 103]
+      },
+      {
+        "name": "copper:source_trace_1",
+        "attribute": 6,
+        "volumes": [5, 18, 32, 53, 67, 68, 87, 104]
+      },
+      {
+        "name": "copper:source_trace_11",
+        "attribute": 7,
+        "volumes": [6, 19, 33, 54, 69, 88, 105]
+      },
+      {
+        "name": "copper:source_trace_14",
+        "attribute": 8,
+        "volumes": [7, 20, 34, 55, 70, 89, 106]
+      },
+      {
+        "name": "copper:source_trace_15",
+        "attribute": 9,
+        "volumes": [8, 21, 35, 56, 71, 90, 107]
+      },
+      {
+        "name": "copper:source_trace_16",
+        "attribute": 10,
+        "volumes": [9, 22, 36, 57, 72, 91, 108]
+      },
+      {
+        "name": "copper:source_trace_17",
+        "attribute": 11,
+        "volumes": [10, 23, 37, 58, 73, 74, 92, 109]
+      },
+      {
+        "name": "copper:source_trace_26",
+        "attribute": 12,
+        "volumes": [11, 24, 38, 59, 75, 93, 110]
+      },
+      {
+        "name": "copper:source_trace_27",
+        "attribute": 13,
+        "volumes": [12, 25, 39, 60, 76, 94, 111]
+      },
+      {
+        "name": "copper:source_trace_28",
+        "attribute": 14,
+        "volumes": [40]
+      },
+      {
+        "name": "copper:source_trace_29",
+        "attribute": 15,
+        "volumes": [13, 26, 41, 61, 77, 78, 95, 112]
+      },
+      {
+        "name": "copper:source_trace_3",
+        "attribute": 16,
+        "volumes": [14, 27, 42, 62, 79, 96, 113]
+      },
+      {
+        "name": "copper:source_trace_30",
+        "attribute": 17,
+        "volumes": [43]
+      },
+      {
+        "name": "copper:source_trace_31",
+        "attribute": 18,
+        "volumes": [44]
+      },
+      {
+        "name": "copper:source_trace_4",
+        "attribute": 19,
+        "volumes": [15, 28, 45, 63, 80, 97, 114]
+      },
+      {
+        "name": "copper:source_trace_40",
+        "attribute": 20,
+        "volumes": [16, 29, 46, 64, 81, 98, 115]
+      },
+      {
+        "name": "dielectric:101",
+        "attribute": 21,
+        "volumes": [82, 83, 84, 85, 99]
+      },
+      {
+        "name": "dielectric:103",
+        "attribute": 22,
+        "volumes": [47, 48, 49, 50, 51, 65]
+      },
+      {
+        "name": "dielectric:105",
+        "attribute": 23,
+        "volumes": [30]
+      }
+    ],
+    "sharedInterfaceFaces": 2190,
+    "minimumTetQuality": 0.0003766879090596629,
+    "repairs": [],
+    "removedVolumeMm3": -2.133208431946698e-15,
+    "peakRssMiB": 1305.38671875
+  },
+  "validation": {
+    "schemaVersion": 1,
+    "passed": true,
+    "pcbChecksComplete": true,
+    "gmshVersion": "4.13.1",
+    "units": "mm",
+    "wallSeconds": 3.9380792239971925,
+    "meshSha256": "64af264c7dfd3e779c4dd96c57d14a76f68771e0c95d96a0cbe521b7c35c1396",
+    "manifestSha256": "261eafbe993937233dc527895563eff3ac3a8fe7207ae3ce3f7fe7059bc073d6",
+    "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+    "requirementsSha256": "bb059a60520c4b5deae284030b912895562f78219b22f39dd012dbd80fc952c8",
+    "tetrahedra": 91839,
+    "nodes": 20689,
+    "quality": {
+      "minimum": 0.00037668790905966306,
+      "percentile01": 0.044208853566590135,
+      "median": 0.4166836808260416,
+      "threshold": 0
+    },
+    "copperComponents": {
+      "source_net_52": 1,
+      "source_net_53": 1,
+      "source_net_54": 1,
+      "source_net_56": 2,
+      "source_net_93": 2,
+      "source_trace_1": 2,
+      "source_trace_11": 1,
+      "source_trace_14": 1,
+      "source_trace_15": 1,
+      "source_trace_16": 1,
+      "source_trace_17": 2,
+      "source_trace_26": 1,
+      "source_trace_27": 1,
+      "source_trace_28": 1,
+      "source_trace_29": 2,
+      "source_trace_3": 1,
+      "source_trace_30": 1,
+      "source_trace_31": 1,
+      "source_trace_4": 1,
+      "source_trace_40": 1
+    },
+    "terminals": {
+      "U1.P1": {
+        "netId": "source_trace_15",
+        "positionMm": [3.6, -6.800000000000001, 1.5116999999999998],
+        "components": [4988],
+        "tetrahedra": [134224]
+      },
+      "U1.P2": {
+        "netId": "source_trace_16",
+        "positionMm": [3.6, -6, 1.5116999999999998],
+        "components": [5652],
+        "tetrahedra": [135803]
+      },
+      "U1.P1.bottomStub": {
+        "netId": "source_trace_15",
+        "positionMm": [2.7875, -7.6000000000000005, -0.0175],
+        "components": [4988],
+        "tetrahedra": [53261]
+      },
+      "U1.P2.bottomStub": {
+        "netId": "source_trace_16",
+        "positionMm": [4.087500000000001, -6.4, -0.0175],
+        "components": [5652],
+        "tetrahedra": [53939]
+      }
+    },
+    "connections": [
+      {
+        "from": "U1.P1",
+        "to": "U1.P1.bottomStub",
+        "passed": true
+      },
+      {
+        "from": "U1.P2",
+        "to": "U1.P2.bottomStub",
+        "passed": true
+      }
+    ],
+    "checks": [
+      {
+        "name": "linear_tetrahedra",
+        "passed": true,
+        "tetrahedra": 91839,
+        "unsupportedTypes": []
+      },
+      {
+        "name": "material_ownership",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "name": "positive_tetrahedra",
+        "passed": true,
+        "minimum": 0.00037668790905966306,
+        "percentile01": 0.044208853566590135,
+        "median": 0.4166836808260416,
+        "threshold": 0,
+        "invertedOrDegenerate": 0
+      },
+      {
+        "name": "cad_volume_coverage",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "name": "manifold_tetrahedron_faces",
+        "passed": true,
+        "nonmanifoldFaces": 0
+      },
+      {
+        "name": "conformal_interfaces",
+        "passed": true,
+        "cadOwnershipChecked": true,
+        "errors": []
+      },
+      {
+        "name": "copper_net_separation",
+        "passed": true,
+        "shortedNodes": 0,
+        "errors": []
+      },
+      {
+        "name": "drill_and_cutout_voids",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "name": "terminal_connectivity",
+        "passed": true,
+        "errors": []
+      }
+    ],
+    "limitations": [
+      "Mesh validation is not EM convergence or solver validation.",
+      "Void checks exclude a 2e-6 mm boundary tolerance; projection overlap tolerance is 1e-10 mm². Errors are capped at 20 examples.",
+      "Only linear tetrahedra and triangular boundaries are supported."
+    ]
+  }
+}

@@ -2,9 +2,9 @@ import { Circuit } from "@tscircuit/core"
 import { createGeometryModel, parseCircuitJson } from "lib/index"
 import { MultilayerBoard, fourLayerStackup } from "./multilayer-board"
 
-export async function renderBoard() {
+export async function renderBoard(options: { cutout?: boolean } = {}) {
   const circuit = new Circuit()
-  circuit.add(<MultilayerBoard innerPlane />)
+  circuit.add(<MultilayerBoard innerPlane cutout={options.cutout} />)
   await circuit.renderUntilSettled()
   const circuitJson = parseCircuitJson(circuit.getCircuitJson())
   return {

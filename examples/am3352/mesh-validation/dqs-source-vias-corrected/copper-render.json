@@ -1,0 +1,24 @@
+{
+  "source": "Actual AM3352 source-via native Gmsh preview; not a TSX example",
+  "previewSha256": "48815da6da285affca855e1d5f8dc4bbe3fa9014dd547bc89c718468449744df",
+  "boardInputSha256": "c9d7059fe536865784f175855e0dcc76510972319eec848c18b0ef6dcd2adb40",
+  "cropBoundsMm": [
+    1.4497500000000005, -8.600000000000001, 5.000000000000001, -5.4
+  ],
+  "renderer": "PoppyGL",
+  "substrateVisible": false,
+  "displayZScale": 3,
+  "copperSolids": 103,
+  "colors": {
+    "red": "DDR_DQS0 (source_trace_15)",
+    "cyan": "DDR_DQSn0 (source_trace_16)",
+    "other": "Other copper, colored by layer"
+  },
+  "render": {
+    "width": 1400,
+    "height": 1100,
+    "camPos": [11, -17, 10],
+    "lookAt": [3.225, -7, 2.25],
+    "fov": 30
+  }
+}

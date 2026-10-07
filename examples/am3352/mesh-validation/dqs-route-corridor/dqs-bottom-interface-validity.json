@@ -1,0 +1,7 @@
+{
+  "valid": true,
+  "solids": 42,
+  "invalidSolidIndices": [],
+  "ocpVersion": "7.8.1.1",
+  "vtkVersion": "9.3.1"
+}

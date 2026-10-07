@@ -1,0 +1,264 @@
+{
+  "schemaVersion": 1,
+  "passed": true,
+  "pcbChecksComplete": true,
+  "gmshVersion": "4.13.1",
+  "units": "mm",
+  "wallSeconds": 7.235434847010765,
+  "meshSha256": "631860efd3036132898d87018827ebafd8f7e12248ac11bf76055ed834c2723c",
+  "manifestSha256": "45a3480cedd99b182975b291809159e428b671bf85968b30e5d14bb494732831",
+  "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+  "requirementsSha256": "bb059a60520c4b5deae284030b912895562f78219b22f39dd012dbd80fc952c8",
+  "tetrahedra": 181224,
+  "nodes": 39164,
+  "quality": {
+    "minimum": 0.0020092614116686124,
+    "percentile01": 0.10857759661354377,
+    "median": 0.5288879698029307,
+    "threshold": 0.0,
+    "worstElements": [
+      {
+        "tag": 129574,
+        "volume": 47,
+        "material": "dielectric:103",
+        "minSICN": 0.0020092614116686124,
+        "coordinatesMm": [
+          [1.44975, -6.050025, 0.0994],
+          [1.44975, -5.887518750000001, 0.0994],
+          [1.474796038870041, -5.999847224385935, 0.1142682031611172],
+          [1.45, -6.05, 0.0994]
+        ]
+      },
+      {
+        "tag": 177501,
+        "volume": 64,
+        "material": "dielectric:103",
+        "minSICN": 0.002829338900448578,
+        "coordinatesMm": [
+          [1.44975, -7.01331692307692, 1.3796],
+          [1.44975, -7.212043076923074, 1.3796],
+          [1.455861757357676, -7.142515779051211, 1.251458939588997],
+          [1.45, -7.2, 1.3796]
+        ]
+      },
+      {
+        "tag": 177444,
+        "volume": 64,
+        "material": "dielectric:103",
+        "minSICN": 0.002898936872558806,
+        "coordinatesMm": [
+          [1.44975, -6.41713846153846, 1.3796],
+          [1.44975, -6.218412307692307, 1.3796],
+          [1.45, -6.400000000000001, 1.3796],
+          [1.455946227159351, -6.34608540928905, 1.253305338859309]
+        ]
+      },
+      {
+        "tag": 127755,
+        "volume": 47,
+        "material": "dielectric:103",
+        "minSICN": 0.0029719212955522513,
+        "coordinatesMm": [
+          [1.44975, -6.360378916666667, 0.1146],
+          [1.45, -6.400000000000001, 0.1146],
+          [1.450195490831045, -6.462011556965552, 0.1016831269507422],
+          [1.45, -6.400000000000001, 0.0994]
+        ]
+      },
+      {
+        "tag": 228101,
+        "volume": 98,
+        "material": "dielectric:101",
+        "minSICN": 0.0030403261374343797,
+        "coordinatesMm": [
+          [1.44975, -7.212043076923074, 1.3948],
+          [1.44975, -7.013316923076919, 1.3948],
+          [1.457616061945845, -7.1374589494265, 1.492582360404695],
+          [1.45, -7.2, 1.3948]
+        ]
+      }
+    ]
+  },
+  "copperComponents": {
+    "source_net_52": 1,
+    "source_net_53": 1,
+    "source_net_54": 1,
+    "source_net_56": 2,
+    "source_net_93": 2,
+    "source_trace_1": 2,
+    "source_trace_11": 1,
+    "source_trace_14": 1,
+    "source_trace_15": 1,
+    "source_trace_16": 1,
+    "source_trace_17": 2,
+    "source_trace_26": 1,
+    "source_trace_27": 1,
+    "source_trace_28": 1,
+    "source_trace_29": 2,
+    "source_trace_3": 1,
+    "source_trace_30": 1,
+    "source_trace_31": 1,
+    "source_trace_4": 1,
+    "source_trace_40": 1
+  },
+  "terminals": {
+    "U1.P1": {
+      "netId": "source_trace_15",
+      "positionMm": [3.6, -6.800000000000001, 1.5116999999999998],
+      "components": [10569],
+      "tetrahedra": [239567]
+    },
+    "U1.P2": {
+      "netId": "source_trace_16",
+      "positionMm": [3.6, -6, 1.5116999999999998],
+      "components": [11606],
+      "tetrahedra": [240421]
+    },
+    "U1.P1.bottomStub": {
+      "netId": "source_trace_15",
+      "positionMm": [2.7875, -7.6000000000000005, -0.0175],
+      "components": [10569],
+      "tetrahedra": [79409]
+    },
+    "U1.P2.bottomStub": {
+      "netId": "source_trace_16",
+      "positionMm": [4.087500000000001, -6.4, -0.0175],
+      "components": [11606],
+      "tetrahedra": [80907]
+    }
+  },
+  "connections": [
+    {
+      "from": "U1.P1",
+      "to": "U1.P1.bottomStub",
+      "passed": true
+    },
+    {
+      "from": "U1.P2",
+      "to": "U1.P2.bottomStub",
+      "passed": true
+    }
+  ],
+  "checks": [
+    {
+      "name": "linear_tetrahedra",
+      "passed": true,
+      "tetrahedra": 181224,
+      "unsupportedTypes": []
+    },
+    {
+      "name": "material_ownership",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "positive_tetrahedra",
+      "passed": true,
+      "minimum": 0.0020092614116686124,
+      "percentile01": 0.10857759661354377,
+      "median": 0.5288879698029307,
+      "threshold": 0.0,
+      "worstElements": [
+        {
+          "tag": 129574,
+          "volume": 47,
+          "material": "dielectric:103",
+          "minSICN": 0.0020092614116686124,
+          "coordinatesMm": [
+            [1.44975, -6.050025, 0.0994],
+            [1.44975, -5.887518750000001, 0.0994],
+            [1.474796038870041, -5.999847224385935, 0.1142682031611172],
+            [1.45, -6.05, 0.0994]
+          ]
+        },
+        {
+          "tag": 177501,
+          "volume": 64,
+          "material": "dielectric:103",
+          "minSICN": 0.002829338900448578,
+          "coordinatesMm": [
+            [1.44975, -7.01331692307692, 1.3796],
+            [1.44975, -7.212043076923074, 1.3796],
+            [1.455861757357676, -7.142515779051211, 1.251458939588997],
+            [1.45, -7.2, 1.3796]
+          ]
+        },
+        {
+          "tag": 177444,
+          "volume": 64,
+          "material": "dielectric:103",
+          "minSICN": 0.002898936872558806,
+          "coordinatesMm": [
+            [1.44975, -6.41713846153846, 1.3796],
+            [1.44975, -6.218412307692307, 1.3796],
+            [1.45, -6.400000000000001, 1.3796],
+            [1.455946227159351, -6.34608540928905, 1.253305338859309]
+          ]
+        },
+        {
+          "tag": 127755,
+          "volume": 47,
+          "material": "dielectric:103",
+          "minSICN": 0.0029719212955522513,
+          "coordinatesMm": [
+            [1.44975, -6.360378916666667, 0.1146],
+            [1.45, -6.400000000000001, 0.1146],
+            [1.450195490831045, -6.462011556965552, 0.1016831269507422],
+            [1.45, -6.400000000000001, 0.0994]
+          ]
+        },
+        {
+          "tag": 228101,
+          "volume": 98,
+          "material": "dielectric:101",
+          "minSICN": 0.0030403261374343797,
+          "coordinatesMm": [
+            [1.44975, -7.212043076923074, 1.3948],
+            [1.44975, -7.013316923076919, 1.3948],
+            [1.457616061945845, -7.1374589494265, 1.492582360404695],
+            [1.45, -7.2, 1.3948]
+          ]
+        }
+      ],
+      "invertedOrDegenerate": 0,
+      "belowQualityThreshold": 0
+    },
+    {
+      "name": "cad_volume_coverage",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "manifold_tetrahedron_faces",
+      "passed": true,
+      "nonmanifoldFaces": 0
+    },
+    {
+      "name": "conformal_interfaces",
+      "passed": true,
+      "cadOwnershipChecked": true,
+      "errors": []
+    },
+    {
+      "name": "copper_net_separation",
+      "passed": true,
+      "shortedNodes": 0,
+      "errors": []
+    },
+    {
+      "name": "drill_and_cutout_voids",
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "terminal_connectivity",
+      "passed": true,
+      "errors": []
+    }
+  ],
+  "limitations": [
+    "Mesh validation is not EM convergence or solver validation.",
+    "Void checks exclude a 2e-6 mm boundary tolerance; projection overlap tolerance is 1e-10 mm\u00b2. Errors are capped at 20 examples.",
+    "Only linear tetrahedra and triangular boundaries are supported."
+  ]
+}

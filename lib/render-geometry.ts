@@ -21,6 +21,8 @@ export async function renderGeometry(options: {
   solids: PreviewSolid[]
   copperOnly?: boolean
   zScale?: number
+  /** Optional display colors by copper net; exported geometry is unchanged. */
+  netColors?: Record<string, [number, number, number, number]>
   render?: RenderOptionsInput
 }): Promise<Uint8Array> {
   const zScale = options.zScale ?? 1
@@ -45,7 +47,9 @@ export async function renderGeometry(options: {
           baseColorFactor:
             solid.material === "dielectric"
               ? [0.11, 0.32, 0.22, 1]
-              : (layerColors[solid.layer ?? "barrel"] ?? layerColors.barrel),
+              : (options.netColors?.[solid.netId ?? ""] ??
+                layerColors[solid.layer ?? "barrel"] ??
+                layerColors.barrel),
           baseColorTexture: null,
           metallicFactor: solid.material === "copper" ? 0.65 : 0,
           roughnessFactor: 0.65,

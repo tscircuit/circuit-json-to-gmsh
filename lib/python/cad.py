@@ -5,6 +5,9 @@ boundaries retain physical foil and drill heights, including through-via stubs.
 """
 
 import gmsh
+import json
+import time
+from pathlib import Path
 from shapely.geometry import Polygon, box
 from shapely.geometry.polygon import orient
 from shapely.ops import unary_union
@@ -39,7 +42,8 @@ def prism(options):
     return volumes, expected
 
 
-def slab_shapes(model, board, copper):
+def slab_shapes(options):
+    model, board, copper = [options[k] for k in ["model", "board", "copper"]]
     layered = model["multilayer"]
     boundaries = sorted(
         {
@@ -82,6 +86,10 @@ def slab_shapes(model, board, copper):
             if barrel["zMin"] < middle < barrel["zMax"]:
                 groups.setdefault(barrel["netId"], []).append(shape)
         merged = {net: clean(unary_union(shapes)) for net, shapes in groups.items()}
+        if options.get("crop"):
+            merged = {
+                net: clean(shape.intersection(board)) for net, shape in merged.items()
+            }
         for net, shape in sorted(merged.items()):
             yield {
                 "name": f"copper:{net}",
@@ -129,9 +137,22 @@ def build_cad(options):
     model, board, copper = [options[k] for k in ["model", "board", "copper"]]
     cutaway_x = options.get("cutawayX")
     repair_radius = options.get("repairRadiusMm", 0.0001)
+    region = box(*options["boundsMm"]) if options.get("boundsMm") else None
     solids = []
-    for slab_index, slab in enumerate(slab_shapes(model, board, copper)):
+    started = time.monotonic()
+    for slab_index, slab in enumerate(
+        slab_shapes(
+            {
+                "model": model,
+                "board": board,
+                "copper": copper,
+                "crop": region is not None or options.get("clipBoard", False),
+            }
+        )
+    ):
         shape = slab["shape"]
+        if region is not None:
+            shape = clean(shape.intersection(region))
         if cutaway_x is not None:
             min_x, min_y, _, max_y = board.bounds
             shape = clean(
@@ -144,6 +165,19 @@ def build_cad(options):
                 if k in slab
             }
             original_volume = polygon.area * (slab["zMax"] - slab["zMin"])
+            if options.get("progressPath"):
+                Path(options["progressPath"]).write_text(
+                    json.dumps(
+                        {
+                            "stage": "cad_prism",
+                            "completedSolids": len(solids),
+                            "solid": context,
+                            "vertices": len(polygon.exterior.coords)
+                            + sum(len(h.coords) for h in polygon.interiors),
+                            "cadElapsedSeconds": time.monotonic() - started,
+                        }
+                    )
+                )
             polygon, repairs = regularize(
                 polygon, {"radiusMm": repair_radius, "context": context}
             )

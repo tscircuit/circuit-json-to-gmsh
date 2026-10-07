@@ -1,0 +1,10 @@
+{
+  "inputSha256": "4959509a4a66b9cf32882c91fb22f4ab77b1667ca55029bacd84e8b49d3f1f62",
+  "outputSha256": "e6a8468b3005fedf4a6f1f54e88efc21e5fd1176ee28079092d2e07118d08348",
+  "zIntervalMm": [-0.035, 0.0994],
+  "solids": 42,
+  "volumeMm3": 7.045917325363575,
+  "ocpVersion": "7.8.1.1",
+  "vtkVersion": "9.3.1",
+  "note": "Complete input solids only; no new cut surfaces or mesh generated."
+}

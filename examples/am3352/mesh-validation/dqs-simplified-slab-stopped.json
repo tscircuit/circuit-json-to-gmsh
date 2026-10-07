@@ -1,0 +1,14 @@
+{
+  "status": "stopped to use a route corridor; no mesh produced; not a Boolean topology exception",
+  "elapsedSecondsObserved": 285.7700000000186,
+  "processMetrics": {
+    "VmHWM": "10086296 kB",
+    "VmRSS": "9976272 kB"
+  },
+  "progress": {
+    "stage": "partition_slab_interface",
+    "zMm": 0,
+    "solids": 217,
+    "partitionSeconds": 0.0001963260001502931
+  }
+}

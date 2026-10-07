@@ -1,0 +1,62 @@
+{
+  "boardUrl": "https://tscircuit.com/astra/am3352-sbc#files",
+  "inputSha256": "c9d7059fe536865784f175855e0dcc76510972319eec848c18b0ef6dcd2adb40",
+  "stackupSha256": "e59944a9dd976b0522a9bce45ca6231d9213f13ea65a53a1e076c8c3a91c79a4",
+  "boundsMm": [-10.800231, -33.350196000000004, 6.450000000000001, -4],
+  "requestedBoundsMm": [-10.800231, -33.300000000000004, 6.450000000000001, -4],
+  "cropAdjustments": [
+    {
+      "axis": "y",
+      "fromMm": -33.300000000000004,
+      "toMm": -33.350196000000004,
+      "netId": "source_net_93"
+    }
+  ],
+  "marginMm": 2,
+  "meshSizeMm": 0.3,
+  "scope": "full_route",
+  "threads": 1,
+  "optimizeNetgen": true,
+  "fragmentStrategy": "slab",
+  "simplifyToleranceMm": 0.001,
+  "corridorMarginMm": 0.5,
+  "requirements": {
+    "terminals": [
+      {
+        "name": "U1.P1",
+        "netId": "source_trace_15",
+        "positionMm": [3.6, -6.800000000000001, 1.5116999999999998]
+      },
+      {
+        "name": "U3.F3",
+        "netId": "source_trace_15",
+        "positionMm": [-8.000131, -30.400054, 1.5116999999999998]
+      },
+      {
+        "name": "U1.P2",
+        "netId": "source_trace_16",
+        "positionMm": [3.6, -6, 1.5116999999999998]
+      },
+      {
+        "name": "U3.G3",
+        "netId": "source_trace_16",
+        "positionMm": [-8.800231, -30.400054, 1.5116999999999998]
+      }
+    ],
+    "connections": [
+      {
+        "from": "U1.P1",
+        "to": "U3.F3"
+      },
+      {
+        "from": "U1.P2",
+        "to": "U3.G3"
+      }
+    ]
+  },
+  "limitations": [
+    "All copper nets and physical via spans are retained inside the crop.",
+    "Crop boundaries truncate planes and other routes. They are not validated EM boundaries.",
+    "Terminal probes validate copper contact/connectivity, not Palace lumped-port apertures."
+  ]
+}
