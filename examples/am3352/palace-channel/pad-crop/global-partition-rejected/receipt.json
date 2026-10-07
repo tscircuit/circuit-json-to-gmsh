@@ -1,0 +1,14 @@
+{
+  "case": "Complete revised AM3352 crop, single global OCC fragment batch",
+  "nativeExitCode": 1,
+  "nativeError": "BOPAlgo_AlertIntersectionFailed",
+  "validMeshProduced": false,
+  "virtualAddressSpaceLimitBytes": 12000000000,
+  "cpuSecondsLimitPerProcess": 900,
+  "solids": 364,
+  "logSha256": "3a10cb94e90d0ca1fee11537fb542b05b5023d4adaefff85f5d265927801a058",
+  "limitation": "This native Boolean failure does not identify an invalid manufactured solid or prove a memory cause. Bounded tiled partition remains the validated local path.",
+  "originalOperandsIndependentlyValidated": true,
+  "primitiveBrepSha256": "f378368d6a61ccd60bac6ec46ad65c484ec426aa3607a69db35a601b9e453257",
+  "primitiveCatalogSha256": "7f4f234e38beed38e79b995835d52a7b52cddbdbfb6c22d3cc8ffb5dc2c0c64d"
+}

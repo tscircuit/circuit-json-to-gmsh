@@ -1,0 +1,26 @@
+256 |           null,
+257 |           2,
+258 |         ),
+259 |       )
+260 |     }
+261 |     throw new Error(
+                    ^
+error: Gmsh failed (1); see /workspace/work/dqs-channel/am3352-full-pad-bounded-global-mesh/gmsh.log
+Error   : Fragments failed - BOPAlgo_AlertIntersectionFailed 
+Traceback (most recent call last):
+  File "/workspace/work/circuit-json-to-gmsh/lib/python/export.py", line 483, in <module>
+    export(parser.parse_args())
+  File "/workspace/work/circuit-json-to-gmsh/lib/python/export.py", line 271, in export
+    partition(
+  File "/workspace/work/circuit-json-to-gmsh/lib/python/partition.py", line 33, in partition
+    fragment(solids)
+  File "/workspace/work/circuit-json-to-gmsh/lib/python/partition.py", line 15, in fragment
+    _, mapping = gmsh.model.occ.fragment(entities[:1], entities[1:])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/palace-python/lib/python3.12/site-packages/gmsh.py", line 8480, in fragment
+    raise Exception(logger.getLastError())
+Exception: Fragments failed - BOPAlgo_AlertIntersectionFailed 
+
+      at exportGmsh (/workspace/work/circuit-json-to-gmsh/lib/export-gmsh.ts:261:15)
+
+Bun v1.4.0 (Linux x64)
