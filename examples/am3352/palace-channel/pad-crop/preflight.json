@@ -1,0 +1,721 @@
+{
+  "schemaVersion": 1,
+  "passed": true,
+  "completeRouteValidated": false,
+  "jobSha256": "81f53b259f0b796e4c9eab0db12b3c63d33c6ca60312552a02fb8a3fe92a5aec",
+  "brepSha256": "2397aa9e5a2ee12f4c2ed9b0fbca41fd133287d13a963a8974b0bee781a9dd0e",
+  "solidsSha256": "30629c162161b94281b06ca5c9f311f8e9adc15fa3163703c0811eba0b338d12",
+  "boundsMm": [
+    -3.0518800356905924,
+    -28.049999999999997,
+    -0.5502310000000001,
+    -25.549999999999997
+  ],
+  "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+  "meshSizeMm": 0.4,
+  "brepValidation": {
+    "valid": true,
+    "solids": 45,
+    "invalidSolidIndices": [],
+    "ocpVersion": "7.8.1.1",
+    "vtkVersion": "9.3.1"
+  },
+  "cadVolumeValidation": {
+    "expectedVolumeMm3": 22.290943414499996,
+    "actualVolumeMm3": 22.290943414499992,
+    "maximumDifferenceMm3": 2.2290943414499995e-06,
+    "solids": [
+      {
+        "id": "slab/0/0",
+        "material": "air",
+        "expectedVolumeMm3": 6.254122499999999,
+        "actualVolumeMm3": 6.254122500000001,
+        "differenceMm3": 1.7763568394002505e-15
+      },
+      {
+        "id": "slab/1/0",
+        "material": "copper",
+        "expectedVolumeMm3": 0.006672653145270053,
+        "actualVolumeMm3": 0.006672653145270033,
+        "differenceMm3": -1.9949319973733282e-17
+      },
+      {
+        "id": "slab/1/1",
+        "material": "copper",
+        "expectedVolumeMm3": 0.10789847494142492,
+        "actualVolumeMm3": 0.10789847494142459,
+        "differenceMm3": -3.3306690738754696e-16
+      },
+      {
+        "id": "slab/2/0",
+        "material": "copper",
+        "expectedVolumeMm3": 0.005040319912984975,
+        "actualVolumeMm3": 0.005040319912984962,
+        "differenceMm3": -1.3010426069826053e-17
+      },
+      {
+        "id": "slab/3/0",
+        "material": "air",
+        "expectedVolumeMm3": 0.09819403057084257,
+        "actualVolumeMm3": 0.09819403057084226,
+        "differenceMm3": -3.0531133177191805e-16
+      },
+      {
+        "id": "slab/3/1",
+        "material": "air",
+        "expectedVolumeMm3": 0.0004742743359375027,
+        "actualVolumeMm3": 0.00047427433593750124,
+        "differenceMm3": -1.463672932855431e-18
+      },
+      {
+        "id": "slab/3/2",
+        "material": "air",
+        "expectedVolumeMm3": 0.0006145345935400006,
+        "actualVolumeMm3": 0.000614534593539999,
+        "differenceMm3": -1.6263032587282567e-18
+      },
+      {
+        "id": "slab/4/0",
+        "material": "copper",
+        "expectedVolumeMm3": 0.001364955957629589,
+        "actualVolumeMm3": 0.0013649559576295895,
+        "differenceMm3": 4.336808689942018e-19
+      },
+      {
+        "id": "slab/5/0",
+        "material": "dielectric",
+        "expectedVolumeMm3": 0.3635047127000288,
+        "actualVolumeMm3": 0.36350471270002876,
+        "differenceMm3": -5.551115123125783e-17
+      },
+      {
+        "id": "slab/6/0",
+        "material": "air",
+        "expectedVolumeMm3": 0.2536978904826254,
+        "actualVolumeMm3": 0.25369789048262564,
+        "differenceMm3": 2.220446049250313e-16
+      },
+      {
+        "id": "slab/6/1",
+        "material": "air",
+        "expectedVolumeMm3": 0.0013469391140625076,
+        "actualVolumeMm3": 0.0013469391140625076,
+        "differenceMm3": 0.0
+      },
+      {
+        "id": "slab/6/2",
+        "material": "air",
+        "expectedVolumeMm3": 0.0017452782456536017,
+        "actualVolumeMm3": 0.0017452782456536021,
+        "differenceMm3": 4.336808689942018e-19
+      },
+      {
+        "id": "slab/7/0",
+        "material": "copper",
+        "expectedVolumeMm3": 0.0008006521465248007,
+        "actualVolumeMm3": 0.0008006521465248023,
+        "differenceMm3": 1.6263032587282567e-18
+      },
+      {
+        "id": "slab/8/0",
+        "material": "dielectric",
+        "expectedVolumeMm3": 0.054994307245793204,
+        "actualVolumeMm3": 0.054994307245793156,
+        "differenceMm3": -4.85722573273506e-17
+      },
+      {
+        "id": "slab/9/0",
+        "material": "air",
+        "expectedVolumeMm3": 0.038794848444023214,
+        "actualVolumeMm3": 0.038794848444023144,
+        "differenceMm3": -6.938893903907228e-17
+      },
+      {
+        "id": "slab/9/1",
+        "material": "air",
+        "expectedVolumeMm3": 0.00020597056875000123,
+        "actualVolumeMm3": 0.00020597056875000123,
+        "differenceMm3": 0.0
+      },
+      {
+        "id": "slab/9/2",
+        "material": "air",
+        "expectedVolumeMm3": 0.0002668835949088003,
+        "actualVolumeMm3": 0.00026688359490880016,
+        "differenceMm3": -1.6263032587282567e-19
+      },
+      {
+        "id": "slab/10/0",
+        "material": "copper",
+        "expectedVolumeMm3": 0.01737091837425986,
+        "actualVolumeMm3": 0.017370918374259865,
+        "differenceMm3": 6.938893903907228e-18
+      },
+      {
+        "id": "slab/11/0",
+        "material": "dielectric",
+        "expectedVolumeMm3": 4.626091162631151,
+        "actualVolumeMm3": 4.626091162631146,
+        "differenceMm3": -5.329070518200751e-15
+      },
+      {
+        "id": "slab/12/0",
+        "material": "air",
+        "expectedVolumeMm3": 3.2286502159006147,
+        "actualVolumeMm3": 3.228650215900615,
+        "differenceMm3": 4.440892098500626e-16
+      },
+      {
+        "id": "slab/12/1",
+        "material": "air",
+        "expectedVolumeMm3": 0.017141629570312594,
+        "actualVolumeMm3": 0.017141629570312594,
+        "differenceMm3": 0.0
+      },
+      {
+        "id": "slab/12/2",
+        "material": "air",
+        "expectedVolumeMm3": 0.02221103602366002,
+        "actualVolumeMm3": 0.022211036023660022,
+        "differenceMm3": 3.469446951953614e-18
+      },
+      {
+        "id": "slab/13/0",
+        "material": "copper",
+        "expectedVolumeMm3": 0.0008006521465248057,
+        "actualVolumeMm3": 0.0008006521465248256,
+        "differenceMm3": 1.984089975648473e-17
+      },
+      {
+        "id": "slab/14/0",
+        "material": "copper",
+        "expectedVolumeMm3": 0.0007867156892139975,
+        "actualVolumeMm3": 0.0007867156892139941,
+        "differenceMm3": -3.3610267347050637e-18
+      },
+      {
+        "id": "slab/15/0",
+        "material": "copper",
+        "expectedVolumeMm3": 0.002628721528562841,
+        "actualVolumeMm3": 0.002628721528562834,
+        "differenceMm3": -7.37257477290143e-18
+      },
+      {
+        "id": "slab/16/0",
+        "material": "copper",
+        "expectedVolumeMm3": 0.00471193320686044,
+        "actualVolumeMm3": 0.00471193320686042,
+        "differenceMm3": -1.9949319973733282e-17
+      },
+      {
+        "id": "slab/17/0",
+        "material": "copper",
+        "expectedVolumeMm3": 0.004786598731311596,
+        "actualVolumeMm3": 0.004786598731311562,
+        "differenceMm3": -3.382710778154774e-17
+      },
+      {
+        "id": "slab/18/0",
+        "material": "dielectric",
+        "expectedVolumeMm3": 0.021518401739179353,
+        "actualVolumeMm3": 0.021518401739179367,
+        "differenceMm3": 1.3877787807814457e-17
+      },
+      {
+        "id": "slab/18/1",
+        "material": "dielectric",
+        "expectedVolumeMm3": 0.007429264721262056,
+        "actualVolumeMm3": 0.007429264721262039,
+        "differenceMm3": -1.6479873021779667e-17
+      },
+      {
+        "id": "slab/18/2",
+        "material": "dielectric",
+        "expectedVolumeMm3": 0.0039942278146172135,
+        "actualVolumeMm3": 0.0039942278146171805,
+        "differenceMm3": -3.2959746043559335e-17
+      },
+      {
+        "id": "slab/18/3",
+        "material": "dielectric",
+        "expectedVolumeMm3": 0.008681804173257646,
+        "actualVolumeMm3": 0.008681804173257644,
+        "differenceMm3": -1.734723475976807e-18
+      },
+      {
+        "id": "slab/18/4",
+        "material": "dielectric",
+        "expectedVolumeMm3": 0.0004566396415284038,
+        "actualVolumeMm3": 0.0004566396415284016,
+        "differenceMm3": -2.222614453595284e-18
+      },
+      {
+        "id": "slab/19/0",
+        "material": "air",
+        "expectedVolumeMm3": 0.038794848444023464,
+        "actualVolumeMm3": 0.03879484844402273,
+        "differenceMm3": -7.355227538141662e-16
+      },
+      {
+        "id": "slab/19/1",
+        "material": "air",
+        "expectedVolumeMm3": 0.00020597056875000253,
+        "actualVolumeMm3": 0.0002059705687500035,
+        "differenceMm3": 9.75781955236954e-19
+      },
+      {
+        "id": "slab/19/2",
+        "material": "air",
+        "expectedVolumeMm3": 0.00026688359490880217,
+        "actualVolumeMm3": 0.0002668835949087995,
+        "differenceMm3": -2.656295322589486e-18
+      },
+      {
+        "id": "slab/20/0",
+        "material": "copper",
+        "expectedVolumeMm3": 0.001364955957629588,
+        "actualVolumeMm3": 0.001364955957629586,
+        "differenceMm3": -1.951563910473908e-18
+      },
+      {
+        "id": "slab/21/0",
+        "material": "dielectric",
+        "expectedVolumeMm3": 0.36350471270002854,
+        "actualVolumeMm3": 0.36350471270002915,
+        "differenceMm3": 6.106226635438361e-16
+      },
+      {
+        "id": "slab/22/0",
+        "material": "air",
+        "expectedVolumeMm3": 0.25369789048262525,
+        "actualVolumeMm3": 0.2536978904826265,
+        "differenceMm3": 1.2212453270876722e-15
+      },
+      {
+        "id": "slab/22/1",
+        "material": "air",
+        "expectedVolumeMm3": 0.0013469391140625067,
+        "actualVolumeMm3": 0.0013469391140625063,
+        "differenceMm3": -4.336808689942018e-19
+      },
+      {
+        "id": "slab/22/2",
+        "material": "air",
+        "expectedVolumeMm3": 0.0017452782456536004,
+        "actualVolumeMm3": 0.0017452782456536017,
+        "differenceMm3": 1.3010426069826053e-18
+      },
+      {
+        "id": "slab/23/0",
+        "material": "copper",
+        "expectedVolumeMm3": 0.12847523544283712,
+        "actualVolumeMm3": 0.12847523544283784,
+        "differenceMm3": 7.216449660063518e-16
+      },
+      {
+        "id": "slab/24/0",
+        "material": "air",
+        "expectedVolumeMm3": 0.0893302431276848,
+        "actualVolumeMm3": 0.08933024312768593,
+        "differenceMm3": 1.1379786002407855e-15
+      },
+      {
+        "id": "slab/24/1",
+        "material": "air",
+        "expectedVolumeMm3": 0.00047427433593750156,
+        "actualVolumeMm3": 0.00047427433593750135,
+        "differenceMm3": -2.168404344971009e-19
+      },
+      {
+        "id": "slab/24/2",
+        "material": "air",
+        "expectedVolumeMm3": 0.0006145345935399992,
+        "actualVolumeMm3": 0.0006145345935399952,
+        "differenceMm3": -4.0115480381963664e-18
+      },
+      {
+        "id": "slab/25/0",
+        "material": "air",
+        "expectedVolumeMm3": 6.2541225,
+        "actualVolumeMm3": 6.254122499999996,
+        "differenceMm3": -4.440892098500626e-15
+      }
+    ]
+  },
+  "validation": {
+    "schemaVersion": 1,
+    "passed": true,
+    "pcbChecksComplete": false,
+    "gmshVersion": "4.13.1",
+    "units": "mm",
+    "wallSeconds": 0.7677900079870597,
+    "meshSha256": "911ec2b69af18e57c0267fa683a06261c564efc5957bd200d1706a72cba9d902",
+    "manifestSha256": "ab847684f468c59121871745814ab01de9412134517abf205dffaa4c62bf1073",
+    "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+    "requirementsSha256": null,
+    "tetrahedra": 25573,
+    "nodes": 4773,
+    "quality": {
+      "minimum": 0.00779665737773753,
+      "percentile01": 0.05441180088558825,
+      "median": 0.4868448554804059,
+      "threshold": 0.0001,
+      "worstElements": [
+        {
+          "tag": 27030,
+          "volume": 33,
+          "material": "air",
+          "minSICN": 0.00779665737773753,
+          "coordinatesMm": [
+            [
+              -1.890152600000001,
+              -28.05,
+              1.3796
+            ],
+            [
+              -2.128222,
+              -27.786537,
+              1.3796
+            ],
+            [
+              -2.147138661026228,
+              -27.87744503743745,
+              1.389148598705764
+            ],
+            [
+              -2.119165,
+              -27.782786,
+              1.3796
+            ]
+          ]
+        },
+        {
+          "tag": 23585,
+          "volume": 22,
+          "material": "air",
+          "minSICN": 0.00861314878472028,
+          "coordinatesMm": [
+            [
+              -2.171438,
+              -27.669399,
+              0.7471000000000007
+            ],
+            [
+              -2.200139,
+              -27.675108,
+              0.4308500000000001
+            ],
+            [
+              -2.171438,
+              -27.669399,
+              0.4308500000000001
+            ],
+            [
+              -2.185507,
+              -27.673667,
+              0.7471000000000007
+            ]
+          ]
+        },
+        {
+          "tag": 17050,
+          "volume": 15,
+          "material": "air",
+          "minSICN": 0.009141564330248281,
+          "coordinatesMm": [
+            [
+              -2.138505380304979,
+              -27.88993966187486,
+              0.1108098461016033
+            ],
+            [
+              -2.119165,
+              -27.782786,
+              0.0994
+            ],
+            [
+              -1.890152600000001,
+              -28.05,
+              0.0994
+            ],
+            [
+              -2.128222,
+              -27.786537,
+              0.0994
+            ]
+          ]
+        },
+        {
+          "tag": 17065,
+          "volume": 15,
+          "material": "air",
+          "minSICN": 0.011860025100539613,
+          "coordinatesMm": [
+            [
+              -1.995430466932747,
+              -27.77702230705358,
+              0.1025448817352231
+            ],
+            [
+              -1.890152600000001,
+              -28.05,
+              0.1146
+            ],
+            [
+              -2.085083,
+              -27.763479,
+              0.1146
+            ],
+            [
+              -2.093232,
+              -27.768924,
+              0.1146
+            ]
+          ]
+        },
+        {
+          "tag": 23586,
+          "volume": 22,
+          "material": "air",
+          "minSICN": 0.012818784476360518,
+          "coordinatesMm": [
+            [
+              -2.171438,
+              -27.669399,
+              0.7471000000000007
+            ],
+            [
+              -2.200139,
+              -27.675108,
+              0.4308500000000001
+            ],
+            [
+              -2.185507,
+              -27.673667,
+              0.7471000000000007
+            ],
+            [
+              -2.200139,
+              -27.675108,
+              0.7471000000000007
+            ]
+          ]
+        }
+      ]
+    },
+    "copperComponents": {
+      "source_net_56": 2,
+      "source_net_93": 1,
+      "source_trace_1": 1,
+      "source_trace_15": 1,
+      "source_trace_16": 1,
+      "source_trace_4": 1
+    },
+    "terminals": {},
+    "connections": [],
+    "checks": [
+      {
+        "name": "linear_tetrahedra",
+        "passed": true,
+        "tetrahedra": 25573,
+        "unsupportedTypes": []
+      },
+      {
+        "name": "material_ownership",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "name": "positive_tetrahedra",
+        "passed": true,
+        "minimum": 0.00779665737773753,
+        "percentile01": 0.05441180088558825,
+        "median": 0.4868448554804059,
+        "threshold": 0.0001,
+        "worstElements": [
+          {
+            "tag": 27030,
+            "volume": 33,
+            "material": "air",
+            "minSICN": 0.00779665737773753,
+            "coordinatesMm": [
+              [
+                -1.890152600000001,
+                -28.05,
+                1.3796
+              ],
+              [
+                -2.128222,
+                -27.786537,
+                1.3796
+              ],
+              [
+                -2.147138661026228,
+                -27.87744503743745,
+                1.389148598705764
+              ],
+              [
+                -2.119165,
+                -27.782786,
+                1.3796
+              ]
+            ]
+          },
+          {
+            "tag": 23585,
+            "volume": 22,
+            "material": "air",
+            "minSICN": 0.00861314878472028,
+            "coordinatesMm": [
+              [
+                -2.171438,
+                -27.669399,
+                0.7471000000000007
+              ],
+              [
+                -2.200139,
+                -27.675108,
+                0.4308500000000001
+              ],
+              [
+                -2.171438,
+                -27.669399,
+                0.4308500000000001
+              ],
+              [
+                -2.185507,
+                -27.673667,
+                0.7471000000000007
+              ]
+            ]
+          },
+          {
+            "tag": 17050,
+            "volume": 15,
+            "material": "air",
+            "minSICN": 0.009141564330248281,
+            "coordinatesMm": [
+              [
+                -2.138505380304979,
+                -27.88993966187486,
+                0.1108098461016033
+              ],
+              [
+                -2.119165,
+                -27.782786,
+                0.0994
+              ],
+              [
+                -1.890152600000001,
+                -28.05,
+                0.0994
+              ],
+              [
+                -2.128222,
+                -27.786537,
+                0.0994
+              ]
+            ]
+          },
+          {
+            "tag": 17065,
+            "volume": 15,
+            "material": "air",
+            "minSICN": 0.011860025100539613,
+            "coordinatesMm": [
+              [
+                -1.995430466932747,
+                -27.77702230705358,
+                0.1025448817352231
+              ],
+              [
+                -1.890152600000001,
+                -28.05,
+                0.1146
+              ],
+              [
+                -2.085083,
+                -27.763479,
+                0.1146
+              ],
+              [
+                -2.093232,
+                -27.768924,
+                0.1146
+              ]
+            ]
+          },
+          {
+            "tag": 23586,
+            "volume": 22,
+            "material": "air",
+            "minSICN": 0.012818784476360518,
+            "coordinatesMm": [
+              [
+                -2.171438,
+                -27.669399,
+                0.7471000000000007
+              ],
+              [
+                -2.200139,
+                -27.675108,
+                0.4308500000000001
+              ],
+              [
+                -2.185507,
+                -27.673667,
+                0.7471000000000007
+              ],
+              [
+                -2.200139,
+                -27.675108,
+                0.7471000000000007
+              ]
+            ]
+          }
+        ],
+        "invertedOrDegenerate": 0,
+        "belowQualityThreshold": 0
+      },
+      {
+        "name": "cad_volume_coverage",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "name": "manifold_tetrahedron_faces",
+        "passed": true,
+        "nonmanifoldFaces": 0
+      },
+      {
+        "name": "conformal_interfaces",
+        "passed": true,
+        "cadOwnershipChecked": true,
+        "errors": []
+      },
+      {
+        "name": "copper_net_separation",
+        "passed": true,
+        "shortedNodes": 0,
+        "coordinateToleranceMm": 1e-07,
+        "errors": []
+      },
+      {
+        "name": "drill_and_cutout_voids",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "name": "terminal_connectivity",
+        "passed": null,
+        "errors": []
+      }
+    ],
+    "limitations": [
+      "Mesh validation is not EM convergence or solver validation.",
+      "Void checks exclude a 2e-6 mm boundary tolerance; projection overlap tolerance is 1e-10 mm\u00b2. Errors are capped at 20 examples.",
+      "Only linear tetrahedra and triangular boundaries are supported."
+    ]
+  },
+  "wallSeconds": 5.238593292015139
+}

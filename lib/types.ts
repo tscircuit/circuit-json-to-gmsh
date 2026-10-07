@@ -74,6 +74,7 @@ export interface PreviewSolid {
 export interface GeometryReport {
   gmshVersion: string
   fragmentStrategy?: "global" | "slab" | "tiled"
+  tetrahedralAlgorithm?: "delaunay" | "hxt"
   tileSizeMm?: number | null
   simplificationToleranceMm?: number
   simplification?: {

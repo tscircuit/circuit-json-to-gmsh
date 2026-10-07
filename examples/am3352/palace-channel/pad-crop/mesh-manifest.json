@@ -1,0 +1,6980 @@
+{
+  "schemaVersion": 1,
+  "units": "mm",
+  "volumes": [
+    {
+      "name": "air",
+      "material": "air",
+      "layer": "air",
+      "zMin": -1.035,
+      "zMax": -0.035,
+      "tag": 1,
+      "volumeMm3": 6.254122500000001
+    },
+    {
+      "name": "copper:source_net_56",
+      "material": "copper",
+      "netId": "source_net_56",
+      "layer": "bottom",
+      "zMin": -0.035,
+      "zMax": 0,
+      "tag": 2,
+      "volumeMm3": 0.006672653145270033
+    },
+    {
+      "name": "copper:source_net_56",
+      "material": "copper",
+      "netId": "source_net_56",
+      "layer": "bottom",
+      "zMin": -0.035,
+      "zMax": 0,
+      "tag": 3,
+      "volumeMm3": 0.10789847494142459
+    },
+    {
+      "name": "copper:source_net_93",
+      "material": "copper",
+      "netId": "source_net_93",
+      "layer": "bottom",
+      "zMin": -0.035,
+      "zMax": 0,
+      "tag": 4,
+      "volumeMm3": 0.005040319912984962
+    },
+    {
+      "name": "air",
+      "material": "air",
+      "layer": "air",
+      "zMin": -0.035,
+      "zMax": 0,
+      "tag": 5,
+      "volumeMm3": 0.09819403057084226
+    },
+    {
+      "name": "air",
+      "material": "air",
+      "layer": "air",
+      "zMin": -0.035,
+      "zMax": 0,
+      "tag": 6,
+      "volumeMm3": 0.00047427433593750124
+    },
+    {
+      "name": "air",
+      "material": "air",
+      "layer": "air",
+      "zMin": -0.035,
+      "zMax": 0,
+      "tag": 7,
+      "volumeMm3": 0.000614534593539999
+    },
+    {
+      "name": "copper:source_net_93",
+      "material": "copper",
+      "netId": "source_net_93",
+      "layer": "barrel",
+      "zMin": 0,
+      "zMax": 0.0994,
+      "tag": 8,
+      "volumeMm3": 0.0013649559576295895
+    },
+    {
+      "name": "dielectric:105",
+      "material": "dielectric",
+      "layer": "3313 RC57%",
+      "zMin": 0,
+      "zMax": 0.0994,
+      "tag": 9,
+      "volumeMm3": 0.36350471270002876
+    },
+    {
+      "name": "air",
+      "material": "air",
+      "layer": "air",
+      "zMin": 0,
+      "zMax": 0.0994,
+      "tag": 10,
+      "volumeMm3": 0.25369789048262564
+    },
+    {
+      "name": "air",
+      "material": "air",
+      "layer": "air",
+      "zMin": 0,
+      "zMax": 0.0994,
+      "tag": 11,
+      "volumeMm3": 0.0013469391140625076
+    },
+    {
+      "name": "air",
+      "material": "air",
+      "layer": "air",
+      "zMin": 0,
+      "zMax": 0.0994,
+      "tag": 12,
+      "volumeMm3": 0.0017452782456536021
+    },
+    {
+      "name": "copper:source_net_93",
+      "material": "copper",
+      "netId": "source_net_93",
+      "layer": "inner2",
+      "zMin": 0.0994,
+      "zMax": 0.11460000000000001,
+      "tag": 13,
+      "volumeMm3": 0.0008006521465248023
+    },
+    {
+      "name": "dielectric:103",
+      "material": "dielectric",
+      "layer": "NP-155F core",
+      "zMin": 0.0994,
+      "zMax": 0.11460000000000001,
+      "tag": 14,
+      "volumeMm3": 0.054994307245793156
+    },
+    {
+      "name": "air",
+      "material": "air",
+      "layer": "air",
+      "zMin": 0.0994,
+      "zMax": 0.11460000000000001,
+      "tag": 15,
+      "volumeMm3": 0.038794848444023144
+    },
+    {
+      "name": "air",
+      "material": "air",
+      "layer": "air",
+      "zMin": 0.0994,
+      "zMax": 0.11460000000000001,
+      "tag": 16,
+      "volumeMm3": 0.00020597056875000123
+    },
+    {
+      "name": "air",
+      "material": "air",
+      "layer": "air",
+      "zMin": 0.0994,
+      "zMax": 0.11460000000000001,
+      "tag": 17,
+      "volumeMm3": 0.00026688359490880016
+    },
+    {
+      "name": "copper:source_net_93",
+      "material": "copper",
+      "netId": "source_net_93",
+      "layer": "barrel",
+      "zMin": 0.11460000000000001,
+      "zMax": 1.3796,
+      "tag": 18,
+      "volumeMm3": 0.017370918374259865
+    },
+    {
+      "name": "dielectric:103",
+      "material": "dielectric",
+      "layer": "NP-155F core",
+      "zMin": 0.11460000000000001,
+      "zMax": 1.3796,
+      "tag": 19,
+      "volumeMm3": 4.626091162631146
+    },
+    {
+      "name": "air",
+      "material": "air",
+      "layer": "air",
+      "zMin": 0.11460000000000001,
+      "zMax": 1.3796,
+      "tag": 20,
+      "volumeMm3": 3.228650215900615
+    },
+    {
+      "name": "air",
+      "material": "air",
+      "layer": "air",
+      "zMin": 0.11460000000000001,
+      "zMax": 1.3796,
+      "tag": 21,
+      "volumeMm3": 0.017141629570312594
+    },
+    {
+      "name": "air",
+      "material": "air",
+      "layer": "air",
+      "zMin": 0.11460000000000001,
+      "zMax": 1.3796,
+      "tag": 22,
+      "volumeMm3": 0.022211036023660022
+    },
+    {
+      "name": "copper:source_net_93",
+      "material": "copper",
+      "netId": "source_net_93",
+      "layer": "inner1",
+      "zMin": 1.3796,
+      "zMax": 1.3948,
+      "tag": 23,
+      "volumeMm3": 0.0008006521465248256
+    },
+    {
+      "name": "copper:source_trace_1",
+      "material": "copper",
+      "netId": "source_trace_1",
+      "layer": "inner1",
+      "zMin": 1.3796,
+      "zMax": 1.3948,
+      "tag": 24,
+      "volumeMm3": 0.0007867156892139941
+    },
+    {
+      "name": "copper:source_trace_15",
+      "material": "copper",
+      "netId": "source_trace_15",
+      "layer": "inner1",
+      "zMin": 1.3796,
+      "zMax": 1.3948,
+      "tag": 25,
+      "volumeMm3": 0.002628721528562834
+    },
+    {
+      "name": "copper:source_trace_16",
+      "material": "copper",
+      "netId": "source_trace_16",
+      "layer": "inner1",
+      "zMin": 1.3796,
+      "zMax": 1.3948,
+      "tag": 26,
+      "volumeMm3": 0.00471193320686042
+    },
+    {
+      "name": "copper:source_trace_4",
+      "material": "copper",
+      "netId": "source_trace_4",
+      "layer": "inner1",
+      "zMin": 1.3796,
+      "zMax": 1.3948,
+      "tag": 27,
+      "volumeMm3": 0.004786598731311562
+    },
+    {
+      "name": "dielectric:101",
+      "material": "dielectric",
+      "layer": "3313 RC57%",
+      "zMin": 1.3796,
+      "zMax": 1.3948,
+      "tag": 28,
+      "volumeMm3": 0.021518401739179367
+    },
+    {
+      "name": "dielectric:101",
+      "material": "dielectric",
+      "layer": "3313 RC57%",
+      "zMin": 1.3796,
+      "zMax": 1.3948,
+      "tag": 29,
+      "volumeMm3": 0.007429264721262039
+    },
+    {
+      "name": "dielectric:101",
+      "material": "dielectric",
+      "layer": "3313 RC57%",
+      "zMin": 1.3796,
+      "zMax": 1.3948,
+      "tag": 30,
+      "volumeMm3": 0.0039942278146171805
+    },
+    {
+      "name": "dielectric:101",
+      "material": "dielectric",
+      "layer": "3313 RC57%",
+      "zMin": 1.3796,
+      "zMax": 1.3948,
+      "tag": 31,
+      "volumeMm3": 0.008681804173257644
+    },
+    {
+      "name": "dielectric:101",
+      "material": "dielectric",
+      "layer": "3313 RC57%",
+      "zMin": 1.3796,
+      "zMax": 1.3948,
+      "tag": 32,
+      "volumeMm3": 0.0004566396415284016
+    },
+    {
+      "name": "air",
+      "material": "air",
+      "layer": "air",
+      "zMin": 1.3796,
+      "zMax": 1.3948,
+      "tag": 33,
+      "volumeMm3": 0.03879484844402273
+    },
+    {
+      "name": "air",
+      "material": "air",
+      "layer": "air",
+      "zMin": 1.3796,
+      "zMax": 1.3948,
+      "tag": 34,
+      "volumeMm3": 0.0002059705687500035
+    },
+    {
+      "name": "air",
+      "material": "air",
+      "layer": "air",
+      "zMin": 1.3796,
+      "zMax": 1.3948,
+      "tag": 35,
+      "volumeMm3": 0.0002668835949087995
+    },
+    {
+      "name": "copper:source_net_93",
+      "material": "copper",
+      "netId": "source_net_93",
+      "layer": "barrel",
+      "zMin": 1.3948,
+      "zMax": 1.4942,
+      "tag": 36,
+      "volumeMm3": 0.001364955957629586
+    },
+    {
+      "name": "dielectric:101",
+      "material": "dielectric",
+      "layer": "3313 RC57%",
+      "zMin": 1.3948,
+      "zMax": 1.4942,
+      "tag": 37,
+      "volumeMm3": 0.36350471270002915
+    },
+    {
+      "name": "air",
+      "material": "air",
+      "layer": "air",
+      "zMin": 1.3948,
+      "zMax": 1.4942,
+      "tag": 38,
+      "volumeMm3": 0.2536978904826265
+    },
+    {
+      "name": "air",
+      "material": "air",
+      "layer": "air",
+      "zMin": 1.3948,
+      "zMax": 1.4942,
+      "tag": 39,
+      "volumeMm3": 0.0013469391140625063
+    },
+    {
+      "name": "air",
+      "material": "air",
+      "layer": "air",
+      "zMin": 1.3948,
+      "zMax": 1.4942,
+      "tag": 40,
+      "volumeMm3": 0.0017452782456536017
+    },
+    {
+      "name": "copper:source_net_93",
+      "material": "copper",
+      "netId": "source_net_93",
+      "layer": "top",
+      "zMin": 1.4942,
+      "zMax": 1.5292,
+      "tag": 41,
+      "volumeMm3": 0.12847523544283784
+    },
+    {
+      "name": "air",
+      "material": "air",
+      "layer": "air",
+      "zMin": 1.4942,
+      "zMax": 1.5292,
+      "tag": 42,
+      "volumeMm3": 0.08933024312768593
+    },
+    {
+      "name": "air",
+      "material": "air",
+      "layer": "air",
+      "zMin": 1.4942,
+      "zMax": 1.5292,
+      "tag": 43,
+      "volumeMm3": 0.00047427433593750135
+    },
+    {
+      "name": "air",
+      "material": "air",
+      "layer": "air",
+      "zMin": 1.4942,
+      "zMax": 1.5292,
+      "tag": 44,
+      "volumeMm3": 0.0006145345935399952
+    },
+    {
+      "name": "air",
+      "material": "air",
+      "layer": "air",
+      "zMin": 1.5292,
+      "zMax": 2.5292,
+      "tag": 45,
+      "volumeMm3": 6.254122499999996
+    }
+  ],
+  "faces": [
+    {
+      "tag": 1,
+      "volumes": [
+        1
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 2,
+      "volumes": [
+        1
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 3,
+      "volumes": [
+        1
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 4,
+      "volumes": [
+        1
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 5,
+      "volumes": [
+        1
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 6,
+      "volumes": [
+        1,
+        3
+      ],
+      "name": "interface:air|copper:source_net_56"
+    },
+    {
+      "tag": 7,
+      "volumes": [
+        1,
+        6
+      ],
+      "name": "interface:air"
+    },
+    {
+      "tag": 8,
+      "volumes": [
+        1,
+        5
+      ],
+      "name": "interface:air"
+    },
+    {
+      "tag": 9,
+      "volumes": [
+        1,
+        2
+      ],
+      "name": "interface:air|copper:source_net_56"
+    },
+    {
+      "tag": 10,
+      "volumes": [
+        1,
+        4
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 11,
+      "volumes": [
+        1,
+        7
+      ],
+      "name": "interface:air"
+    },
+    {
+      "tag": 12,
+      "volumes": [
+        2,
+        5
+      ],
+      "name": "interface:air|copper:source_net_56"
+    },
+    {
+      "tag": 13,
+      "volumes": [
+        2
+      ],
+      "name": "exterior:copper:source_net_56"
+    },
+    {
+      "tag": 14,
+      "volumes": [
+        2
+      ],
+      "name": "exterior:copper:source_net_56"
+    },
+    {
+      "tag": 15,
+      "volumes": [
+        2,
+        5
+      ],
+      "name": "interface:air|copper:source_net_56"
+    },
+    {
+      "tag": 16,
+      "volumes": [
+        2,
+        5
+      ],
+      "name": "interface:air|copper:source_net_56"
+    },
+    {
+      "tag": 17,
+      "volumes": [
+        2,
+        5
+      ],
+      "name": "interface:air|copper:source_net_56"
+    },
+    {
+      "tag": 18,
+      "volumes": [
+        2,
+        5
+      ],
+      "name": "interface:air|copper:source_net_56"
+    },
+    {
+      "tag": 19,
+      "volumes": [
+        2,
+        5
+      ],
+      "name": "interface:air|copper:source_net_56"
+    },
+    {
+      "tag": 20,
+      "volumes": [
+        2,
+        5
+      ],
+      "name": "interface:air|copper:source_net_56"
+    },
+    {
+      "tag": 21,
+      "volumes": [
+        2,
+        9
+      ],
+      "name": "interface:copper:source_net_56|dielectric:105"
+    },
+    {
+      "tag": 22,
+      "volumes": [
+        3,
+        5
+      ],
+      "name": "interface:air|copper:source_net_56"
+    },
+    {
+      "tag": 23,
+      "volumes": [
+        3,
+        5
+      ],
+      "name": "interface:air|copper:source_net_56"
+    },
+    {
+      "tag": 24,
+      "volumes": [
+        3,
+        5
+      ],
+      "name": "interface:air|copper:source_net_56"
+    },
+    {
+      "tag": 25,
+      "volumes": [
+        3,
+        5
+      ],
+      "name": "interface:air|copper:source_net_56"
+    },
+    {
+      "tag": 26,
+      "volumes": [
+        3,
+        5
+      ],
+      "name": "interface:air|copper:source_net_56"
+    },
+    {
+      "tag": 27,
+      "volumes": [
+        3
+      ],
+      "name": "exterior:copper:source_net_56"
+    },
+    {
+      "tag": 28,
+      "volumes": [
+        3
+      ],
+      "name": "exterior:copper:source_net_56"
+    },
+    {
+      "tag": 29,
+      "volumes": [
+        3,
+        6
+      ],
+      "name": "interface:air|copper:source_net_56"
+    },
+    {
+      "tag": 30,
+      "volumes": [
+        3
+      ],
+      "name": "exterior:copper:source_net_56"
+    },
+    {
+      "tag": 31,
+      "volumes": [
+        3,
+        5
+      ],
+      "name": "interface:air|copper:source_net_56"
+    },
+    {
+      "tag": 32,
+      "volumes": [
+        3,
+        5
+      ],
+      "name": "interface:air|copper:source_net_56"
+    },
+    {
+      "tag": 33,
+      "volumes": [
+        3,
+        5
+      ],
+      "name": "interface:air|copper:source_net_56"
+    },
+    {
+      "tag": 34,
+      "volumes": [
+        3,
+        9
+      ],
+      "name": "interface:copper:source_net_56|dielectric:105"
+    },
+    {
+      "tag": 35,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 36,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 37,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 38,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 39,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 40,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 41,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 42,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 43,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 44,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 45,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 46,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 47,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 48,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 49,
+      "volumes": [
+        4
+      ],
+      "name": "exterior:copper:source_net_93"
+    },
+    {
+      "tag": 50,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 51,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 52,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 53,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 54,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 55,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 56,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 57,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 58,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 59,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 60,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 61,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 62,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 63,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 64,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 65,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 66,
+      "volumes": [
+        4,
+        5
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 67,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 68,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 69,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 70,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 71,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 72,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 73,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 74,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 75,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 76,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 77,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 78,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 79,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 80,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 81,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 82,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 83,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 84,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 85,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 86,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 87,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 88,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 89,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 90,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 91,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 92,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 93,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 94,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 95,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 96,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 97,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 98,
+      "volumes": [
+        4,
+        7
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 99,
+      "volumes": [
+        4,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 100,
+      "volumes": [
+        4,
+        8
+      ],
+      "name": "interface:copper:source_net_93"
+    },
+    {
+      "tag": 101,
+      "volumes": [
+        5
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 102,
+      "volumes": [
+        5
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 103,
+      "volumes": [
+        5
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 104,
+      "volumes": [
+        5
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 105,
+      "volumes": [
+        5,
+        10
+      ],
+      "name": "interface:air"
+    },
+    {
+      "tag": 106,
+      "volumes": [
+        5,
+        9
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 107,
+      "volumes": [
+        6
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 108,
+      "volumes": [
+        6
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 109,
+      "volumes": [
+        6,
+        11
+      ],
+      "name": "interface:air"
+    },
+    {
+      "tag": 110,
+      "volumes": [
+        7,
+        12
+      ],
+      "name": "interface:air"
+    },
+    {
+      "tag": 111,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 112,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 113,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 114,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 115,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 116,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 117,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 118,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 119,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 120,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 121,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 122,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 123,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 124,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 125,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 126,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 127,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 128,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 129,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 130,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 131,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 132,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 133,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 134,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 135,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 136,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 137,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 138,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 139,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 140,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 141,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 142,
+      "volumes": [
+        8,
+        9
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 143,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 144,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 145,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 146,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 147,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 148,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 149,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 150,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 151,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 152,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 153,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 154,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 155,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 156,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 157,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 158,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 159,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 160,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 161,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 162,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 163,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 164,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 165,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 166,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 167,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 168,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 169,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 170,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 171,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 172,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 173,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 174,
+      "volumes": [
+        8,
+        12
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 175,
+      "volumes": [
+        8,
+        13
+      ],
+      "name": "interface:copper:source_net_93"
+    },
+    {
+      "tag": 176,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 177,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 178,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 179,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 180,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 181,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 182,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 183,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 184,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 185,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 186,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 187,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 188,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 189,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 190,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 191,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 192,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 193,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 194,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 195,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 196,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 197,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 198,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 199,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 200,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 201,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 202,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 203,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 204,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 205,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 206,
+      "volumes": [
+        9
+      ],
+      "name": "exterior:dielectric:105"
+    },
+    {
+      "tag": 207,
+      "volumes": [
+        9
+      ],
+      "name": "exterior:dielectric:105"
+    },
+    {
+      "tag": 208,
+      "volumes": [
+        9,
+        11
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 209,
+      "volumes": [
+        9
+      ],
+      "name": "exterior:dielectric:105"
+    },
+    {
+      "tag": 210,
+      "volumes": [
+        9
+      ],
+      "name": "exterior:dielectric:105"
+    },
+    {
+      "tag": 211,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 212,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 213,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 214,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 215,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 216,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 217,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 218,
+      "volumes": [
+        9,
+        10
+      ],
+      "name": "interface:air|dielectric:105"
+    },
+    {
+      "tag": 219,
+      "volumes": [
+        9,
+        14
+      ],
+      "name": "interface:dielectric:103|dielectric:105"
+    },
+    {
+      "tag": 220,
+      "volumes": [
+        9,
+        13
+      ],
+      "name": "interface:copper:source_net_93|dielectric:105"
+    },
+    {
+      "tag": 221,
+      "volumes": [
+        10
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 222,
+      "volumes": [
+        10
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 223,
+      "volumes": [
+        10,
+        15
+      ],
+      "name": "interface:air"
+    },
+    {
+      "tag": 224,
+      "volumes": [
+        11
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 225,
+      "volumes": [
+        11
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 226,
+      "volumes": [
+        11,
+        16
+      ],
+      "name": "interface:air"
+    },
+    {
+      "tag": 227,
+      "volumes": [
+        12,
+        17
+      ],
+      "name": "interface:air"
+    },
+    {
+      "tag": 228,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 229,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 230,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 231,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 232,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 233,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 234,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 235,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 236,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 237,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 238,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 239,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 240,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 241,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 242,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 243,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 244,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 245,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 246,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 247,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 248,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 249,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 250,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 251,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 252,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 253,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 254,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 255,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 256,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 257,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 258,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 259,
+      "volumes": [
+        13,
+        14
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 260,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 261,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 262,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 263,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 264,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 265,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 266,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 267,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 268,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 269,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 270,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 271,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 272,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 273,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 274,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 275,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 276,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 277,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 278,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 279,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 280,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 281,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 282,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 283,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 284,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 285,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 286,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 287,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 288,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 289,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 290,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 291,
+      "volumes": [
+        13,
+        17
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 292,
+      "volumes": [
+        13,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 293,
+      "volumes": [
+        13,
+        18
+      ],
+      "name": "interface:copper:source_net_93"
+    },
+    {
+      "tag": 294,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 295,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 296,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 297,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 298,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 299,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 300,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 301,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 302,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 303,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 304,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 305,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 306,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 307,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 308,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 309,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 310,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 311,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 312,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 313,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 314,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 315,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 316,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 317,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 318,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 319,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 320,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 321,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 322,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 323,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 324,
+      "volumes": [
+        14
+      ],
+      "name": "exterior:dielectric:103"
+    },
+    {
+      "tag": 325,
+      "volumes": [
+        14
+      ],
+      "name": "exterior:dielectric:103"
+    },
+    {
+      "tag": 326,
+      "volumes": [
+        14,
+        16
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 327,
+      "volumes": [
+        14
+      ],
+      "name": "exterior:dielectric:103"
+    },
+    {
+      "tag": 328,
+      "volumes": [
+        14
+      ],
+      "name": "exterior:dielectric:103"
+    },
+    {
+      "tag": 329,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 330,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 331,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 332,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 333,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 334,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 335,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 336,
+      "volumes": [
+        14,
+        15
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 337,
+      "volumes": [
+        14,
+        19
+      ],
+      "name": "interface:dielectric:103"
+    },
+    {
+      "tag": 338,
+      "volumes": [
+        15
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 339,
+      "volumes": [
+        15
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 340,
+      "volumes": [
+        15,
+        20
+      ],
+      "name": "interface:air"
+    },
+    {
+      "tag": 341,
+      "volumes": [
+        16
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 342,
+      "volumes": [
+        16
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 343,
+      "volumes": [
+        16,
+        21
+      ],
+      "name": "interface:air"
+    },
+    {
+      "tag": 344,
+      "volumes": [
+        17,
+        22
+      ],
+      "name": "interface:air"
+    },
+    {
+      "tag": 345,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 346,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 347,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 348,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 349,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 350,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 351,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 352,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 353,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 354,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 355,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 356,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 357,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 358,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 359,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 360,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 361,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 362,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 363,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 364,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 365,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 366,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 367,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 368,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 369,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 370,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 371,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 372,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 373,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 374,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 375,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 376,
+      "volumes": [
+        18,
+        19
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 377,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 378,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 379,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 380,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 381,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 382,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 383,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 384,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 385,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 386,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 387,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 388,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 389,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 390,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 391,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 392,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 393,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 394,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 395,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 396,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 397,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 398,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 399,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 400,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 401,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 402,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 403,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 404,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 405,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 406,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 407,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 408,
+      "volumes": [
+        18,
+        22
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 409,
+      "volumes": [
+        18,
+        23
+      ],
+      "name": "interface:copper:source_net_93"
+    },
+    {
+      "tag": 410,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 411,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 412,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 413,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 414,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 415,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 416,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 417,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 418,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 419,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 420,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 421,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 422,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 423,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 424,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 425,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 426,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 427,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 428,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 429,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 430,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 431,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 432,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 433,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 434,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 435,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 436,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 437,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 438,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 439,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 440,
+      "volumes": [
+        19
+      ],
+      "name": "exterior:dielectric:103"
+    },
+    {
+      "tag": 441,
+      "volumes": [
+        19
+      ],
+      "name": "exterior:dielectric:103"
+    },
+    {
+      "tag": 442,
+      "volumes": [
+        19,
+        21
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 443,
+      "volumes": [
+        19
+      ],
+      "name": "exterior:dielectric:103"
+    },
+    {
+      "tag": 444,
+      "volumes": [
+        19
+      ],
+      "name": "exterior:dielectric:103"
+    },
+    {
+      "tag": 445,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 446,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 447,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 448,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 449,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 450,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 451,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 452,
+      "volumes": [
+        19,
+        20
+      ],
+      "name": "interface:air|dielectric:103"
+    },
+    {
+      "tag": 453,
+      "volumes": [
+        19,
+        28
+      ],
+      "name": "interface:dielectric:101|dielectric:103"
+    },
+    {
+      "tag": 454,
+      "volumes": [
+        19,
+        27
+      ],
+      "name": "interface:copper:source_trace_4|dielectric:103"
+    },
+    {
+      "tag": 455,
+      "volumes": [
+        19,
+        29
+      ],
+      "name": "interface:dielectric:101|dielectric:103"
+    },
+    {
+      "tag": 456,
+      "volumes": [
+        19,
+        26
+      ],
+      "name": "interface:copper:source_trace_16|dielectric:103"
+    },
+    {
+      "tag": 457,
+      "volumes": [
+        19,
+        30
+      ],
+      "name": "interface:dielectric:101|dielectric:103"
+    },
+    {
+      "tag": 458,
+      "volumes": [
+        19,
+        25
+      ],
+      "name": "interface:copper:source_trace_15|dielectric:103"
+    },
+    {
+      "tag": 459,
+      "volumes": [
+        19,
+        31
+      ],
+      "name": "interface:dielectric:101|dielectric:103"
+    },
+    {
+      "tag": 460,
+      "volumes": [
+        19,
+        24
+      ],
+      "name": "interface:copper:source_trace_1|dielectric:103"
+    },
+    {
+      "tag": 461,
+      "volumes": [
+        19,
+        32
+      ],
+      "name": "interface:dielectric:101|dielectric:103"
+    },
+    {
+      "tag": 462,
+      "volumes": [
+        19,
+        23
+      ],
+      "name": "interface:copper:source_net_93|dielectric:103"
+    },
+    {
+      "tag": 463,
+      "volumes": [
+        20
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 464,
+      "volumes": [
+        20
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 465,
+      "volumes": [
+        20,
+        33
+      ],
+      "name": "interface:air"
+    },
+    {
+      "tag": 466,
+      "volumes": [
+        21
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 467,
+      "volumes": [
+        21
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 468,
+      "volumes": [
+        21,
+        34
+      ],
+      "name": "interface:air"
+    },
+    {
+      "tag": 469,
+      "volumes": [
+        22,
+        35
+      ],
+      "name": "interface:air"
+    },
+    {
+      "tag": 470,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 471,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 472,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 473,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 474,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 475,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 476,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 477,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 478,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 479,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 480,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 481,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 482,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 483,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 484,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 485,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 486,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 487,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 488,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 489,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 490,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 491,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 492,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 493,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 494,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 495,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 496,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 497,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 498,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 499,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 500,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 501,
+      "volumes": [
+        23,
+        28
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 502,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 503,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 504,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 505,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 506,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 507,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 508,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 509,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 510,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 511,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 512,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 513,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 514,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 515,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 516,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 517,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 518,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 519,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 520,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 521,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 522,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 523,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 524,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 525,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 526,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 527,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 528,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 529,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 530,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 531,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 532,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 533,
+      "volumes": [
+        23,
+        35
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 534,
+      "volumes": [
+        23,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 535,
+      "volumes": [
+        23,
+        36
+      ],
+      "name": "interface:copper:source_net_93"
+    },
+    {
+      "tag": 536,
+      "volumes": [
+        24
+      ],
+      "name": "exterior:copper:source_trace_1"
+    },
+    {
+      "tag": 537,
+      "volumes": [
+        24,
+        31
+      ],
+      "name": "interface:copper:source_trace_1|dielectric:101"
+    },
+    {
+      "tag": 538,
+      "volumes": [
+        24
+      ],
+      "name": "exterior:copper:source_trace_1"
+    },
+    {
+      "tag": 539,
+      "volumes": [
+        24,
+        32
+      ],
+      "name": "interface:copper:source_trace_1|dielectric:101"
+    },
+    {
+      "tag": 540,
+      "volumes": [
+        24,
+        37
+      ],
+      "name": "interface:copper:source_trace_1|dielectric:101"
+    },
+    {
+      "tag": 541,
+      "volumes": [
+        25
+      ],
+      "name": "exterior:copper:source_trace_15"
+    },
+    {
+      "tag": 542,
+      "volumes": [
+        25,
+        30
+      ],
+      "name": "interface:copper:source_trace_15|dielectric:101"
+    },
+    {
+      "tag": 543,
+      "volumes": [
+        25
+      ],
+      "name": "exterior:copper:source_trace_15"
+    },
+    {
+      "tag": 544,
+      "volumes": [
+        25,
+        31
+      ],
+      "name": "interface:copper:source_trace_15|dielectric:101"
+    },
+    {
+      "tag": 545,
+      "volumes": [
+        25,
+        37
+      ],
+      "name": "interface:copper:source_trace_15|dielectric:101"
+    },
+    {
+      "tag": 546,
+      "volumes": [
+        26,
+        29
+      ],
+      "name": "interface:copper:source_trace_16|dielectric:101"
+    },
+    {
+      "tag": 547,
+      "volumes": [
+        26,
+        29
+      ],
+      "name": "interface:copper:source_trace_16|dielectric:101"
+    },
+    {
+      "tag": 548,
+      "volumes": [
+        26
+      ],
+      "name": "exterior:copper:source_trace_16"
+    },
+    {
+      "tag": 549,
+      "volumes": [
+        26,
+        30
+      ],
+      "name": "interface:copper:source_trace_16|dielectric:101"
+    },
+    {
+      "tag": 550,
+      "volumes": [
+        26,
+        30
+      ],
+      "name": "interface:copper:source_trace_16|dielectric:101"
+    },
+    {
+      "tag": 551,
+      "volumes": [
+        26,
+        30
+      ],
+      "name": "interface:copper:source_trace_16|dielectric:101"
+    },
+    {
+      "tag": 552,
+      "volumes": [
+        26,
+        30
+      ],
+      "name": "interface:copper:source_trace_16|dielectric:101"
+    },
+    {
+      "tag": 553,
+      "volumes": [
+        26
+      ],
+      "name": "exterior:copper:source_trace_16"
+    },
+    {
+      "tag": 554,
+      "volumes": [
+        26,
+        37
+      ],
+      "name": "interface:copper:source_trace_16|dielectric:101"
+    },
+    {
+      "tag": 555,
+      "volumes": [
+        27,
+        29
+      ],
+      "name": "interface:copper:source_trace_4|dielectric:101"
+    },
+    {
+      "tag": 556,
+      "volumes": [
+        27,
+        29
+      ],
+      "name": "interface:copper:source_trace_4|dielectric:101"
+    },
+    {
+      "tag": 557,
+      "volumes": [
+        27,
+        29
+      ],
+      "name": "interface:copper:source_trace_4|dielectric:101"
+    },
+    {
+      "tag": 558,
+      "volumes": [
+        27,
+        29
+      ],
+      "name": "interface:copper:source_trace_4|dielectric:101"
+    },
+    {
+      "tag": 559,
+      "volumes": [
+        27
+      ],
+      "name": "exterior:copper:source_trace_4"
+    },
+    {
+      "tag": 560,
+      "volumes": [
+        27,
+        28
+      ],
+      "name": "interface:copper:source_trace_4|dielectric:101"
+    },
+    {
+      "tag": 561,
+      "volumes": [
+        27,
+        28
+      ],
+      "name": "interface:copper:source_trace_4|dielectric:101"
+    },
+    {
+      "tag": 562,
+      "volumes": [
+        27
+      ],
+      "name": "exterior:copper:source_trace_4"
+    },
+    {
+      "tag": 563,
+      "volumes": [
+        27,
+        37
+      ],
+      "name": "interface:copper:source_trace_4|dielectric:101"
+    },
+    {
+      "tag": 564,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 565,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 566,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 567,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 568,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 569,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 570,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 571,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 572,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 573,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 574,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 575,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 576,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 577,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 578,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 579,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 580,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 581,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 582,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 583,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 584,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 585,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 586,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 587,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 588,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 589,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 590,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 591,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 592,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 593,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 594,
+      "volumes": [
+        28
+      ],
+      "name": "exterior:dielectric:101"
+    },
+    {
+      "tag": 595,
+      "volumes": [
+        28
+      ],
+      "name": "exterior:dielectric:101"
+    },
+    {
+      "tag": 596,
+      "volumes": [
+        28
+      ],
+      "name": "exterior:dielectric:101"
+    },
+    {
+      "tag": 597,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 598,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 599,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 600,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 601,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 602,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 603,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 604,
+      "volumes": [
+        28,
+        33
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 605,
+      "volumes": [
+        28,
+        37
+      ],
+      "name": "interface:dielectric:101"
+    },
+    {
+      "tag": 606,
+      "volumes": [
+        29
+      ],
+      "name": "exterior:dielectric:101"
+    },
+    {
+      "tag": 607,
+      "volumes": [
+        29
+      ],
+      "name": "exterior:dielectric:101"
+    },
+    {
+      "tag": 608,
+      "volumes": [
+        29,
+        37
+      ],
+      "name": "interface:dielectric:101"
+    },
+    {
+      "tag": 609,
+      "volumes": [
+        30
+      ],
+      "name": "exterior:dielectric:101"
+    },
+    {
+      "tag": 610,
+      "volumes": [
+        30
+      ],
+      "name": "exterior:dielectric:101"
+    },
+    {
+      "tag": 611,
+      "volumes": [
+        30
+      ],
+      "name": "exterior:dielectric:101"
+    },
+    {
+      "tag": 612,
+      "volumes": [
+        30,
+        37
+      ],
+      "name": "interface:dielectric:101"
+    },
+    {
+      "tag": 613,
+      "volumes": [
+        31
+      ],
+      "name": "exterior:dielectric:101"
+    },
+    {
+      "tag": 614,
+      "volumes": [
+        31
+      ],
+      "name": "exterior:dielectric:101"
+    },
+    {
+      "tag": 615,
+      "volumes": [
+        31,
+        37
+      ],
+      "name": "interface:dielectric:101"
+    },
+    {
+      "tag": 616,
+      "volumes": [
+        32
+      ],
+      "name": "exterior:dielectric:101"
+    },
+    {
+      "tag": 617,
+      "volumes": [
+        32,
+        34
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 618,
+      "volumes": [
+        32
+      ],
+      "name": "exterior:dielectric:101"
+    },
+    {
+      "tag": 619,
+      "volumes": [
+        32,
+        37
+      ],
+      "name": "interface:dielectric:101"
+    },
+    {
+      "tag": 620,
+      "volumes": [
+        33
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 621,
+      "volumes": [
+        33
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 622,
+      "volumes": [
+        33,
+        38
+      ],
+      "name": "interface:air"
+    },
+    {
+      "tag": 623,
+      "volumes": [
+        34
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 624,
+      "volumes": [
+        34
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 625,
+      "volumes": [
+        34,
+        39
+      ],
+      "name": "interface:air"
+    },
+    {
+      "tag": 626,
+      "volumes": [
+        35,
+        40
+      ],
+      "name": "interface:air"
+    },
+    {
+      "tag": 627,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 628,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 629,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 630,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 631,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 632,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 633,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 634,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 635,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 636,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 637,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 638,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 639,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 640,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 641,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 642,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 643,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 644,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 645,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 646,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 647,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 648,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 649,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 650,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 651,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 652,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 653,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 654,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 655,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 656,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 657,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 658,
+      "volumes": [
+        36,
+        37
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 659,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 660,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 661,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 662,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 663,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 664,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 665,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 666,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 667,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 668,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 669,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 670,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 671,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 672,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 673,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 674,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 675,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 676,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 677,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 678,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 679,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 680,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 681,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 682,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 683,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 684,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 685,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 686,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 687,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 688,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 689,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 690,
+      "volumes": [
+        36,
+        40
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 691,
+      "volumes": [
+        36,
+        41
+      ],
+      "name": "interface:copper:source_net_93"
+    },
+    {
+      "tag": 692,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 693,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 694,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 695,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 696,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 697,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 698,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 699,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 700,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 701,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 702,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 703,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 704,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 705,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 706,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 707,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 708,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 709,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 710,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 711,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 712,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 713,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 714,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 715,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 716,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 717,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 718,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 719,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 720,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 721,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 722,
+      "volumes": [
+        37
+      ],
+      "name": "exterior:dielectric:101"
+    },
+    {
+      "tag": 723,
+      "volumes": [
+        37
+      ],
+      "name": "exterior:dielectric:101"
+    },
+    {
+      "tag": 724,
+      "volumes": [
+        37,
+        39
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 725,
+      "volumes": [
+        37
+      ],
+      "name": "exterior:dielectric:101"
+    },
+    {
+      "tag": 726,
+      "volumes": [
+        37
+      ],
+      "name": "exterior:dielectric:101"
+    },
+    {
+      "tag": 727,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 728,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 729,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 730,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 731,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 732,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 733,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 734,
+      "volumes": [
+        37,
+        38
+      ],
+      "name": "interface:air|dielectric:101"
+    },
+    {
+      "tag": 735,
+      "volumes": [
+        37,
+        41
+      ],
+      "name": "interface:copper:source_net_93|dielectric:101"
+    },
+    {
+      "tag": 736,
+      "volumes": [
+        38
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 737,
+      "volumes": [
+        38
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 738,
+      "volumes": [
+        38,
+        42
+      ],
+      "name": "interface:air"
+    },
+    {
+      "tag": 739,
+      "volumes": [
+        39
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 740,
+      "volumes": [
+        39
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 741,
+      "volumes": [
+        39,
+        43
+      ],
+      "name": "interface:air"
+    },
+    {
+      "tag": 742,
+      "volumes": [
+        40,
+        44
+      ],
+      "name": "interface:air"
+    },
+    {
+      "tag": 743,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 744,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 745,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 746,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 747,
+      "volumes": [
+        41
+      ],
+      "name": "exterior:copper:source_net_93"
+    },
+    {
+      "tag": 748,
+      "volumes": [
+        41
+      ],
+      "name": "exterior:copper:source_net_93"
+    },
+    {
+      "tag": 749,
+      "volumes": [
+        41,
+        43
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 750,
+      "volumes": [
+        41
+      ],
+      "name": "exterior:copper:source_net_93"
+    },
+    {
+      "tag": 751,
+      "volumes": [
+        41
+      ],
+      "name": "exterior:copper:source_net_93"
+    },
+    {
+      "tag": 752,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 753,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 754,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 755,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 756,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 757,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 758,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 759,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 760,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 761,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 762,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 763,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 764,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 765,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 766,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 767,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 768,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 769,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 770,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 771,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 772,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 773,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 774,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 775,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 776,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 777,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 778,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 779,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 780,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 781,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 782,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 783,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 784,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 785,
+      "volumes": [
+        41,
+        42
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 786,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 787,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 788,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 789,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 790,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 791,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 792,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 793,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 794,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 795,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 796,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 797,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 798,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 799,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 800,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 801,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 802,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 803,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 804,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 805,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 806,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 807,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 808,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 809,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 810,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 811,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 812,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 813,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 814,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 815,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 816,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 817,
+      "volumes": [
+        41,
+        44
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 818,
+      "volumes": [
+        41,
+        45
+      ],
+      "name": "interface:air|copper:source_net_93"
+    },
+    {
+      "tag": 819,
+      "volumes": [
+        42
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 820,
+      "volumes": [
+        42
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 821,
+      "volumes": [
+        42,
+        45
+      ],
+      "name": "interface:air"
+    },
+    {
+      "tag": 822,
+      "volumes": [
+        43
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 823,
+      "volumes": [
+        43
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 824,
+      "volumes": [
+        43,
+        45
+      ],
+      "name": "interface:air"
+    },
+    {
+      "tag": 825,
+      "volumes": [
+        44,
+        45
+      ],
+      "name": "interface:air"
+    },
+    {
+      "tag": 826,
+      "volumes": [
+        45
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 827,
+      "volumes": [
+        45
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 828,
+      "volumes": [
+        45
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 829,
+      "volumes": [
+        45
+      ],
+      "name": "exterior:air"
+    },
+    {
+      "tag": 830,
+      "volumes": [
+        45
+      ],
+      "name": "exterior:air"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "defect": "Wall-only analysis crop nearly tangent to a larger via pad",
+  "barrelIndex": 230,
+  "centerMm": [
+    -2.200139,
+    -27.600108
+  ],
+  "netId": "source_net_93",
+  "originalMissingPadAreaMm2": 2.4746881203666504e-06,
+  "originalTileMinimumQuality": 4.13e-06,
+  "repair": "Expand artificial analysis crop around whole via pads and plated walls with clearance; no source copper edit",
+  "revisedTileValidation": "validation.json",
+  "completeRouteValidated": false
+}

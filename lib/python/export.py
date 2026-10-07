@@ -210,8 +210,8 @@ def export(options):
             else build_cad
         )
         if checkpoint:
-            if not options.conformal or options.fragment_strategy != "tiled":
-                raise ValueError("CAD checkpoints require conformal tiled export")
+            if not options.conformal:
+                raise ValueError("CAD checkpoints require a conformal export")
             metadata = json.loads(
                 (checkpoint / "cad-checkpoint-metadata.json").read_text()
             )
@@ -278,7 +278,7 @@ def export(options):
         gmsh.model.occ.synchronize()
         if ports and not checkpoint:
             receipt = imprint_ports(solids, ports)
-        if options.fragment_strategy == "tiled" and options.conformal:
+        if options.conformal:
             if not checkpoint:
                 reload_cad(solids, destination)
             if ports:
@@ -352,6 +352,9 @@ def export(options):
         gmsh.option.setNumber("Mesh.MeshSizeFromCurvature", 0)
         gmsh.option.setNumber("Mesh.MeshSizeExtendFromBoundary", 0)
         gmsh.option.setNumber("Mesh.Algorithm", 6)
+        gmsh.option.setNumber(
+            "Mesh.Algorithm3D", 10 if options.tetrahedral_algorithm == "hxt" else 1
+        )
         gmsh.option.setNumber("Mesh.ElementOrder", 1)
         mesh_started = time.monotonic()
         if not options.cad_only:
@@ -394,6 +397,7 @@ def export(options):
             raise ValueError("Mesh contains inverted or degenerate tetrahedra")
         report = {
             "gmshVersion": gmsh.__version__,
+            "tetrahedralAlgorithm": options.tetrahedral_algorithm,
             "fragmentStrategy": options.fragment_strategy,
             "tileSizeMm": options.tile_size
             if options.fragment_strategy == "tiled"
@@ -461,6 +465,9 @@ if __name__ == "__main__":
     parser.add_argument("--bounds", type=float, nargs=4)
     parser.add_argument("--threads", type=int, default=1)
     parser.add_argument("--optimize-netgen", action="store_true")
+    parser.add_argument(
+        "--tetrahedral-algorithm", choices=["delaunay", "hxt"], default="delaunay"
+    )
     parser.add_argument(
         "--fragment-strategy", choices=["global", "slab", "tiled"], default="global"
     )

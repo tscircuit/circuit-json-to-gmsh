@@ -6,12 +6,15 @@ volume is changed. Leave the unexcited side gaps open; never bridge the contacts
 
 from shapely.geometry import Polygon, box
 from shapely.affinity import affine_transform
+import math
 from planar import nonempty_polygons
 
 
-def rectangular_fixture(port, width_fraction=0.95, clearance_mm=1e-6):
+def rectangular_fixture(port, width_fraction=0.95, clearance_mm=0.001):
     if not 0 < width_fraction <= 1:
         raise ValueError("Require a width fraction in (0, 1]")
+    if not math.isfinite(clearance_mm) or clearance_mm <= 0:
+        raise ValueError("Require a positive finite contact clearance")
     direction = port["direction"]
     if abs(direction[2]) > 1e-12:
         raise ValueError("Require a coplanar port")
@@ -68,6 +71,7 @@ def rectangular_fixture(port, width_fraction=0.95, clearance_mm=1e-6):
         fixtureModel="ideal PEC end-contact extensions",
         originalApertureOutlineMm=port["outlineMm"],
         fixtureWidthFraction=width_fraction,
+        fixtureContactClearanceMm=clearance_mm,
         fixtureLengthMm=b - a,
     )
     contacts = [

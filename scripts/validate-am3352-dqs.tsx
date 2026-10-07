@@ -26,6 +26,7 @@ const { values } = parseArgs({
     "source-vias": { type: "boolean", default: false },
     "cad-only": { type: "boolean", default: false },
     "optimize-netgen": { type: "boolean", default: false },
+    "tetrahedral-algorithm": { type: "string", default: "delaunay" },
     "fragment-strategy": { type: "string", default: "global" },
     "tile-size": { type: "string", default: "2" },
     "tile-workers": { type: "string", default: "1" },
@@ -39,6 +40,9 @@ const { values } = parseArgs({
 })
 if (!values.board || !values.stackup)
   throw new Error("Supply --board circuit.json --stackup stackup.json")
+const tetrahedralAlgorithm = values["tetrahedral-algorithm"]
+if (tetrahedralAlgorithm !== "delaunay" && tetrahedralAlgorithm !== "hxt")
+  throw new Error("tetrahedral-algorithm must be delaunay or hxt")
 if (
   values["fragment-strategy"] !== "global" &&
   values["fragment-strategy"] !== "slab" &&
@@ -200,6 +204,7 @@ const result = await exportGmsh({
       }))
     : undefined,
   simplifyToleranceMm: Number(values["simplify-tolerance"]),
+  tetrahedralAlgorithm,
   routeCorridor:
     values["corridor-margin"] === undefined
       ? undefined

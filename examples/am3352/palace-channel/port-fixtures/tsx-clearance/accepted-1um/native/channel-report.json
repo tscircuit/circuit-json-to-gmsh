@@ -1,0 +1,54 @@
+{
+  "ports": [
+    "U1.OUT",
+    "U2.IN"
+  ],
+  "referenceImpedanceOhms": 50,
+  "portGeometrySha256": "6151854bef07b5d4599855bfd81f4789bfb05f90790b85183680b75e76ad6ff2",
+  "frequenciesHz": [
+    400000000.0
+  ],
+  "order": 1,
+  "sourceMeshSha256": "d77ee50b85c8de90fa4b293a6c2e1c8aa48b069afc2290eadf21b5efe50809ec",
+  "modelSha256": "d7d123dc78a5feaa4abafbd5818a7947c90050aa0fc1d486197763a1515c5233",
+  "sourceManifestSha256": "e531092ddd68dcc1e71bf5dd259a0e3a5cf021198b0ced546ca1855f18a6a840",
+  "tetrahedra": 79429,
+  "palaceMeshSha256": "30b1e06d1662aca7613918c1bde89d31561a42983245fd9c4b62c121ea0ce037",
+  "copperModel": "PEC cavities, no copper loss",
+  "nativeRuns": [
+    {
+      "excitedPort": 1,
+      "wallSecondsMeanRank": 14.57,
+      "gmresIterations": [
+        9
+      ],
+      "logSha256": "155873e8994afc6945b296a81a37f14ce299e5c1e4ba0e40ccdc6d90ac055dad",
+      "csvSha256": "ba56d7a2c80dbeea47a573dc1c3d27e801c26eaeeff005367682e5842f9a1a18"
+    },
+    {
+      "excitedPort": 2,
+      "wallSecondsMeanRank": 15.167,
+      "gmresIterations": [
+        9
+      ],
+      "logSha256": "b27f596e4f62e153131466350a1b19c0d43b757055f3cbe16f4951d70712f817",
+      "csvSha256": "ccab059f2b627af7948e38098cbf2406cd48d17fb995cf2a64b523b535c6de4e"
+    }
+  ],
+  "maximumReciprocityError": 7.3650425705161e-10,
+  "maximumScatteringSingularValue": 0.9999112441988799,
+  "reciprocityErrors": [
+    7.3650425705161e-10
+  ],
+  "scatteringSingularValues": [
+    0.9999112441988799
+  ],
+  "numericalConsistencyPassed": true,
+  "convergenceProven": false,
+  "limitations": [
+    "Port references are explicit geometry assumptions, not inferred power/ground AC impedance.",
+    "Dielectric material assumptions and crop/enclosure sensitivity require independent checks.",
+    "Ideal PEC contact extensions alter near-port fields; fixture-size sensitivity and de-embedding are unproven."
+  ],
+  "touchstoneSha256": "795f89227ce925c844ba63aec10548075643f8ffadd3ad9e5eaaad7d8762f267"
+}

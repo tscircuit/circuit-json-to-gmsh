@@ -42,6 +42,7 @@ test("oblique TSX pad ports get native-verified PEC contacts without changing th
     tileSizeMm: 2.5,
     airPaddingMm: 1,
     meshSizeMm: 0.6,
+    minimumTetQuality: 0.0001,
     validationRequirements: requirements,
     lumpedPorts: requirements.terminals
       .filter((p) => p.netId !== referenceNetId)
@@ -62,12 +63,14 @@ test("oblique TSX pad ports get native-verified PEC contacts without changing th
   if (built.code) throw new Error(built.error)
   const validation = await Bun.file(join(output, "validation.json")).json()
   expect(validation.pcbChecksComplete).toBe(true)
+  expect(validation.quality.threshold).toBe(0.0001)
   expect(validation.checks.every((c: { passed: boolean }) => c.passed)).toBe(
     true,
   )
   const receipt = await Bun.file(join(output, "port-fixtures.json")).json()
   expect(receipt.materialVolumesUnchanged).toBe(true)
   expect(receipt.nativeContactNetsValidated).toBe(true)
+  expect(receipt.contactClearanceMm).toBe(0.001)
   const brep = await Bun.file(join(output, "brep-validation.json")).json()
   expect(brep.valid).toBe(true)
   const ports = await Bun.file(join(output, "ports.json")).json()

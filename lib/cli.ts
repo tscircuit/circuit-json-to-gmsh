@@ -33,6 +33,7 @@ const { values, positionals } = parseArgs({
     bounds: { type: "string" },
     threads: { type: "string", default: "1" },
     "optimize-netgen": { type: "boolean", default: false },
+    "tetrahedral-algorithm": { type: "string", default: "delaunay" },
     "fragment-strategy": { type: "string", default: "global" },
     "tile-size": { type: "string", default: "2" },
     "tile-workers": { type: "string", default: "1" },
@@ -59,6 +60,9 @@ if (
 )
   throw new Error("--fragment-strategy must be global, slab or tiled")
 const circuitJson = parseCircuitJson(await Bun.file(positionals[0]).json())
+const tetrahedralAlgorithm = values["tetrahedral-algorithm"]
+if (tetrahedralAlgorithm !== "delaunay" && tetrahedralAlgorithm !== "hxt")
+  throw new Error("--tetrahedral-algorithm must be delaunay or hxt")
 const model = createGeometryModel({
   circuitJson,
   antipadShape,
@@ -97,6 +101,7 @@ const result = await exportGmsh({
   threads: Number(values.threads),
   optimizeNetgen: values["optimize-netgen"],
   fragmentStrategy,
+  tetrahedralAlgorithm,
   tileSizeMm: Number(values["tile-size"]),
   tileWorkers: Number(values["tile-workers"]),
   tileCacheDirectory: values["tile-cache"],

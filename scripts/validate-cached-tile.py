@@ -47,6 +47,7 @@ def run(a):
                 "boundsMm": job["options"]["boundsMm"],
                 "modelSha256": file_hash(a.model),
                 "meshSizeMm": a.mesh_size,
+                "tetrahedralAlgorithm": a.tetrahedral_algorithm,
             }
         )
         if a.check_brep:
@@ -110,6 +111,9 @@ def run(a):
             ("Mesh.ElementOrder", 1),
         ]:
             gmsh.option.setNumber(key, value)
+        gmsh.option.setNumber(
+            "Mesh.Algorithm3D", 10 if a.tetrahedral_algorithm == "hxt" else 1
+        )
         gmsh.model.mesh.generate(3)
         gmsh.model.mesh.optimize("Netgen")
         check_node_references()
@@ -168,6 +172,9 @@ if __name__ == "__main__":
     p.add_argument("--mesh-size", type=float, default=0.4)
     p.add_argument("--minimum-quality", type=float, default=0)
     p.add_argument("--check-brep", action="store_true")
+    p.add_argument(
+        "--tetrahedral-algorithm", choices=["delaunay", "hxt"], default="delaunay"
+    )
     args = p.parse_args()
     if args.mesh_size <= 0 or not 0 <= args.minimum_quality <= 1:
         p.error("Mesh size must be positive; minimum quality must be in [0, 1]")

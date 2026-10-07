@@ -26,11 +26,24 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def build(source, output, size, threads, width_fraction):
+def build(
+    source,
+    output,
+    size,
+    threads,
+    width_fraction,
+    tetrahedral_algorithm="delaunay",
+    contact_clearance=0.001,
+):
     started = time.monotonic()
+    if tetrahedral_algorithm not in {"delaunay", "hxt"}:
+        raise ValueError("Tetrahedral algorithm must be delaunay or hxt")
     validation = json.loads((source / "validation.json").read_text())
     if not validation.get("passed") or not validation.get("pcbChecksComplete"):
         raise ValueError("Require complete passing PCB mesh validation")
+    minimum_quality = validation["quality"]["threshold"]
+    if not math.isfinite(minimum_quality) or not 0 <= minimum_quality <= 1:
+        raise ValueError("Invalid source mesh quality threshold")
     for field, filename in [
         ("meshSha256", "board.msh"),
         ("manifestSha256", "mesh-manifest.json"),
@@ -58,7 +71,7 @@ def build(source, output, size, threads, width_fraction):
     output.mkdir(parents=True, exist_ok=True)
     ports, contacts = [], []
     for p in json.loads((source / "ports.json").read_text()):
-        port, caps = rectangular_fixture(p, width_fraction)
+        port, caps = rectangular_fixture(p, width_fraction, contact_clearance)
         ports.append(port)
         contacts.extend(caps)
     all_surfaces = ports + contacts
@@ -149,6 +162,9 @@ def build(source, output, size, threads, width_fraction):
         for name in ["Mesh.MeshSizeFromCurvature", "Mesh.MeshSizeExtendFromBoundary"]:
             gmsh.option.setNumber(name, 0)
         gmsh.option.setNumber("Mesh.Algorithm", 6)
+        gmsh.option.setNumber(
+            "Mesh.Algorithm3D", 10 if tetrahedral_algorithm == "hxt" else 1
+        )
         gmsh.option.setNumber("Mesh.ElementOrder", 1)
         gmsh.model.mesh.generate(3)
         gmsh.model.mesh.optimize("Netgen")
@@ -191,6 +207,8 @@ def build(source, output, size, threads, width_fraction):
             str(output / "validation-model.json"),
             "--requirements",
             str(output / "validation-requirements.json"),
+            "--minimum-quality",
+            str(minimum_quality),
             "--output",
             str(output / "validation.json"),
         ],
@@ -206,7 +224,10 @@ def build(source, output, size, threads, width_fraction):
         "meshSha256": sha(output / "board.msh"),
         "portsSha256": sha(output / "ports.json"),
         "widthFraction": width_fraction,
+        "contactClearanceMm": contact_clearance,
         "meshSizeMm": size,
+        "minimumTetQuality": minimum_quality,
+        "tetrahedralAlgorithm": tetrahedral_algorithm,
         "wallSeconds": time.monotonic() - started,
         "materialVolumesUnchanged": True,
         "nativeContactNetsValidated": True,
@@ -224,5 +245,17 @@ if __name__ == "__main__":
     p.add_argument("--mesh-size", type=float, default=0.4)
     p.add_argument("--threads", type=int, default=2)
     p.add_argument("--width-fraction", type=float, default=0.95)
+    p.add_argument("--contact-clearance", type=float, default=0.001)
+    p.add_argument(
+        "--tetrahedral-algorithm", choices=["delaunay", "hxt"], default="delaunay"
+    )
     a = p.parse_args()
-    build(a.mesh_directory, a.output, a.mesh_size, a.threads, a.width_fraction)
+    build(
+        a.mesh_directory,
+        a.output,
+        a.mesh_size,
+        a.threads,
+        a.width_fraction,
+        a.tetrahedral_algorithm,
+        a.contact_clearance,
+    )

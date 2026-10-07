@@ -38,6 +38,8 @@ export async function exportGmsh(options: {
   threads?: number
   /** Apply native Netgen tetrahedron optimization before saving. */
   optimizeNetgen?: boolean
+  /** Native Gmsh tetrahedralizer; default Delaunay. CAD is unchanged. */
+  tetrahedralAlgorithm?: "delaunay" | "hxt"
   /** Partition adjacent z slabs in smaller OCC batches. Saved-mesh validation
    * still rejects any lost/shared interface, regardless of strategy. */
   fragmentStrategy?: "global" | "slab" | "tiled"
@@ -47,7 +49,7 @@ export async function exportGmsh(options: {
   tileWorkers?: number
   /** Reuse hash-verified CAD batches across mesh refinements. */
   tileCacheDirectory?: string
-  /** Remesh a complete tiled CAD checkpoint with matching geometry and ports.
+  /** Remesh a complete conformal CAD checkpoint with matching geometry and ports.
    * Checks content/geometry hashes; saved-mesh validation is always rerun. */
   cadCheckpointDirectory?: string
   /** Enclose the cropped PCB in air, including physical drill/cutout voids. */
@@ -69,15 +71,19 @@ export async function exportGmsh(options: {
   const output = resolve(options.outputDirectory)
   if (
     options.cadCheckpointDirectory &&
-    (!options.conformal ||
-      options.fragmentStrategy !== "tiled" ||
-      resolve(options.cadCheckpointDirectory) === output)
+    (!options.conformal || resolve(options.cadCheckpointDirectory) === output)
   )
     throw new Error(
-      "CAD checkpoint requires conformal tiled export to a different output directory",
+      "CAD checkpoint requires conformal export to a different output directory",
     )
   const meshSize = options.meshSizeMm ?? 0.5
   const repairRadius = options.repairRadiusMm ?? 0.0001
+  if (
+    options.tetrahedralAlgorithm !== undefined &&
+    options.tetrahedralAlgorithm !== "delaunay" &&
+    options.tetrahedralAlgorithm !== "hxt"
+  )
+    throw new Error("tetrahedralAlgorithm must be delaunay or hxt")
   if (
     options.minimumTetQuality !== undefined &&
     (!Number.isFinite(options.minimumTetQuality) ||
@@ -192,6 +198,8 @@ export async function exportGmsh(options: {
   if (options.cadOnly) command.push("--cad-only")
   if (options.step) command.push("--step")
   if (options.optimizeNetgen) command.push("--optimize-netgen")
+  if (options.tetrahedralAlgorithm)
+    command.push("--tetrahedral-algorithm", options.tetrahedralAlgorithm)
   if (options.routeCorridor)
     command.push(
       "--corridor-nets",
