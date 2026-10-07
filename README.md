@@ -221,6 +221,21 @@ Palace can exit with status zero after an unconverged linear solve. `check-run.p
 
 For large iterative cases, preparation accepts `--max-iterations`, `--krylov-size`, `--ams-vector-interpolation` (AMS only) and `--smoothing-iterations`. A larger iteration budget with a bounded Krylov basis controls memory; stronger interpolation/smoothing changes the preconditioner, not the physical model or fixed `1e-8` solve tolerance. These flags do not establish convergence by themselves.
 
+For a Palace build with STRUMPACK, a compressed complex preconditioner can reduce factorization memory. Its compression tolerance controls the preconditioner approximation; the outer GMRES solve still requires `1e-8`. Right preconditioning checks the unpreconditioned system residual. For example:
+
+```sh
+"$GMSH_PYTHON" scripts/palace/prepare-channel.py \
+  --mesh-directory work/fixtures --output work/channel-hss \
+  --frequency-hz 400000000 --linear-solver STRUMPACK \
+  --strumpack-compression HSS --strumpack-compression-tolerance 0.000001 \
+  --complex-coarse-solve --preconditioner-side Right \
+  --max-iterations 500 --krylov-size 100
+```
+
+The oblique TSX control completes both directions in five iterations with these settings, agreeing with SuperLU within `3.49e-9` in a complex S entry. This checks the linear solver on that control; it does not establish mesh refinement or actual-board accuracy. Available compression choices are `None`, `BLR` and `HSS`. Compression settings require `STRUMPACK`; a complex coarse solve requires a direct preconditioner. Native availability and memory depend on the Palace build.
+
+A Palace build with MUMPS can instead use `--linear-solver MUMPS --shifted-preconditioner --preconditioner-side Right`. This selects the native real positive-definite preconditioner while retaining the original complex field equations. The control completes both directions in 12 iterations and agrees with SuperLU within `1.33e-9`. Shifted MUMPS cannot be combined with `--complex-coarse-solve` because the pinned native implementation selects positive-definite factorization for the shifted matrix.
+
 Outputs include raw `channel.sNp`, complex `channel.npz` and `channel-report.json`. Incomplete sweeps and failed solvers are rejected. Reciprocity/passivity violations are reported without changing solver values. For four ports, use `--pairs '1,3;2,4'` to pair source positive/negative ports 1/3 and load ports 2/4; the power-normalized conversion writes `mixed-mode.csv` and `mixed-mode.npz`. At 50 Ω per leg the differential reference is 100 Ω and common-mode reference is 25 Ω.
 
 Compare at least three progressively refined meshes or polynomial orders with `read-channel.py --compare work/coarse work/medium work/fine --output work/convergence.json`. Geometry/manifest, frequency, ports and reference impedance must match. The default criterion requires both last refinement changes to be at most 0.01 in every complex S entry, plus reciprocity/passivity checks. This criterion does not establish crop, enclosure, material or port accuracy. Sparse sweeps are diagnostics; broadband transient/eye modelling needs a sufficiently dense sweep, low/high-frequency treatment and a checked causal passive channel fit.

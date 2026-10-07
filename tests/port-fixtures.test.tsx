@@ -111,6 +111,81 @@ test("oblique TSX pad ports get native-verified PEC contacts without changing th
     AMSVectorInterpolation: true,
     MGSmoothIts: 2,
   })
+  const compressed = await python("prepare-channel.py", [
+    "--mesh-directory",
+    output,
+    "--output",
+    solver,
+    "--frequency-hz",
+    "400000000",
+    "--linear-solver",
+    "STRUMPACK",
+    "--strumpack-compression",
+    "HSS",
+    "--strumpack-compression-tolerance",
+    "0.000001",
+    "--complex-coarse-solve",
+    "--preconditioner-side",
+    "Right",
+  ])
+  if (compressed.code) throw new Error(compressed.error)
+  const compressedConfig = await Bun.file(join(solver, "palace-1.json")).json()
+  const compressedReceipt = await Bun.file(
+    join(solver, "solver-input.json"),
+  ).json()
+  expect(compressedConfig.Solver.Linear.Tol).toBe(1e-8)
+  expect(compressedConfig.Solver.Linear.PCSide).toBe("Right")
+  expect(compressedConfig.Solver.Linear.ComplexCoarseSolve).toBe(true)
+  expect(compressedReceipt.linearSolverSettings).toEqual(
+    compressedConfig.Solver.Linear,
+  )
+  const mismatchedSolver = await python("prepare-channel.py", [
+    "--mesh-directory",
+    output,
+    "--output",
+    solver,
+    "--frequency-hz",
+    "400000000",
+    "--linear-solver",
+    "AMS",
+    "--strumpack-compression",
+    "HSS",
+  ])
+  expect(mismatchedSolver.code).toBe(1)
+  expect(mismatchedSolver.error).toContain("Compression requires STRUMPACK")
+  const shifted = await python("prepare-channel.py", [
+    "--mesh-directory",
+    output,
+    "--output",
+    solver,
+    "--frequency-hz",
+    "400000000",
+    "--linear-solver",
+    "MUMPS",
+    "--shifted-preconditioner",
+    "--preconditioner-side",
+    "Right",
+  ])
+  if (shifted.code) throw new Error(shifted.error)
+  const shiftedConfig = await Bun.file(join(solver, "palace-1.json")).json()
+  expect(shiftedConfig.Solver.Linear.PCMatShifted).toBe(true)
+  expect(shiftedConfig.Solver.Linear.Tol).toBe(1e-8)
+  const invalidComplexShift = await python("prepare-channel.py", [
+    "--mesh-directory",
+    output,
+    "--output",
+    solver,
+    "--frequency-hz",
+    "400000000",
+    "--linear-solver",
+    "MUMPS",
+    "--shifted-preconditioner",
+    "--complex-coarse-solve",
+  ])
+  expect(invalidComplexShift.code).toBe(1)
+  expect(invalidComplexShift.error).toContain(
+    "Shifted MUMPS requires a real coarse solve",
+  )
   ports[0].fixturePecFaces = ports[1].fixturePecFaces
   await Bun.write(join(output, "ports.json"), JSON.stringify(ports))
   const rejected = await python("prepare-channel.py", [

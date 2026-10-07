@@ -1,0 +1,20 @@
+{
+  "case": "Oblique TSX control, 1 micrometre ideal fixture clearance",
+  "frequencyHz": 400000000,
+  "sameGeometryAndFieldMesh": true,
+  "maximumComplexScatteringDifferenceFromSuperLU": 3.4832880680324415e-09,
+  "linearTolerance": 1e-08,
+  "discretizationConvergenceProven": false,
+  "comparison": "Same first-order control mesh; agreement between linear solvers does not establish spatial or physical-model accuracy.",
+  "filesSha256": {
+    "channel-report.json": "7c30e320b0befd62b135d45f14c7e08ba15109df347128f79c31cf057c47a136",
+    "channel.s2p": "1e2ee768e5278c976c0a04e052f84bc5aa76f648bdf7661fa7b98ad7186ffb20",
+    "palace-1.json": "87938b4f6c96f9cb55f2f951c7915b0570579fd0808a1e9e501198747c85eef7",
+    "palace-1.log": "427b78281fe24d97bb7a68c26457f299eebb68ddbe8911ca9403c717a5030ede",
+    "palace-2.json": "0cb698ddf4d0442d1b05e32d806db496c697a4177625b54eaeb58e186e99841f",
+    "palace-2.log": "9135462d45b02ce2a521ad7ccf0de077f7627eab1354e996318d5e16ec135f03",
+    "postpro/port-1/port-S.csv": "8467d89c0c299eaaa38729f909316c1ed491622f90213cbde7bad06d665c6a70",
+    "postpro/port-2/port-S.csv": "967f601312f5b77cf36eb481414aecf4f03e80bd6edc3ab0b325ad3372d9f7f1",
+    "solver-input.json": "89e3d43212be350099c08c5f070bd527b874885b3b0270cda2155e8e651b1213"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "ports": [
+    "U1.OUT",
+    "U2.IN"
+  ],
+  "referenceImpedanceOhms": 50,
+  "portGeometrySha256": "6151854bef07b5d4599855bfd81f4789bfb05f90790b85183680b75e76ad6ff2",
+  "frequenciesHz": [
+    400000000.0
+  ],
+  "order": 1,
+  "sourceMeshSha256": "d77ee50b85c8de90fa4b293a6c2e1c8aa48b069afc2290eadf21b5efe50809ec",
+  "modelSha256": "d7d123dc78a5feaa4abafbd5818a7947c90050aa0fc1d486197763a1515c5233",
+  "sourceManifestSha256": "e531092ddd68dcc1e71bf5dd259a0e3a5cf021198b0ced546ca1855f18a6a840",
+  "tetrahedra": 79429,
+  "palaceMeshSha256": "30b1e06d1662aca7613918c1bde89d31561a42983245fd9c4b62c121ea0ce037",
+  "copperModel": "PEC cavities, no copper loss",
+  "nativeRuns": [
+    {
+      "excitedPort": 1,
+      "wallSecondsMeanRank": 12.422,
+      "gmresIterations": [
+        5
+      ],
+      "logSha256": "427b78281fe24d97bb7a68c26457f299eebb68ddbe8911ca9403c717a5030ede",
+      "csvSha256": "8467d89c0c299eaaa38729f909316c1ed491622f90213cbde7bad06d665c6a70"
+    },
+    {
+      "excitedPort": 2,
+      "wallSecondsMeanRank": 13.525,
+      "gmresIterations": [
+        5
+      ],
+      "logSha256": "9135462d45b02ce2a521ad7ccf0de077f7627eab1354e996318d5e16ec135f03",
+      "csvSha256": "967f601312f5b77cf36eb481414aecf4f03e80bd6edc3ab0b325ad3372d9f7f1"
+    }
+  ],
+  "maximumReciprocityError": 4.011689948287981e-10,
+  "maximumScatteringSingularValue": 0.999911244861652,
+  "reciprocityErrors": [
+    4.011689948287981e-10
+  ],
+  "scatteringSingularValues": [
+    0.999911244861652
+  ],
+  "numericalConsistencyPassed": true,
+  "convergenceProven": false,
+  "limitations": [
+    "Port references are explicit geometry assumptions, not inferred power/ground AC impedance.",
+    "Dielectric material assumptions and crop/enclosure sensitivity require independent checks.",
+    "Ideal PEC contact extensions alter near-port fields; fixture-size sensitivity and de-embedding are unproven."
+  ],
+  "touchstoneSha256": "1e2ee768e5278c976c0a04e052f84bc5aa76f648bdf7661fa7b98ad7186ffb20"
+}

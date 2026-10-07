@@ -28,6 +28,11 @@ def prepare(
     krylov_size=None,
     ams_vector_interpolation=False,
     smoothing_iterations=1,
+    strumpack_compression=None,
+    strumpack_compression_tolerance=1e-3,
+    complex_coarse_solve=False,
+    preconditioner_side=None,
+    shifted_preconditioner=False,
 ):
     validation = json.loads((source / "validation.json").read_text())
     if not validation.get("passed") or not validation.get("pcbChecksComplete"):
@@ -57,6 +62,23 @@ def prepare(
         )
     if ams_vector_interpolation and linear_solver != "AMS":
         raise ValueError("Vector interpolation requires the AMS solver")
+    if linear_solver not in ["SuperLU", "AMS", "STRUMPACK", "MUMPS"]:
+        raise ValueError("Unsupported linear solver")
+    if strumpack_compression is not None and (
+        linear_solver != "STRUMPACK"
+        or strumpack_compression not in ["None", "BLR", "HSS"]
+    ):
+        raise ValueError("Compression requires STRUMPACK and None/BLR/HSS")
+    if not math.isfinite(strumpack_compression_tolerance) or not (
+        0 < strumpack_compression_tolerance < 1
+    ):
+        raise ValueError("Require compression tolerance between zero and one")
+    if preconditioner_side not in [None, "Left", "Right"]:
+        raise ValueError("Require Left or Right preconditioning")
+    if complex_coarse_solve and linear_solver == "AMS":
+        raise ValueError("Complex coarse solve requires a direct preconditioner")
+    if linear_solver == "MUMPS" and complex_coarse_solve and shifted_preconditioner:
+        raise ValueError("Shifted MUMPS requires a real coarse solve")
     linear_options = {
         "Type": linear_solver,
         "KSPType": "GMRES",
@@ -69,6 +91,15 @@ def prepare(
         linear_options["AMSVectorInterpolation"] = True
     if smoothing_iterations != 1:
         linear_options["MGSmoothIts"] = smoothing_iterations
+    if strumpack_compression is not None:
+        linear_options["STRUMPACKCompressionType"] = strumpack_compression
+        linear_options["STRUMPACKCompressionTol"] = strumpack_compression_tolerance
+    if complex_coarse_solve:
+        linear_options["ComplexCoarseSolve"] = True
+    if preconditioner_side is not None:
+        linear_options["PCSide"] = preconditioner_side
+    if shifted_preconditioner:
+        linear_options["PCMatShifted"] = True
     model = json.loads((source / "model.json").read_text())
     manifest = json.loads((source / "mesh-manifest.json").read_text())
     ports = json.loads((source / "ports.json").read_text())
@@ -251,11 +282,20 @@ if __name__ == "__main__":
     p.add_argument("--frequency-hz", nargs="+", type=float, required=True)
     p.add_argument("--order", type=int, default=1)
     p.add_argument("--impedance", type=float, default=50)
-    p.add_argument("--linear-solver", choices=["SuperLU", "AMS"], default="SuperLU")
+    p.add_argument(
+        "--linear-solver",
+        choices=["SuperLU", "AMS", "STRUMPACK", "MUMPS"],
+        default="SuperLU",
+    )
     p.add_argument("--max-iterations", type=int, default=500)
     p.add_argument("--krylov-size", type=int)
     p.add_argument("--ams-vector-interpolation", action="store_true")
     p.add_argument("--smoothing-iterations", type=int, default=1)
+    p.add_argument("--strumpack-compression", choices=["None", "BLR", "HSS"])
+    p.add_argument("--strumpack-compression-tolerance", type=float, default=1e-3)
+    p.add_argument("--complex-coarse-solve", action="store_true")
+    p.add_argument("--preconditioner-side", choices=["Left", "Right"])
+    p.add_argument("--shifted-preconditioner", action="store_true")
     a = p.parse_args()
     print(
         json.dumps(
@@ -270,6 +310,11 @@ if __name__ == "__main__":
                 a.krylov_size,
                 a.ams_vector_interpolation,
                 a.smoothing_iterations,
+                a.strumpack_compression,
+                a.strumpack_compression_tolerance,
+                a.complex_coarse_solve,
+                a.preconditioner_side,
+                a.shifted_preconditioner,
             ),
             indent=2,
         )

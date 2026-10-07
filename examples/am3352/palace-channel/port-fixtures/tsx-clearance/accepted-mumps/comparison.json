@@ -1,0 +1,18 @@
+{
+  "case": "Oblique TSX control, real shifted MUMPS preconditioner",
+  "sameGeometryAndFieldMesh": true,
+  "maximumComplexScatteringDifferenceFromSuperLU": 1.3246276852927724e-09,
+  "linearTolerance": 1e-08,
+  "discretizationConvergenceProven": false,
+  "filesSha256": {
+    "channel-report.json": "687425f78b10718d436a5733b8d6067674a64eeba47250fdf7245c8031e544a3",
+    "channel.s2p": "dba466e4c47fad502bbb4d0db8c15552f8028d15565935b435870788dd89ea65",
+    "palace-1.json": "03e68e44280c2e3e84d0662d8f671a9b494f0de9ec0a7db110b4dc8b761c6b16",
+    "palace-1.log": "4c775fc63b47404ca7131db5f2c63f3ab9deb805994cff302186b99aafc4b799",
+    "palace-2.json": "d269384fcb5d73a717ad0cd724c83eb96470ada1604690be608811f7cdcf183a",
+    "palace-2.log": "85dfadba67acdee5be9a9cc635fe2ba1d8c92c6cb8d85216e32124d1d1606c49",
+    "postpro/port-1/port-S.csv": "78ac224f5f9edbdecf9c9c3db66e5d44b8f7dbf30156a3b6cac0b214d5535bf8",
+    "postpro/port-2/port-S.csv": "294c041dbe42194b24ff00166f3bfac0913c5baaf74c27b96930783df5eed802",
+    "solver-input.json": "1f19cf22fae099c23aaa0f12305ddf716772d695765d6741d2b462754a135daf"
+  }
+}

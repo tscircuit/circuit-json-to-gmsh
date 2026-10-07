@@ -1,0 +1,105 @@
+>> /usr/bin/mpirun -n 2 /opt/palace/bin/palace-x86_64.bin palace-1.json
+
+_____________     _______
+_____   __   \____ __   /____ ____________
+____   /_/  /  __ ` /  /  __ ` /  ___/  _ \
+___   _____/  /_/  /  /  /_/  /  /__/  ___/
+  /__/     \___,__/__/\___,__/\_____\_____/
+
+Git changeset ID: v0.14.0
+Running with 2 MPI processes, 1 OpenMP thread
+Device configuration: omp,cpu
+Memory configuration: host-std
+libCEED backend: /cpu/self/xsmm/blocked
+
+Added 2014 boundary elements for material interfaces to the mesh
+Finished partitioning mesh into 2 subdomains
+
+Characteristic length and time scales:
+ L₀ = 1.000e-03 m, t₀ = 3.336e-03 ns
+
+Mesh curvature order: 1
+Mesh bounding box:
+ (Xmin, Ymin, Zmin) = (-5.000e-03, -4.000e-03, -1.035e-03) m
+ (Xmax, Ymax, Zmax) = (+5.000e-03, +4.000e-03, +1.940e-03) m
+
+Parallel Mesh Stats:
+
+                minimum     average     maximum       total
+ vertices          6284        6426        6568       12852
+ edges            37605       37939       38273       75878
+ faces            60107       60274       60442      120549
+ elements         28739       28762       28786       57525
+ neighbors            1           1           1
+
+            minimum     maximum
+ h       0.00505776    0.926434
+ kappa      1.08417     899.069
+
+Configuring Robin absorbing BC (order 1) at attributes:
+ 1000001
+
+Configuring Robin impedance BC for lumped ports at attributes:
+ 100001: Rs = 5.141e+00 Ω/sq, n = (-0.0,+0.0,+1.0)
+ 100002: Rs = 5.141e+00 Ω/sq, n = (+0.0,-0.0,+1.0)
+
+Configuring lumped port circuit properties:
+ Index = 1: R = 5.000e+01 Ω
+ Index = 2: R = 5.000e+01 Ω
+
+Configuring lumped port excitation source term at attributes:
+ 100001: Index = 1
+
+Configuring Dirichlet PEC BC at attributes:
+ 1000000
+
+Computing frequency response for:
+Excitation with index 1 has contributions from:
+ Lumped port  1
+
+Assembling system matrices, number of global unknowns:
+ H1 (p = 1): 12852, ND (p = 1): 75878, RT (p = 1): 120549
+ Operator assembly level: Partial
+ Mesh geometries:
+  Tetrahedron: P = 6, Q = 4 (quadrature order = 2)
+
+Assembling multigrid hierarchy:
+ Level 0 (p = 1): 75878 unknowns
+ Level 0 (auxiliary) (p = 1): 12852 unknowns
+
+It 1/1: ω/2π = 4.000e-01 GHz (total elapsed time = 3.73e-01 s)
+
+  Residual norms for GMRES solve
+  0 (restart 0) KSP residual norm 5.258684e-02
+  1 (restart 0) KSP residual norm 6.286891e-05
+  2 (restart 0) KSP residual norm 1.157677e-06
+  3 (restart 0) KSP residual norm 3.361409e-08
+  4 (restart 0) KSP residual norm 1.006716e-09
+  5 (restart 0) KSP residual norm 1.569786e-11
+GMRES solver converged in 5 iterations (avg. reduction factor: 1.244e-02)
+ Sol. ||E|| = 7.153963e+00 (||RHS|| = 5.258684e-02)
+ Field energy E (1.328e-02 J) + H (3.549e-02 J) = 4.877e-02 J
+ S[1][1] = +6.600e-03+5.581e-02i, |S[1][1]| = -2.500e+01, arg(S[1][1]) = +8.326e+01
+ S[2][1] = +9.902e-01-1.224e-01i, |S[2][1]| = -1.937e-02, arg(S[2][1]) = -7.045e+00
+ Updating solution error estimates
+
+Completed 0 iterations of adaptive mesh refinement (AMR):
+ Indicator norm = 4.628e-01, global unknowns = 75878
+ Max. iterations = 0, tol. = 1.000e-02
+
+Elapsed Time Report (s)           Min.        Max.        Avg.
+==============================================================
+Initialization                   0.058       0.061       0.060
+  Mesh Preprocessing             0.526       0.526       0.526
+Operator Construction            0.131       0.135       0.133
+Linear Solve                     0.356       0.356       0.356
+  Setup                          0.372       0.372       0.372
+  Preconditioner                 3.469       3.470       3.470
+Estimation                       0.044       0.062       0.053
+  Construction                   2.781       2.781       2.781
+  Solve                          4.364       4.376       4.370
+Postprocessing                   0.057       0.063       0.060
+Disk IO                          0.207       0.207       0.207
+--------------------------------------------------------------
+Total                           12.420      12.423      12.422
+

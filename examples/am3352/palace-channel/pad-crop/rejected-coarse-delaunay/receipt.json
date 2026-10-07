@@ -1,0 +1,21 @@
+{
+  "case": "Complete corrected AM3352 DQS0/DQSn0 coarse remesh",
+  "acceptedForFieldSolve": false,
+  "meshSizeMm": 0.8,
+  "passed": false,
+  "minimumTetQuality": 3.8367915313335414e-05,
+  "requiredQuality": 0.0001,
+  "failedChecks": [
+    "positive_tetrahedra"
+  ],
+  "meshSha256": "07564f4847b13dfbde8222916093eaae0b748e196ed27f508fcc1b078754dff8",
+  "filesSha256": {
+    "cad-checkpoint-metadata.json": "82478799ad50b8845489c6462cebe5ca2991fd61ec8cda139e2c61ad7d63e049",
+    "cad-geometry-signature.json": "cc286f72e66009f33ef1d9c2a1608690adb78c7e17da63e6392adbefdd96afe0",
+    "cad-report.json": "32cd3836ee122cbc26d0d043a3239522deee51e6c00d67988b1a1c032910385e",
+    "failure.json": "4cc2c0ae3b69daedb3b2679af33d4d4b7f0d9b6c9bf9707a02ba1d6e24df1935",
+    "provenance.json": "93710d61378322db2c7d4c561602b74d5249df11741a34d9c9d36a8a815756be",
+    "report.json": "85ce1e5c781c9a241864dca47a12baafe6b327062a9fbca1551ceaab50f445a7",
+    "validation.json": "836dc6aaa0c81a2f73c9c8307aabe94a9b821a0e7eae94af831aba38e6f3879c"
+  }
+}

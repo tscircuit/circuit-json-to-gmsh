@@ -1,0 +1,112 @@
+>> /usr/bin/mpirun -n 2 /opt/palace/bin/palace-x86_64.bin palace-2.json
+
+_____________     _______
+_____   __   \____ __   /____ ____________
+____   /_/  /  __ ` /  /  __ ` /  ___/  _ \
+___   _____/  /_/  /  /  /_/  /  /__/  ___/
+  /__/     \___,__/__/\___,__/\_____\_____/
+
+Git changeset ID: v0.14.0
+Running with 2 MPI processes, 1 OpenMP thread
+Device configuration: omp,cpu
+Memory configuration: host-std
+libCEED backend: /cpu/self/xsmm/blocked
+
+Added 2014 boundary elements for material interfaces to the mesh
+Finished partitioning mesh into 2 subdomains
+
+Characteristic length and time scales:
+ L₀ = 1.000e-03 m, t₀ = 3.336e-03 ns
+
+Mesh curvature order: 1
+Mesh bounding box:
+ (Xmin, Ymin, Zmin) = (-5.000e-03, -4.000e-03, -1.035e-03) m
+ (Xmax, Ymax, Zmax) = (+5.000e-03, +4.000e-03, +1.940e-03) m
+
+Parallel Mesh Stats:
+
+                minimum     average     maximum       total
+ vertices          6284        6426        6568       12852
+ edges            37605       37939       38273       75878
+ faces            60107       60274       60442      120549
+ elements         28739       28762       28786       57525
+ neighbors            1           1           1
+
+            minimum     maximum
+ h       0.00505776    0.926434
+ kappa      1.08417     899.069
+
+Configuring Robin absorbing BC (order 1) at attributes:
+ 1000001
+
+Configuring Robin impedance BC for lumped ports at attributes:
+ 100001: Rs = 5.141e+00 Ω/sq, n = (-0.0,+0.0,+1.0)
+ 100002: Rs = 5.141e+00 Ω/sq, n = (+0.0,-0.0,+1.0)
+
+Configuring lumped port circuit properties:
+ Index = 1: R = 5.000e+01 Ω
+ Index = 2: R = 5.000e+01 Ω
+
+Configuring lumped port excitation source term at attributes:
+ 100002: Index = 2
+
+Configuring Dirichlet PEC BC at attributes:
+ 1000000
+
+Computing frequency response for:
+Excitation with index 2 has contributions from:
+ Lumped port  2
+
+Assembling system matrices, number of global unknowns:
+ H1 (p = 1): 12852, ND (p = 1): 75878, RT (p = 1): 120549
+ Operator assembly level: Partial
+ Mesh geometries:
+  Tetrahedron: P = 6, Q = 4 (quadrature order = 2)
+
+Assembling multigrid hierarchy:
+ Level 0 (p = 1): 75878 unknowns
+ Level 0 (auxiliary) (p = 1): 12852 unknowns
+
+It 1/1: ω/2π = 4.000e-01 GHz (total elapsed time = 1.11e+00 s)
+
+  Residual norms for GMRES solve
+  0 (restart 0) KSP residual norm 5.258684e-02
+  1 (restart 0) KSP residual norm 3.481322e-02
+  2 (restart 0) KSP residual norm 3.721167e-04
+  3 (restart 0) KSP residual norm 1.348765e-04
+  4 (restart 0) KSP residual norm 5.680066e-06
+  5 (restart 0) KSP residual norm 4.506389e-06
+  6 (restart 0) KSP residual norm 3.422440e-06
+  7 (restart 0) KSP residual norm 1.526194e-07
+  8 (restart 0) KSP residual norm 1.017544e-07
+  9 (restart 0) KSP residual norm 4.030993e-08
+ 10 (restart 0) KSP residual norm 2.713865e-09
+ 11 (restart 0) KSP residual norm 1.949072e-09
+ 12 (restart 0) KSP residual norm 2.761713e-10
+GMRES solver converged in 12 iterations (avg. reduction factor: 2.042e-01)
+ Sol. ||E|| = 7.149100e+00 (||RHS|| = 5.258684e-02)
+ Field energy E (1.326e-02 J) + H (3.550e-02 J) = 4.877e-02 J
+ S[1][2] = +9.902e-01-1.224e-01i, |S[1][2]| = -1.937e-02, arg(S[1][2]) = -7.045e+00
+ S[2][2] = +6.079e-03+5.589e-02i, |S[2][2]| = -2.500e+01, arg(S[2][2]) = +8.379e+01
+ Updating solution error estimates
+
+Completed 0 iterations of adaptive mesh refinement (AMR):
+ Indicator norm = 4.628e-01, global unknowns = 75878
+ Max. iterations = 0, tol. = 1.000e-02
+
+Elapsed Time Report (s)           Min.        Max.        Avg.
+==============================================================
+Initialization                   0.057       0.059       0.058
+  Mesh Preprocessing             0.525       0.525       0.525
+Operator Construction            0.125       0.125       0.125
+Linear Solve                     0.784       0.784       0.784
+  Setup                          1.104       1.104       1.104
+  Preconditioner                 0.594       0.595       0.595
+Estimation                       0.086       0.104       0.095
+  Construction                   2.842       2.843       2.843
+  Solve                          5.953       5.972       5.963
+Postprocessing                   0.089       0.090       0.089
+Disk IO                          0.162       0.163       0.163
+--------------------------------------------------------------
+Total                           12.390      12.391      12.391
+

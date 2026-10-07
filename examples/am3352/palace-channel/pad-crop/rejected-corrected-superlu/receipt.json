@@ -1,0 +1,20 @@
+{
+  "case": "Actual corrected AM3352 DQS0/DQSn0",
+  "validChannel": false,
+  "frequencyHz": 400000000,
+  "order": 1,
+  "dockerImage": "benvial/palace@sha256:f0f3a3cbbdf1ee2d8f856ddbe1f5bf4628a92ee8ab87d1e27dc33402ad9c8dda",
+  "mpiProcesses": 4,
+  "cpus": 4,
+  "memoryLimitGiB": 14,
+  "nativeExitCode": 9,
+  "signal": 9,
+  "scatteringValuesRejected": true,
+  "reason": "Native rank killed with signal 9 before a completed linear solve. Root cgroup oom_kill counter increased from 10 in an earlier observation to 12; no retained per-container OOM state, so exact attribution is not proven.",
+  "filesSha256": {
+    "palace-1.json": "57865b07e160b5c796fb2f01932a27dd1f8a449888b38083a22857d4c4d713b6",
+    "palace-1.log": "5d4bf3ce620d6bd5eb95b50283a6d11136eb21a25c7837b92f1c068c13fb3231",
+    "solver-input.json": "15337cbba184d90519bbd8ae6fc0e9b41dab67838e3cb37fd1890c8d4b885df5",
+    "status.json": "ee1cfc7a5e14de3ab306b0237340e5d1d6509355fdb0a2fecd89b8ee845eb2fd"
+  }
+}
