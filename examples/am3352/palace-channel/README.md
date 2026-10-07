@@ -73,7 +73,13 @@ A subsequent whole-route CAD build took 4,200 s. All 1,722 native solids passed 
 
 ![Rejected native boundary triangles at the artificial DQS crop, magnified to nanometres](crop-isolation/overlapping-facets.png)
 
-The TSX regression checks that a crop leaves physical-contour simplification receipts unchanged and independently verifies material interfaces, physical voids and terminal paths. The full corrected route still must pass those gates before Palace runs.
+![PoppyGL view of the repaired local copper tile, with substrate hidden](crop-isolation/repaired-copper.png)
+
+This PoppyGL view shows the **isolated neighbouring copper tile**, at physical scale with substrate hidden: bottom GND is blue, top DDR_1V5 is green, and inner2 traces are orange/purple. It is a CAD inspection view, not an EM field plot or the complete DQS route.
+
+The TSX regression checks that a crop leaves physical-contour simplification receipts unchanged and independently verifies material interfaces, physical voids and terminal paths. The full corrected route still must pass those gates before Palace runs. A separate [84-tile preflight](tile-preflight/results.json) completed in **225 s with two workers**, checking 1,007,863 isolated tetrahedra. Every BRep and all eight available saved-mesh checks passed. The minimum element quality is **3.77e-6**, so passing positivity does not establish discretization accuracy. The preflight uses the same total-volume criterion as the exporter on each tile, records per-solid differences and explicitly leaves complete-route connectivity unvalidated.
+
+Use `scripts/validate-cached-tile.py --tile CACHE_ENTRY --model SOURCE_MODEL --output OUTPUT --mesh-size 0.4 --check-brep` for any completed cache entry. The TSX tiled regression checks a valid entry and rejects a corrupted BRep receipt before meshing.
 
 The input is the [pinned circuit-json](../mesh-validation/am3352.circuit.json.gz) with [its stackup](../mesh-validation/stackup.json). The expanded JSON SHA-256 is `c9d7059fe536865784f175855e0dcc76510972319eec848c18b0ef6dcd2adb40`.
 

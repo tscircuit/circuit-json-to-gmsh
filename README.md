@@ -110,6 +110,16 @@ The source-via case also emits a native cross-section. Use `--fragment-strategy 
 
 `--fragment-strategy tiled --tile-size 2.5 --tile-workers 4 --tile-cache work/cad-cache` performs bounded XY CAD batches in isolated native processes, then joins four-cell blocks, including corner contacts. These are internal CAD subdivisions; they do not introduce EM boundaries. Batch caches verify geometry, exporter implementation, native version and file hashes. Reloaded solids must retain unique material ownership, and the final mesh must still pass the saved-mesh checks. `tileSizeMm` controls CAD workloads, independently of `meshSizeMm`.
 
+Cached tiles can be meshed individually before an expensive join:
+
+```sh
+"$GMSH_PYTHON" scripts/validate-cached-tile.py \
+  --tile work/cad-cache/TILE_HASH --model work/board/model.json \
+  --output work/tile-preflight --mesh-size 0.4 --check-brep
+```
+
+This verifies the job, BRep and ownership-catalogue hashes, preserves material ownership on reload, applies the exporter's total-volume criterion to the tile, records per-solid volume differences, and independently validates its saved mesh. `--check-brep` requires the optional OpenCASCADE test dependencies. `--minimum-quality` defaults to zero (strictly positive tetrahedra). The report explicitly sets `completeRouteValidated: false`: individual tiles do not establish conformity across joins or complete-route terminal paths.
+
 The completed tiled CAD is independently reloaded before meshing. A twelve-cell TSX regression exposed Gmsh 4.13.1 emitting node `0` references after repeated OCC edits despite reporting successful mesh generation; BRep reload resolves the reproduction. Missing node references are explicitly rejected, and the saved-mesh gates still apply. A hash-verified `cad-checkpoint.brep` plus its ownership catalogue can be reused with `--cad-checkpoint work/coarse` (library `cadCheckpointDirectory`) to remesh into a different output directory. Keep all geometry, ports, crop, air and tiling settings identical; only mesh/optimization settings may change. Every refinement is validated again.
 
 Cropping can create resin wedges below OpenCASCADE's tolerance. A cropped dielectric island is transferred to copper only if its area is at most `1e-6 mm²`, it cannot contain a `1e-5 mm` (10 nm) inset, it touches the crop edge, and it has exactly one neighbouring copper net. Drills are protected; ambiguous ownership is rejected. The 1 nm coordinate grid can round the union locally; any change must stay within 2 nm of the wedge, with boundary displacement at most 1.5 nm, and cannot overlap another net. `report.json.sliverRepairs` records the net, bounds, wedge area, actual copper addition, dielectric removal, grid rounding and transferred volume. This is an explicit geometry approximation, not an exact fabrication model.

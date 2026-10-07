@@ -1,6 +1,6 @@
 import { expect, test } from "bun:test"
 import { Circuit } from "@tscircuit/core"
-import { mkdtemp } from "node:fs/promises"
+import { cp, mkdtemp, readdir } from "node:fs/promises"
 import { tmpdir } from "node:os"
 import { join } from "node:path"
 import {
@@ -52,6 +52,51 @@ test("XY batches join into a conformal TSX DQS mesh with both through-via paths 
     result.validation?.copperComponents?.[requirements.terminals[2].netId],
   ).toBe(1)
   expect(result.report.sharedInterfaceFaces).toBeGreaterThan(0)
+  const entry = (await readdir(join(directory, "tile-cache")))[0]!
+  const tile = join(directory, "tile-cache", entry)
+  const preflight = async (input: string, output: string) => {
+    const subprocess = Bun.spawn(
+      [
+        process.env.GMSH_PYTHON ?? "python3",
+        join(import.meta.dir, "../scripts/validate-cached-tile.py"),
+        "--tile",
+        input,
+        "--model",
+        join(directory, "model.json"),
+        "--output",
+        output,
+        "--mesh-size",
+        "0.6",
+        "--check-brep",
+      ],
+      { stdout: "ignore", stderr: "pipe" },
+    )
+    const [code, stderr] = await Promise.all([
+      subprocess.exited,
+      new Response(subprocess.stderr).text(),
+    ])
+    const report = await Bun.file(join(output, "preflight.json")).json()
+    if (!report && code) throw new Error(stderr)
+    return { code, report }
+  }
+  const local = await preflight(tile, join(directory, "preflight"))
+  expect(local.code).toBe(0)
+  expect(local.report.passed).toBe(true)
+  expect(local.report.brepValidation.valid).toBe(true)
+  expect(local.report.completeRouteValidated).toBe(false)
+  expect(local.report.validation.pcbChecksComplete).toBe(false)
+  const corrupt = join(directory, "corrupt-cache")
+  await cp(tile, corrupt, { recursive: true })
+  const receipt = await Bun.file(join(corrupt, "complete.json")).json()
+  receipt.brepSha256 = "0".repeat(64)
+  await Bun.write(join(corrupt, "complete.json"), JSON.stringify(receipt))
+  const rejected = await preflight(
+    corrupt,
+    join(directory, "rejected-preflight"),
+  )
+  expect(rejected.code).toBe(1)
+  expect(rejected.report.passed).toBe(false)
+  expect(rejected.report.error).toContain("hash mismatch")
   const finer = await exportGmsh({
     model,
     outputDirectory: await mkdtemp(join(tmpdir(), "gmsh-remesh-")),

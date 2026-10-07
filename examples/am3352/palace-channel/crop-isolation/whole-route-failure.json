@@ -403,6 +403,227 @@
       ]
     },
     "isolatedMeshSeconds": 1.8794146509899292,
-    "completeRouteStatus": "rebuilding; isolated validation is not complete-route validation"
+    "completeRouteStatus": "rebuilding; isolated validation is not complete-route validation",
+    "poppyglPreview": {
+      "file": "repaired-copper.png",
+      "copperOnly": true,
+      "zScale": 1,
+      "cameraMm": [0.4, -21.7, 2.8],
+      "lookAtMm": [-1.8, -19.3, 0.72],
+      "meshSha256": "ace0a83b561953e58b572cf4b0d27b0711448cec9eb1819ce3529f79306a3869",
+      "validation": {
+        "schemaVersion": 1,
+        "passed": true,
+        "pcbChecksComplete": false,
+        "gmshVersion": "4.13.1",
+        "units": "mm",
+        "wallSeconds": 0.36912297501112334,
+        "meshSha256": "ace0a83b561953e58b572cf4b0d27b0711448cec9eb1819ce3529f79306a3869",
+        "manifestSha256": "b25c8e7dbbd4b7c8183b69ad5c5d3744ebb1f600974a5c18a93a72a1a92d9b9c",
+        "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+        "requirementsSha256": null,
+        "tetrahedra": 17742,
+        "nodes": 3417,
+        "quality": {
+          "minimum": 0.01191467533039753,
+          "percentile01": 0.049319001397441165,
+          "median": 0.4606182827871496,
+          "threshold": 0.001,
+          "worstElements": [
+            {
+              "tag": 18172,
+              "volume": 20,
+              "material": "air",
+              "minSICN": 0.01191467533039753,
+              "coordinatesMm": [
+                [-0.827508, -20.55, 1.3948],
+                [-0.89416337288606, -20.44899047637472, 1.385054179748553],
+                [-1.198236666666666, -20.55, 1.3948],
+                [-0.82808, -20.532531, 1.3948]
+              ]
+            },
+            {
+              "tag": 16051,
+              "volume": 18,
+              "material": "air",
+              "minSICN": 0.013361054026083499,
+              "coordinatesMm": [
+                [-0.7039868461121002, -19.49912261980479, 0.8406224104256543],
+                [-0.63427, -19.480301, 0.7471000000000007],
+                [-0.635546, -19.482352, 1.06335],
+                [-0.635546, -19.482352, 0.7471000000000007]
+              ]
+            },
+            {
+              "tag": 14764,
+              "volume": 18,
+              "material": "air",
+              "minSICN": 0.014404473716687481,
+              "coordinatesMm": [
+                [-0.63427, -19.480301, 1.06335],
+                [-0.7153911939329061, -19.46899768536944, 1.238666517921283],
+                [-0.63427, -19.480301, 1.3796],
+                [-0.635546, -19.478249, 1.06335]
+              ]
+            },
+            {
+              "tag": 14820,
+              "volume": 18,
+              "material": "air",
+              "minSICN": 0.01481672097423475,
+              "coordinatesMm": [
+                [-0.63427, -19.480301, 1.3796],
+                [-0.7153911939329061, -19.46899768536944, 1.238666517921283],
+                [-0.635546, -19.478249, 1.3796],
+                [-0.635546, -19.478249, 1.06335]
+              ]
+            },
+            {
+              "tag": 13612,
+              "volume": 17,
+              "material": "dielectric:103",
+              "minSICN": 0.015184179110424271,
+              "coordinatesMm": [
+                [-0.635546, -19.478249, 0.7471000000000007],
+                [-0.63427, -19.480301, 0.4308500000000001],
+                [-0.635546, -19.478249, 0.4308500000000001],
+                [-0.5628071513892067, -19.3428932261501, 0.5061527956038355]
+              ]
+            }
+          ]
+        },
+        "copperComponents": {
+          "source_net_56": 1,
+          "source_net_93": 1,
+          "source_trace_26": 2,
+          "source_trace_27": 3
+        },
+        "terminals": {},
+        "connections": [],
+        "checks": [
+          {
+            "name": "linear_tetrahedra",
+            "passed": true,
+            "tetrahedra": 17742,
+            "unsupportedTypes": []
+          },
+          {
+            "name": "material_ownership",
+            "passed": true,
+            "errors": []
+          },
+          {
+            "name": "positive_tetrahedra",
+            "passed": true,
+            "minimum": 0.01191467533039753,
+            "percentile01": 0.049319001397441165,
+            "median": 0.4606182827871496,
+            "threshold": 0.001,
+            "worstElements": [
+              {
+                "tag": 18172,
+                "volume": 20,
+                "material": "air",
+                "minSICN": 0.01191467533039753,
+                "coordinatesMm": [
+                  [-0.827508, -20.55, 1.3948],
+                  [-0.89416337288606, -20.44899047637472, 1.385054179748553],
+                  [-1.198236666666666, -20.55, 1.3948],
+                  [-0.82808, -20.532531, 1.3948]
+                ]
+              },
+              {
+                "tag": 16051,
+                "volume": 18,
+                "material": "air",
+                "minSICN": 0.013361054026083499,
+                "coordinatesMm": [
+                  [-0.7039868461121002, -19.49912261980479, 0.8406224104256543],
+                  [-0.63427, -19.480301, 0.7471000000000007],
+                  [-0.635546, -19.482352, 1.06335],
+                  [-0.635546, -19.482352, 0.7471000000000007]
+                ]
+              },
+              {
+                "tag": 14764,
+                "volume": 18,
+                "material": "air",
+                "minSICN": 0.014404473716687481,
+                "coordinatesMm": [
+                  [-0.63427, -19.480301, 1.06335],
+                  [-0.7153911939329061, -19.46899768536944, 1.238666517921283],
+                  [-0.63427, -19.480301, 1.3796],
+                  [-0.635546, -19.478249, 1.06335]
+                ]
+              },
+              {
+                "tag": 14820,
+                "volume": 18,
+                "material": "air",
+                "minSICN": 0.01481672097423475,
+                "coordinatesMm": [
+                  [-0.63427, -19.480301, 1.3796],
+                  [-0.7153911939329061, -19.46899768536944, 1.238666517921283],
+                  [-0.635546, -19.478249, 1.3796],
+                  [-0.635546, -19.478249, 1.06335]
+                ]
+              },
+              {
+                "tag": 13612,
+                "volume": 17,
+                "material": "dielectric:103",
+                "minSICN": 0.015184179110424271,
+                "coordinatesMm": [
+                  [-0.635546, -19.478249, 0.7471000000000007],
+                  [-0.63427, -19.480301, 0.4308500000000001],
+                  [-0.635546, -19.478249, 0.4308500000000001],
+                  [-0.5628071513892067, -19.3428932261501, 0.5061527956038355]
+                ]
+              }
+            ],
+            "invertedOrDegenerate": 0,
+            "belowQualityThreshold": 0
+          },
+          {
+            "name": "cad_volume_coverage",
+            "passed": true,
+            "errors": []
+          },
+          {
+            "name": "manifold_tetrahedron_faces",
+            "passed": true,
+            "nonmanifoldFaces": 0
+          },
+          {
+            "name": "conformal_interfaces",
+            "passed": true,
+            "cadOwnershipChecked": true,
+            "errors": []
+          },
+          {
+            "name": "copper_net_separation",
+            "passed": true,
+            "shortedNodes": 0,
+            "coordinateToleranceMm": 1e-7,
+            "errors": []
+          },
+          {
+            "name": "drill_and_cutout_voids",
+            "passed": true,
+            "errors": []
+          },
+          {
+            "name": "terminal_connectivity",
+            "passed": null,
+            "errors": []
+          }
+        ],
+        "limitations": [
+          "Mesh validation is not EM convergence or solver validation.",
+          "Void checks exclude a 2e-6 mm boundary tolerance; projection overlap tolerance is 1e-10 mm\u00b2. Errors are capped at 20 examples.",
+          "Only linear tetrahedra and triangular boundaries are supported."
+        ]
+      }
+    }
   }
 }
