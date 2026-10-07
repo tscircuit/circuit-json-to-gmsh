@@ -49,6 +49,19 @@ The [per-frequency comparison values](tsx-control/refinement-samples.csv) preser
 
 At **400 MHz only**, a separate second-order spatial-refinement study used target mesh sizes 0.8, 0.6 and 0.4 mm (29,521, 36,313 and 61,340 full-material tetrahedra). Both directions completed on each mesh. The maximum complex S changes were **0.00290** and **0.00204**, passing the 0.01 discretization comparison. [Raw results and comparison](tsx-control/400mhz/refinement.json) are retained. This is a validated numerical comparison for the control at one frequency; it does not establish broadband eye accuracy or the AM3352 physical model. Repeat `generate-palace-control.tsx --mesh-size SIZE` at each size, prepare with `--order 2 --frequency-hz 400000000`, run both columns, then compare all three directories.
 
+The same second-order **0.8 → 0.6 → 0.4 mm** spatial study has now completed across all five diagnostic frequencies. Both directions pass numerical consistency on each mesh, but maximum complex S changes are **0.01133** and **0.01116**, so the broadband study still fails the 0.01 comparison. [Reports, raw logs/CSV and Touchstone](tsx-control/spatial/refinement.json) are retained. The 0.6 mm excitations took 532/543 s; the 0.4 mm excitations took 852/710 s (mean MPI-rank wall time; these runs shared the workstation with CAD jobs).
+
+![Native second-order spatial refinement across the diagnostic band; not converged](tsx-control/spatial/refinement.png)
+
+To plot a freshly solved study, `plot-refinement.py` first revalidates the native data and comparison, then writes the raw sample changes, report and figure:
+
+```sh
+"$GMSH_PYTHON" scripts/palace/plot-refinement.py \
+  --runs work/h08 work/h06 work/h04 \
+  --labels 'h = 0.8 mm' 'h = 0.6 mm' 'h = 0.4 mm' \
+  --output-directory work/refinement --title 'PCB control spatial refinement'
+```
+
 A symmetric [four-port TSX control](../../../tests/fixtures/differential-board.tsx) also completed all four native Palace excitations on 32,287 full-material tetrahedra. Its maximum reciprocity error is `4.66e-9` and maximum scattering singular value is `0.999999609`. Each excitation took 11.3–12.6 s (mean MPI-rank wall time). These are complete raw solver samples; discretization convergence is not established. At 5 GHz, the differential-to-common transmission magnitude is 0.00854; this coarse symmetric control must not be treated as an exact zero-conversion reference.
 
 ![Raw mixed-mode samples from the four-port TSX control](tsx-fourport-control/channel.png)
