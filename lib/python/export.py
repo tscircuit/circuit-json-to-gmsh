@@ -118,7 +118,9 @@ def export(options):
             )
             copper = {
                 layer: {
-                    net: clean(unary_union(nonempty_polygons(shape.intersection(board))))
+                    net: clean(
+                        unary_union(nonempty_polygons(shape.intersection(board)))
+                    )
                     for net, shape in nets.items()
                 }
                 for layer, nets in copper.items()
@@ -127,7 +129,9 @@ def export(options):
             board = clean(board.intersection(box(*options.bounds)))
             copper = {
                 layer: {
-                    net: clean(unary_union(nonempty_polygons(shape.intersection(board))))
+                    net: clean(
+                        unary_union(nonempty_polygons(shape.intersection(board)))
+                    )
                     for net, shape in nets.items()
                 }
                 for layer, nets in copper.items()

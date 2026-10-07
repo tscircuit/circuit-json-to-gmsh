@@ -59,6 +59,18 @@ test("a TSX crop discards zero-area copper contact beside a retained island on t
   expect(result.validation?.checks.every((c) => c.passed === true)).toBe(true)
   const ports = await Bun.file(join(result.brepPath, "..", "ports.json")).json()
   expect(ports).toHaveLength(1)
+  const floatingNet = board.circuitJson.find(
+    (e) => e.type === "source_net" && e.name === "FLOAT",
+  )
+  if (!floatingNet || floatingNet.type !== "source_net")
+    throw new Error("Missing FLOAT net")
+  const manifest = await Bun.file(result.manifestPath!).json()
+  const retainedVolume = manifest.volumes
+    .filter(
+      (v: { name: string }) => v.name === `copper:${floatingNet.source_net_id}`,
+    )
+    .reduce((n: number, v: { volumeMm3: number }) => n + v.volumeMm3, 0)
+  expect(retainedVolume).toBeCloseTo(0.1 * 0.1 * 0.035, 9)
 }, 120_000)
 
 test("a field mesh can fill a TSX cutout with air while the same laminate cell is rejected", async () => {
