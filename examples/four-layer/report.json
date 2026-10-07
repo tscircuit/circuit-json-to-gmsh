@@ -11,53 +11,27 @@
     {
       "name": "copper:source_net_0",
       "attribute": 1,
-      "volumes": [
-        1,
-        2,
-        3,
-        5,
-        6,
-        7,
-        9,
-        10,
-        13,
-        14,
-        18,
-        19
-      ]
+      "volumes": [1, 2, 3, 5, 6, 7, 9, 10, 13, 14, 18, 19]
     },
     {
       "name": "copper:source_trace_0",
       "attribute": 2,
-      "volumes": [
-        11,
-        15,
-        16,
-        20,
-        21
-      ]
+      "volumes": [11, 15, 16, 20, 21]
     },
     {
       "name": "dielectric:101",
       "attribute": 3,
-      "volumes": [
-        12,
-        17
-      ]
+      "volumes": [12, 17]
     },
     {
       "name": "dielectric:103",
       "attribute": 4,
-      "volumes": [
-        8
-      ]
+      "volumes": [8]
     },
     {
       "name": "dielectric:105",
       "attribute": 5,
-      "volumes": [
-        4
-      ]
+      "volumes": [4]
     }
   ],
   "sharedInterfaceFaces": 405,

@@ -95,10 +95,7 @@
           "options": {
             "strictCase": true,
             "requireAscii": true,
-            "filenameCases": [
-              "kebab-case",
-              "export"
-            ]
+            "filenameCases": ["kebab-case", "export"]
           }
         },
         "useAsConstAssertion": "error",

@@ -10,7 +10,7 @@
   "materials": 304,
   "expectedVolumeMm3": 12308.638755392392,
   "actualVolumeMm3": 12308.638755392905,
-  "removedVolumeMm3": 1.958375335704178e-09,
+  "removedVolumeMm3": 1.958375335704178e-9,
   "repairs": [
     {
       "solid": {
@@ -21,20 +21,10 @@
         "zMin": 1.3796,
         "zMax": 1.3948
       },
-      "contactsMm": [
-        [
-          -10.95,
-          -23.6
-        ]
-      ],
+      "contactsMm": [[-10.95, -23.6]],
       "notchHalfWidthMm": 0.0001,
-      "removedAreaMm2": 3.901517198201532e-08,
-      "boundsMm": [
-        -10.950099999999999,
-        -23.6001,
-        -10.9499,
-        -23.5999
-      ],
+      "removedAreaMm2": 3.901517198201532e-8,
+      "boundsMm": [-10.950099999999999, -23.6001, -10.9499, -23.5999],
       "cadVoidVerified": true
     },
     {
@@ -46,20 +36,10 @@
         "zMin": 1.4942,
         "zMax": 1.5292
       },
-      "contactsMm": [
-        [
-          7.55,
-          1.15
-        ]
-      ],
+      "contactsMm": [[7.55, 1.15]],
       "notchHalfWidthMm": 0.0001,
-      "removedAreaMm2": 3.9015172315082225e-08,
-      "boundsMm": [
-        7.5499,
-        1.1499,
-        7.5501,
-        1.1501
-      ],
+      "removedAreaMm2": 3.9015172315082225e-8,
+      "boundsMm": [7.5499, 1.1499, 7.5501, 1.1501],
       "cadVoidVerified": true
     }
   ],
