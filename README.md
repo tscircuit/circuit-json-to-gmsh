@@ -140,6 +140,8 @@ The initial package is not published to npm. Inside this repo use `./lib/index.t
 
 ## Cross-sections and visual snapshots
 
+The actual AM3352 crop is available as a [copper-only PoppyGL view](examples/am3352/mesh-validation/dqs-source-vias-corrected/copper-only.png), with a [native cutaway](examples/am3352/mesh-validation/dqs-source-vias-corrected/copper-cutaway.png) through the DQS source via. The substrate is hidden; DQS0 is red and DQSn0 is cyan. See [reproduction instructions](examples/am3352/mesh-validation/README.md#copper-only-visual-verification). These actual-board views appear first in the visualizer.
+
 ```ts
 import { exportGmsh, crossSection, renderGeometry } from "circuit-json-to-gmsh"
 

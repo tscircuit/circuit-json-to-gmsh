@@ -4,6 +4,25 @@ Source: https://tscircuit.com/astra/am3352-sbc#files. The circuit-json input SHA
 
 The saved source-via cases retain all copper inside the rectangular crop and check both source pads through their physical through-via stubs: `U1.P1 → U1.P1.bottomStub` and `U1.P2 → U1.P2.bottomStub`. They do not include the complete paths to the DRAM.
 
+## Copper-only visual verification
+
+This is the **actual AM3352 copper**, rendered from the validated native Gmsh preview with PoppyGL. The substrate is hidden. Red is DQS0; cyan is DQSn0; all other copper is retained and colored by layer. The crop is approximately 3.55 × 3.2 mm around the source vias. Z is exaggerated 3× for inspection; XY and the exported geometry retain their physical dimensions.
+
+![Actual AM3352 copper, substrate hidden](dqs-source-vias-corrected/copper-only.png)
+
+The [DQS-only view](dqs-source-vias-corrected/dqs-copper-only.png) exposes both signal transitions and their lower stubs. The [native copper cutaway](dqs-source-vias-corrected/copper-cutaway.png) cuts through the red source via at x = 2.7 mm to expose its hollow barrel. Clipped copper at the rectangular crop edges is not a physical PCB edge.
+
+After generating the source-via mesh below, reproduce these images with:
+
+```sh
+bun scripts/render-am3352-copper.ts \
+  --preview work/am3352-source-vias/preview.json \
+  --section-preview work/am3352-source-vias/section/preview.json \
+  --output work/am3352-copper
+```
+
+`copper-render.json` records the source and preview hashes, crop bounds, colors and camera. `bun start` opens the visualizer with these actual-board views first.
+
 | Case | Target size | Tetrahedra | Export + validation | Native peak RSS | minSICN minimum / 1st percentile |
 | --- | --- | --- | --- | --- | --- |
 | Original crop, global partition | 0.4 mm | 91,839 | 129.19 s | 1,305 MiB | 0.000377 / 0.0442 |
