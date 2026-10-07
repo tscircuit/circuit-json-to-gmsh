@@ -97,6 +97,9 @@ test("four-port conversion keeps polarity, mode conversion and Touchstone matrix
   const touchstone = touchstoneLines[2].split(/\s+/).map(Number)
   expect(touchstone[3]).toBeCloseTo(0.81, 10) // S12, not S21
   expect(Number(touchstoneLines[3].split(/\s+/)[0])).toBeCloseTo(0.8, 10) // S21 starts the next row
+  expect((await read(directory)).code).toBe(0)
+  expect(await Bun.file(join(directory, "mixed-mode.npz")).exists()).toBe(false)
+  expect(await Bun.file(join(directory, "mixed-mode.csv")).exists()).toBe(false)
 })
 
 test("partial sweeps and incomplete native logs cannot produce channel results", async () => {
@@ -207,6 +210,17 @@ test("convergence comparisons reject changed port geometry even when scattering 
   const report = await Bun.file(join(root, "comparison.json")).json()
   expect(report.convergenceProven).toBe(false)
   expect(report.maximumComplexDifferences[1]).toBeCloseTo(0.0362367, 6)
+  const staleLogPath = join(directories[1], "palace-2.log")
+  const completedLog = await Bun.file(staleLogPath).text()
+  await Bun.write(
+    staleLogPath,
+    completedLog.replace(/^Total\s+.*$/m, "Incomplete"),
+  )
+  const stale = await read(root, args)
+  expect(stale.code).not.toBe(0)
+  expect(stale.error).toContain("no completion record")
+  expect(await Bun.file(join(root, "comparison.json")).exists()).toBe(false)
+  await Bun.write(staleLogPath, completedLog)
   const inputPath = join(directories[2], "solver-input.json")
   const input = await Bun.file(inputPath).json()
   input.ports[0].widthMm = 0.1
@@ -215,4 +229,71 @@ test("convergence comparisons reject changed port geometry even when scattering 
   const invalid = await read(root, args)
   expect(invalid.code).not.toBe(0)
   expect(invalid.error).toContain("changed portGeometrySha256")
+})
+
+test("mixed-mode refinement can fail while every single-ended change passes", async () => {
+  // Constructed comparison regression using a TSX control receipt, not an EM study.
+  const root = await mkdtemp(join(tmpdir(), "palace-mixed-refinement-"))
+  const directories = []
+  for (let level = 0; level < 3; level++) {
+    const directory = await fixture()
+    directories.push(directory)
+    const input = await Bun.file(join(directory, "solver-input.json")).json()
+    input.ports = ["P.source", "P.load", "N.source", "N.load"].map((name) => ({
+      name,
+    }))
+    input.frequenciesHz = [400_000_000]
+    input.order = level + 1
+    await Bun.write(join(directory, "solver-input.json"), JSON.stringify(input))
+    const log =
+      (await Bun.file(join(directory, "palace-1.log")).text()).replace(
+        /GMRES solver converged in \d+ iterations[^\n]*\n/g,
+        "",
+      ) + "\nGMRES solver converged in 1 iterations\n"
+    for (let excited = 1; excited <= 4; excited++) {
+      await Bun.write(join(directory, `palace-${excited}.log`), log)
+      const subdir = join(directory, `postpro/port-${excited}`)
+      await mkdir(subdir, { recursive: true })
+      const header = ["f (GHz)"]
+      const row = ["0.4"]
+      for (let observed = 1; observed <= 4; observed++) {
+        header.push(
+          `|S[${observed}][${excited}]| (dB)`,
+          `arg(S[${observed}][${excited}]) (deg.)`,
+        )
+        row.push(String(20 * Math.log10(0.2 + 0.006 * level)), "0")
+      }
+      await Bun.write(
+        join(subdir, "port-S.csv"),
+        `${header.join(",")}\n${row.join(",")}\n`,
+      )
+    }
+    const result = await read(directory, ["--pairs", "1,3;2,4"])
+    if (result.code) throw new Error(result.error)
+  }
+  const output = join(root, "comparison.json")
+  const result = await read(root, [
+    "--compare",
+    ...directories,
+    "--output",
+    output,
+  ])
+  if (result.code) throw new Error(result.error)
+  const comparison = await Bun.file(output).json()
+  expect(
+    comparison.runs.every(
+      (run: { numericalConsistencyPassed: boolean }) =>
+        run.numericalConsistencyPassed,
+    ),
+  ).toBe(true)
+  expect(comparison.maximumComplexDifferences[1]).toBeCloseTo(0.006, 10)
+  expect(comparison.maximumMixedModeDifferences[1]).toBeCloseTo(0.012, 10)
+  expect(comparison.convergenceProven).toBe(false)
+  expect(
+    (await Bun.file(join(directories[2], "channel-report.json")).json())
+      .mixedMode.pairIndicesOneBased,
+  ).toEqual([
+    [1, 3],
+    [2, 4],
+  ])
 })

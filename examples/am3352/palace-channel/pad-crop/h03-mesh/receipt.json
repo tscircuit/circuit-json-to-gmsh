@@ -1,0 +1,17 @@
+{
+  "case": "Complete corrected AM3352 mesh sizing study",
+  "acceptedForFieldPreparation": true,
+  "tetrahedra": 1345567,
+  "minimumTetQuality": 0.00028345027712079233,
+  "requiredQuality": 0.0001,
+  "failedChecks": [],
+  "filesSha256": {
+    "benchmark.json": "b20a28e46544b7ad3effffb7817d9b769c2dbe3117d6de32bfe171d750197ca4",
+    "cad-checkpoint-metadata.json": "82478799ad50b8845489c6462cebe5ca2991fd61ec8cda139e2c61ad7d63e049",
+    "cad-geometry-signature.json": "cc286f72e66009f33ef1d9c2a1608690adb78c7e17da63e6392adbefdd96afe0",
+    "cad-report.json": "61fd1ae7101e5a42fb6044a9260b6c76facc90a47ce64ccadaa64d5b397ce6cc",
+    "provenance.json": "2d3a4608bc0772c54e6c30b501a5e306d0e3d12a6efef3826476590871c10c06",
+    "report.json": "327561c1972562c238a9c5ca1df30a77fab90ba3e474fe29480f74d3813a980a",
+    "validation.json": "58c68dbc1824ae587597284a7c4021668833f0fb95e3347b107b51c86c7f0741"
+  }
+}

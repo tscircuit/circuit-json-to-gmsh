@@ -1,0 +1,94 @@
+{
+  "ports": [
+    "U1.P1",
+    "U3.F3",
+    "U1.P2",
+    "U3.G3"
+  ],
+  "referenceImpedanceOhms": 50,
+  "portGeometrySha256": "cceba2adf82ba20c88ba6d5e7abcb2b6d7b51e0c9c8304ec4066ff97bc035120",
+  "frequenciesHz": [
+    400000000.0
+  ],
+  "order": 1,
+  "sourceMeshSha256": "a141cd155ef91e0abf78da00977ca6aea9e1c43b17c6c8866ada1e458a101cb9",
+  "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+  "sourceManifestSha256": "11da9defef46ff39587737610f59843be276e6d059631f5b0f05b903b03cc3be",
+  "tetrahedra": 1006135,
+  "palaceMeshSha256": "9689f3f355f6a5086ccf42c8234120d5cb3d977924f9447eda55339327e718fa",
+  "copperModel": "PEC cavities, no copper loss",
+  "nativeRuns": [
+    {
+      "excitedPort": 1,
+      "wallSecondsMeanRank": 224.356,
+      "gmresIterations": [
+        20
+      ],
+      "logSha256": "90ebf32f566494c7d263253ec93d98cd268730cf20f3b3f775fd55345aa6a87d",
+      "csvSha256": "7a3e4bb6540634f38c6c7868ed61446ccfc2b38adf857ef11573a367c84839a7"
+    },
+    {
+      "excitedPort": 2,
+      "wallSecondsMeanRank": 243.376,
+      "gmresIterations": [
+        20
+      ],
+      "logSha256": "8d3a84adcf49491215be97399c8f132e795935a4ffcdfc8a8f14ae5247c298d6",
+      "csvSha256": "4431340d9c40ada7ec184e39993d2995e6b307b4d1780c00494748d1264dd9e8"
+    },
+    {
+      "excitedPort": 3,
+      "wallSecondsMeanRank": 317.006,
+      "gmresIterations": [
+        19
+      ],
+      "logSha256": "e62172cb8d8c5db9fb4f1cb5c571f6bed0510fd31c402fe69514597ca98783a1",
+      "csvSha256": "b6216c52e9b570b824c6e3bf13771641ada0b66f7826d90085ef212979fe5227"
+    },
+    {
+      "excitedPort": 4,
+      "wallSecondsMeanRank": 197.793,
+      "gmresIterations": [
+        19
+      ],
+      "logSha256": "7eacb65ad71e4170e24d6556131195553dcf6a80527da8d85edabde4808701f3",
+      "csvSha256": "bdf5f4c29ba80739394e6fd96b128af52197969ef33df46ecbf00d376991221c"
+    }
+  ],
+  "maximumReciprocityError": 7.074671598446939e-08,
+  "maximumScatteringSingularValue": 0.9994654550804953,
+  "reciprocityErrors": [
+    7.074671598446939e-08
+  ],
+  "scatteringSingularValues": [
+    0.9994654550804953
+  ],
+  "numericalConsistencyPassed": true,
+  "convergenceProven": false,
+  "limitations": [
+    "Port references are explicit geometry assumptions, not inferred power/ground AC impedance.",
+    "Dielectric material assumptions and crop/enclosure sensitivity require independent checks.",
+    "Ideal PEC contact extensions alter near-port fields; fixture-size sensitivity and de-embedding are unproven."
+  ],
+  "mixedMode": {
+    "pairIndicesOneBased": [
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        4
+      ]
+    ],
+    "modeOrder": [
+      "source differential",
+      "load differential",
+      "source common",
+      "load common"
+    ],
+    "differentialReferenceOhms": 100,
+    "commonReferenceOhms": 25.0
+  },
+  "touchstoneSha256": "37d4547ffe5d28b9a13e9d4a92ad430ff0bd03be70a0c6abb04a3119917167c7"
+}

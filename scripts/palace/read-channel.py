@@ -124,6 +124,9 @@ def read_channel(directory, pairs=None):
                     f.write(" ".join(values) + "\n")
                     values = []
     np.savez(directory / "channel.npz", frequenciesHz=expected, scattering=network)
+    if not pairs:
+        for filename in ["mixed-mode.npz", "mixed-mode.csv"]:
+            (directory / filename).unlink(missing_ok=True)
     if pairs:
         if n != 4 or sorted([i for pair in pairs for i in pair]) != list(range(4)):
             raise ValueError(
@@ -162,12 +165,26 @@ def read_channel(directory, pairs=None):
     return report
 
 
-def compare(runs, output, tolerance):
+def compare(runs, output, tolerance, pairs=None):
     if not math.isfinite(tolerance) or tolerance <= 0:
         raise ValueError("Convergence tolerance must be finite and positive")
-    reports = [json.loads((p / "channel-report.json").read_text()) for p in runs]
-    if len(reports) < 3:
+    if len(runs) < 3:
         raise ValueError("Require at least three progressively refined runs")
+    output.unlink(missing_ok=True)
+    if pairs is None:
+        previous = [
+            json.loads((p / "channel-report.json").read_text())
+            if (p / "channel-report.json").exists()
+            else {}
+            for p in runs
+        ]
+        mappings = [r.get("mixedMode", {}).get("pairIndicesOneBased") for r in previous]
+        if any(mappings):
+            if any(mapping != mappings[0] for mapping in mappings):
+                raise ValueError("Convergence comparison changed mixed-mode mapping")
+            pairs = [tuple(i - 1 for i in pair) for pair in mappings[0]]
+    # A saved report is not proof that the native logs/CSV remain complete.
+    reports = [read_channel(p, pairs) for p in runs]
     for report in reports[1:]:
         for key in [
             "ports",
@@ -191,13 +208,37 @@ def compare(runs, output, tolerance):
             )
     networks = [np.load(p / "channel.npz")["scattering"] for p in runs]
     differences = [float(abs(a - b).max()) for a, b in zip(networks, networks[1:])]
+    mixed_differences = None
+    if pairs is not None:
+        mixed = [np.load(p / "mixed-mode.npz")["scattering"] for p in runs]
+        mixed_differences = [float(abs(a - b).max()) for a, b in zip(mixed, mixed[1:])]
     result = {
         "runDirectories": [str(p) for p in runs],
+        "runs": [
+            {
+                k: r[k]
+                for k in [
+                    "sourceMeshSha256",
+                    "palaceMeshSha256",
+                    "portGeometrySha256",
+                    "tetrahedra",
+                    "order",
+                    "nativeRuns",
+                    "numericalConsistencyPassed",
+                ]
+            }
+            for r in reports
+        ],
         "maximumComplexDifferences": differences,
+        "maximumMixedModeDifferences": mixed_differences,
         "absolutePowerWaveTolerance": tolerance,
         "convergenceProven": bool(
             all(r["numericalConsistencyPassed"] for r in reports)
             and all(d <= tolerance for d in differences[-2:])
+            and (
+                mixed_differences is None
+                or all(d <= tolerance for d in mixed_differences[-2:])
+            )
         ),
         "limitations": [
             "This compares supplied discretizations; it does not establish material, port or enclosure accuracy.",
@@ -216,17 +257,19 @@ if __name__ == "__main__":
     p.add_argument("--output")
     p.add_argument("--tolerance", type=float, default=0.01)
     a = p.parse_args()
+    pairs = (
+        [tuple(int(i) - 1 for i in pair.split(",")) for pair in a.pairs.split(";")]
+        if a.pairs
+        else None
+    )
     if a.compare:
         if not a.output:
             raise ValueError("Supply --output for convergence report")
-        result = compare([Path(p) for p in a.compare], Path(a.output), a.tolerance)
+        result = compare(
+            [Path(p) for p in a.compare], Path(a.output), a.tolerance, pairs
+        )
     else:
         if not a.directory:
             raise ValueError("Supply a solver directory")
-        pairs = (
-            [tuple(int(i) - 1 for i in pair.split(",")) for pair in a.pairs.split(";")]
-            if a.pairs
-            else None
-        )
         result = read_channel(Path(a.directory), pairs)
     print(json.dumps(result, indent=2))

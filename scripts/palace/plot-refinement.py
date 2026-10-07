@@ -14,6 +14,8 @@ import matplotlib.pyplot as plt
 
 def main(a):
     a.output.mkdir(parents=True, exist_ok=True)
+    for filename in ["refinement.png", "refinement-samples.csv"]:
+        (a.output / filename).unlink(missing_ok=True)
     spec = importlib.util.spec_from_file_location(
         "channel_reader", Path(__file__).with_name("read-channel.py")
     )

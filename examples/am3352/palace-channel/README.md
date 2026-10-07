@@ -82,7 +82,7 @@ Reproduction commands are in the [root README](../../../README.md#palace-channel
 
 ## Actual AM3352 DQS0 case
 
-**The corrected complete route and ideal port fixtures pass all nine native PCB mesh checks at minimum required quality `0.0001`. No accepted actual-board S-matrix or eye is available yet.** The corrected AMS pilot failed its fixed `1e-8` solve tolerance; the SuperLU pilot was killed before completing a field solve. A shifted real MUMPS retry has completed its first native column; the remaining columns are running. These numerical failures do not establish whether the routing is good or bad.
+**The corrected complete route and ideal port fixtures pass all nine native PCB mesh checks at minimum required quality `0.0001`. All four actual-board Palace columns now complete at 400 MHz with shifted real MUMPS and fixed `1e-8` residual tolerance. Numerical reciprocity/passivity checks pass. Mesh refinement and physical-model accuracy remain unproven, so this is a diagnostic extraction rather than a routing-quality eye.**
 
 The input is the [pinned circuit-json](../mesh-validation/am3352.circuit.json.gz) and [stackup](../mesh-validation/stackup.json). Expanded JSON SHA-256: `c9d7059fe536865784f175855e0dcc76510972319eec848c18b0ef6dcd2adb40`.
 
@@ -123,6 +123,12 @@ The diagnostic clock-frequency pilot uses **400 MHz**, an assumption rather than
 
 ### Linear-solver evidence
 
+[The complete native 400 MHz extraction](pad-crop/mumps-400mhz/receipt.json) retains all four configs, completed logs, CSV columns, container exit/OOM records, [Touchstone](pad-crop/mumps-400mhz/channel.s4p), [mixed-mode samples](pad-crop/mumps-400mhz/mixed-mode.csv) and [numerical report](pad-crop/mumps-400mhz/channel-report.json). GMRES iterations are **20, 20, 19, 19**; native mean-rank wall times are **224.36, 243.38, 317.01, 197.79 s**, with mesh jobs sharing the workstation. Every container exits zero without an OOM kill. Maximum reciprocity error is **`7.07e-8`**, maximum scattering singular value **`0.999465`**. These checks establish numerical consistency of these completed samples; refinement remains separate.
+
+![Raw actual-board differential scattering at one native 400 MHz point; not an eye](pad-crop/mumps-400mhz/channel.png)
+
+The plot uses differential 100 Ω and common-mode 25 Ω normalization. At this single point, `Sdd21 = -1.299 dB`, `Sdd11 = -6.266 dB`, `Scd21 = -37.633 dB`. These values depend on the stated port/reference/material/crop assumptions and have not passed mesh refinement. A single-frequency sample cannot establish routing quality or a transient eye.
+
 On the corrected source and fixture mesh, vector AMS exhausted 1,200 iterations at relative residual **`4.771e-6`**, required `1e-8`. Its emitted scattering values are rejected. [Raw native log, config, solver input and rejection receipt](pad-crop/rejected-corrected-ams/receipt.json) are retained. A SuperLU comparison on the same mesh was killed with signal 9 before a completed field solve under a 14 GiB container limit. Additional root-cgroup OOM kills were observed; no per-container state was retained for that attempt, so exact attribution is not proven. [Raw rejection evidence](pad-crop/rejected-corrected-superlu/receipt.json) is retained.
 
 The earlier positivity-only source mesh also failed AMS at [500 iterations](port-fixtures/am3352/rejected-500-iterations/receipt.json) and [1,200 iterations](port-fixtures/am3352/rejected-1200-iterations/receipt.json). Those cases are archived, not accepted channels. A native zero exit can accompany a failed solve; every column must pass `check-run.py` before extraction.
@@ -132,6 +138,11 @@ The full-board complex HSS attempt was also rejected: Docker confirms an out-of-
 The oblique TSX control with 1 µm fixture clearance completes both SuperLU directions in 14.57/15.17 s, nine iterations each. Complex HSS compression at `1e-6` with right preconditioning completes both directions in **12.42/13.53 s**, five iterations each. Maximum complex S difference from SuperLU is **`3.48e-9`**, reciprocity error `4.01e-10`, maximum S singular value `0.999911`. [Raw HSS control and solver comparison](port-fixtures/tsx-clearance/accepted-hss/comparison.json) are retained. A looser real BLR attempt failed and is [explicitly rejected](port-fixtures/tsx-clearance/rejected-blr/receipt.json). This validates a standard solver comparison on the control; it does not establish actual-board refinement or an eye model. A real shifted MUMPS control completes both directions in 12 iterations (12.32/12.39 s), agreeing with SuperLU within `1.33e-9`. [Raw MUMPS control evidence](port-fixtures/tsx-clearance/accepted-mumps/comparison.json) is retained.
 
 Both 0.8 mm coarse remeshes fail the same strict quality gate: [Delaunay](pad-crop/rejected-coarse-delaunay/receipt.json) has 641,674 tetrahedra and [HXT](pad-crop/rejected-coarse-hxt/receipt.json) has 649,575; each minimum quality is `0.0000384`, below `0.0001`. The other eight checks pass, including full connectivity. The offending element is air near an artificial tile plane. Neither mesh is accepted for a field solve; no threshold was relaxed.
+
+The 0.6 mm source mesh passes all nine checks: [740,499 tetrahedra, minimum quality `0.000174`](pad-crop/h06-mesh/receipt.json). Its explicit fixture mesh also passes all gates with unchanged PCB volumes. Its four Palace columns are being extracted. The 0.5 mm source mesh fails one strict air-element quality check ([minimum `0.0000203`](pad-crop/rejected-h05-delaunay/receipt.json)); it is excluded. The alternative 0.3 mm source mesh passes all nine checks: [1,345,567 tetrahedra, minimum quality `0.000283`](pad-crop/h03-mesh/receipt.json). Its ideal fixtures are being generated for a **0.6 → 0.4 → 0.3 mm** comparison. Native mesh gates remain unchanged.
+
+Refinement rereads native logs and CSV, invalidates a stale comparison output on failure, checks identical geometry/ports/reference impedances, and compares every complex single-ended entry. For a differential case, it also compares every mixed-mode entry using the same explicit polarity mapping. Both changes must meet the 0.01 criterion on the last two refinement steps. The regression demonstrates that mixed-mode changes can fail even when all single-ended changes pass.
+
 
 ### Reproduction
 
@@ -173,7 +184,7 @@ Prepare the HSS diagnostic settings. This requires a Palace build with STRUMPACK
 "$GMSH_PYTHON" scripts/palace/read-channel.py work/am3352-channel --pairs '1,3;2,4'
 ```
 
-The lower-storage shifted MUMPS pilot uses the same preparation command with `--linear-solver MUMPS --shifted-preconditioner --preconditioner-side Right` and omits the compression/complex-coarse flags. It retains the original complex field equations. The first 400 MHz full-board column completed in 20 iterations, native mean-rank wall time 224.36 s (235.16 s including container startup); the complete four-column result remains pending.
+The lower-storage shifted MUMPS pilot uses the same preparation command with `--linear-solver MUMPS --shifted-preconditioner --preconditioner-side Right` and omits the compression/complex-coarse flags. It retains the original complex field equations. The first 400 MHz full-board column completed in 20 iterations, native mean-rank wall time 224.36 s (235.16 s including container startup); all four native columns now complete as recorded above.
 
 The compression tolerance approximates the preconditioner; the outer solve still requires `1e-8`. Every port/frequency must complete. Raw reciprocity/passivity checks then precede a three-level mesh comparison and physical-model sensitivity. Only a validated broadband extraction can support a routing-quality eye.
 
