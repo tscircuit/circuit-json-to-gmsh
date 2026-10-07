@@ -15,6 +15,26 @@ from pathlib import Path
 import numpy as np
 
 
+def check_native_run(log_path, expected_samples):
+    """Palace can exit zero after a failed linear solve; require native evidence."""
+    log = Path(log_path).read_text()
+    total = re.search(r"^Total\s+([0-9.]+)\s+([0-9.]+)\s+([0-9.]+)", log, re.MULTILINE)
+    if not total:
+        raise ValueError("Palace run has no completion record")
+    if re.search(r"(?:solver|KSP).*(?:did not|failed to).*converge", log, re.I):
+        raise ValueError("Palace linear solver did not converge")
+    iterations = list(
+        map(int, re.findall(r"GMRES solver converged in (\d+) iterations?", log))
+    )
+    if len(iterations) != expected_samples:
+        raise ValueError("Palace run lacks a converged solve for every sample")
+    return {
+        "wallSecondsMeanRank": float(total[3]),
+        "gmresIterations": iterations,
+        "logSha256": hashlib.sha256(Path(log_path).read_bytes()).hexdigest(),
+    }
+
+
 def read_channel(directory, pairs=None):
     receipt = json.loads((directory / "solver-input.json").read_text())
     n = len(receipt["ports"])
@@ -23,18 +43,7 @@ def read_channel(directory, pairs=None):
     native_runs = []
     for excited in range(1, n + 1):
         log_path = directory / f"palace-{excited}.log"
-        log = log_path.read_text()
-        if not re.search(r"^Total\s+[0-9.]+\s+[0-9.]+\s+[0-9.]+", log, re.MULTILINE):
-            raise ValueError(f"Palace port {excited} has no completion record")
-        if re.search(r"(?:solver|KSP).*(?:did not|failed to).*converge", log, re.I):
-            raise ValueError(f"Palace port {excited} did not converge")
-        iterations = list(
-            map(int, re.findall(r"GMRES solver converged in (\d+) iterations?", log))
-        )
-        if len(iterations) != len(expected):
-            raise ValueError(
-                f"Palace port {excited} lacks a converged solve for every sample"
-            )
+        native = check_native_run(log_path, len(expected))
         path = directory / f"postpro/port-{excited}/port-S.csv"
         with path.open() as f:
             header = next(csv.reader(f))
@@ -45,15 +54,10 @@ def read_channel(directory, pairs=None):
             raise ValueError("Missing or nonfinite scattering samples")
         if not np.allclose(data[:, 0] * 1e9, expected, rtol=1e-9, atol=1e-3):
             raise ValueError("Palace frequencies differ from the requested sweep")
-        total = re.search(
-            r"^Total\s+([0-9.]+)\s+([0-9.]+)\s+([0-9.]+)", log, re.MULTILINE
-        )
         native_runs.append(
             {
                 "excitedPort": excited,
-                "wallSecondsMeanRank": float(total[3]),
-                "gmresIterations": iterations,
-                "logSha256": hashlib.sha256(log_path.read_bytes()).hexdigest(),
+                **native,
                 "csvSha256": hashlib.sha256(path.read_bytes()).hexdigest(),
             }
         )

@@ -1,0 +1,8 @@
+{
+  "stage": "blocked_by_linear_convergence",
+  "excitedPort": 1,
+  "gmresIterations": 500,
+  "relativeResidual": 7.678e-06,
+  "requiredRelativeTolerance": 1e-08,
+  "scatteringValuesRejected": true
+}

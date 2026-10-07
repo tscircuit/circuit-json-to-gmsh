@@ -85,11 +85,29 @@ test("oblique TSX pad ports get native-verified PEC contacts without changing th
     solver,
     "--frequency-hz",
     "400000000",
+    "--linear-solver",
+    "AMS",
+    "--max-iterations",
+    "1200",
+    "--krylov-size",
+    "200",
+    "--ams-vector-interpolation",
+    "--smoothing-iterations",
+    "2",
   ])
   if (prepared.code) throw new Error(prepared.error)
   const config = await Bun.file(join(solver, "palace-1.json")).json()
   expect(config.Boundaries.PEC.Attributes).toEqual([1000000])
   expect(config.Boundaries.LumpedPort).toHaveLength(2)
+  expect(config.Solver.Linear).toEqual({
+    Type: "AMS",
+    KSPType: "GMRES",
+    Tol: 1e-8,
+    MaxIts: 1200,
+    MaxSize: 200,
+    AMSVectorInterpolation: true,
+    MGSmoothIts: 2,
+  })
   ports[0].fixturePecFaces = ports[1].fixturePecFaces
   await Bun.write(join(output, "ports.json"), JSON.stringify(ports))
   const rejected = await python("prepare-channel.py", [

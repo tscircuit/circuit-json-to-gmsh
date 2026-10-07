@@ -82,7 +82,7 @@ Reproduction commands are in the [root README](../../../README.md#palace-channel
 
 ## Actual AM3352 DQS0 case
 
-**Status: the complete route and its explicit port-fixture mesh pass all native PCB checks. The actual-board 400 MHz Palace pilot is running; no actual-board S-matrix or eye is claimed yet.** The source-via crop remains a separate geometry-validation case. The first whole-route assembly failed on a 4.27e-9 mm³ resin wedge and an almost-collinear crop edge; [the original isolation receipt](crop-isolation/receipt.json) records bounded repairs and their isolated validation.
+**Status: the complete route and its explicit port-fixture mesh pass all native PCB checks. The actual-board 400 MHz Palace pilot is retrying after rejecting an unconverged solve; no actual-board S-matrix or eye is claimed yet.** The source-via crop remains a separate geometry-validation case. The first whole-route assembly failed on a 4.27e-9 mm³ resin wedge and an almost-collinear crop edge; [the original isolation receipt](crop-isolation/receipt.json) records bounded repairs and their isolated validation.
 
 A subsequent whole-route CAD build took 4,200 s. All 1,722 native solids passed BRep validity, but tetrahedral meshing rejected overlapping facets 9802 and 9904. [The failure and repair receipt](crop-isolation/whole-route-failure.json) records actual intersecting surface triangles at `(-0.819905, -18.352059, 0.1146)` mm. Simplifying copper after cropping, then clipping again, had created tiny false edges. Moving the physical-contour approximation before the analysis crop produces a valid isolated BRep and **17,742 tetrahedra in 1.88 s**, with minimum quality **0.0119**. All eight available saved-mesh checks pass at a stricter 0.001 quality threshold. This tile lacks complete-route endpoint checks, so it does not establish whole-board validity.
 
@@ -141,6 +141,8 @@ For this irregular-pad case, reimprint and remesh from the hash-verified saved C
   --mesh-directory work/am3352-fixtures --output work/port-fixtures.png
 ```
 
+The first actual-board pilot accepted all four fixture definitions but its first field solve did not meet tolerance within 500 iterations (relative residual `7.678e-6`, required `1e-8`). Its scattering values are rejected; [the native failure and receipt](port-fixtures/am3352/rejected-500-iterations/receipt.json) are retained. The retry uses vector AMS interpolation, two smoothing iterations, up to 1,200 iterations and a 200-vector Krylov limit on the **same validated mesh at the same tolerance**. Solver changes address execution/convergence, not discretization or port-model accuracy.
+
 Prepare all four excitation configs and run every column:
 
 ```sh
@@ -148,6 +150,7 @@ Prepare all four excitation configs and run every column:
   --mesh-directory work/am3352-fixtures --output work/am3352-channel \
   --frequency-hz 100000000 400000000 1000000000 2000000000 5000000000
 # Run palace-1.json through palace-4.json, retaining palace-N.log.
+# Check each with check-run.py --log PATH --samples 5 before advancing.
 "$GMSH_PYTHON" scripts/palace/read-channel.py work/am3352-channel --pairs '1,3;2,4'
 ```
 

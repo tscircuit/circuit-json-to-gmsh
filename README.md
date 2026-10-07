@@ -207,10 +207,17 @@ Run every generated configuration with Palace 0.14.0; each excites one port to o
 ```sh
 cd work/control
 palace -np 2 palace-1.json > palace-1.log 2>&1
+"$GMSH_PYTHON" ../../scripts/palace/check-run.py --log palace-1.log --samples 5
+# Advance only if that check passes.
 palace -np 2 palace-2.json > palace-2.log 2>&1
+"$GMSH_PYTHON" ../../scripts/palace/check-run.py --log palace-2.log --samples 5
 cd ../..
 "$GMSH_PYTHON" scripts/palace/read-channel.py work/control
 ```
+
+Palace can exit with status zero after an unconverged linear solve. `check-run.py` requires a native completion record and a converged solve at every requested frequency; `--samples` is the number of frequency points. The matrix reader uses the same gate and rejects unconverged columns.
+
+For large iterative cases, preparation accepts `--max-iterations`, `--krylov-size`, `--ams-vector-interpolation` (AMS only) and `--smoothing-iterations`. A larger iteration budget with a bounded Krylov basis controls memory; stronger interpolation/smoothing changes the preconditioner, not the physical model or fixed `1e-8` solve tolerance. These flags do not establish convergence by themselves.
 
 Outputs include raw `channel.sNp`, complex `channel.npz` and `channel-report.json`. Incomplete sweeps and failed solvers are rejected. Reciprocity/passivity violations are reported without changing solver values. For four ports, use `--pairs '1,3;2,4'` to pair source positive/negative ports 1/3 and load ports 2/4; the power-normalized conversion writes `mixed-mode.csv` and `mixed-mode.npz`. At 50 Ω per leg the differential reference is 100 Ω and common-mode reference is 25 Ω.
 

@@ -17,7 +17,18 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def prepare(source, output, frequencies, order, impedance, linear_solver):
+def prepare(
+    source,
+    output,
+    frequencies,
+    order,
+    impedance,
+    linear_solver,
+    max_iterations=500,
+    krylov_size=None,
+    ams_vector_interpolation=False,
+    smoothing_iterations=1,
+):
     validation = json.loads((source / "validation.json").read_text())
     if not validation.get("passed") or not validation.get("pcbChecksComplete"):
         raise ValueError("Require a complete, passing saved-mesh PCB validation")
@@ -36,6 +47,28 @@ def prepare(source, output, frequencies, order, impedance, linear_solver):
         raise ValueError("Specify distinct positive frequencies in Hz")
     if order not in [1, 2, 3] or not math.isfinite(impedance) or impedance <= 0:
         raise ValueError("Require order 1/2/3 and positive reference impedance")
+    if (
+        max_iterations < 1
+        or smoothing_iterations < 1
+        or (krylov_size is not None and not 1 <= krylov_size <= max_iterations)
+    ):
+        raise ValueError(
+            "Require positive solver budgets and Krylov size <= maximum iterations"
+        )
+    if ams_vector_interpolation and linear_solver != "AMS":
+        raise ValueError("Vector interpolation requires the AMS solver")
+    linear_options = {
+        "Type": linear_solver,
+        "KSPType": "GMRES",
+        "Tol": 1e-8,
+        "MaxIts": max_iterations,
+    }
+    if krylov_size is not None:
+        linear_options["MaxSize"] = krylov_size
+    if ams_vector_interpolation:
+        linear_options["AMSVectorInterpolation"] = True
+    if smoothing_iterations != 1:
+        linear_options["MGSmoothIts"] = smoothing_iterations
     model = json.loads((source / "model.json").read_text())
     manifest = json.loads((source / "mesh-manifest.json").read_text())
     ports = json.loads((source / "ports.json").read_text())
@@ -168,12 +201,7 @@ def prepare(source, output, frequencies, order, impedance, linear_solver):
                         }
                     ]
                 },
-                "Linear": {
-                    "Type": linear_solver,
-                    "KSPType": "GMRES",
-                    "Tol": 1e-8,
-                    "MaxIts": 500,
-                },
+                "Linear": linear_options,
             },
         }
         path = output / f"palace-{excited + 1}.json"
@@ -193,6 +221,7 @@ def prepare(source, output, frequencies, order, impedance, linear_solver):
         "frequenciesHz": sorted(frequencies),
         "referenceImpedanceOhms": impedance,
         "order": order,
+        "linearSolverSettings": linear_options,
         "copperModel": "PEC cavities, no copper loss",
         "portFixtureModel": "ideal PEC end-contact extensions"
         if fixture_faces
@@ -223,6 +252,10 @@ if __name__ == "__main__":
     p.add_argument("--order", type=int, default=1)
     p.add_argument("--impedance", type=float, default=50)
     p.add_argument("--linear-solver", choices=["SuperLU", "AMS"], default="SuperLU")
+    p.add_argument("--max-iterations", type=int, default=500)
+    p.add_argument("--krylov-size", type=int)
+    p.add_argument("--ams-vector-interpolation", action="store_true")
+    p.add_argument("--smoothing-iterations", type=int, default=1)
     a = p.parse_args()
     print(
         json.dumps(
@@ -233,6 +266,10 @@ if __name__ == "__main__":
                 a.order,
                 a.impedance,
                 a.linear_solver,
+                a.max_iterations,
+                a.krylov_size,
+                a.ams_vector_interpolation,
+                a.smoothing_iterations,
             ),
             indent=2,
         )
