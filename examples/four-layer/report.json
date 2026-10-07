@@ -1,0 +1,68 @@
+{
+  "gmshVersion": "4.13.1",
+  "wallSeconds": 4.546786338003585,
+  "cadSeconds": 3.5043529540125746,
+  "meshSeconds": 0.9961008800019044,
+  "volumeCount": 21,
+  "expectedVolumeMm3": 45.13405555932865,
+  "actualVolumeMm3": 45.13405555932864,
+  "tetrahedra": 18129,
+  "materials": [
+    {
+      "name": "copper:source_net_0",
+      "attribute": 1,
+      "volumes": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        9,
+        10,
+        13,
+        14,
+        18,
+        19
+      ]
+    },
+    {
+      "name": "copper:source_trace_0",
+      "attribute": 2,
+      "volumes": [
+        11,
+        15,
+        16,
+        20,
+        21
+      ]
+    },
+    {
+      "name": "dielectric:101",
+      "attribute": 3,
+      "volumes": [
+        12,
+        17
+      ]
+    },
+    {
+      "name": "dielectric:103",
+      "attribute": 4,
+      "volumes": [
+        8
+      ]
+    },
+    {
+      "name": "dielectric:105",
+      "attribute": 5,
+      "volumes": [
+        4
+      ]
+    }
+  ],
+  "sharedInterfaceFaces": 405,
+  "minimumTetQuality": 0.0001010950932335576,
+  "repairs": [],
+  "removedVolumeMm3": -3.0357660829594124e-18,
+  "peakRssMiB": 299.43359375
+}

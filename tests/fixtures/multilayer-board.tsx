@@ -1,0 +1,126 @@
+import { Fragment } from "react"
+import type { FabricationStackup } from "lib/index"
+
+export const fourLayerStackup: FabricationStackup = {
+  nominalBoardThicknessMm: 0.975,
+  layers: [
+    { name: "top", copperThicknessMm: 0.035 },
+    {
+      material: "prepreg",
+      dielectricThicknessMm: 0.2,
+      dielectricConstant: 4.1,
+    },
+    { name: "inner1", copperThicknessMm: 0.015 },
+    {
+      material: "core",
+      dielectricThicknessMm: 0.475,
+      dielectricConstant: 4.42,
+    },
+    { name: "inner2", copperThicknessMm: 0.015 },
+    {
+      material: "prepreg",
+      dielectricThicknessMm: 0.2,
+      dielectricConstant: 4.1,
+    },
+    { name: "bottom", copperThicknessMm: 0.035 },
+  ],
+}
+
+/** Core emits routed blind vias, ground through vias and circular BGA-style pads. */
+export function MultilayerBoard({
+  innerPlane = false,
+  layers = 4,
+  sourceLayer = "top",
+  referenceLayer = "top",
+}: {
+  innerPlane?: boolean
+  layers?: 4 | 6
+  referenceLayer?: "top" | "inner2"
+  sourceLayer?: "top" | "bottom"
+}) {
+  return (
+    <board
+      width={8}
+      height={6}
+      layers={layers}
+      thickness={0.975}
+      schematicDisabled
+    >
+      <net name="GND" />
+      {[-2, 2].map((x, index) => (
+        <chip
+          key={index}
+          name={`U${index + 1}`}
+          pcbX={x}
+          pcbY={0}
+          pinLabels={{ pin1: index === 0 ? "OUT" : "IN", pin2: "GND" }}
+          footprint={
+            <footprint>
+              <smtpad
+                portHints={["pin1"]}
+                pcbX={0}
+                pcbY={0}
+                layer={index === 0 ? sourceLayer : "top"}
+                radius={0.4}
+                shape="circle"
+              />
+              <smtpad
+                portHints={["pin2"]}
+                pcbX={0}
+                pcbY={1.5}
+                layer={referenceLayer}
+                width={0.8}
+                height={0.8}
+                shape="rect"
+              />
+            </footprint>
+          }
+        />
+      ))}
+      <trace
+        from=".U1 > .OUT"
+        to=".U2 > .IN"
+        thickness={0.18}
+        pcbPathRelativeTo=".U1 > .OUT"
+        pcbPath={[
+          { x: 0, y: 0 },
+          { x: 1, y: 0, via: true, fromLayer: sourceLayer, toLayer: "inner1" },
+          { x: 3, y: 0, via: true, fromLayer: "inner1", toLayer: "top" },
+          { x: 4, y: 0 },
+        ]}
+      />
+      <trace from=".U1 > .GND" to="net.GND" />
+      <trace from=".U2 > .GND" to="net.GND" />
+      {[-2, 2].map((x, index) => (
+        <Fragment key={index}>
+          <via
+            name={`GV${index + 1}`}
+            pcbX={x}
+            pcbY={referenceLayer === "inner2" ? 1.8 : 1.5}
+            fromLayer="top"
+            toLayer="bottom"
+            connectsTo="net.GND"
+            holeDiameter={0.2}
+            outerDiameter={0.6}
+          />
+        </Fragment>
+      ))}
+      <copperpour
+        layer="bottom"
+        connectsTo="net.GND"
+        boardEdgeMargin={0}
+        padMargin={0}
+        traceMargin={0}
+      />
+      {innerPlane && (
+        <copperpour
+          layer="inner2"
+          connectsTo="net.GND"
+          boardEdgeMargin={0}
+          padMargin={0}
+          traceMargin={0}
+        />
+      )}
+    </board>
+  )
+}

@@ -1,0 +1,8 @@
+node_modules/
+bun.lock
+work/
+__pycache__/
+.venv/
+cosmos-export/
+*.actual.png
+*.diff.png

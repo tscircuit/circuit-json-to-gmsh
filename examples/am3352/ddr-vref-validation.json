@@ -1,0 +1,25 @@
+[
+  {
+    "case": "ddr-vref-inner1-original",
+    "valid": false,
+    "repairs": [],
+    "areaMm2": 2.0865492142105144
+  },
+  {
+    "case": "ddr-vref-inner1-fixed",
+    "valid": true,
+    "repairs": [
+      {
+        "solid": {
+          "layer": "inner1",
+          "netId": "source_net_74"
+        },
+        "contactsMm": [[-10.95, -23.6]],
+        "notchHalfWidthMm": 0.0001,
+        "removedAreaMm2": 3.90151710938369e-8,
+        "boundsMm": [-10.950099999999999, -23.6001, -10.9499, -23.5999]
+      }
+    ],
+    "areaMm2": 2.0865491751953433
+  }
+]

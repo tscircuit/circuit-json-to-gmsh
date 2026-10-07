@@ -1,0 +1,69 @@
+{
+  "mode": "CAD-only non-overlapping assembly; no conformal partitioning or mesh/EM solve",
+  "gmshVersion": "4.13.1",
+  "wallSeconds": 288.349332658021,
+  "cadBuildAndWriteSeconds": 267.6161029220093,
+  "postExportValidationAndReportingSeconds": 20.733229736011708,
+  "peakRssMiB": 11981.7578125,
+  "workspaceMemoryLimitGiB": 16,
+  "volumeCount": 5572,
+  "materials": 304,
+  "expectedVolumeMm3": 12308.638755392392,
+  "actualVolumeMm3": 12308.638755392905,
+  "removedVolumeMm3": 1.958375335704178e-09,
+  "repairs": [
+    {
+      "solid": {
+        "name": "copper:source_net_74",
+        "material": "copper",
+        "netId": "source_net_74",
+        "layer": "inner1",
+        "zMin": 1.3796,
+        "zMax": 1.3948
+      },
+      "contactsMm": [
+        [
+          -10.95,
+          -23.6
+        ]
+      ],
+      "notchHalfWidthMm": 0.0001,
+      "removedAreaMm2": 3.901517198201532e-08,
+      "boundsMm": [
+        -10.950099999999999,
+        -23.6001,
+        -10.9499,
+        -23.5999
+      ],
+      "cadVoidVerified": true
+    },
+    {
+      "solid": {
+        "name": "copper:source_net_56",
+        "material": "copper",
+        "netId": "source_net_56",
+        "layer": "top",
+        "zMin": 1.4942,
+        "zMax": 1.5292
+      },
+      "contactsMm": [
+        [
+          7.55,
+          1.15
+        ]
+      ],
+      "notchHalfWidthMm": 0.0001,
+      "removedAreaMm2": 3.9015172315082225e-08,
+      "boundsMm": [
+        7.5499,
+        1.1499,
+        7.5501,
+        1.1501
+      ],
+      "cadVoidVerified": true
+    }
+  ],
+  "circuitJsonSha256": "c9d7059fe536865784f175855e0dcc76510972319eec848c18b0ef6dcd2adb40",
+  "modelSha256": "98cc049fba9edceeb160ff902ab60c65580926a522cd867c3afc14390f8290cd",
+  "nativeReportSha256": "165a75c72fbb9f02d9dbb30390d337c38cde91831bfe6ff6e662ffbbee053b22"
+}

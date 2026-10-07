@@ -1,0 +1,44 @@
+{
+  "boardUrl": "https://tscircuit.com/astra/am3352-sbc#files",
+  "circuitJsonSha256": "c9d7059fe536865784f175855e0dcc76510972319eec848c18b0ef6dcd2adb40",
+  "geometryExporterCommit": "f9df0d61954a9153f3c6979f7e79f26c12248ef8",
+  "gmshVersion": "4.13.1",
+  "geometryPrecisionMm": 1e-6,
+  "groundNetId": "source_net_56",
+  "solidsChecked": 801,
+  "cases": [
+    {
+      "name": "top-pinched-hole",
+      "solidId": "foil/top/102",
+      "sourceIds": ["pcb_smtpad_197", "pcb_trace_105", "pcb_via_83"],
+      "port": "U1.VSS_OSC_V11",
+      "zMinMm": 1.4942,
+      "zMaxMm": 1.5292,
+      "contactsMm": [[7.55, 1.15]]
+    },
+    {
+      "name": "bottom-touching-antipads",
+      "solidId": "foil/bottom/2",
+      "cropBoundsMm": [-35.7, -5.4, -34.2, -3.9],
+      "zMinMm": -0.035,
+      "zMaxMm": 0,
+      "contactsMm": [[-34.95, -4.65]],
+      "fullPlaneContactsMm": [
+        [-34.95, -4.65],
+        [-8.55, 4.05],
+        [-0.15, 7.55],
+        [9.85, -6.65],
+        [13.05, 1.55]
+      ]
+    },
+    {
+      "name": "ddr-vref-inner1",
+      "layer": "inner1",
+      "netName": "DDR_VREF",
+      "netId": "source_net_74",
+      "zMinMm": 1.3796,
+      "zMaxMm": 1.3948,
+      "contactsMm": [[-10.95, -23.6]]
+    }
+  ]
+}

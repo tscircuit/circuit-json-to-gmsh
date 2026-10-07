@@ -1,0 +1,46 @@
+{
+  "name": "circuit-json-to-gmsh",
+  "version": "0.0.1",
+  "description": "PCB CAD and meshes from circuit-json, with native geometry regressions and PoppyGL snapshots",
+  "type": "module",
+  "module": "lib/index.ts",
+  "files": [
+    "lib"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tscircuit/circuit-json-to-gmsh"
+  },
+  "scripts": {
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "start": "cosmos",
+    "build:site": "cosmos-export",
+    "generate:examples": "bun scripts/generate-examples.tsx"
+  },
+  "dependencies": {
+    "circuit-json": "0.0.515",
+    "transformation-matrix": "2.16.1",
+    "zod": "3.25.76",
+    "poppygl": "0.0.34"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.15",
+    "@tscircuit/core": "0.0.2079",
+    "@types/bun": "1.3.14",
+    "@types/react": "19.2.15",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "react-cosmos": "7.4.1",
+    "react-cosmos-plugin-vite": "7.4.0",
+    "typescript": "5.9.3",
+    "vite": "7.3.6",
+    "fast-png": "6.4.0"
+  },
+  "bin": {
+    "circuit-json-to-gmsh": "lib/cli.ts"
+  }
+}
