@@ -1,0 +1,36 @@
+{
+  "nominalBoardThicknessMm": 0.975,
+  "layers": [
+    {
+      "name": "top",
+      "copperThicknessMm": 0.035
+    },
+    {
+      "material": "prepreg",
+      "dielectricThicknessMm": 0.2,
+      "dielectricConstant": 4.1
+    },
+    {
+      "name": "inner1",
+      "copperThicknessMm": 0.015
+    },
+    {
+      "material": "core",
+      "dielectricThicknessMm": 0.475,
+      "dielectricConstant": 4.42
+    },
+    {
+      "name": "inner2",
+      "copperThicknessMm": 0.015
+    },
+    {
+      "material": "prepreg",
+      "dielectricThicknessMm": 0.2,
+      "dielectricConstant": 4.1
+    },
+    {
+      "name": "bottom",
+      "copperThicknessMm": 0.035
+    }
+  ]
+}

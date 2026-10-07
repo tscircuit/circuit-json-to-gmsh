@@ -1,0 +1,54 @@
+[
+  {
+    "case": "top-pinched-hole-original",
+    "valid": false,
+    "meshed": false,
+    "error": "Mesh skipped: invalid CAD",
+    "repairs": [],
+    "areaMm2": 0.2872948568480002
+  },
+  {
+    "case": "top-pinched-hole-fixed",
+    "valid": true,
+    "meshed": true,
+    "error": null,
+    "repairs": [
+      {
+        "solid": {
+          "id": "foil/top/102"
+        },
+        "contactsMm": [[7.55, 1.15]],
+        "notchHalfWidthMm": 0.0001,
+        "removedAreaMm2": 3.9015172370593376e-8,
+        "boundsMm": [7.5499, 1.1499, 7.5501, 1.1501]
+      }
+    ],
+    "areaMm2": 0.28729481783282784
+  },
+  {
+    "case": "bottom-touching-antipads-original",
+    "valid": false,
+    "meshed": false,
+    "error": "Mesh skipped: invalid CAD",
+    "repairs": [],
+    "areaMm2": 1.7110064323520007
+  },
+  {
+    "case": "bottom-touching-antipads-fixed",
+    "valid": true,
+    "meshed": true,
+    "error": null,
+    "repairs": [
+      {
+        "solid": {
+          "id": "foil/bottom/2"
+        },
+        "contactsMm": [[-34.95, -4.65]],
+        "notchHalfWidthMm": 0.0001,
+        "removedAreaMm2": 1.999999987845058e-8,
+        "boundsMm": [-34.950100000000006, -4.6501, -34.9499, -4.649900000000001]
+      }
+    ],
+    "areaMm2": 1.7110064123520008
+  }
+]

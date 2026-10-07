@@ -1,0 +1,2 @@
+*.brep binary
+*.preview.json linguist-generated=true
