@@ -73,6 +73,8 @@ export interface PreviewSolid {
 }
 export interface GeometryReport {
   gmshVersion: string
+  fragmentStrategy?: "global" | "slab" | "tiled"
+  tileSizeMm?: number | null
   simplificationToleranceMm?: number
   simplification?: {
     layer: string
@@ -95,6 +97,16 @@ export interface GeometryReport {
   sharedInterfaceFaces: number
   minimumTetQuality?: number | null
   removedVolumeMm3: number
+  sliverRepairs?: {
+    netId: string
+    areaMm2: number
+    volumeMm3: number
+    boundsMm: number[]
+    zMin: number
+    zMax: number
+    maximumAreaMm2: number
+    insetTestMm: number
+  }[]
   repairs: {
     solid: {
       name: string

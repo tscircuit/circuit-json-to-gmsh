@@ -1,0 +1,12 @@
+{
+  "lengthMm": 10,
+  "widthMm": 5,
+  "heightMm": 0.2,
+  "er": 4,
+  "impedanceOhms": 7.5346062733600006,
+  "flightTimeSeconds": 6.671281903963042e-11,
+  "expectedS11": 0,
+  "expectedS21": "exp(-j*2*pi*f*flightTimeSeconds)",
+  "meshSizeMm": 1.0,
+  "tets": 383
+}

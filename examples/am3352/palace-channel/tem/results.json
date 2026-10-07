@@ -1,0 +1,34 @@
+[
+  {
+    "name": "tem-coarse",
+    "meshSizeMm": 1.0,
+    "tetrahedra": 383,
+    "maximumComplexTransmissionError": 0.0004468203405430841,
+    "maximumReflection": 0.00124958240118699,
+    "csvSha256": "977dfb2f7a0cfa38f1de6d42e9c42f5bf9aa0a70c9eda9c6818497baa84b021b"
+  },
+  {
+    "name": "tem-fine",
+    "meshSizeMm": 0.5,
+    "tetrahedra": 1455,
+    "maximumComplexTransmissionError": 0.0012522030683474621,
+    "maximumReflection": 0.0015228477003919017,
+    "csvSha256": "e6366583f8cac0a62f6df4eea72e20f8f6681717bb1c4f1f06ebbbc540dd1d04"
+  },
+  {
+    "name": "tem-finer",
+    "meshSizeMm": 0.25,
+    "tetrahedra": 6055,
+    "maximumComplexTransmissionError": 6.253765899763392e-5,
+    "maximumReflection": 0.00012883624309444907,
+    "csvSha256": "67f41d0118be7aa74fb6cca6620ef74e8a4d664e9a72e4de184822c954564cde"
+  },
+  {
+    "name": "tem-finest",
+    "meshSizeMm": 0.125,
+    "tetrahedra": 22959,
+    "maximumComplexTransmissionError": 8.618407675965741e-5,
+    "maximumReflection": 6.636831644299363e-5,
+    "csvSha256": "96e8a2cdf74aee22c6d7f0010ccd5628d5b936b0de66c43747272b428ba4b4a6"
+  }
+]

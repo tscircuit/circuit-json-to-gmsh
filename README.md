@@ -108,6 +108,12 @@ It retains every copper net and physical via span within the crop and checks bot
 
 The source-via case also emits a native cross-section. Use `--fragment-strategy slab` to partition material interfaces in batches within and between adjacent z slabs. The saved-mesh validator applies the same requirements to either strategy. `--optimize-netgen` enables native tetrahedron optimization. Reported worst-element coordinates and quality percentiles help distinguish a positive-volume mesh from a mesh with problematic slivers. Run large native jobs serially: they share the workspace memory limit. The AM3352 script's `--cad-only` mode saves the assembly without fragmentation or meshing for isolation and independent CAD validity checks.
 
+`--fragment-strategy tiled --tile-size 2.5 --tile-workers 4 --tile-cache work/cad-cache` performs bounded XY CAD batches in isolated native processes, then joins four-cell blocks, including corner contacts. These are internal CAD subdivisions; they do not introduce EM boundaries. Batch caches verify geometry, exporter implementation, native version and file hashes. Reloaded solids must retain unique material ownership, and the final mesh must still pass the saved-mesh checks. `tileSizeMm` controls CAD workloads, independently of `meshSizeMm`.
+
+The completed tiled CAD is independently reloaded before meshing. A twelve-cell TSX regression exposed Gmsh 4.13.1 emitting node `0` references after repeated OCC edits despite reporting successful mesh generation; BRep reload resolves the reproduction. Missing node references are explicitly rejected, and the saved-mesh gates still apply. A hash-verified `cad-checkpoint.brep` plus its ownership catalogue can be reused with `--cad-checkpoint work/coarse` (library `cadCheckpointDirectory`) to remesh into a different output directory. Keep all geometry, ports, crop, air and tiling settings identical; only mesh/optimization settings may change. Every refinement is validated again.
+
+Cropping can create resin wedges below OpenCASCADE's tolerance. A cropped dielectric island is transferred to copper only if its area is at most `1e-8 mm²`, it cannot contain a `2e-6 mm` inset, it touches the crop edge, and it has exactly one neighbouring copper net. Drills are protected; ambiguous ownership is rejected. `report.json.sliverRepairs` records the net, bounds, area and transferred volume. This is an explicit geometry approximation, not an exact fabrication model.
+
 The AM3352 script widens crop boundaries that would graze circular barrel rims, recording every change in provenance. Such a crop can otherwise leave a 0.12 µm copper sliver and produce poor tetrahedra despite preserving copper connectivity. A TSX regression reproduces and rejects that case at `minSICN > 0.001`, then verifies the expanded crop. Actual-board measurements, cross-sections and resource-failure receipts are in [the DQS validation evidence](examples/am3352/mesh-validation/README.md).
 
 For exceptionally detailed contours, `--simplify-tolerance 0.001` (library `simplifyToleranceMm: 0.001`) enables a **1 µm geometry approximation**. The default is zero. Physical drill and board-cutout interiors remain exact; changes must preserve per-layer polygon component/hole counts and net separation. Every contour records its measured discrete Hausdorff boundary distance, vertex counts, and added/removed copper area. Approximating contours can affect impedance and loss: validate tolerance sensitivity separately before using an EM result. `simplification.json` and the geometry report retain the audit.
@@ -137,6 +143,57 @@ const { report, brepPath, meshPath } = await exportGmsh({
 ```
 
 The initial package is not published to npm. Inside this repo use `./lib/index.ts` for the import, or link the package locally.
+
+## Palace channel extraction
+
+Frequency and excitation belong to Palace. Native coplanar ports currently support **outer-layer pads** with an explicit reference net. Do not assume a power net is an ideal AC ground. Package parasitics, discrete capacitors, driver/receiver models and jitter are separate from this PCB field extraction.
+
+```ts
+const requirements = createMeshRequirements({
+  circuitJson, model,
+  connections: [
+    { from: "U1.OUT", to: "U2.IN" },
+    { from: "U1.GND", to: "U2.GND" },
+  ],
+})
+const groundNetId = requirements.terminals.find((t) => t.name === "U1.GND")!.netId
+const result = await exportGmsh({
+  model, outputDirectory: "work/channel-mesh", conformal: true,
+  airPaddingMm: 1, validationRequirements: requirements,
+  lumpedPorts: requirements.terminals
+    .filter((terminal) => terminal.netId !== groundNetId)
+    .map((terminal) => ({ terminal, referenceNetId: groundNetId, widthMm: 0.08 })),
+})
+```
+
+The port builder checks native aperture area, signal/reference contacts and reference copper continuity. It writes `ports.json`; it rejects apertures spanning multiple gaps or overlapping another port. Ports still require impedance and placement sensitivity checks.
+
+Reproduce the small TSX control and prepare a sweep (frequency arguments are **Hz**):
+
+```sh
+bun scripts/generate-palace-control.tsx --output work/control-mesh
+"$GMSH_PYTHON" scripts/palace/prepare-channel.py \
+  --mesh-directory work/control-mesh --output work/control \
+  --frequency-hz 100000000 400000000 1000000000 2000000000 5000000000
+```
+
+The preparation script requires complete passing PCB checks and verifies the validated files' hashes. It replaces finite-thickness copper volumes with **PEC cavities**: copper loss is omitted, while dielectric loss is retained. The air enclosure uses a first-order absorbing boundary. These are baseline assumptions requiring separate validation.
+
+Run every generated configuration with Palace 0.14.0; each excites one port to obtain one full S-matrix column:
+
+```sh
+cd work/control
+palace -np 2 palace-1.json > palace-1.log 2>&1
+palace -np 2 palace-2.json > palace-2.log 2>&1
+cd ../..
+"$GMSH_PYTHON" scripts/palace/read-channel.py work/control
+```
+
+Outputs include raw `channel.sNp`, complex `channel.npz` and `channel-report.json`. Incomplete sweeps and failed solvers are rejected. Reciprocity/passivity violations are reported without changing solver values. For four ports, use `--pairs '1,3;2,4'` to pair source positive/negative ports 1/3 and load ports 2/4; the power-normalized conversion writes `mixed-mode.csv` and `mixed-mode.npz`. At 50 Ω per leg the differential reference is 100 Ω and common-mode reference is 25 Ω.
+
+Compare at least three progressively refined meshes or polynomial orders with `read-channel.py --compare work/coarse work/medium work/fine --output work/convergence.json`. Geometry/manifest, frequency, ports and reference impedance must match. The default criterion requires both last refinement changes to be at most 0.01 in every complex S entry, plus reciprocity/passivity checks. This criterion does not establish crop, enclosure, material or port accuracy. Sparse sweeps are diagnostics; broadband transient/eye modelling needs a sufficiently dense sweep, low/high-frequency treatment and a checked causal passive channel fit.
+
+See [Palace validation evidence and actual-board status](examples/am3352/palace-channel/README.md) for the analytical benchmark, TSX control and AM3352 reproduction.
 
 ## Cross-sections and visual snapshots
 

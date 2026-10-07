@@ -1,0 +1,31 @@
+{
+  "ports": ["U1.OUT", "U2.IN"],
+  "referenceImpedanceOhms": 50,
+  "frequenciesHz": [
+    100000000.0, 400000000.0, 1000000000.0, 2000000000.0, 5000000000.0
+  ],
+  "order": 2,
+  "sourceMeshSha256": "93bd885d0f32ce13a4896670c4e75c1cda7593b73201d0aef75f017b035729e4",
+  "modelSha256": "9525bb1844baac801e6b406ea0ba649e962da24b58ff210d2bf4ea8f12abb15e",
+  "sourceManifestSha256": "7929cbd58ad842259df7bb0344565e3c06ef1705efc04821b76df317e9c27ce4",
+  "tetrahedra": 29521,
+  "palaceMeshSha256": "194ea1c0269263213e27f7488da44d83694b1f206373d0fa7c56558447462286",
+  "copperModel": "PEC cavities, no copper loss",
+  "maximumReciprocityError": 4.6023083623274914e-7,
+  "maximumScatteringSingularValue": 0.9999929018724065,
+  "reciprocityErrors": [
+    2.531418962630305e-7, 1.7263747459309693e-7, 1.0636163067993255e-7,
+    1.9989490845133785e-8, 4.6023083623274914e-7
+  ],
+  "scatteringSingularValues": [
+    0.9999929018724065, 0.9998882155998324, 0.9993148271108835,
+    0.9975116346991708, 0.9904354294110976
+  ],
+  "numericalConsistencyPassed": true,
+  "convergenceProven": false,
+  "limitations": [
+    "Port references are explicit geometry assumptions, not inferred power/ground AC impedance.",
+    "Dielectric material assumptions and crop/enclosure sensitivity require independent checks."
+  ],
+  "touchstoneSha256": "0f93855c1ace155d387cc556620f0773323db6072d04876dd41f9ffa254ceb54"
+}

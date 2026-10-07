@@ -26,6 +26,12 @@ const { values } = parseArgs({
     "cad-only": { type: "boolean", default: false },
     "optimize-netgen": { type: "boolean", default: false },
     "fragment-strategy": { type: "string", default: "global" },
+    "tile-size": { type: "string", default: "2" },
+    "tile-workers": { type: "string", default: "1" },
+    "tile-cache": { type: "string" },
+    "cad-checkpoint": { type: "string" },
+    "air-padding": { type: "string" },
+    "palace-ports": { type: "boolean", default: false },
     "simplify-tolerance": { type: "string", default: "0" },
     "corridor-margin": { type: "string" },
   },
@@ -34,9 +40,14 @@ if (!values.board || !values.stackup)
   throw new Error("Supply --board circuit.json --stackup stackup.json")
 if (
   values["fragment-strategy"] !== "global" &&
-  values["fragment-strategy"] !== "slab"
+  values["fragment-strategy"] !== "slab" &&
+  values["fragment-strategy"] !== "tiled"
 )
-  throw new Error("fragment-strategy must be global or slab")
+  throw new Error("fragment-strategy must be global, slab or tiled")
+if (values["palace-ports"] && values["source-vias"])
+  throw new Error(
+    "Palace ports require the complete route, not source-via stubs",
+  )
 const boardText = values.board.endsWith(".gz")
   ? gunzipSync(await Bun.file(values.board).arrayBuffer()).toString("utf8")
   : await Bun.file(values.board).text()
@@ -130,6 +141,19 @@ await Bun.write(
       threads: Number(values.threads),
       optimizeNetgen: values["optimize-netgen"],
       fragmentStrategy: values["fragment-strategy"],
+      tileSizeMm: Number(values["tile-size"]),
+      tileWorkers: Number(values["tile-workers"]),
+      airPaddingMm:
+        values["air-padding"] === undefined
+          ? undefined
+          : Number(values["air-padding"]),
+      palacePorts: values["palace-ports"]
+        ? {
+            referenceNetId: "source_net_93",
+            referenceName: "DDR_1V5",
+            widthMm: 0.08,
+          }
+        : undefined,
       simplifyToleranceMm: Number(values["simplify-tolerance"]),
       corridorMarginMm:
         values["corridor-margin"] === undefined
@@ -157,6 +181,21 @@ const result = await exportGmsh({
   threads: Number(values.threads),
   optimizeNetgen: values["optimize-netgen"],
   fragmentStrategy: values["fragment-strategy"],
+  tileSizeMm: Number(values["tile-size"]),
+  tileWorkers: Number(values["tile-workers"]),
+  tileCacheDirectory: values["tile-cache"],
+  cadCheckpointDirectory: values["cad-checkpoint"],
+  airPaddingMm:
+    values["air-padding"] === undefined
+      ? undefined
+      : Number(values["air-padding"]),
+  lumpedPorts: values["palace-ports"]
+    ? requirements.terminals.map((terminal) => ({
+        terminal,
+        referenceNetId: "source_net_93",
+        widthMm: 0.08,
+      }))
+    : undefined,
   simplifyToleranceMm: Number(values["simplify-tolerance"]),
   routeCorridor:
     values["corridor-margin"] === undefined

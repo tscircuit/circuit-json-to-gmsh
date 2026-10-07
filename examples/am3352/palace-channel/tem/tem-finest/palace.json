@@ -1,0 +1,60 @@
+{
+  "Problem": {
+    "Type": "Driven",
+    "Verbose": 2,
+    "Output": "postpro"
+  },
+  "Model": {
+    "Mesh": "palace.msh",
+    "L0": 0.001,
+    "Lc": 1,
+    "CrackInternalBoundaryElements": false
+  },
+  "Domains": {
+    "Materials": [
+      {
+        "Attributes": [1],
+        "Permittivity": 4,
+        "Permeability": 1
+      }
+    ]
+  },
+  "Boundaries": {
+    "PEC": {
+      "Attributes": [2100]
+    },
+    "LumpedPort": [
+      {
+        "Index": 1,
+        "Attributes": [2001],
+        "Direction": "+Z",
+        "R": 7.5346062733600006,
+        "Excitation": true
+      },
+      {
+        "Index": 2,
+        "Attributes": [2002],
+        "Direction": "+Z",
+        "R": 7.5346062733600006
+      }
+    ]
+  },
+  "Solver": {
+    "Order": 1,
+    "Device": "CPU",
+    "Driven": {
+      "Samples": [
+        {
+          "Type": "Point",
+          "Freq": [0.1, 0.4, 1, 2, 5]
+        }
+      ]
+    },
+    "Linear": {
+      "Type": "SuperLU",
+      "KSPType": "GMRES",
+      "Tol": 1e-10,
+      "MaxIts": 200
+    }
+  }
+}

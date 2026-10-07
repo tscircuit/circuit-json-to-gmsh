@@ -139,7 +139,14 @@ def validation(options):
         }
     )
     progress("drill_and_cutout_voids", context)
-    violations = void_intersections(mesh, model) if model else []
+    # A field mesh may explicitly fill drilled holes/cutouts with air. Those
+    # cells are valid; copper and laminate must still leave the physical voids.
+    pcb_cells = np.asarray([ownership.get(int(v)) != "air" for v in mesh["volumes"]])
+    pcb_mesh = mesh | {
+        "coordinates": mesh["coordinates"][pcb_cells],
+        "tags": mesh["tags"][pcb_cells],
+    }
+    violations = void_intersections(pcb_mesh, model) if model else []
     checks.append(
         {
             "name": "drill_and_cutout_voids",
