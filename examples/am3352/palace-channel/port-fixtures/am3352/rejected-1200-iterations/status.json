@@ -1,0 +1,5 @@
+{
+  "stage": "blocked_by_linear_convergence",
+  "excitedPort": 1,
+  "reason": "Linear solver did not converge, norm(Ax-b)/norm(b) = 8.837e-06 (norm(b) = 6.169e-01)!"
+}

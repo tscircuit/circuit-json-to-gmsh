@@ -1,0 +1,54 @@
+{
+  "ports": [
+    "U1.OUT",
+    "U2.IN"
+  ],
+  "referenceImpedanceOhms": 50,
+  "portGeometrySha256": "6151854bef07b5d4599855bfd81f4789bfb05f90790b85183680b75e76ad6ff2",
+  "frequenciesHz": [
+    400000000.0
+  ],
+  "order": 1,
+  "sourceMeshSha256": "d77ee50b85c8de90fa4b293a6c2e1c8aa48b069afc2290eadf21b5efe50809ec",
+  "modelSha256": "d7d123dc78a5feaa4abafbd5818a7947c90050aa0fc1d486197763a1515c5233",
+  "sourceManifestSha256": "e531092ddd68dcc1e71bf5dd259a0e3a5cf021198b0ced546ca1855f18a6a840",
+  "tetrahedra": 79429,
+  "palaceMeshSha256": "30b1e06d1662aca7613918c1bde89d31561a42983245fd9c4b62c121ea0ce037",
+  "copperModel": "PEC cavities, no copper loss",
+  "nativeRuns": [
+    {
+      "excitedPort": 1,
+      "wallSecondsMeanRank": 10.675,
+      "gmresIterations": [
+        14
+      ],
+      "logSha256": "1f51713a19c0d90ef7b5e566d305aba0defe7ffc94f5da90598a8a406de85864",
+      "csvSha256": "0e085cdc66a8f2158b6686b7825ec4080168ad259532645cd11ee37a3d36bce7"
+    },
+    {
+      "excitedPort": 2,
+      "wallSecondsMeanRank": 10.57,
+      "gmresIterations": [
+        15
+      ],
+      "logSha256": "ae5a81ec6b8aaf0f31c948f3cd59397c0869ca798fa15fa8cffce98531bbf469",
+      "csvSha256": "8cd48ede29ec414b141387513ad3d59def4481b305df7c07e00135fc144dcaf2"
+    }
+  ],
+  "maximumReciprocityError": 1.7932119608023142e-09,
+  "maximumScatteringSingularValue": 0.9999112447799164,
+  "reciprocityErrors": [
+    1.7932119608023142e-09
+  ],
+  "scatteringSingularValues": [
+    0.9999112447799164
+  ],
+  "numericalConsistencyPassed": true,
+  "convergenceProven": false,
+  "limitations": [
+    "Port references are explicit geometry assumptions, not inferred power/ground AC impedance.",
+    "Dielectric material assumptions and crop/enclosure sensitivity require independent checks.",
+    "Ideal PEC contact extensions alter near-port fields; fixture-size sensitivity and de-embedding are unproven."
+  ],
+  "touchstoneSha256": "3ea7d7c39563ca3425598388b27973207c7c981f5844dbfac3740c5829395f6c"
+}

@@ -1,0 +1,10 @@
+{
+  "case": "Actual AM3352 DQS0, 400 MHz, first-order AMS baseline",
+  "validChannel": false,
+  "gmresIterations": 500,
+  "relativeResidual": 7.678e-06,
+  "requiredTolerance": 1e-08,
+  "interruptedAfterKnownLinearFailure": true,
+  "scatteringValuesRejected": true,
+  "logSha256": "26b65369e9b23ced925fb7f4dd1e3baea6ece426bf8593ede6a6b64cf43bde5f"
+}

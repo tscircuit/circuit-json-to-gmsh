@@ -1,0 +1,22 @@
+{
+  "stage": "blocked",
+  "utc": "2026-10-07T14:52:26Z",
+  "excitedPort": 1,
+  "scatteringValuesRejected": true,
+  "elapsedSeconds": 179.15489031700417,
+  "exitCode": 9,
+  "memoryLimitGiB": 12,
+  "containerState": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": true,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 9,
+    "Error": "",
+    "StartedAt": "2026-10-07T14:49:35.028770588Z",
+    "FinishedAt": "2026-10-07T14:52:24.487052218Z"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "case": "am3352-full-pad-h03-blr-channel",
+  "acceptedChannel": false,
+  "scatteringValuesRejected": true,
+  "filesSha256": {
+    "palace-1-resources.json": "5434415e11245c03db1ceeda1f5d5ff1f75409828d5a24d5712c46aea3c65f6e",
+    "palace-1.json": "f3aa03ee3efa98c7e5abb801c7ee8468b3069e5715062d961c9b226185be9e03",
+    "palace-1.log": "4a427c7a479b68a9626e0504b1a06235c47b33942ddde562b30ebaec963d5249",
+    "solver-input.json": "f789083314aaf71b9bcc8078b76a9e0cec1dad0a7bf4d8fba1630b9ad63da061",
+    "status.json": "635f09bc590352202df87defda088c5748f09c419150a64ad587d5fe4d390d62"
+  },
+  "resourceFailure": {
+    "elapsedSeconds": 122.8292293259874,
+    "exitCode": 9,
+    "memoryLimitGiB": 14,
+    "containerState": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": true,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 9,
+      "Error": "",
+      "StartedAt": "2026-10-07T15:54:59.352066254Z",
+      "FinishedAt": "2026-10-07T15:56:53.677678475Z"
+    }
+  }
+}

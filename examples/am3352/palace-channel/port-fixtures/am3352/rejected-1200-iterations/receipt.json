@@ -1,0 +1,10 @@
+{
+  "case": "Actual AM3352 DQS0, 400 MHz, first-order vector AMS retry",
+  "validChannel": false,
+  "gmresIterations": 1200,
+  "relativeResidual": 8.837e-06,
+  "requiredTolerance": 1e-08,
+  "interruptedAfterKnownLinearFailure": true,
+  "scatteringValuesRejected": true,
+  "logSha256": "42594c083e2a2476bd740d61fac368b4fa89cab3a22758d22773f704adc8563f"
+}

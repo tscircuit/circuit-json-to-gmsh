@@ -46,6 +46,7 @@ def partition(options):
         Path(options["progressPath"]).write_text(
             json.dumps(
                 {
+                    **options.get("context", {}),
                     "stage": "partition_slab_interface",
                     "zMm": lower[1],
                     "solids": len(selected),

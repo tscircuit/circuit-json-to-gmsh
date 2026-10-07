@@ -8,6 +8,7 @@ import gmsh
 import json
 import time
 from pathlib import Path
+from shapely import set_precision
 from shapely.geometry import Polygon, box
 from shapely.geometry.polygon import orient
 from shapely.ops import unary_union
@@ -42,6 +43,76 @@ def prism(options):
     return volumes, expected
 
 
+def repair_crop_slivers(substrate, merged, board, voids, lower, upper):
+    """Absorb sub-kernel resin wedges at artificial crop edges into one net.
+
+    Never bridge nets or modify drills. Bounds and transferred volume are
+    recorded; large or resolvable laminate islands remain physical solids.
+    """
+    receipts = []
+    forbidden = unary_union(voids)
+    for polygon in nonempty_polygons(substrate):
+        if (
+            polygon.area > 1e-6
+            or not polygon.buffer(-1e-5).is_empty
+            or polygon.distance(board.boundary) > 1e-8
+            or polygon.distance(forbidden) < 2e-6
+        ):
+            continue
+        neighbors = [
+            net for net, shape in merged.items() if polygon.distance(shape) < 2e-6
+        ]
+        if len(neighbors) != 1:
+            raise ValueError(
+                "Sub-kernel crop sliver cannot be assigned to one copper net"
+            )
+        net = neighbors[0]
+        original = merged[net]
+        exact = set_precision(original, 0).union(set_precision(polygon, 0), grid_size=0)
+        joined = clean(exact)
+        snapped = joined.symmetric_difference(exact, grid_size=0)
+        displacement = exact.boundary.hausdorff_distance(joined.boundary)
+        if (
+            displacement > 1.5e-6
+            or (not snapped.is_empty and not polygon.buffer(2e-6).covers(snapped))
+            or snapped.area > polygon.length * 2e-6 + 1e-12
+        ):
+            raise ValueError("Crop sliver snapping exceeded its local 2 nm bound")
+        if any(
+            joined.intersection(shape, grid_size=0).area > 1e-10
+            for other, shape in merged.items()
+            if other != net
+        ):
+            raise ValueError("Crop sliver snapping would overlap another copper net")
+        added = joined.area - original.area
+        previous_area = substrate.area
+        merged[net] = joined
+        substrate = clean(substrate.difference(joined))
+        removed = previous_area - substrate.area
+        receipts.append(
+            {
+                "netId": net,
+                "areaMm2": polygon.area,
+                "volumeMm3": added * (upper - lower),
+                "copperAddedAreaMm2": added,
+                "dielectricRemovedAreaMm2": removed,
+                "snappingAddedAreaMm2": float(
+                    joined.difference(exact, grid_size=0).area
+                ),
+                "snappingRemovedAreaMm2": float(
+                    exact.difference(joined, grid_size=0).area
+                ),
+                "snappingBoundaryDisplacementMm": displacement,
+                "boundsMm": list(polygon.bounds),
+                "zMin": lower,
+                "zMax": upper,
+                "maximumAreaMm2": 1e-6,
+                "insetTestMm": 1e-5,
+            }
+        )
+    return substrate, receipts
+
+
 def slab_shapes(options):
     model, board, copper = [options[k] for k in ["model", "board", "copper"]]
     layered = model["multilayer"]
@@ -57,6 +128,13 @@ def slab_shapes(options):
             for z in [layer["zMin"], layer["zMax"]]
         }
     )
+    air_bounds = options.get("airBoundsMm")
+    if air_bounds:
+        padding = options["airPaddingMm"]
+        boundaries = sorted(
+            {*boundaries, boundaries[0] - padding, boundaries[-1] + padding}
+        )
+        enclosure = box(*air_bounds)
     barrels = [
         (
             b,
@@ -90,16 +168,6 @@ def slab_shapes(options):
             merged = {
                 net: clean(shape.intersection(board)) for net, shape in merged.items()
             }
-        for net, shape in sorted(merged.items()):
-            yield {
-                "name": f"copper:{net}",
-                "material": "copper",
-                "netId": net,
-                "layer": foil["name"] if foil else "barrel",
-                "shape": shape,
-                "zMin": lower,
-                "zMax": upper,
-            }
         dielectric = next(
             (
                 d
@@ -116,6 +184,8 @@ def slab_shapes(options):
                 for d in layered["stackup"]["dielectrics"]
                 if abs(d["zMin"] - foil["zMax"]) < 1e-8
             )
+        substrate = Polygon()
+        sliver_repairs = []
         if dielectric:
             voids = [
                 shape
@@ -123,11 +193,38 @@ def slab_shapes(options):
                 if drill["zMin"] < middle < drill["zMax"]
             ]
             substrate = clean(board.difference(unary_union([*merged.values(), *voids])))
+            if options.get("crop"):
+                substrate, sliver_repairs = repair_crop_slivers(
+                    substrate, merged, board, voids, lower, upper
+                )
+        for net, shape in sorted(merged.items()):
+            yield {
+                "name": f"copper:{net}",
+                "material": "copper",
+                "netId": net,
+                "layer": foil["name"] if foil else "barrel",
+                "shape": shape,
+                "zMin": lower,
+                "zMax": upper,
+                "sliverRepairs": [r for r in sliver_repairs if r["netId"] == net],
+            }
+        if dielectric:
             yield {
                 "name": f"dielectric:{dielectric['attribute']}",
                 "material": "dielectric",
                 "layer": dielectric["material"],
                 "shape": substrate,
+                "zMin": lower,
+                "zMax": upper,
+            }
+        if air_bounds:
+            yield {
+                "name": "air",
+                "material": "air",
+                "layer": "air",
+                "shape": clean(
+                    enclosure.difference(unary_union([*merged.values(), substrate]))
+                ),
                 "zMin": lower,
                 "zMax": upper,
             }
@@ -147,6 +244,8 @@ def build_cad(options):
                 "board": board,
                 "copper": copper,
                 "crop": region is not None or options.get("clipBoard", False),
+                "airBoundsMm": options.get("airBoundsMm"),
+                "airPaddingMm": options.get("airPaddingMm"),
             }
         )
     ):
@@ -185,13 +284,16 @@ def build_cad(options):
                 {"shape": polygon, "zMin": slab["zMin"], "zMax": slab["zMax"]}
             )
             solids.append(
-                {k: v for k, v in slab.items() if k != "shape"}
+                {k: v for k, v in slab.items() if k not in ["shape", "sliverRepairs"]}
                 | {
                     "id": f"slab/{slab_index}/{polygon_index}",
                     "entities": volumes,
                     "expectedVolumeMm3": expected,
                     "originalVolumeMm3": original_volume,
                     "repairs": repairs,
+                    "sliverRepairs": slab.get("sliverRepairs", [])
+                    if polygon_index == 0
+                    else [],
                 }
             )
     return solids

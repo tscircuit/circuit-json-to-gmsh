@@ -73,6 +73,9 @@ export interface PreviewSolid {
 }
 export interface GeometryReport {
   gmshVersion: string
+  fragmentStrategy?: "global" | "slab" | "tiled"
+  tetrahedralAlgorithm?: "delaunay" | "hxt"
+  tileSizeMm?: number | null
   simplificationToleranceMm?: number
   simplification?: {
     layer: string
@@ -95,6 +98,21 @@ export interface GeometryReport {
   sharedInterfaceFaces: number
   minimumTetQuality?: number | null
   removedVolumeMm3: number
+  sliverRepairs?: {
+    netId: string
+    areaMm2: number
+    volumeMm3: number
+    boundsMm: number[]
+    zMin: number
+    zMax: number
+    maximumAreaMm2: number
+    insetTestMm: number
+    copperAddedAreaMm2?: number
+    dielectricRemovedAreaMm2?: number
+    snappingAddedAreaMm2?: number
+    snappingRemovedAreaMm2?: number
+    snappingBoundaryDisplacementMm?: number
+  }[]
   repairs: {
     solid: {
       name: string

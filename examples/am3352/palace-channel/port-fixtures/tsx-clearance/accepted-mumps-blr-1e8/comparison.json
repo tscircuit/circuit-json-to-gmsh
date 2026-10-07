@@ -1,0 +1,18 @@
+{
+  "case": "Native shifted MUMPS BLR control",
+  "sameGeometryAndFieldMesh": true,
+  "maximumComplexScatteringDifferenceFromSuperLU": 1.6654067653117682e-09,
+  "linearTolerance": 1e-08,
+  "discretizationConvergenceProven": false,
+  "filesSha256": {
+    "channel-report.json": "7eb600f69e4bdb415411570263f1091fd885bf29ca4804c70cb850fc822b595f",
+    "channel.s2p": "62046d75ecdea163914f968c9948a790cd41f877cb09b7f7052bf43dd516edf1",
+    "palace-1.json": "0528d189f9f0cb1e1007ac1b0d3424c930d15f55212495d30e66f3acc9010aae",
+    "palace-1.log": "dc5e8d01636f66800b7701fc8a8704e7a21ee0fd0aefc6f323f266e157060616",
+    "palace-2.json": "77964c096b896e29676d888ab8bad955f9aa5cd2e33a82d2e612a99890805d43",
+    "palace-2.log": "cc7fd20890eebf4aee8ec073d03ef05b2712b5732e278e251b0e099cc66dbc5b",
+    "postpro/port-1/port-S.csv": "8baaa59e187a289c74a394fddd4508ba8342c3397b048f99a22531bcd1233e2e",
+    "postpro/port-2/port-S.csv": "50780253ca76a80938ef643de4675dcadcf443bdb1ede772832e0aca25d3f06f",
+    "solver-input.json": "12855d78f3f249b010a9620ebd8b16618b2f8a832295dd8e1e38594fdaabb40e"
+  }
+}

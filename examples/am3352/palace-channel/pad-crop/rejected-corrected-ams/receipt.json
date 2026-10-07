@@ -1,0 +1,20 @@
+{
+  "case": "Actual corrected AM3352 DQS0/DQSn0",
+  "validChannel": false,
+  "frequencyHz": 400000000,
+  "order": 1,
+  "dockerImage": "benvial/palace@sha256:f0f3a3cbbdf1ee2d8f856ddbe1f5bf4628a92ee8ab87d1e27dc33402ad9c8dda",
+  "mpiProcesses": 4,
+  "cpus": 4,
+  "memoryLimitGiB": 12,
+  "relativeResidual": 4.771e-06,
+  "gmresIterations": 1200,
+  "requiredTolerance": 1e-08,
+  "scatteringValuesRejected": true,
+  "reason": "Native first field solve did not converge; controller stopped before port 2.",
+  "filesSha256": {
+    "palace-1.json": "4c758a02837389e1f9c1c91df97dee9ae0c9023d943f2f800ff5f342aadd7b8c",
+    "palace-1.log": "b628fc42720a2b46b879e50ba55f1cf51c5d0aa865180321fefa8b33db800044",
+    "solver-input.json": "da57919791f5edd79776d9406c45ebe47bc859eaf2c7bb363dd34b231734ebc4"
+  }
+}

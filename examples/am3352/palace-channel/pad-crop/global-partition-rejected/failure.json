@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "kind": "native_export",
+  "exitCode": 1,
+  "progress": {
+    "stage": "partition_interfaces",
+    "solids": 364,
+    "elapsedSeconds": 79.10107233602321
+  },
+  "logPath": "/workspace/work/dqs-channel/am3352-full-pad-bounded-global-mesh/gmsh.log"
+}

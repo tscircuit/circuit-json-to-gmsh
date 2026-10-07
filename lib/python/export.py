@@ -1,19 +1,25 @@
 """Native Gmsh CAD/mesh exporter. Millimetres, +Z towards top copper."""
 
 import argparse
+import hashlib
 import json
+import shutil
 import time
 import resource
 import sys
 from pathlib import Path
 import gmsh
 from cad import build_cad
-from planar import layer_copper
+from planar import layer_copper, nonempty_polygons
 from topology import TopologyError
 from mesh_manifest import mesh_manifest
+from shapely.ops import unary_union
 from shapely.geometry import box
 from planar import clean
 from partition import partition
+from tiled import build_tiled_cad
+from lumped_ports import prepare_ports, imprint_ports, resolve_ports
+from reload_cad import reload_cad, check_node_references, import_owned_cad
 from simplify_copper import simplify_copper
 from route_corridor import route_corridor
 from shapely.geometry import mapping
@@ -27,6 +33,8 @@ def preview_solids(solids):
         for i, tag in enumerate(tags)
     }
     for solid in solids:
+        if solid["material"] == "air":
+            continue
         triangles = []
         faces = gmsh.model.getBoundary(solid["entities"], combined=True, oriented=False)
         for dimension, face in faces:
@@ -67,40 +75,9 @@ def export(options):
             )
         )
         board, copper = layer_copper(model)
-        if options.corridor_nets:
-            region, expansions = route_corridor(
-                {
-                    "model": model,
-                    "netIds": options.corridor_nets.split(","),
-                    "marginMm": options.corridor_margin,
-                }
-            )
-            board = clean(board.intersection(region))
-            (destination / "route-corridor.json").write_text(
-                json.dumps(
-                    {
-                        "netIds": options.corridor_nets.split(","),
-                        "marginMm": options.corridor_margin,
-                        "expandedBarrelIndices": expansions,
-                        "region": mapping(board),
-                    },
-                    indent=2,
-                )
-            )
-            copper = {
-                layer: {
-                    net: clean(shape.intersection(board)) for net, shape in nets.items()
-                }
-                for layer, nets in copper.items()
-            }
-        if options.bounds:
-            board = clean(board.intersection(box(*options.bounds)))
-            copper = {
-                layer: {
-                    net: clean(shape.intersection(board)) for net, shape in nets.items()
-                }
-                for layer, nets in copper.items()
-            }
+        # Approximate physical contours before clipping the analysis domain.
+        # Simplifying a clipped edge and clipping it again creates sub-kernel
+        # wedges where the copper nearly follows a curved crop boundary.
         copper, simplifications = simplify_copper(
             {
                 "model": model,
@@ -118,27 +95,170 @@ def export(options):
                 indent=2,
             )
         )
+        if options.corridor_nets:
+            region, expansions, crop_regularization = route_corridor(
+                {
+                    "model": model,
+                    "netIds": options.corridor_nets.split(","),
+                    "marginMm": options.corridor_margin,
+                }
+            )
+            board = clean(board.intersection(region))
+            (destination / "route-corridor.json").write_text(
+                json.dumps(
+                    {
+                        "netIds": options.corridor_nets.split(","),
+                        "marginMm": options.corridor_margin,
+                        "expandedBarrelIndices": expansions,
+                        "regularization": crop_regularization,
+                        "region": mapping(board),
+                    },
+                    indent=2,
+                )
+            )
+            copper = {
+                layer: {
+                    net: clean(
+                        unary_union(nonempty_polygons(shape.intersection(board)))
+                    )
+                    for net, shape in nets.items()
+                }
+                for layer, nets in copper.items()
+            }
+        if options.bounds:
+            board = clean(board.intersection(box(*options.bounds)))
+            copper = {
+                layer: {
+                    net: clean(
+                        unary_union(nonempty_polygons(shape.intersection(board)))
+                    )
+                    for net, shape in nets.items()
+                }
+                for layer, nets in copper.items()
+            }
         (destination / "progress.json").write_text(
             json.dumps(
                 {"stage": "cad_slabs", "elapsedSeconds": time.monotonic() - started}
             )
         )
-        solids = build_cad(
-            {
-                "model": model,
-                "board": board,
-                "copper": copper,
-                "cutawayX": options.cutaway_x,
-                "repairRadiusMm": options.repair_radius,
-                "boundsMm": options.bounds,
-                "clipBoard": bool(options.corridor_nets),
-                "progressPath": str(destination / "progress.json"),
-            }
+        air_bounds = None
+        if options.air_padding:
+            x0, y0, x1, y1 = board.bounds
+            p = options.air_padding
+            air_bounds = [x0 - p, y0 - p, x1 + p, y1 + p]
+        ports = (
+            prepare_ports(
+                model,
+                board,
+                copper,
+                json.loads(Path(options.port_requirements).read_text()),
+            )
+            if options.port_requirements
+            else []
         )
+        native = Path(__file__).parent
+        signature = hashlib.sha256(
+            json.dumps(
+                {
+                    "modelSha256": hashlib.sha256(
+                        Path(options.model).read_bytes()
+                    ).hexdigest(),
+                    "boardWkb": board.wkb_hex,
+                    "copperWkb": {
+                        layer: {n: s.wkb_hex for n, s in nets.items()}
+                        for layer, nets in copper.items()
+                    },
+                    "airBoundsMm": air_bounds,
+                    "airPaddingMm": options.air_padding,
+                    "cutawayX": options.cutaway_x,
+                    "repairRadiusMm": options.repair_radius,
+                    "fragmentStrategy": options.fragment_strategy,
+                    "tileSizeMm": options.tile_size,
+                    "gmshVersion": gmsh.__version__,
+                    "ports": [
+                        {k: (v.wkb_hex if k == "shape" else v) for k, v in p.items()}
+                        for p in ports
+                    ],
+                    "implementationSha256": hashlib.sha256(
+                        b"".join(
+                            (native / f).read_bytes()
+                            for f in [
+                                "cad.py",
+                                "planar.py",
+                                "topology.py",
+                                "partition.py",
+                                "tiled.py",
+                                "tile_axes.py",
+                                "tile_worker.py",
+                                "lumped_ports.py",
+                                "simplify_copper.py",
+                                "route_corridor.py",
+                            ]
+                        )
+                    ).hexdigest(),
+                },
+                sort_keys=True,
+            ).encode()
+        ).hexdigest()
+        (destination / "cad-geometry-signature.json").write_text(
+            json.dumps({"sha256": signature}, indent=2)
+        )
+        checkpoint = Path(options.cad_checkpoint) if options.cad_checkpoint else None
+        builder = (
+            build_tiled_cad
+            if options.conformal and options.fragment_strategy == "tiled"
+            else build_cad
+        )
+        if checkpoint:
+            if not options.conformal:
+                raise ValueError("CAD checkpoints require a conformal export")
+            metadata = json.loads(
+                (checkpoint / "cad-checkpoint-metadata.json").read_text()
+            )
+            if metadata["geometrySignatureSha256"] != signature:
+                raise ValueError(
+                    "CAD checkpoint geometry, ports or exporter implementation changed"
+                )
+            for filename, key in [
+                ("cad-checkpoint.brep", "brepSha256"),
+                ("cad-checkpoint.json", "solidsSha256"),
+            ]:
+                if (
+                    hashlib.sha256((checkpoint / filename).read_bytes()).hexdigest()
+                    != metadata[key]
+                ):
+                    raise ValueError("CAD checkpoint content hash mismatch")
+                if checkpoint.resolve() != destination.resolve():
+                    shutil.copyfile(checkpoint / filename, destination / filename)
+            solids = json.loads((checkpoint / "cad-checkpoint.json").read_text())
+            import_owned_cad(checkpoint / "cad-checkpoint.brep", solids)
+        else:
+            solids = builder(
+                {
+                    "model": model,
+                    "board": board,
+                    "copper": copper,
+                    "tileSizeMm": options.tile_size,
+                    "tileWorkers": options.tile_workers,
+                    "tileCacheDirectory": options.tile_cache,
+                    "airBoundsMm": air_bounds,
+                    "airPaddingMm": options.air_padding,
+                    "cutawayX": options.cutaway_x,
+                    "repairRadiusMm": options.repair_radius,
+                    "boundsMm": options.bounds,
+                    "clipBoard": bool(options.corridor_nets),
+                    "progressPath": str(destination / "progress.json"),
+                }
+            )
         if not solids:
             raise ValueError("No geometry remains in the selected cutaway")
         (destination / "cad-solids.json").write_text(json.dumps(solids, indent=2))
-        if options.conformal and len(solids) > 1:
+        if (
+            options.conformal
+            and len(solids) > 1
+            and options.fragment_strategy != "tiled"
+            and not checkpoint
+        ):
             (destination / "progress.json").write_text(
                 json.dumps(
                     {
@@ -156,6 +276,29 @@ def export(options):
                 }
             )
         gmsh.model.occ.synchronize()
+        if ports and not checkpoint:
+            receipt = imprint_ports(solids, ports)
+        if options.conformal:
+            if not checkpoint:
+                reload_cad(solids, destination)
+            if ports:
+                receipt = resolve_ports(ports)
+            (destination / "cad-checkpoint-metadata.json").write_text(
+                json.dumps(
+                    {
+                        "geometrySignatureSha256": signature,
+                        "brepSha256": hashlib.sha256(
+                            (destination / "cad-checkpoint.brep").read_bytes()
+                        ).hexdigest(),
+                        "solidsSha256": hashlib.sha256(
+                            (destination / "cad-checkpoint.json").read_bytes()
+                        ).hexdigest(),
+                    },
+                    indent=2,
+                )
+            )
+        if ports:
+            (destination / "ports.json").write_text(json.dumps(receipt, indent=2))
         for solid in solids:
             for repair in solid["repairs"]:
                 for x, y in repair["contactsMm"]:
@@ -209,6 +352,9 @@ def export(options):
         gmsh.option.setNumber("Mesh.MeshSizeFromCurvature", 0)
         gmsh.option.setNumber("Mesh.MeshSizeExtendFromBoundary", 0)
         gmsh.option.setNumber("Mesh.Algorithm", 6)
+        gmsh.option.setNumber(
+            "Mesh.Algorithm3D", 10 if options.tetrahedral_algorithm == "hxt" else 1
+        )
         gmsh.option.setNumber("Mesh.ElementOrder", 1)
         mesh_started = time.monotonic()
         if not options.cad_only:
@@ -226,6 +372,7 @@ def export(options):
             gmsh.model.mesh.generate(3 if options.conformal else 2)
             if options.optimize_netgen and options.conformal:
                 gmsh.model.mesh.optimize("Netgen")
+            check_node_references()
             gmsh.option.setNumber("Mesh.MshFileVersion", 2.2)
             gmsh.write(str(destination / "board.msh"))
         preview = [] if options.cad_only else preview_solids(solids)
@@ -250,6 +397,11 @@ def export(options):
             raise ValueError("Mesh contains inverted or degenerate tetrahedra")
         report = {
             "gmshVersion": gmsh.__version__,
+            "tetrahedralAlgorithm": options.tetrahedral_algorithm,
+            "fragmentStrategy": options.fragment_strategy,
+            "tileSizeMm": options.tile_size
+            if options.fragment_strategy == "tiled"
+            else None,
             "simplificationToleranceMm": options.simplify_tolerance,
             "simplification": simplifications,
             "wallSeconds": time.monotonic() - started,
@@ -268,6 +420,7 @@ def export(options):
             ),
             "minimumTetQuality": float(min(qualities)) if len(qualities) else None,
             "repairs": [repair for s in solids for repair in s["repairs"]],
+            "sliverRepairs": [r for s in solids for r in s.get("sliverRepairs", [])],
             "removedVolumeMm3": sum(
                 s["originalVolumeMm3"] - s["expectedVolumeMm3"] for s in solids
             ),
@@ -313,9 +466,18 @@ if __name__ == "__main__":
     parser.add_argument("--threads", type=int, default=1)
     parser.add_argument("--optimize-netgen", action="store_true")
     parser.add_argument(
-        "--fragment-strategy", choices=["global", "slab"], default="global"
+        "--tetrahedral-algorithm", choices=["delaunay", "hxt"], default="delaunay"
+    )
+    parser.add_argument(
+        "--fragment-strategy", choices=["global", "slab", "tiled"], default="global"
     )
     parser.add_argument("--simplify-tolerance", type=float, default=0)
     parser.add_argument("--corridor-nets")
     parser.add_argument("--corridor-margin", type=float, default=1)
+    parser.add_argument("--tile-size", type=float, default=2)
+    parser.add_argument("--tile-workers", type=int, default=1)
+    parser.add_argument("--tile-cache")
+    parser.add_argument("--cad-checkpoint")
+    parser.add_argument("--air-padding", type=float, default=0)
+    parser.add_argument("--port-requirements")
     export(parser.parse_args())

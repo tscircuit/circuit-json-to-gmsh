@@ -1,0 +1,4784 @@
+{
+  "schemaVersion": 1,
+  "tiles": 84,
+  "passed": 84,
+  "batchWallSeconds": 224.91829999600304,
+  "workers": 2,
+  "meshSizeMm": 0.4,
+  "minimumQualityThreshold": 0,
+  "completeRouteValidated": false,
+  "totalTileTetrahedra": 1007863,
+  "minimumTetQuality": 3.7692571369304826e-6,
+  "limitations": [
+    "These are isolated CAD tiles, before inter-tile joins and EM port imprints.",
+    "Strictly positive element quality does not establish EM accuracy; complete-route validation and numerical refinement are still required."
+  ],
+  "results": [
+    {
+      "boundsMm": [-10.550231, -33.05, -8.052001, -30.549999999999997],
+      "jobSha256": "7d3de42fc23eb60cd1e0c3c8fe880957ced998f03d5b87ab0f6a839f1bf1c05d",
+      "brepSha256": "28abfd8f25231424742a3d3f0e96ad457ecb8e62095856681fac636d5648915b",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "6dc322ddc9062ee8fe4cefcdf9613ce0ee9fe98f930523f86f95adce59372819",
+      "manifestSha256": "c426e3a9176e0d427eb8cd282adcf21f4d9e85a9449a427d095bc5695fc7e434",
+      "tetrahedra": 36984,
+      "minimumTetQuality": 0.008612070750739255,
+      "qualityPercentile01": 0.060573972752492704,
+      "cadVolumeDifferenceMm3": 4.621039551011563e-9,
+      "maximumCadVolumeDifferenceMm3": 2.2260478414999974e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 13.214807637996273
+    },
+    {
+      "boundsMm": [
+        -10.550231, -30.549999999999997, -8.052001, -28.049999999999997
+      ],
+      "jobSha256": "ceca2cbda633fd425ffc12475f56dce39bc3fff519725717ff506a1b6047d500",
+      "brepSha256": "53fb211ab933f41c74116fb80abdad2fc93fc6a7132a9b7e7fd265d20cc5ed60",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "0d43b05f0e3c08f44d4abaa3e1368443382285566cee6a29276b2e24829a3199",
+      "manifestSha256": "878bb7dc0682b97fa60989b589bdd0958f9abed5da62f50fd164f482948a265e",
+      "tetrahedra": 27384,
+      "minimumTetQuality": 0.011125463113423441,
+      "qualityPercentile01": 0.05698643600831241,
+      "cadVolumeDifferenceMm3": -3.034335804841248e-8,
+      "maximumCadVolumeDifferenceMm3": 2.2260478414999995e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 7.554496656986885
+    },
+    {
+      "boundsMm": [
+        -10.550231, -28.049999999999997, -8.052001, -25.549999999999997
+      ],
+      "jobSha256": "422e3b0d3c653eccfdf9a204886d7d479b91f89dd83b1b058567f38d16a55ef1",
+      "brepSha256": "4972be60e1b6eda41e9758557872836481760690cfd13529a57ee44176469639",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "23176c4ad63c8027d383efb29e91c2267fd5cbf988cae89b0764bb6c7678cee4",
+      "manifestSha256": "c48183bcf85700e710cb16a3651bf64ba002a6d49899a32becec5a9ca72bdd86",
+      "tetrahedra": 6283,
+      "minimumTetQuality": 0.045951663940334155,
+      "qualityPercentile01": 0.05318558727511712,
+      "cadVolumeDifferenceMm3": 0.0,
+      "maximumCadVolumeDifferenceMm3": 2.2260478414999995e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.949070545990253
+    },
+    {
+      "boundsMm": [
+        -10.550231, -25.549999999999997, -8.052001, -23.049999999999997
+      ],
+      "jobSha256": "66f202dbc4aa4de084b77549c0ab0b61c9727584455730048ebffb4c880da5dc",
+      "brepSha256": "6ce7fbd8545d30b4bb61fc26f442d614a1d17e43f2e198535bfab2d181683c7b",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "8acdc76fb8061929259e97fd207aac88fa074ab50c7769c8c260169c61b741f9",
+      "manifestSha256": "c48183bcf85700e710cb16a3651bf64ba002a6d49899a32becec5a9ca72bdd86",
+      "tetrahedra": 6291,
+      "minimumTetQuality": 0.04594543693112791,
+      "qualityPercentile01": 0.053185621223523535,
+      "cadVolumeDifferenceMm3": 0.0,
+      "maximumCadVolumeDifferenceMm3": 2.2260478414999995e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.79794657297316
+    },
+    {
+      "boundsMm": [
+        -10.550231, -23.049999999999997, -8.052001, -20.549999999999997
+      ],
+      "jobSha256": "64a3c49e751cd225bd5839eb8f64f0cbe74dba5b1be1411b677b835b5c6893cc",
+      "brepSha256": "fe9c57ffa58f732b1b7f093c8ef9d444cc44c124bc84e088213cdfd13dc7488a",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "fcff03d17ab0c79c681684a20b1ebff0ff41473d921c6116c08e3f56d84c4b6d",
+      "manifestSha256": "c48183bcf85700e710cb16a3651bf64ba002a6d49899a32becec5a9ca72bdd86",
+      "tetrahedra": 6287,
+      "minimumTetQuality": 0.045951663943002055,
+      "qualityPercentile01": 0.053185604249292466,
+      "cadVolumeDifferenceMm3": 0.0,
+      "maximumCadVolumeDifferenceMm3": 2.2260478414999995e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.8819080110115465
+    },
+    {
+      "boundsMm": [
+        -10.550231, -20.549999999999997, -8.052001, -18.049999999999997
+      ],
+      "jobSha256": "59e37e7dce8eb4fc7d5df7f2b33712c57fd06dd9688978480bc4e560ddfeed58",
+      "brepSha256": "7d2e634f3ddf882f64de9c3c3a88b07d19b95543d02d9f64b5e5816066fe08d8",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "08ae9c999a7393e17e04a109aa3d10c4c2cafe0ad276d5f3c2434b26cc1b5101",
+      "manifestSha256": "c48183bcf85700e710cb16a3651bf64ba002a6d49899a32becec5a9ca72bdd86",
+      "tetrahedra": 6287,
+      "minimumTetQuality": 0.04594543693157601,
+      "qualityPercentile01": 0.05318560424893368,
+      "cadVolumeDifferenceMm3": 0.0,
+      "maximumCadVolumeDifferenceMm3": 2.2260478414999995e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.80569033199572
+    },
+    {
+      "boundsMm": [
+        -10.550231, -18.049999999999997, -8.052001, -15.549999999999997
+      ],
+      "jobSha256": "c37f422331203eabd5e249ad191903d040fc89a4f56f67e0b8b2df8384acc1e0",
+      "brepSha256": "47ee23535c96ebe939102d53297a81b28ad5e2317e4cf614e3e43d3a36f14529",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "af3e1098b795919d05eab5c0584566f7a169d314a8b64199fbc04adebf2968b4",
+      "manifestSha256": "f9ad6bc2037fff8009f55982675a4264f6fbf8a679e09322c3fc8031a238daab",
+      "tetrahedra": 6283,
+      "minimumTetQuality": 0.04598417823063675,
+      "qualityPercentile01": 0.052677836730681916,
+      "cadVolumeDifferenceMm3": 0.0,
+      "maximumCadVolumeDifferenceMm3": 2.2260478414999995e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.6933342770207673
+    },
+    {
+      "boundsMm": [
+        -10.550231, -15.549999999999997, -8.052001, -13.049999999999997
+      ],
+      "jobSha256": "7bf639171e648004aea1269dbe6eb3bc1a6052c16d8aae0262eb0bbb93341c3a",
+      "brepSha256": "53fbf4f2db1866e92549520c9606db37c4d6f18357040e7af06da043d90be407",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "ee9b0eac5b958ac905ec89c6adf012af27c95c38cb8b79747196f6659303a2df",
+      "manifestSha256": "c48183bcf85700e710cb16a3651bf64ba002a6d49899a32becec5a9ca72bdd86",
+      "tetrahedra": 6265,
+      "minimumTetQuality": 0.04554872070552511,
+      "qualityPercentile01": 0.05237212428549999,
+      "cadVolumeDifferenceMm3": 0.0,
+      "maximumCadVolumeDifferenceMm3": 2.2260478414999995e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 3.206634434987791
+    },
+    {
+      "boundsMm": [
+        -10.550231, -13.049999999999997, -8.052001, -10.549999999999997
+      ],
+      "jobSha256": "be936bf45bb388cbac108486b8412409bd09868f2ef0b8778946cfd78dc9fb77",
+      "brepSha256": "8b2115727e99a07d8f89421f4c4970707011147db7766579b00160d1f458470b",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "54157e90c928d605dfeeb3948be82db249df82d393f7828509b0a2c616879f37",
+      "manifestSha256": "f9ad6bc2037fff8009f55982675a4264f6fbf8a679e09322c3fc8031a238daab",
+      "tetrahedra": 6264,
+      "minimumTetQuality": 0.04554872070379691,
+      "qualityPercentile01": 0.0521057198434788,
+      "cadVolumeDifferenceMm3": 0.0,
+      "maximumCadVolumeDifferenceMm3": 2.2260478414999995e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.730475235002814
+    },
+    {
+      "boundsMm": [
+        -10.550231, -10.549999999999997, -8.052001, -8.05188003569059
+      ],
+      "jobSha256": "bc8f00369fca716d3981144507b1fccde120bfc0fcedd20e803873752b438c07",
+      "brepSha256": "ffa734978f015f57dcbed3b2aeea9304dbb87861ad5491250cfd586ba05a54a2",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "7a50319db8fcafdd1250c31afd9ecb29573075e23ac5802be8ac0cff44840923",
+      "manifestSha256": "d60183fe5b7d975d1a895596284e638c1ad81acca3071c269f02bc6b4e36cca4",
+      "tetrahedra": 6322,
+      "minimumTetQuality": 0.04595379122406293,
+      "qualityPercentile01": 0.052633622346116994,
+      "cadVolumeDifferenceMm3": 0.0,
+      "maximumCadVolumeDifferenceMm3": 2.2243738535231912e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.6305229340214282
+    },
+    {
+      "boundsMm": [
+        -10.550231, -8.05188003569059, -8.052001, -5.549999999999997
+      ],
+      "jobSha256": "2f7530419552b3fb9ba11fb9ad136c9ef74e62054bea49985d91c1a0d4bf2ffe",
+      "brepSha256": "8db394c925e91aa233827ea290438ffcbb4da30487a4bfd9f4ab19372bb0a40e",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "71a49716cd5d0597711b9cf2f556d3533eb2d49c54dfad25942d0ad0a454338c",
+      "manifestSha256": "cfea5ad6c7ca05f46345f3a560c9368f867e3043e6679c54ea4f3a8f3deccedf",
+      "tetrahedra": 6282,
+      "minimumTetQuality": 0.045964130904966774,
+      "qualityPercentile01": 0.05258635519636874,
+      "cadVolumeDifferenceMm3": 0.0,
+      "maximumCadVolumeDifferenceMm3": 2.2277218294768077e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 3.217215323995333
+    },
+    {
+      "boundsMm": [-10.550231, -5.549999999999997, -8.052001, -4.25],
+      "jobSha256": "22ad3cfa117f38a2304b05d2e76e7cd10eb89d2a828785a6abc5568c655c65ad",
+      "brepSha256": "fab3a260a844b29f78fc047df4245299022f368b1251867656facff35e64e0ee",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "7eaa2215741df4b09573474277efc36585566e8e3ba315d13b083e3534dc648a",
+      "manifestSha256": "b6828ce68c4fbff093e5084ee4060c493bbfc919cd12f76914828e31d89d814a",
+      "tetrahedra": 3991,
+      "minimumTetQuality": 0.04877518002260303,
+      "qualityPercentile01": 0.054050971204417715,
+      "cadVolumeDifferenceMm3": 0.0,
+      "maximumCadVolumeDifferenceMm3": 1.1575448775799994e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.417756410985021
+    },
+    {
+      "boundsMm": [-8.052001, -33.05, -5.550231, -30.549999999999997],
+      "jobSha256": "8d9273764dea8cfb9079ccd11e7cf3d5f50df86124c1b39c3cfaa55a1a53cee3",
+      "brepSha256": "b6c78951b0cec9c0c230a5d8fea983989a64ca1031de063e00c74196c9feed93",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "7b1b180b37ec42249de92670d9493789618a3b62c5a64214c1105dac2e0835b2",
+      "manifestSha256": "6cceeba13ebcaa2ab6b8ca31969267cdfa25af33e2acdb0920badb82d3e16ae3",
+      "tetrahedra": 51643,
+      "minimumTetQuality": 0.008612070750743637,
+      "qualityPercentile01": 0.05914471955831261,
+      "cadVolumeDifferenceMm3": 7.105427357601002e-15,
+      "maximumCadVolumeDifferenceMm3": 2.2292021584999986e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 16.348463360976893
+    },
+    {
+      "boundsMm": [
+        -8.052001, -30.549999999999997, -5.550231, -28.049999999999997
+      ],
+      "jobSha256": "8d52b9ec319dae64d25840fc398af0ce5db310de2427e9178ff3fef93d6a27f0",
+      "brepSha256": "6b9071e5b7efa784029be8c9b1139250fd0817f9111289b25694b10d3bbfede7",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "ba7653b97d145603a61c9efa7de712a333152574975b4e41e2b8e25e323c1345",
+      "manifestSha256": "79decb7849a52bebf73ef237df8f9194149651d98b49178eceef82acf08e7808",
+      "tetrahedra": 25519,
+      "minimumTetQuality": 0.008012504294938272,
+      "qualityPercentile01": 0.05997543903150688,
+      "cadVolumeDifferenceMm3": -3.13495007731035e-9,
+      "maximumCadVolumeDifferenceMm3": 2.2292021585000003e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 9.032798485975945
+    },
+    {
+      "boundsMm": [
+        -8.052001, -28.049999999999997, -5.550231, -25.549999999999997
+      ],
+      "jobSha256": "d62ceac2d39b1c586330593a5b6446f41ac4ecbb18e8313dedeb6494c616dd74",
+      "brepSha256": "cc195246c82bd5f70a3284642a49e427c853a299d54a799dc29560e25447b445",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "6a65cc48a88a8c3a4a695cdbc4dc2ac548036535aafadad68ee623ce1b828c9c",
+      "manifestSha256": "477bd68cf902866b47e519754f0873e976ebc98296e7b998b7eb6f745dd41d6a",
+      "tetrahedra": 6336,
+      "minimumTetQuality": 0.0454641855848867,
+      "qualityPercentile01": 0.05279443545191595,
+      "cadVolumeDifferenceMm3": 3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 2.2292021585e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.7539739749918226
+    },
+    {
+      "boundsMm": [
+        -8.052001, -25.549999999999997, -5.550231, -23.049999999999997
+      ],
+      "jobSha256": "52b446eed4b26ea0392827c1934268519feb19bf10f5613bf1cffdd0b6684ff5",
+      "brepSha256": "170bac14f8ace2d792ac626e82d05099c597fa71a47ed161d24839672a1e884d",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "42fd6422d3531855b3439b9c0a6ba283ac79bd477228d57d735e2818878f9222",
+      "manifestSha256": "477bd68cf902866b47e519754f0873e976ebc98296e7b998b7eb6f745dd41d6a",
+      "tetrahedra": 6328,
+      "minimumTetQuality": 0.045464159084698044,
+      "qualityPercentile01": 0.052613194483197706,
+      "cadVolumeDifferenceMm3": 3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 2.2292021585e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.437409078993369
+    },
+    {
+      "boundsMm": [
+        -8.052001, -23.049999999999997, -5.550231, -20.549999999999997
+      ],
+      "jobSha256": "83406e66a2e36a9357e84f25617e5e36b5c6047921f487f56446e91714d07641",
+      "brepSha256": "f1e8c1bcaf4c4716f4e555c1ddae8d2fe224d8c70773d4bcd642fb4ff9714c46",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "86d9ac7c8c23079665a6b42f0be3750a96e3185f0eee66c840cdc00210ce1ff4",
+      "manifestSha256": "adcf3bfb0885eb40d45b60397987fda485888661678345514f48ac80087a3992",
+      "tetrahedra": 6328,
+      "minimumTetQuality": 0.04546416146879372,
+      "qualityPercentile01": 0.05237505037230883,
+      "cadVolumeDifferenceMm3": 3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 2.2292021585e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.8793586079846136
+    },
+    {
+      "boundsMm": [
+        -8.052001, -20.549999999999997, -5.550231, -18.049999999999997
+      ],
+      "jobSha256": "ae74565f93b22bd2e514b34b5be7a2eb93d47a5efdd9e95e48ebd4182288d0bb",
+      "brepSha256": "1e42ceeb7ac2986bb68ac5ce3808b8752d766961991ce0fb6531f6a246be7f89",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "6a273d2c3a655ec99488933423fbc0f51a769d8d3cf61eb3ce9061b6c44094bb",
+      "manifestSha256": "adcf3bfb0885eb40d45b60397987fda485888661678345514f48ac80087a3992",
+      "tetrahedra": 6332,
+      "minimumTetQuality": 0.04593405793974876,
+      "qualityPercentile01": 0.05227373863239474,
+      "cadVolumeDifferenceMm3": 3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 2.2292021585e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.624006987985922
+    },
+    {
+      "boundsMm": [
+        -8.052001, -18.049999999999997, -5.550231, -15.549999999999997
+      ],
+      "jobSha256": "96306c3bdba755da8a265eec0a963783b7091ce231716f38abd891c8432321e0",
+      "brepSha256": "1f3c8f5fb8c1fdd8753901f36586576306d5beb1b9b62bfa0656c6c0b38a8281",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "5142eb2d81d1323de5e55fb4c8b42786ee3d0c809ce2eaf6192e5478a27c76a5",
+      "manifestSha256": "8db7cc7ad9bba1625511c85d2d59ced8d1a3cee4f7cd51b55476e903f6c70b6a",
+      "tetrahedra": 6322,
+      "minimumTetQuality": 0.0460483307499111,
+      "qualityPercentile01": 0.05243691590843303,
+      "cadVolumeDifferenceMm3": 3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 2.2292021585e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 3.2150873230129946
+    },
+    {
+      "boundsMm": [
+        -8.052001, -15.549999999999997, -5.550231, -13.049999999999997
+      ],
+      "jobSha256": "9e4898150152b07a67659230956e23c70826e8add6ba3b5f76027a3465449765",
+      "brepSha256": "df3616121a3b05a80be1552161172ad74290958c0a2276bd7afc3d35d2c48c14",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "7aa2cc817b462f0266cd57261184d8116eadbe1ea13de89d7e5b625196ddbd17",
+      "manifestSha256": "7eabe061024a8db76caabf0c27826ac8906438fe7ea59e854a099124cceb1aa4",
+      "tetrahedra": 6291,
+      "minimumTetQuality": 0.045483466751794946,
+      "qualityPercentile01": 0.05258611796291895,
+      "cadVolumeDifferenceMm3": 3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 2.2292021585e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 4.4283603229851
+    },
+    {
+      "boundsMm": [
+        -8.052001, -13.049999999999997, -5.550231, -10.549999999999997
+      ],
+      "jobSha256": "33feba6ebfbc79ad95df5c69b9132c227e4b2334a999f7916fb348b4b730cbe0",
+      "brepSha256": "923776592ca67de77ca6cc6eb819022e757f108cb92c3491495a7fbefcd3d795",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "18a8056986d1435c70db0a7a59b3357fe1fd9b69c4e5796ed32fb981168ea50c",
+      "manifestSha256": "7751b488354aabd02408e145b379000404802adbf3d215ae2e5b0a962e1d9950",
+      "tetrahedra": 6296,
+      "minimumTetQuality": 0.04548346675234994,
+      "qualityPercentile01": 0.05258615305628246,
+      "cadVolumeDifferenceMm3": 3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 2.2292021585e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 3.374715484009357
+    },
+    {
+      "boundsMm": [
+        -8.052001, -10.549999999999997, -5.550231, -8.05188003569059
+      ],
+      "jobSha256": "b16b89fab27f256a2149527b3a6658f716bf99eac6f2f856aa778279b1ff1b4f",
+      "brepSha256": "8c4be40dc8205b228b47e936d6e44ca6852c220ad9be008ebcfb29ac65e726a0",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "17e67cf050e97d7f5cfb17b1e28cc6105d717d26f14d77f93de4ab781d4d401f",
+      "manifestSha256": "035d2bb86d6b158d6bff61712f422e5f8540d9754256624ba5863d5225a93d32",
+      "tetrahedra": 6320,
+      "minimumTetQuality": 0.045921625120744144,
+      "qualityPercentile01": 0.05322156275223084,
+      "cadVolumeDifferenceMm3": 0.0,
+      "maximumCadVolumeDifferenceMm3": 2.227525798476808e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 3.1257412119884975
+    },
+    {
+      "boundsMm": [-8.052001, -8.05188003569059, -5.550231, -5.549999999999997],
+      "jobSha256": "e998d1764d23fc62631fac7bddad101a6b1134e93ca679374946fd2beba46ff6",
+      "brepSha256": "9f8d986750f4056519df45ec02e7fde7ef42ff07638de961288f97a0f1dce657",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "133adc78b367a0b662f41b0b9440d74add7a07f10a7d77a379795277b396680f",
+      "manifestSha256": "55a96bd3281512b55bbbf89f64d74e48bf6cbdf1c00b3c691ac0408e463c52ba",
+      "tetrahedra": 6304,
+      "minimumTetQuality": 0.04551968510992932,
+      "qualityPercentile01": 0.05232995920588627,
+      "cadVolumeDifferenceMm3": -7.105427357601002e-15,
+      "maximumCadVolumeDifferenceMm3": 2.230878518523193e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.861689822981134
+    },
+    {
+      "boundsMm": [-8.052001, -5.549999999999997, -5.550231, -4.25],
+      "jobSha256": "1dc75df87159b1da68fcd853b8002ab0b8ac038ee814c2e1e077a5c0f77cb438",
+      "brepSha256": "7abe06dcff23c4baa6ef457ec1cd764371fa85e30862169f2f2dbe294f5d3707",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "0721d8c9869abacb3823c081bf5b0aee0f6b742e986adc8bd8b3f6b427a0c68b",
+      "manifestSha256": "0616b8faa0cd809426b43043ff9f8907b6fd4217c0de6b16086bd7f6f7484482",
+      "tetrahedra": 4025,
+      "minimumTetQuality": 0.04903094278868282,
+      "qualityPercentile01": 0.054039718511064684,
+      "cadVolumeDifferenceMm3": 1.7763568394002505e-15,
+      "maximumCadVolumeDifferenceMm3": 1.1591851224199999e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.7779773760121316
+    },
+    {
+      "boundsMm": [-5.550231, -33.05, -3.0518800356905924, -30.549999999999997],
+      "jobSha256": "a6567526734d338252195025552545f44c7df2b31b4f2c506bb90a3f71c92c85",
+      "brepSha256": "8312a7aa3e779b4ef6752506d5f0e56042363ab20045ca72011f6f90033ff513",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "2a18fc6ab089c347ce14e857c3d2fd777313451fa19e0283664b6926de1dea1f",
+      "manifestSha256": "e776ede317d70c3b639195942b02d70b6e72e5513d7b3c91af8f5eebcab5aab7",
+      "tetrahedra": 40027,
+      "minimumTetQuality": 0.006928007069145544,
+      "qualityPercentile01": 0.05890233357977216,
+      "cadVolumeDifferenceMm3": 1.5980042178398435e-7,
+      "maximumCadVolumeDifferenceMm3": 2.226155658549997e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 12.647228897025343
+    },
+    {
+      "boundsMm": [
+        -5.550231, -30.549999999999997, -3.0518800356905924, -28.049999999999997
+      ],
+      "jobSha256": "1437b5dbf38e88e15732221b25f9fcef56e4869d7c6a1ef4cb337f8702efb971",
+      "brepSha256": "70b32544788a3685f92191335f529c4aa342820b104e39f618c963f701759f3b",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "b38740934d4a1225ea7636f0c611b8e7a41025cb768a9f202c382487b3f4f97a",
+      "manifestSha256": "a78ffd87a314bc82812b30f42beae0284a266fd9b813525bdccb451d0101bcd3",
+      "tetrahedra": 26272,
+      "minimumTetQuality": 0.0139476484480969,
+      "qualityPercentile01": 0.059236324524671,
+      "cadVolumeDifferenceMm3": 0.0,
+      "maximumCadVolumeDifferenceMm3": 2.2261556585500004e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 7.492186932009645
+    },
+    {
+      "boundsMm": [
+        -5.550231, -28.049999999999997, -3.0518800356905924, -25.549999999999997
+      ],
+      "jobSha256": "ef15d9d98aa371ddc31a5dcbcc1a9a085e495780303e1f759903fdfb39b00184",
+      "brepSha256": "d16f279cd02cc245f29ee2c5f5f0c8da8e0677d4a8a6426d8da50dfc2be95e84",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "5868b54d2ca74c7b092c366034b9bc5e45ec83fa0eeb4b31d2768948c06e2afc",
+      "manifestSha256": "0161d0281af839733a35a92da82fc1267a1321078feafa141ee33cee623f628f",
+      "tetrahedra": 9367,
+      "minimumTetQuality": 0.04098128527119663,
+      "qualityPercentile01": 0.05466846908892982,
+      "cadVolumeDifferenceMm3": 9.844569603956188e-11,
+      "maximumCadVolumeDifferenceMm3": 2.2261556585499995e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 3.2017079280049074
+    },
+    {
+      "boundsMm": [
+        -5.550231, -25.549999999999997, -3.0518800356905924, -23.049999999999997
+      ],
+      "jobSha256": "161ab247ddee5346f66dbb6a7989d1649774e5e87725cf6a88abff4f16ceab1e",
+      "brepSha256": "7f0cda29e9cc859a4e50f7b981dd6add066f539d50cc7c5d2b1feaaa612245c4",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "e61d689e74614aa8846baab1d7f6ea8123d1b51a953f87441e6a94da5d041e9e",
+      "manifestSha256": "38ab6e2b4959e9053de0f12e882ebed36028d4af263bb3fee87b0415796b9502",
+      "tetrahedra": 6323,
+      "minimumTetQuality": 0.04598472754328239,
+      "qualityPercentile01": 0.0532060772881786,
+      "cadVolumeDifferenceMm3": -3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 2.22615565855e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 3.000564449990634
+    },
+    {
+      "boundsMm": [
+        -5.550231, -23.049999999999997, -3.0518800356905924, -20.549999999999997
+      ],
+      "jobSha256": "4fa3c280cf015b4f31328b129e3e38f2ef12f9a0e03765b740480fb17f4fb38e",
+      "brepSha256": "8fe29de8ab1788da748855d170357668995a9d767c90945b52a58111fb8a0669",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "253111c55ac7cd5a56acb388112c29656ff094adb1912d716d7e851750e23756",
+      "manifestSha256": "604a1fab20ede8c29566ef6c5b524e8fd1190d208922d4ae5b2fdd7fd66bf96c",
+      "tetrahedra": 6312,
+      "minimumTetQuality": 0.04596986863452574,
+      "qualityPercentile01": 0.05257762491808769,
+      "cadVolumeDifferenceMm3": -3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 2.22615565855e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.542266792006558
+    },
+    {
+      "boundsMm": [
+        -5.550231, -20.549999999999997, -3.0518800356905924, -18.049999999999997
+      ],
+      "jobSha256": "05d2cf2420fdb8aee2c3a7e4bed525d765b75e1fce9cbb38ee3eecee94b174c0",
+      "brepSha256": "b9cd36f7388542d45b9c25e8c368e58783b788d32fc651432512feb9181487a2",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "a54e9e422e4f3987a0015841260879c554291ca6fdde3d36683ed8d0bac78843",
+      "manifestSha256": "604a1fab20ede8c29566ef6c5b524e8fd1190d208922d4ae5b2fdd7fd66bf96c",
+      "tetrahedra": 6323,
+      "minimumTetQuality": 0.045984727792437806,
+      "qualityPercentile01": 0.052707289967544396,
+      "cadVolumeDifferenceMm3": -3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 2.22615565855e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.9840729089919478
+    },
+    {
+      "boundsMm": [
+        -5.550231, -18.049999999999997, -3.0518800356905924, -15.549999999999997
+      ],
+      "jobSha256": "ddf8f22e83d71d59e5d82007791949e8c7795bc1ce298ea3c830e13028f2237d",
+      "brepSha256": "39417e7fbf8ed145900ec8be1801ed214d9bafd8e6d026e7953aa8f3a26af729",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "7f6d1db1c9b70f6ea7ecb78fe34a903059d9de037fe0e7f1a6959491e249cfba",
+      "manifestSha256": "604a1fab20ede8c29566ef6c5b524e8fd1190d208922d4ae5b2fdd7fd66bf96c",
+      "tetrahedra": 6319,
+      "minimumTetQuality": 0.04598472344844729,
+      "qualityPercentile01": 0.053221749101444664,
+      "cadVolumeDifferenceMm3": -3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 2.22615565855e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.804751766991103
+    },
+    {
+      "boundsMm": [
+        -5.550231, -15.549999999999997, -3.0518800356905924, -13.049999999999997
+      ],
+      "jobSha256": "dd1d6c715c1fff1bb2bfedc60f06006e527c924a4e45bc5c575d273eed819ad8",
+      "brepSha256": "25787d8354f2d361d973fceb21e6a05ef45a40cad8f3c937995f4ba34cbf7e72",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "5e84002d7cf9ab718dc2971487446d17beb13e2c5b6809ce22f875e5529862d7",
+      "manifestSha256": "38ab6e2b4959e9053de0f12e882ebed36028d4af263bb3fee87b0415796b9502",
+      "tetrahedra": 6269,
+      "minimumTetQuality": 0.04590951939816704,
+      "qualityPercentile01": 0.05308200504494674,
+      "cadVolumeDifferenceMm3": -3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 2.22615565855e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.6233717639988754
+    },
+    {
+      "boundsMm": [
+        -5.550231, -13.049999999999997, -3.0518800356905924, -10.549999999999997
+      ],
+      "jobSha256": "e2b3c12e5e3b7ee7c0e6c8b83f4454eccca74ae13e476736436bf510ab02b575",
+      "brepSha256": "f5b91de1965450c341fc722e0237d232e7347e6ec6c0d40b089e33cca0697e7e",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "5930eeda2f3205c74ec4f1db92f3f2fc2f122a1683c693db4862c2e0b4542b6d",
+      "manifestSha256": "38ab6e2b4959e9053de0f12e882ebed36028d4af263bb3fee87b0415796b9502",
+      "tetrahedra": 6269,
+      "minimumTetQuality": 0.04590951939792063,
+      "qualityPercentile01": 0.053082005045118806,
+      "cadVolumeDifferenceMm3": -3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 2.22615565855e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.94673268700717
+    },
+    {
+      "boundsMm": [
+        -5.550231, -10.549999999999997, -3.0518800356905924, -8.05188003569059
+      ],
+      "jobSha256": "feba517a25d13ad4644c0d97619eead2ee52771cf0ca0e3729295e4964cac6b2",
+      "brepSha256": "3dcf582ec042dba813019f8cf149524eb8ea66656457d46d564a4265a060fdd3",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "466d74dc3407d94c490501eb88a97da11bb5759ef5a9a8a3c65f83f3798e5054",
+      "manifestSha256": "25d2902a98aab34a4b5db3529990737154b7c37e8706efd144ef9b7d5a38e930",
+      "tetrahedra": 6335,
+      "minimumTetQuality": 0.04556018111557602,
+      "qualityPercentile01": 0.05283847217655836,
+      "cadVolumeDifferenceMm3": 0.0,
+      "maximumCadVolumeDifferenceMm3": 2.2244815894947702e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 3.0784659670025576
+    },
+    {
+      "boundsMm": [
+        -5.550231, -8.05188003569059, -3.0518800356905924, -5.549999999999997
+      ],
+      "jobSha256": "efe24a018608fe098f96d2bc31c231f217d170d87f4b2c6fe13e30532872c4e4",
+      "brepSha256": "1c59b3a11cbe75f53ecd95f70b7af47eb854a3dd8517503c7500320fbd3d6a3b",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "e80e089f209b9ae7504742ba790407c1cfe8c6f68925dee4b8385b26574f1c31",
+      "manifestSha256": "2548597e0509e0e8f9cd90015e6694fb45da029a89be533336d0dc228dee990f",
+      "tetrahedra": 6326,
+      "minimumTetQuality": 0.04597037803511123,
+      "qualityPercentile01": 0.05296113063581113,
+      "cadVolumeDifferenceMm3": 0.0,
+      "maximumCadVolumeDifferenceMm3": 2.22782972760523e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 3.020393488026457
+    },
+    {
+      "boundsMm": [-5.550231, -5.549999999999997, -3.0518800356905924, -4.25],
+      "jobSha256": "1519b7e07ed5b5e57f43d4ffd7075c03da9fc7f9b0e30fb819f8c356d50c0657",
+      "brepSha256": "7edfe3f2055dd6f99ce65c1ee1316bef8f5f34e4c294edf99fff167de1f9f382",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "57ee1462b2d3f5227df5681ab52e6620cf418b07f122479af45a24b470c76bf7",
+      "manifestSha256": "0cea26b22585c4c2e19b8bba8bed1a34769df41963d534740277aba4d9f7cac9",
+      "tetrahedra": 4020,
+      "minimumTetQuality": 0.0493084626144057,
+      "qualityPercentile01": 0.05452019991337146,
+      "cadVolumeDifferenceMm3": 0.0,
+      "maximumCadVolumeDifferenceMm3": 1.1576009424459997e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.549491882993607
+    },
+    {
+      "boundsMm": [
+        -3.0518800356905924, -33.05, -0.5502310000000001, -30.549999999999997
+      ],
+      "jobSha256": "2cb950dcd067bb65c1dfdb846b7e3c1c0f4d3d754c16b576d10256a4e9faf814",
+      "brepSha256": "141cf71d07a6c87f0f96be3624ea4ffa69d9d078d70916f90faf58177654faaf",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "c2de26a5bf1f3028e107db7fa261f0dfab3c2b28b951bfec933258d7c635bdbb",
+      "manifestSha256": "06903dafe056ece6317e499d13fc89d0d79d7142399d7fe987b7b3b898d7f29d",
+      "tetrahedra": 9595,
+      "minimumTetQuality": 0.020699195581042506,
+      "qualityPercentile01": 0.05304273954676224,
+      "cadVolumeDifferenceMm3": -7.643059518613882e-10,
+      "maximumCadVolumeDifferenceMm3": 2.2290943414499965e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 3.7965246550156735
+    },
+    {
+      "boundsMm": [
+        -3.0518800356905924, -30.549999999999997, -0.5502310000000001,
+        -28.049999999999997
+      ],
+      "jobSha256": "a9dfdc10b803423cbfdea5265b795a64bfed7f83cb300f124508d0d8e4e97b6d",
+      "brepSha256": "4cf27acab9a7715bcf1e645b67b6e84e11eb253d6ffdbd79c1f3e247b54a7acd",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "408784a926612e07b921d79a0ecb93a6a8b6e72d199017f9adea3d65161f0650",
+      "manifestSha256": "d124311def50fd1247b6c164921ebe30b9dbe319851da718f01ad494f1989acf",
+      "tetrahedra": 8305,
+      "minimumTetQuality": 0.04623562982678258,
+      "qualityPercentile01": 0.05470040433306539,
+      "cadVolumeDifferenceMm3": 0.0,
+      "maximumCadVolumeDifferenceMm3": 2.22909434145e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 3.001109094999265
+    },
+    {
+      "boundsMm": [
+        -3.0518800356905924, -28.049999999999997, -0.5502310000000001,
+        -25.549999999999997
+      ],
+      "jobSha256": "bbe2be500f87c50dd94d6d1c7ac5b1680a9d6742806c2a43c6cc22fcf940dd4a",
+      "brepSha256": "8b48cf48c52cccc87cb8a387b59e5c77c0e01a48deb620e71e376a67843db839",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "8e1532a690047f5d48011cb7268b4efbbdb449144cb088a0995d96c99b122078",
+      "manifestSha256": "db623827a5e167c1c2380e4fbb98cf9a170d287150ccc498d103f32a4294f17d",
+      "tetrahedra": 28513,
+      "minimumTetQuality": 4.131730443468132e-6,
+      "qualityPercentile01": 0.002489938493961233,
+      "cadVolumeDifferenceMm3": -6.862311607847005e-9,
+      "maximumCadVolumeDifferenceMm3": 2.2290943414500003e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 11.277851623977767
+    },
+    {
+      "boundsMm": [
+        -3.0518800356905924, -25.549999999999997, -0.5502310000000001,
+        -23.049999999999997
+      ],
+      "jobSha256": "5eafb13d95a8fa953eea1b6f7df217a0fbb9f5b54f3543666448980e404e7956",
+      "brepSha256": "51f5d450ed13c98f7f36d8fee737561a3a26ec462f3076666cd26a33653cf651",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "393a989150bf15ed44762ffc8e8b3c62a691d51c08af90f509d838469e55a610",
+      "manifestSha256": "e9e9efa0b21f14e9d9591c2f5e8cfa8e89ab2c8b131702a28cee6aba41151d18",
+      "tetrahedra": 7974,
+      "minimumTetQuality": 0.03945832608655795,
+      "qualityPercentile01": 0.0495368991588457,
+      "cadVolumeDifferenceMm3": 1.688427175849938e-10,
+      "maximumCadVolumeDifferenceMm3": 2.2290943414500003e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 3.0193171110004187
+    },
+    {
+      "boundsMm": [
+        -3.0518800356905924, -23.049999999999997, -0.5502310000000001,
+        -20.549999999999997
+      ],
+      "jobSha256": "439da606a3606ef385941466e4cbcec61274566a2ca3be9902eb44194c1fc111",
+      "brepSha256": "f058c680eb2221caef7679a7f1b875c1b6a64427e7662b4e5cfbf106ec95cc98",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "d63f31aedfd32cc58e1fb6695a1f7e8591dd55e56b70b7cd0e671e919e52ab29",
+      "manifestSha256": "40cc49d6c9a6668328f1e3a6301c1a2cacfc945e296f3a58c563d4b4911b7473",
+      "tetrahedra": 18552,
+      "minimumTetQuality": 0.00022731282747604056,
+      "qualityPercentile01": 0.04785205477738305,
+      "cadVolumeDifferenceMm3": 8.605738344158453e-11,
+      "maximumCadVolumeDifferenceMm3": 2.2290943414500003e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 5.307240113004809
+    },
+    {
+      "boundsMm": [
+        -3.0518800356905924, -20.549999999999997, -0.5502310000000001,
+        -18.049999999999997
+      ],
+      "jobSha256": "03718d9bba69752f92ad9fdac700c19742397d62991168d89132aadeaaf7e843",
+      "brepSha256": "f5d67896a33d57cff0c433e11ae49c52ce0529b24eab966db2709afd94543366",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "e4307b06897a5fa37ca04c58f55156b8c04603cd66f5552b87b905d85ca7223d",
+      "manifestSha256": "1282f3fef66eff205606847eedca3a0677030229a0ba63d18a0b91432da5fc09",
+      "tetrahedra": 17768,
+      "minimumTetQuality": 0.011914675330609838,
+      "qualityPercentile01": 0.04880909426721184,
+      "cadVolumeDifferenceMm3": 5.300542227359983e-10,
+      "maximumCadVolumeDifferenceMm3": 2.22909434145e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 5.298744232015451
+    },
+    {
+      "boundsMm": [
+        -3.0518800356905924, -18.049999999999997, -0.5502310000000001,
+        -15.549999999999997
+      ],
+      "jobSha256": "58547bc391ddea4073facff21b2765013847f463bb8b9505b7159b3b1cce5259",
+      "brepSha256": "1a015d8fc50a246dc7d16f646e6854767559c39c3d613aa2b45b91f44d8673c3",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "79b53a45141cda4971871a6319d67531b6954f05795cc83a153570cc8f39f7b5",
+      "manifestSha256": "77d71e2833f039b31166b609cbc03610acc7c65b4c3f4b7dfe5714161f0fcba3",
+      "tetrahedra": 15816,
+      "minimumTetQuality": 0.010721130887927189,
+      "qualityPercentile01": 0.049190535895450624,
+      "cadVolumeDifferenceMm3": -2.248867758680717e-11,
+      "maximumCadVolumeDifferenceMm3": 2.229094341449999e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 4.507178214000305
+    },
+    {
+      "boundsMm": [
+        -3.0518800356905924, -15.549999999999997, -0.5502310000000001,
+        -13.049999999999997
+      ],
+      "jobSha256": "343aaf2b78cac31325195966ced2408438d349af8bcd37df6abe9838b23c8d46",
+      "brepSha256": "8f6944c3d4efbbeffdfc48fcf6e2e438675a97b9d51ec2932edc2f941a1b4741",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "ddbd615b07162b2ff5d85ecc65b8ce9b5c3d430a7698cc07f26aea278e2c2f40",
+      "manifestSha256": "16ac9b226799d242413fba947ae7950a64358681b7e182f264c7dd2ecb3d0e3d",
+      "tetrahedra": 6305,
+      "minimumTetQuality": 0.04546550374792438,
+      "qualityPercentile01": 0.05314187949678758,
+      "cadVolumeDifferenceMm3": 0.0,
+      "maximumCadVolumeDifferenceMm3": 2.22909434145e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.824456027999986
+    },
+    {
+      "boundsMm": [
+        -3.0518800356905924, -13.049999999999997, -0.5502310000000001,
+        -10.549999999999997
+      ],
+      "jobSha256": "0e540a3068b94183165915cfe9bc14a544412daa9fe58d5405c06979aa5319f2",
+      "brepSha256": "2ade8bc2a435cf86946d32ee9dfa37fc1b47caba4ae3d42ac933269cc679e99d",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "3860f640821d8bccea4172e1c0b3591ab156f74bab77336d990c2b9171f143a7",
+      "manifestSha256": "585ababc30262436a8416a337002890ea044c0a620e4a7d833a621db62e43454",
+      "tetrahedra": 6290,
+      "minimumTetQuality": 0.04590101384045026,
+      "qualityPercentile01": 0.052210146154001234,
+      "cadVolumeDifferenceMm3": 0.0,
+      "maximumCadVolumeDifferenceMm3": 2.22909434145e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.628429584001424
+    },
+    {
+      "boundsMm": [
+        -3.0518800356905924, -10.549999999999997, -0.5502310000000001,
+        -8.05188003569059
+      ],
+      "jobSha256": "a8a5db4e71e93db9a157dea6a92f58b9a6531404585c05bfdcbff82ddbaa097f",
+      "brepSha256": "766220327c7fc82fb5e44d30755a4276d07e2137004912e94a362c5f969bc555",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "9511066fdcee8843b57b0824a7e7df10f7188561fb8543fce3a4802357564f2a",
+      "manifestSha256": "117400d19e52bd5015175a8a9215de2775c876da68f559c703ea0de05a07ffcf",
+      "tetrahedra": 6315,
+      "minimumTetQuality": 0.04559968189987352,
+      "qualityPercentile01": 0.052586280000821564,
+      "cadVolumeDifferenceMm3": 3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 2.2274180625052295e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.4867803669767454
+    },
+    {
+      "boundsMm": [
+        -3.0518800356905924, -8.05188003569059, -0.5502310000000001,
+        -5.549999999999997
+      ],
+      "jobSha256": "371657af554fe940662cb2ea1abfed332b68e5af9a2f0c920b71f744202b1033",
+      "brepSha256": "26b84b2e101df05e9a60cb70a8711fe7658ccebde7aadb292f5e9c1810c6b9ae",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "d1d3a04bf792f0ad15ad0aacbf598ad575e731fc40c00a39c775b4b42c959f2f",
+      "manifestSha256": "553abf36d393972708d548df52cf5c42732ac9fdb50e66da72106f7c0f75f276",
+      "tetrahedra": 6321,
+      "minimumTetQuality": 0.04634009215591973,
+      "qualityPercentile01": 0.05258488859228901,
+      "cadVolumeDifferenceMm3": 0.0,
+      "maximumCadVolumeDifferenceMm3": 2.2307706203947703e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.6936992979899514
+    },
+    {
+      "boundsMm": [
+        -3.0518800356905924, -5.549999999999997, -0.5502310000000001, -4.25
+      ],
+      "jobSha256": "7ae61f2ca0026052748470f952d0d16c10f730a546fec1cb3258e41603896b01",
+      "brepSha256": "fcc359d45421536e9c6d63cdb81482a3285de80d1cfbd62719f56068cad460a4",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "20225c5d994d6ee89d7568cd02f949acd8809353c8b758920beace650104de3d",
+      "manifestSha256": "48d3652327130fd4123388a10b70da44ec2ca10c189ea3cb1ec09449b02d6438",
+      "tetrahedra": 4021,
+      "minimumTetQuality": 0.048991956869800395,
+      "qualityPercentile01": 0.05474202395897589,
+      "cadVolumeDifferenceMm3": -1.7763568394002505e-15,
+      "maximumCadVolumeDifferenceMm3": 1.1591290575539999e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.8987650820054114
+    },
+    {
+      "boundsMm": [
+        -0.5502310000000001, -33.05, 1.9497689999999999, -30.549999999999997
+      ],
+      "jobSha256": "1a6a97e0a4b565f40440dd375335e84beb9a7726f54648d466235d2bb32c8802",
+      "brepSha256": "c0667563611ba8388b8bcb0d818f80fcc4a831366b7a4367390749aac044344d",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "3b0975ef2d63d0e47e9f759700ead6852cfd25163863189a651e7e42f914ef0d",
+      "manifestSha256": "6226c12fa7d491adcbd8fa09f4b5535eb5f9a6d1ba839b8e3c195509fa85878e",
+      "tetrahedra": 6298,
+      "minimumTetQuality": 0.0443574890186241,
+      "qualityPercentile01": 0.05185348008833382,
+      "cadVolumeDifferenceMm3": 7.105427357601002e-15,
+      "maximumCadVolumeDifferenceMm3": 2.2276249999999967e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.3839090630062856
+    },
+    {
+      "boundsMm": [
+        -0.5502310000000001, -30.549999999999997, 1.9497689999999999,
+        -28.049999999999997
+      ],
+      "jobSha256": "6c6918c6eda99fbbf6faa12b26d6aa8c9a20c674656a22d2e5ffc43a8c7f1075",
+      "brepSha256": "97b9dfb49a8500b93473c4cb60b97d7b98aab37cc52a6d4c6230f1fae976e2df",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "bfbab833dbfa826776fc0a588cbed05651fdf08898cc97015ff7a39ae652a68a",
+      "manifestSha256": "c7f44969088b6650d3524a4e47e244a26de8e9d9364161493436b9c5a1a808cb",
+      "tetrahedra": 6316,
+      "minimumTetQuality": 3.7692571369304826e-6,
+      "qualityPercentile01": 0.05131259041145664,
+      "cadVolumeDifferenceMm3": 0.0,
+      "maximumCadVolumeDifferenceMm3": 2.2276249999999997e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.996485417999793
+    },
+    {
+      "boundsMm": [
+        -0.5502310000000001, -28.049999999999997, 1.9497689999999999,
+        -25.549999999999997
+      ],
+      "jobSha256": "5b1ac13c2cbcf2f2ad65ad46a6f50efb4f58c70b4cf186f0777e607ed69b2cbd",
+      "brepSha256": "33713bcab58ef363efc8777b726b23daecba6aa7fc287909ca3b41bec6589615",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "7e03e9c457c5e3c89260af6d5208ee698dc91d5b3d0d3b5286334b218a8e2713",
+      "manifestSha256": "9612af4fc8183c5ed595bbf3fde1ae7907068cf4481b907fc7edf6a0d6b3dcd6",
+      "tetrahedra": 6393,
+      "minimumTetQuality": 0.04863776111270563,
+      "qualityPercentile01": 0.05162619181313524,
+      "cadVolumeDifferenceMm3": 0.0,
+      "maximumCadVolumeDifferenceMm3": 2.2276249999999997e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 3.6250052269897424
+    },
+    {
+      "boundsMm": [
+        -0.5502310000000001, -25.549999999999997, 1.9497689999999999,
+        -23.049999999999997
+      ],
+      "jobSha256": "b80c5256bb59864ad20a902d63cd54dafa49f84b368e7e849eb47db92c7335b8",
+      "brepSha256": "4c63d5d05de9fd6c2f88d59d325ea74ac75217d7fce5d5875d008b99ab7eb9ab",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "89c5aa6a019d9b56461703a5bfe0439362f18469f6183c1514e8672643c650d0",
+      "manifestSha256": "4be22a75a2c048bb59e43957ec50da165113a453ffd0f1d26ece9a92918ee622",
+      "tetrahedra": 10285,
+      "minimumTetQuality": 0.013351904478304224,
+      "qualityPercentile01": 0.05291111337523774,
+      "cadVolumeDifferenceMm3": -6.89105661422218e-10,
+      "maximumCadVolumeDifferenceMm3": 2.2276249999999997e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 3.3116823570162524
+    },
+    {
+      "boundsMm": [
+        -0.5502310000000001, -23.049999999999997, 1.9497689999999999,
+        -20.549999999999997
+      ],
+      "jobSha256": "599a78a167ce58780ea659883d1dcebd8327e23536f108dfeac1df75b7e6f63d",
+      "brepSha256": "bc430fd4120f52054f436e38c58233add6bf151819177951f937b371f2fe19de",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "966e19d856c088245808e6051951bff2cf903d38968b566b72d5acafaf3d516b",
+      "manifestSha256": "04b67c8c9a183021177fadf44272e67abd8749467600e0f591fca24813b7e2a8",
+      "tetrahedra": 30455,
+      "minimumTetQuality": 0.00581712673907937,
+      "qualityPercentile01": 0.05923404983307806,
+      "cadVolumeDifferenceMm3": -6.87263721488307e-8,
+      "maximumCadVolumeDifferenceMm3": 2.2276249999999997e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 7.905799140018644
+    },
+    {
+      "boundsMm": [
+        -0.5502310000000001, -20.549999999999997, 1.9497689999999999,
+        -18.049999999999997
+      ],
+      "jobSha256": "19485e56ece431b369106ea7cba13b6392374dc46c0e445fce5f33fd063fa673",
+      "brepSha256": "219b871b0ff7796f5468148d06c429315bae458f0682d802d99b9bee6125522a",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "f4d0a1b859a2d7a9c9a1ef283410c6d6285932ef052cdb8a5396f088d8e00a5c",
+      "manifestSha256": "33eefd162a5374b8d8023241dd9cc429e3e8246afa2cb4b6dcafe4ec3579a529",
+      "tetrahedra": 29000,
+      "minimumTetQuality": 0.006270982684534314,
+      "qualityPercentile01": 0.061055516741120246,
+      "cadVolumeDifferenceMm3": -3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 2.227625e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 8.505384927993873
+    },
+    {
+      "boundsMm": [
+        -0.5502310000000001, -18.049999999999997, 1.9497689999999999,
+        -15.549999999999997
+      ],
+      "jobSha256": "ffc7ac9c3ff8852292705c48280f231f6ef637611d19930689e2acdd8545e3ab",
+      "brepSha256": "b8d3325b61a3561944201abe01787725efb0ecaf077cb1af3b48bbda7c512ff8",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "347f36f2435ea019cf56466144e8e52cd4bf5ff812278d238673a7410137e8bc",
+      "manifestSha256": "5744d6cf00bfc54313508bd09bf35ee8ad826806bb792f092bac5f8feca0e3c3",
+      "tetrahedra": 31817,
+      "minimumTetQuality": 0.007032938074367716,
+      "qualityPercentile01": 0.06144141827488167,
+      "cadVolumeDifferenceMm3": 5.4485472134047086e-8,
+      "maximumCadVolumeDifferenceMm3": 2.227625000000111e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 9.61145177000435
+    },
+    {
+      "boundsMm": [
+        -0.5502310000000001, -15.549999999999997, 1.9497689999999999,
+        -13.049999999999997
+      ],
+      "jobSha256": "f2311c077c554f88d46cd80278091b1aa91d4b62d131884a57db070765b3c58b",
+      "brepSha256": "0b9f4855c24479cabd0e856c3b218a020b0da254e3579a7957ec5c48358ecba9",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "9a6962cd61b6dee8f99fa2f6848078d8c36c918c3b64654061de76e5ddbb560f",
+      "manifestSha256": "bccf1d4ef57fd1e7fc90184f4d78150d56057c92bd8257f869fd6632c7f11abe",
+      "tetrahedra": 15384,
+      "minimumTetQuality": 0.01489249134191137,
+      "qualityPercentile01": 0.05243234403899555,
+      "cadVolumeDifferenceMm3": -2.6147972675971687e-10,
+      "maximumCadVolumeDifferenceMm3": 2.227625e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 5.1710233020130545
+    },
+    {
+      "boundsMm": [
+        -0.5502310000000001, -13.049999999999997, 1.9497689999999999,
+        -10.549999999999997
+      ],
+      "jobSha256": "5168904be9ad988eb61b95673fff83a7b93f455c7341fb2de51804f271dd2981",
+      "brepSha256": "c40c4ca9ae4ca1f1d26709061db60d0dfda9ffe6053135eef57f446fc807d072",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "8d02fd90ce8047489b3cdb3c34881be7634553d49100532f980b28ea3db21e4e",
+      "manifestSha256": "f0dd32c9785e0c349b5c5ffa5df172e927efef973a86061478384c0ccc6b70be",
+      "tetrahedra": 6424,
+      "minimumTetQuality": 0.04521504146122567,
+      "qualityPercentile01": 0.051284420299542166,
+      "cadVolumeDifferenceMm3": 3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 2.227625e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.7812884979939554
+    },
+    {
+      "boundsMm": [
+        -0.5502310000000001, -10.549999999999997, 1.9497689999999999,
+        -8.05188003569059
+      ],
+      "jobSha256": "31c08ffc6ee668721a43b58918469d905ec4befe6406bd1db156fa1d85e70854",
+      "brepSha256": "9abad040bd80739170ef0ec8b103882737b65386dc3cf064d84ad2353168826a",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "dfdf74dab57ddb341791bb1074546036294cf9b6522f395c6845b76918d9e395",
+      "manifestSha256": "adcb2469c29cf382a025dff6c456ebcffc66a885a2b78445887a87b29a512b63",
+      "tetrahedra": 6299,
+      "minimumTetQuality": 0.0459492058725855,
+      "qualityPercentile01": 0.05316643944595783,
+      "cadVolumeDifferenceMm3": 0.0,
+      "maximumCadVolumeDifferenceMm3": 2.225949826e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 4.687363381992327
+    },
+    {
+      "boundsMm": [
+        -0.5502310000000001, -8.05188003569059, 1.9497689999999999,
+        -5.549999999999997
+      ],
+      "jobSha256": "df95e6bc039f41d5ea1b4d1321a32b57e1660eb3b41174f765a60e9b99b8de19",
+      "brepSha256": "ecc9c2ab1a3a48834d84bfafecb79a21b242df6eee816bdeaeb2fd5f6dc5e6ac",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "b390cfde25938895780b65da6c9cb8dc66094d55ac56f109088b7028f892e970",
+      "manifestSha256": "e7d9c7283c2980cc16626a5aa22855b1942e9d413236ca3ccd8e06161088cad2",
+      "tetrahedra": 6304,
+      "minimumTetQuality": 0.04554606082797031,
+      "qualityPercentile01": 0.0525805719278246,
+      "cadVolumeDifferenceMm3": -3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 2.229300174e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 3.242452673992375
+    },
+    {
+      "boundsMm": [
+        -0.5502310000000001, -5.549999999999997, 1.9497689999999999, -4.25
+      ],
+      "jobSha256": "798b1cee655e0327443c86aa02a0a67ec5c274462fb8515d3baf6400d09e4778",
+      "brepSha256": "fbeea9155cf1334763d89a8f7eef44de40236ecdfabf031d2c4a722322926fbc",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "6e3bf3b0208a4ee1b35c6d2e84fe971c99347cb4b72151eea5c142cacb9089bf",
+      "manifestSha256": "0a7cee72c956a900fd21576b2ff62c6c627552b770ab40b984e2b647cb7ccd33",
+      "tetrahedra": 4046,
+      "minimumTetQuality": 0.04865740803057697,
+      "qualityPercentile01": 0.05460369301776954,
+      "cadVolumeDifferenceMm3": -3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 1.1583649999999999e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.3746558770071715
+    },
+    {
+      "boundsMm": [1.9497689999999999, -33.05, 4.449769, -30.549999999999997],
+      "jobSha256": "917a8fb6b512217bbe0545e57adf6029b32107d566cd4382743ba498adf11393",
+      "brepSha256": "2c075afb414aa7bd10bb1d7c497dd14e2e2c6f0460b62e78f7ed95190e1d8103",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "7381392d8fc52a6cac23d89c82fdc47b80ef2a91910f8bf4882110035ca6ea58",
+      "manifestSha256": "a963842216a0279bb637c8849fbfcc0745b69829fb19d34cb858d438be345156",
+      "tetrahedra": 6299,
+      "minimumTetQuality": 0.04436891140380767,
+      "qualityPercentile01": 0.05258389430885245,
+      "cadVolumeDifferenceMm3": 7.105427357601002e-15,
+      "maximumCadVolumeDifferenceMm3": 2.2276249999999967e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.846031077002408
+    },
+    {
+      "boundsMm": [
+        1.9497689999999999, -30.549999999999997, 4.449769, -28.049999999999997
+      ],
+      "jobSha256": "2f36439752d1841a3cabfc99f928a4c9abd3ff3b9961670acf94944852195a22",
+      "brepSha256": "f0048632ace61bcd724f35a4d41bd0fb4c32eff4818d93ceafc8976a8f63cd3b",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "006384089998741e1af5cfc7b4df7c5fbe95063a7039fd56a4bca883dafff955",
+      "manifestSha256": "5c6accfa64d40b3e1076e34c0c677e853bbed96fe5c538d48ef50d45a1a51c04",
+      "tetrahedra": 6226,
+      "minimumTetQuality": 0.04437731488584198,
+      "qualityPercentile01": 0.05152735716783322,
+      "cadVolumeDifferenceMm3": 0.0,
+      "maximumCadVolumeDifferenceMm3": 2.2276249999999997e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 3.4154958889994305
+    },
+    {
+      "boundsMm": [
+        1.9497689999999999, -28.049999999999997, 4.449769, -25.549999999999997
+      ],
+      "jobSha256": "f67715202a3b0a3fe061502221c36f86004ae96c92108a793b34e9ab0d9d14f1",
+      "brepSha256": "7ec4735887d0051bd6686b34d9fe97d21cc9fc3264d32de4d5d831c4bdf8a733",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "e7c9b6991428e56f42abfc581ef29add6df70e08d482b4db8b656fc62c42c7e9",
+      "manifestSha256": "9df833c39bd9f5b717facd4e665555fcb51df6ae7853191b4b2746c8540a1af7",
+      "tetrahedra": 6226,
+      "minimumTetQuality": 0.044377318714087365,
+      "qualityPercentile01": 0.05152735716973244,
+      "cadVolumeDifferenceMm3": 0.0,
+      "maximumCadVolumeDifferenceMm3": 2.2276249999999997e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.8568581660219934
+    },
+    {
+      "boundsMm": [
+        1.9497689999999999, -25.549999999999997, 4.449769, -23.049999999999997
+      ],
+      "jobSha256": "f806d4b548765a9e35131301a9f5811cb427340d51c22821fb13501e0acf755f",
+      "brepSha256": "35f842443ca74fe8012cf6552946deb4df9a9882fae2a79af2862b280a98ebb6",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "3a49f91bea88bdc7aec4b7268d4f4abe44a5dc1d1e8fb06dbc7a54b9326b5288",
+      "manifestSha256": "9df833c39bd9f5b717facd4e665555fcb51df6ae7853191b4b2746c8540a1af7",
+      "tetrahedra": 6226,
+      "minimumTetQuality": 0.04437731488563748,
+      "qualityPercentile01": 0.05152735716783357,
+      "cadVolumeDifferenceMm3": 0.0,
+      "maximumCadVolumeDifferenceMm3": 2.2276249999999997e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 3.2260926849849056
+    },
+    {
+      "boundsMm": [
+        1.9497689999999999, -23.049999999999997, 4.449769, -20.549999999999997
+      ],
+      "jobSha256": "256ca129e8fed6be14d6cd456b631dc65e6e9d41b444e30efe3851619dd82f39",
+      "brepSha256": "893953007a4bcb695669655c4ec49001da8cbaf84a9108031b1d9ae184638386",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "6135b96fed60ec3d776712f3004251fade8d300840de409e015e3571e9b6ff99",
+      "manifestSha256": "7f6157beca3e9e3239e5a3d4eb1affca8569d9c164f4c8de7f617970ca30c723",
+      "tetrahedra": 15333,
+      "minimumTetQuality": 0.014279794263318123,
+      "qualityPercentile01": 0.05296007347672452,
+      "cadVolumeDifferenceMm3": -2.4784654328868783e-9,
+      "maximumCadVolumeDifferenceMm3": 2.2276249999999997e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 4.676092930021696
+    },
+    {
+      "boundsMm": [
+        1.9497689999999999, -20.549999999999997, 4.449769, -18.049999999999997
+      ],
+      "jobSha256": "33c865eaf63c4ac5930ecea4afb1514b9d84d6753621dbbb03df37ed003ff94e",
+      "brepSha256": "99386987c11d42c538fbe1ea3c86d51e62c35edec16f655139a47940d1412805",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "0afe5c82dd7b1c42feed6a97a6612639eff306837feeed4cafa89b2656d9d10a",
+      "manifestSha256": "3204a1d28ab3fde1ad0c973d15d8390acb945a57a4dd741f32948fb3d0da90b6",
+      "tetrahedra": 22118,
+      "minimumTetQuality": 0.01319487456519618,
+      "qualityPercentile01": 0.04484922927448536,
+      "cadVolumeDifferenceMm3": -1.6910881583953596e-9,
+      "maximumCadVolumeDifferenceMm3": 2.2276249999999997e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 6.9474194580107
+    },
+    {
+      "boundsMm": [
+        1.9497689999999999, -18.049999999999997, 4.449769, -15.549999999999997
+      ],
+      "jobSha256": "30e60327133ead9da8698ba5bf0d552f377fff82cc459a2e4cbc1dd9219a44ba",
+      "brepSha256": "8f4fe034c9fffbe6b68b80b9d443f79f86fdbd959383faf63a02d7e6e255d321",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "e8fcabfad32c28f64c35ded6074730917e60775b938820825672271208789ed3",
+      "manifestSha256": "1cbce4875104828f73812b3daf669a9c1047c6761cf4f7e9aa5ae8dec9067f5b",
+      "tetrahedra": 20716,
+      "minimumTetQuality": 0.00449782910376977,
+      "qualityPercentile01": 0.04900740160096876,
+      "cadVolumeDifferenceMm3": -2.6384014972791192e-9,
+      "maximumCadVolumeDifferenceMm3": 2.2276249999999997e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 5.717685271985829
+    },
+    {
+      "boundsMm": [
+        1.9497689999999999, -15.549999999999997, 4.449769, -13.049999999999997
+      ],
+      "jobSha256": "b36916f75ae151c540c2384079a3657619ffaecf6bf6f468075760a7d890dc19",
+      "brepSha256": "87e8db0f3b55e3d1dec141bb4756c82c9a607a46e2684354e78d0f09321c5954",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "49b1f8837647329300bccfa84452e748a03bd4f37f8e6ee7682c29920c352b1a",
+      "manifestSha256": "61c42000a5fe143b41f913b7b03a3f385277dad11cf202cc25acc356cb4726e6",
+      "tetrahedra": 12402,
+      "minimumTetQuality": 0.00019215806572987708,
+      "qualityPercentile01": 0.012428691014930984,
+      "cadVolumeDifferenceMm3": 1.8475422081110082e-8,
+      "maximumCadVolumeDifferenceMm3": 2.227625e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 4.700362164003309
+    },
+    {
+      "boundsMm": [
+        1.9497689999999999, -13.049999999999997, 4.449769, -10.549999999999997
+      ],
+      "jobSha256": "e56c2b2d152a9f1b58deeff9d11dacbffe81ac16b3444f8c5b705f573f2af927",
+      "brepSha256": "db5f46a0afb9ae1979a979cbe6263ab8f9510ff450e8a1597f6bee3f006028b3",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "591574f2e64b0b46351dc663cfa94cbe66d6c7b6e1b9f536cecf04fa50253175",
+      "manifestSha256": "793fa0c2164e6f945da72ad1a02704e9f91e28a477372041dac0387fef3097fb",
+      "tetrahedra": 10649,
+      "minimumTetQuality": 0.02886213461307979,
+      "qualityPercentile01": 0.0408691211565379,
+      "cadVolumeDifferenceMm3": -7.105427357601002e-15,
+      "maximumCadVolumeDifferenceMm3": 2.227625e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 3.902331078017596
+    },
+    {
+      "boundsMm": [
+        1.9497689999999999, -10.549999999999997, 4.449769, -8.05188003569059
+      ],
+      "jobSha256": "8ab51545d4197f7b99250242e0669f03f8e1e32aa9e7dfc92c3753cc150abdd9",
+      "brepSha256": "281c280672a40719baed536089914a46a2d66c4a35d237425c4c8faaaf351b0b",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "e0831a73d2f3ee4409547b19018dc75f244645b2a2a8dc7e2c45d76ab2d61207",
+      "manifestSha256": "f0350c5a12459ec1797873d5555d34dfd64bb54877983a77ffdd0d2630c3fb43",
+      "tetrahedra": 13198,
+      "minimumTetQuality": 0.01881623551206729,
+      "qualityPercentile01": 0.05152600355003821,
+      "cadVolumeDifferenceMm3": -4.960085675520531e-9,
+      "maximumCadVolumeDifferenceMm3": 2.225949826e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 3.961597963992972
+    },
+    {
+      "boundsMm": [
+        1.9497689999999999, -8.05188003569059, 4.449769, -5.549999999999997
+      ],
+      "jobSha256": "d3515758a5cbb037dae8a3c37d88f1981ac33c4b3124b2854929ab5165069fa7",
+      "brepSha256": "5e67dc8faa1ee53360674223ccecbff067e102db68cfc87f7a5fd5c5fa6a0bb8",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "8926c420e23a818954884a0e487f3d89512cd5161c0238b292727584860eeea5",
+      "manifestSha256": "cce708f3246288404dfbc5d59500d59bb98769b446fd971b2d29f04785cfecf7",
+      "tetrahedra": 119205,
+      "minimumTetQuality": 0.0012590682106160876,
+      "qualityPercentile01": 0.06425569881630705,
+      "cadVolumeDifferenceMm3": 1.6219559029195807e-10,
+      "maximumCadVolumeDifferenceMm3": 2.2293001740000013e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 38.58585148802376
+    },
+    {
+      "boundsMm": [1.9497689999999999, -5.549999999999997, 4.449769, -4.25],
+      "jobSha256": "7fcf06fde55a7630f362f658d0f4a8e084dfb9fa81e537b5456e2c8f95aa70b4",
+      "brepSha256": "09c6a520918a3beb6d32cd78ed2afe1c52257254d565b018e4c8f6f1ab534ba0",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "4de80978313df08d29674069e4cbc9881cedc8fe8c6c9582a70d765a78035913",
+      "manifestSha256": "93a0724cd223e5e51032d90fed53f65df1d87e1d9d3423b42149ee70df0bcd17",
+      "tetrahedra": 17382,
+      "minimumTetQuality": 0.007445075617642203,
+      "qualityPercentile01": 0.029675034398063013,
+      "cadVolumeDifferenceMm3": -4.1766368141793464e-8,
+      "maximumCadVolumeDifferenceMm3": 1.1583649999999997e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 6.345560583984479
+    },
+    {
+      "boundsMm": [4.449769, -33.05, 6.2, -30.549999999999997],
+      "jobSha256": "bf32e52aa4c78ed58fdef7b1f13fdd49d29ad882f7ec6975869459b14b04d596",
+      "brepSha256": "9837823e6aaef66cc2fbc58dc1153d7e17c02cc2138c6cdb1ea64c7d0d004b0e",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "e1e37c1d6b2cce0b37f80a2db07038cdd09dc622660239681f18286ac609bf37",
+      "manifestSha256": "ea46dafd9cee27106c302866e1b48c8a45fc002e437f20d3370051c73cc09b42",
+      "tetrahedra": 4736,
+      "minimumTetQuality": 0.04530400752020778,
+      "qualityPercentile01": 0.05237331408844443,
+      "cadVolumeDifferenceMm3": 8.881784197001252e-15,
+      "maximumCadVolumeDifferenceMm3": 1.5595433325499979e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.4530727580131497
+    },
+    {
+      "boundsMm": [4.449769, -30.549999999999997, 6.2, -28.049999999999997],
+      "jobSha256": "478faaa84c4a748622ef89f4388fe245455c978e12aa6b371850862792c0a16d",
+      "brepSha256": "6b855d182e3787e5f76a0ba488e6298a6ba24e4edee3298daeed5ea3108de5fa",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "21d6e2a8fa4d7dec7bcf9bd36a93c37ef87cb399a82fd6a0915ca80fb2ce6d02",
+      "manifestSha256": "d40179d8f7d00164f2cee56a8fad0d218752bdef600354b84a3b88f4ebf09380",
+      "tetrahedra": 4783,
+      "minimumTetQuality": 0.04483308060381096,
+      "qualityPercentile01": 0.051888683568206626,
+      "cadVolumeDifferenceMm3": 3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 1.55954333255e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.7939872730057687
+    },
+    {
+      "boundsMm": [4.449769, -28.049999999999997, 6.2, -25.549999999999997],
+      "jobSha256": "71a03da65f00bf7b34628c0c37c0b0d49a254dd23494936e35b23e7b38a7fcef",
+      "brepSha256": "b20bf4351b65f904aaabf71c8dbfc8018f976eafb61e92b5f6acfbea9cf05f59",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "0c57af6998888dac8ebd479c6ba359618ddbdcfa63f52e397eefa84fbb1e1b07",
+      "manifestSha256": "8f650acdad535288fb06947f7adc585173f7e46dd17fba573e696fabd4dad023",
+      "tetrahedra": 4775,
+      "minimumTetQuality": 0.045244897467039046,
+      "qualityPercentile01": 0.05238251021778246,
+      "cadVolumeDifferenceMm3": 3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 1.55954333255e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 3.573632532003103
+    },
+    {
+      "boundsMm": [4.449769, -25.549999999999997, 6.2, -23.049999999999997],
+      "jobSha256": "ace3883bd47f8224e9809db20b9af747acaf38df454753c35243f81cc4ac81f4",
+      "brepSha256": "2f04394585ef1358e5cd186b803a1ebecbcf3b7ad24a3092cdbc0f5cf4ce22b5",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "a5a896351d64b922fead4bee097ae982ff3b653a05cab56e22bfcb0ea68acd95",
+      "manifestSha256": "8f650acdad535288fb06947f7adc585173f7e46dd17fba573e696fabd4dad023",
+      "tetrahedra": 4779,
+      "minimumTetQuality": 0.045244897156460594,
+      "qualityPercentile01": 0.05220113210654571,
+      "cadVolumeDifferenceMm3": 3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 1.55954333255e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.794516082998598
+    },
+    {
+      "boundsMm": [4.449769, -23.049999999999997, 6.2, -20.549999999999997],
+      "jobSha256": "687e93f6cbf31a5c4bc3b8a8b929b8bee199b3ce2793ae0ace904bb8f708d6e6",
+      "brepSha256": "6772356248b850d176c6e933caa4c5c0b408bfb52e19c2a52fd51efd5abcaa7b",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "878f861b9e6d01886c1ca7e04470ad146b1d8bf7763c5829c69f5dfbbad7d6c1",
+      "manifestSha256": "41df8adac8caf631df1616baa5583548cc14abc9879e918433271837283218fe",
+      "tetrahedra": 4771,
+      "minimumTetQuality": 0.04521808605143883,
+      "qualityPercentile01": 0.0522005497293187,
+      "cadVolumeDifferenceMm3": 3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 1.55954333255e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.576132251007948
+    },
+    {
+      "boundsMm": [4.449769, -20.549999999999997, 6.2, -18.049999999999997],
+      "jobSha256": "a8880ba0a4c9f4579e89ce4f543278dcd1812dfeaeb569641746cf5115876800",
+      "brepSha256": "f9ae3896c1b15a0f68c6b4892e18899f61f8921bddcd10436203672099341f54",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "df9c04586b2cd0dd777292e1759d87ada5e75f55c8f06accc59d2b5b59991b9f",
+      "manifestSha256": "41df8adac8caf631df1616baa5583548cc14abc9879e918433271837283218fe",
+      "tetrahedra": 4783,
+      "minimumTetQuality": 0.04525017973177406,
+      "qualityPercentile01": 0.05220169995558122,
+      "cadVolumeDifferenceMm3": 3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 1.55954333255e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.7158408620161936
+    },
+    {
+      "boundsMm": [4.449769, -18.049999999999997, 6.2, -15.549999999999997],
+      "jobSha256": "f7d63f8681ac9980d919c049494abee095517babaed23cad0e5e1330ebfb4cef",
+      "brepSha256": "87dec795fce7c99d5171a9ee614203ff28018c37cef4813488552dfdffad9d30",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "b1f082f9456dca2f6b2a94798d409726f366ed0048a5acea0bd920fcc236686d",
+      "manifestSha256": "b25b57ee68da540cecf5a5d42549994f6e0915a2354046779f6fbc2f58b49210",
+      "tetrahedra": 4783,
+      "minimumTetQuality": 0.04521810191957969,
+      "qualityPercentile01": 0.0523838084052676,
+      "cadVolumeDifferenceMm3": 3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 1.55954333255e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.67610060799052
+    },
+    {
+      "boundsMm": [4.449769, -15.549999999999997, 6.2, -13.049999999999997],
+      "jobSha256": "4d415630f369786efe5fdb455c542cc31a31cedbb30b8e32df86552246c3d91e",
+      "brepSha256": "14afdb00f05bc2fe4df828619f931c2602365a4c0b703a1a21f0513438528ef5",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "1a686600c306c8a4f592789b08cf677a8e52364614afacfab861413f3cb8fb2e",
+      "manifestSha256": "59cdd5252dd4163b2be47c83c2c5e5df4bdd70f423554ea023ff296fd69a90c6",
+      "tetrahedra": 4805,
+      "minimumTetQuality": 0.04523304361754628,
+      "qualityPercentile01": 0.05243184797389271,
+      "cadVolumeDifferenceMm3": 3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 1.55954333255e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.6055858460022137
+    },
+    {
+      "boundsMm": [4.449769, -13.049999999999997, 6.2, -10.549999999999997],
+      "jobSha256": "98af08b84494b18acacc86747171c48ef4b99b8dfd760926013c3e66a634b966",
+      "brepSha256": "49065a451c04d34931b77edb29a7b83f7cc7136b6da9edfab9c5857bb5321052",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "10b7633a7e35eccfba3fc701e5457ae896bb4bb9a44df354db85f78969bab848",
+      "manifestSha256": "d40179d8f7d00164f2cee56a8fad0d218752bdef600354b84a3b88f4ebf09380",
+      "tetrahedra": 4792,
+      "minimumTetQuality": 0.045350167611225796,
+      "qualityPercentile01": 0.052440455711334044,
+      "cadVolumeDifferenceMm3": 3.552713678800501e-15,
+      "maximumCadVolumeDifferenceMm3": 1.55954333255e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 7.181408896984067
+    },
+    {
+      "boundsMm": [4.449769, -10.549999999999997, 6.2, -8.05188003569059],
+      "jobSha256": "f6a1f86e3ba83d90a2557d9b63ee701bb05fa7916cbfb6d9577b90ccc91574e1",
+      "brepSha256": "feb751d67bdf633adc70eccb8601c3aca38eb7824b900e92af69740b735d57ed",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "eb507fc50d7725e9e1afc2dd46eb951aa003c5ae009ca91280d8c3411f32186c",
+      "manifestSha256": "d72ff6c89d49356d4382d0c24eb5006f8252347313b67d45ee7fa3b07b30a36b",
+      "tetrahedra": 7236,
+      "minimumTetQuality": 0.0012299761726657138,
+      "qualityPercentile01": 0.05298236452627255,
+      "cadVolumeDifferenceMm3": -2.1954642548394077e-8,
+      "maximumCadVolumeDifferenceMm3": 1.558370555963923e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 3.0402059059997555
+    },
+    {
+      "boundsMm": [4.449769, -8.05188003569059, 6.2, -5.549999999999997],
+      "jobSha256": "75b035b84f6668247b31048f4fd135326336c0ec7be577d1f0b34ab141fa4b69",
+      "brepSha256": "2b5a10822af15f18cc5783fd97a8decd236166c8c1752c3331182d65b2e66e54",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "47c9fd41867346ccf782c8f8985a23b7ccc1e2db0bc3b707ee82e0826e1cdd0e",
+      "manifestSha256": "05a79bacf9a6f42e721104401443df2b734eeda4349ac3f99f12ef28565ae210",
+      "tetrahedra": 10580,
+      "minimumTetQuality": 0.0036761716548832746,
+      "qualityPercentile01": 0.05225371033762411,
+      "cadVolumeDifferenceMm3": 1.343154654165346e-7,
+      "maximumCadVolumeDifferenceMm3": 1.560716109136078e-6,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 3.5027944030007347
+    },
+    {
+      "boundsMm": [4.449769, -5.549999999999997, 6.2, -4.25],
+      "jobSha256": "f4283b678ceb16f537a7e1d3e7afc4b9abdc97ed60ca0d03ee370cc629604043",
+      "brepSha256": "c81ad37a42ddebb29b3b518a7c730aea92276b0bc9e84901d08e0f3339a3ede3",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "brepValid": true,
+      "passed": true,
+      "completeRouteValidated": false,
+      "meshSha256": "33efe17d4ff774367fbda12f241e873aa9c0f84c1dbd7158292599d9819220ff",
+      "manifestSha256": "2e9a19440e77fb80f5278ec27e7b9e3dfacefa31d5b9895d38a62d9bfb908f41",
+      "tetrahedra": 3135,
+      "minimumTetQuality": 0.05084607405733101,
+      "qualityPercentile01": 0.055774539229266236,
+      "cadVolumeDifferenceMm3": 1.7763568394002505e-15,
+      "maximumCadVolumeDifferenceMm3": 8.10962532926e-7,
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "material_ownership",
+          "passed": true
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null
+        }
+      ],
+      "wallSeconds": 2.556735292018857
+    }
+  ]
+}

@@ -33,12 +33,18 @@ export function MultilayerBoard({
   sourceLayer = "top",
   referenceLayer = "top",
   cutout = false,
+  portObstruction = false,
+  cropBoundaryCopper = false,
+  referenceOffsetXMm = 0,
 }: {
   innerPlane?: boolean
   layers?: 4 | 6
   referenceLayer?: "top" | "inner2"
   sourceLayer?: "top" | "bottom"
   cutout?: boolean
+  portObstruction?: boolean
+  cropBoundaryCopper?: boolean
+  referenceOffsetXMm?: number
 }) {
   return (
     <board
@@ -49,6 +55,49 @@ export function MultilayerBoard({
       schematicDisabled
     >
       <net name="GND" />
+      {cropBoundaryCopper && (
+        <>
+          <net name="FLOAT" />
+          {[
+            [0, -1.5, 0.1, -1.4],
+            [3, -1.5, 3.2, -1.4],
+          ].map(([x0, y0, x1, y1], index) => (
+            <Fragment key={index}>
+              <copperpour
+                layer="top"
+                connectsTo="net.FLOAT"
+                outline={[
+                  { x: x0!, y: y0! },
+                  { x: x1!, y: y0! },
+                  { x: x1!, y: y1! },
+                  { x: x0!, y: y1! },
+                ]}
+                boardEdgeMargin={0}
+                traceMargin={0}
+                padMargin={0}
+              />
+            </Fragment>
+          ))}
+        </>
+      )}
+      {portObstruction && (
+        <chip
+          name="U3"
+          pcbX={-1.965}
+          pcbY={0.75}
+          pinLabels={{ pin1: "FLOAT" }}
+          footprint={
+            <footprint>
+              <smtpad
+                portHints={["pin1"]}
+                shape="rect"
+                width={0.04}
+                height={0.2}
+              />
+            </footprint>
+          }
+        />
+      )}
       {cutout && (
         <cutout shape="rect" pcbX={0} pcbY={-1.5} width={0.8} height={0.8} />
       )}
@@ -71,7 +120,7 @@ export function MultilayerBoard({
               />
               <smtpad
                 portHints={["pin2"]}
-                pcbX={0}
+                pcbX={referenceOffsetXMm}
                 pcbY={1.5}
                 layer={referenceLayer}
                 width={0.8}
@@ -100,7 +149,7 @@ export function MultilayerBoard({
         <Fragment key={index}>
           <via
             name={`GV${index + 1}`}
-            pcbX={x}
+            pcbX={x + referenceOffsetXMm}
             pcbY={referenceLayer === "inner2" ? 1.8 : 1.5}
             fromLayer="top"
             toLayer="bottom"

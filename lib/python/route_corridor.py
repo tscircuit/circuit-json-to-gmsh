@@ -3,6 +3,7 @@
 from shapely.geometry import LineString, Polygon
 from shapely.ops import unary_union
 from planar import points, clean
+from simplify_copper import vertices, topology
 
 
 def route_corridor(options):
@@ -16,16 +17,61 @@ def route_corridor(options):
     if not strips:
         raise ValueError("Route corridor has no selected trace segments")
     region = clean(unary_union(strips))
-    # Include entire barrel walls at the crop edge, avoiding artificial caps
-    # just a fraction of a micrometre wide. Every expansion is recorded.
-    additions, barrels = [], []
-    for index, barrel in enumerate(model["multilayer"]["barrels"]):
-        outer = clean(
-            Polygon(points(barrel["hole"])).buffer(
-                barrel["platingThickness"], join_style="mitre"
+    # A wall-only envelope plus 0.05 mm can nearly graze a larger pad, leaving
+    # nanometre boundary edges. Protect the full pad and wall with clearance.
+    footprints = [
+        clean(
+            unary_union(
+                [
+                    Polygon(points(b["hole"])).buffer(
+                        b["platingThickness"], join_style="mitre"
+                    ),
+                    Polygon(points(b["pads"])),
+                ]
             )
         )
-        if region.intersects(outer) and not region.covers(outer):
-            additions.append(outer.buffer(0.05, quad_segs=8))
-            barrels.append(index)
-    return clean(unary_union([region, *additions])), barrels
+        for b in model["multilayer"]["barrels"]
+    ]
+    original = region
+    barrels = []
+    protected = set()
+    for _ in range(len(footprints) + 1):
+        additions = []
+        inset = original.buffer(-0.01)
+        for index, footprint in enumerate(footprints):
+            if index in protected or not original.intersects(footprint):
+                continue
+            protected.add(index)
+            if not inset.covers(footprint):
+                additions.append(footprint.buffer(0.05, quad_segs=8))
+                barrels.append(index)
+        if not additions:
+            break
+        original = clean(unary_union([original, *additions]))
+    else:
+        raise ValueError("Pad-envelope crop expansion did not terminate")
+    # Rounded buffer unions can leave almost-collinear, tens-of-nanometres
+    # crop edges. These are artificial domain boundaries, not PCB outlines.
+    tolerance = 1e-5
+    candidate = clean(original.simplify(tolerance, preserve_topology=True))
+    displacement = original.boundary.hausdorff_distance(candidate.boundary)
+    if topology(candidate) != topology(original) or displacement > tolerance + 2e-6:
+        raise ValueError("Route corridor regularization exceeded its bounds")
+    for index in protected:
+        if not candidate.buffer(-0.00998).covers(footprints[index]):
+            raise ValueError(
+                "Route corridor clipped a protected via pad or its clearance"
+            )
+    receipt = {
+        "toleranceMm": tolerance,
+        "protectedEnvelope": "whole via pads and plated walls",
+        "minimumPadClearanceMm": 0.00998,
+        "expansionPaddingMm": 0.05,
+        "protectedBarrelIndices": sorted(protected),
+        "boundaryDisplacementMm": displacement,
+        "verticesBefore": vertices(original),
+        "verticesAfter": vertices(candidate),
+        "addedAreaMm2": float(candidate.difference(original).area),
+        "removedAreaMm2": float(original.difference(candidate).area),
+    }
+    return candidate, barrels, receipt

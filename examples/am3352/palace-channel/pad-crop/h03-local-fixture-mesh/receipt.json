@@ -1,0 +1,14 @@
+{
+  "case": "Complete AM3352 finer mesh with native local sizing at the rejected air wedge",
+  "passed": true,
+  "tetrahedra": 1348108,
+  "minimumTetQuality": 0.00024411436787728327,
+  "requiredQuality": 0.0001,
+  "geometryAndPortsUnchanged": true,
+  "filesSha256": {
+    "brep-validation.json": "f191b47dbbd01214614cb1c6195d5d7bd09c1fe7f61bce0465221fe30225af91",
+    "port-fixtures.json": "3f58743dadd84242531212a222820044321d89aaaab1eaf478ab09f11e38eda0",
+    "ports.json": "8d52ea8b16ea5cd683358b109bc9fa716956e2f81cd19627ffa2da3af2a78c90",
+    "validation.json": "7a58acc7cf6f3d59a4ad083d8b30e0d6035ff0b05c68dd45c3378453dca2679c"
+  }
+}

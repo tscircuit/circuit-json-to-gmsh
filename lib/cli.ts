@@ -33,7 +33,13 @@ const { values, positionals } = parseArgs({
     bounds: { type: "string" },
     threads: { type: "string", default: "1" },
     "optimize-netgen": { type: "boolean", default: false },
+    "tetrahedral-algorithm": { type: "string", default: "delaunay" },
     "fragment-strategy": { type: "string", default: "global" },
+    "tile-size": { type: "string", default: "2" },
+    "tile-workers": { type: "string", default: "1" },
+    "tile-cache": { type: "string" },
+    "cad-checkpoint": { type: "string" },
+    "air-padding": { type: "string" },
     "simplify-tolerance": { type: "string", default: "0" },
   },
 })
@@ -47,9 +53,16 @@ const antipadShape = values["antipad-shape"]
 if (antipadShape !== "offset" && antipadShape !== "bounding-box")
   throw new Error("--antipad-shape must be offset or bounding-box")
 const fragmentStrategy = values["fragment-strategy"]
-if (fragmentStrategy !== "global" && fragmentStrategy !== "slab")
-  throw new Error("--fragment-strategy must be global or slab")
+if (
+  fragmentStrategy !== "global" &&
+  fragmentStrategy !== "slab" &&
+  fragmentStrategy !== "tiled"
+)
+  throw new Error("--fragment-strategy must be global, slab or tiled")
 const circuitJson = parseCircuitJson(await Bun.file(positionals[0]).json())
+const tetrahedralAlgorithm = values["tetrahedral-algorithm"]
+if (tetrahedralAlgorithm !== "delaunay" && tetrahedralAlgorithm !== "hxt")
+  throw new Error("--tetrahedral-algorithm must be delaunay or hxt")
 const model = createGeometryModel({
   circuitJson,
   antipadShape,
@@ -88,6 +101,15 @@ const result = await exportGmsh({
   threads: Number(values.threads),
   optimizeNetgen: values["optimize-netgen"],
   fragmentStrategy,
+  tetrahedralAlgorithm,
+  tileSizeMm: Number(values["tile-size"]),
+  tileWorkers: Number(values["tile-workers"]),
+  tileCacheDirectory: values["tile-cache"],
+  cadCheckpointDirectory: values["cad-checkpoint"],
+  airPaddingMm:
+    values["air-padding"] === undefined
+      ? undefined
+      : Number(values["air-padding"]),
   simplifyToleranceMm: Number(values["simplify-tolerance"]),
 })
 if (result.preview.length)

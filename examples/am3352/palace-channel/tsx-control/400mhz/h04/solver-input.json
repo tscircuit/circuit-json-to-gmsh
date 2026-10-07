@@ -1,0 +1,60 @@
+{
+  "sourceMeshSha256": "709959f1be7fb33f626c08062f25801b14bcb46e002fa9ac80fc2b8e50bd46ef",
+  "modelSha256": "9525bb1844baac801e6b406ea0ba649e962da24b58ff210d2bf4ea8f12abb15e",
+  "palaceMeshSha256": "f96285841e0d15a230a8dbb75e4f9739d5faa8b690e7a211a65f5984722def18",
+  "sourcePortsSha256": "113f0b3f9078a8f1f7a7c24324fc3805756cb88543d43c67f46e39d610a274c1",
+  "sourceManifestSha256": "7929cbd58ad842259df7bb0344565e3c06ef1705efc04821b76df317e9c27ce4",
+  "tetrahedra": 61340,
+  "ports": [
+    {
+      "name": "U1.OUT",
+      "signalNetId": "source_trace_0",
+      "referenceNetId": "source_net_0",
+      "positionMm": [-2, 0, 0.9225000000000001],
+      "referencePositionMm": [-2.0, 1.113693, 0.9225000000000001],
+      "widthMm": 0.08,
+      "direction": [-0.0, -1.0, 0],
+      "zMm": 0.9400000000000001,
+      "faces": [1270],
+      "attribute": 100001,
+      "outlineMm": [
+        [-1.96, 0.39606027987082887],
+        [-2.0, 0.4],
+        [-2.04, 0.39606027987082887],
+        [-2.04, 1.1],
+        [-1.96, 1.1],
+        [-1.96, 0.39606027987082887]
+      ]
+    },
+    {
+      "name": "U2.IN",
+      "signalNetId": "source_trace_0",
+      "referenceNetId": "source_net_0",
+      "positionMm": [2, 0, 0.9225000000000001],
+      "referencePositionMm": [2.0, 1.113693, 0.9225000000000001],
+      "widthMm": 0.08,
+      "direction": [-0.0, -1.0, 0],
+      "zMm": 0.9400000000000001,
+      "faces": [1286],
+      "attribute": 100002,
+      "outlineMm": [
+        [2.04, 0.39606027987082887],
+        [2.0, 0.4],
+        [1.96, 0.39606027987082887],
+        [1.96, 1.1],
+        [2.04, 1.1],
+        [2.04, 0.39606027987082887]
+      ]
+    }
+  ],
+  "frequenciesHz": [400000000.0],
+  "referenceImpedanceOhms": 50,
+  "order": 2,
+  "copperModel": "PEC cavities, no copper loss",
+  "configurations": ["palace-1.json", "palace-2.json"],
+  "convergenceProven": false,
+  "limitations": [
+    "Port references are explicit geometry assumptions, not inferred power/ground AC impedance.",
+    "Dielectric material assumptions and crop/enclosure sensitivity require independent checks."
+  ]
+}

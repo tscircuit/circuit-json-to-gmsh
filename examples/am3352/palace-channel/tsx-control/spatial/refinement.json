@@ -1,0 +1,14 @@
+{
+  "runDirectories": [
+    "examples/am3352/palace-channel/tsx-control/p2",
+    "examples/am3352/palace-channel/tsx-control/spatial/h06",
+    "examples/am3352/palace-channel/tsx-control/spatial/h04"
+  ],
+  "maximumComplexDifferences": [0.011328850115850215, 0.011158956588527235],
+  "absolutePowerWaveTolerance": 0.01,
+  "convergenceProven": false,
+  "limitations": [
+    "This compares supplied discretizations; it does not establish material, port or enclosure accuracy.",
+    "Run directories must be ordered coarse to fine and their refinement settings reviewed."
+  ]
+}

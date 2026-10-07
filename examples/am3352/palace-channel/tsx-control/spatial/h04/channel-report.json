@@ -1,0 +1,48 @@
+{
+  "ports": ["U1.OUT", "U2.IN"],
+  "referenceImpedanceOhms": 50,
+  "portGeometrySha256": "fb54cad47a0742b1d2d4f2f1e2aec1db231caed7ac5c4c1649da263f0ada3f0c",
+  "frequenciesHz": [
+    100000000.0, 400000000.0, 1000000000.0, 2000000000.0, 5000000000.0
+  ],
+  "order": 2,
+  "sourceMeshSha256": "709959f1be7fb33f626c08062f25801b14bcb46e002fa9ac80fc2b8e50bd46ef",
+  "modelSha256": "9525bb1844baac801e6b406ea0ba649e962da24b58ff210d2bf4ea8f12abb15e",
+  "sourceManifestSha256": "7929cbd58ad842259df7bb0344565e3c06ef1705efc04821b76df317e9c27ce4",
+  "tetrahedra": 61340,
+  "palaceMeshSha256": "f96285841e0d15a230a8dbb75e4f9739d5faa8b690e7a211a65f5984722def18",
+  "copperModel": "PEC cavities, no copper loss",
+  "nativeRuns": [
+    {
+      "excitedPort": 1,
+      "wallSecondsMeanRank": 851.849,
+      "gmresIterations": [55, 42, 47, 51, 57],
+      "logSha256": "7c9a7fc10db77f3f859baddbed0901d8a5e31ff48f3f15812dab7a58fdfe0cb1",
+      "csvSha256": "53f8fb04fc9ca0df82e598b0764c378af906e73d64b77680cec9614bbc2b7cd4"
+    },
+    {
+      "excitedPort": 2,
+      "wallSecondsMeanRank": 709.706,
+      "gmresIterations": [55, 42, 47, 52, 58],
+      "logSha256": "af126ec64d69bca488a590f0fd5ba1add93fe0267c55c084ad6eebfc8ad53871",
+      "csvSha256": "53b58dbae0d7cb944542858a3f7b8583a286a57e3e7ccfbc5f4b4edd83fc2839"
+    }
+  ],
+  "maximumReciprocityError": 9.311624246975165e-8,
+  "maximumScatteringSingularValue": 0.999993713740733,
+  "reciprocityErrors": [
+    2.1293957826041634e-9, 3.7394301302508054e-8, 2.2962751548952092e-8,
+    3.461475589384797e-8, 9.311624246975165e-8
+  ],
+  "scatteringSingularValues": [
+    0.999993713740733, 0.999898246724302, 0.9993778837669621,
+    0.9977586156464782, 0.9915682553809082
+  ],
+  "numericalConsistencyPassed": true,
+  "convergenceProven": false,
+  "limitations": [
+    "Port references are explicit geometry assumptions, not inferred power/ground AC impedance.",
+    "Dielectric material assumptions and crop/enclosure sensitivity require independent checks."
+  ],
+  "touchstoneSha256": "15b122983cfb18a6e31d4641f6c654368e6394af9f4af5b42d7d3c387eb586ed"
+}

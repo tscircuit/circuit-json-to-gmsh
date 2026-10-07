@@ -193,6 +193,25 @@ test("bounded contour simplification preserves physical drills, net separation a
   expect(receipts.reduce((n, r) => n + r.verticesAfter, 0)).toBeLessThanOrEqual(
     receipts.reduce((n, r) => n + r.verticesBefore, 0),
   )
+  // The AM3352 failure came from simplifying an already-clipped boundary.
+  // Physical-contour receipts must be identical before an artificial crop;
+  // saved-mesh checks also verify its interfaces, drills and terminal paths.
+  const cropped = await exportGmsh({
+    model,
+    conformal: true,
+    meshSizeMm: 0.6,
+    simplifyToleranceMm: 0.001,
+    boundsMm: [-3, -2, 3, 2],
+    fragmentStrategy: "slab",
+    outputDirectory: join(directory, "simplified-crop"),
+    validationRequirements: requirements,
+  })
+  expect(cropped.report.simplification).toEqual(receipts)
+  expect(cropped.validation?.pcbChecksComplete).toBe(true)
+  expect(cropped.validation?.checks.every((c) => c.passed === true)).toBe(true)
+  expect(cropped.report.actualVolumeMm3).toBeLessThan(
+    simplified.report.actualVolumeMm3,
+  )
 }, 120_000)
 
 test("a route corridor clips barrel slabs and retains other copper inside the analysis domain", async () => {

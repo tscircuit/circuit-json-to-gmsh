@@ -1,0 +1,117 @@
+>> /usr/bin/mpirun -n 4 /opt/palace/bin/palace-x86_64.bin palace-1.json
+
+_____________     _______
+_____   __   \____ __   /____ ____________
+____   /_/  /  __ ` /  /  __ ` /  ___/  _ \
+___   _____/  /_/  /  /  /_/  /  /__/  ___/
+  /__/     \___,__/__/\___,__/\_____\_____/
+
+Git changeset ID: v0.14.0
+Running with 4 MPI processes, 1 OpenMP thread
+Device configuration: omp,cpu
+Memory configuration: host-std
+libCEED backend: /cpu/self/xsmm/blocked
+
+Added 34651 boundary elements for material interfaces to the mesh
+Finished partitioning mesh into 4 subdomains
+
+Characteristic length and time scales:
+ L₀ = 1.000e-03 m, t₀ = 3.336e-03 ns
+
+Mesh curvature order: 1
+Mesh bounding box:
+ (Xmin, Ymin, Zmin) = (-1.055e-02, -3.305e-02, -1.035e-03) m
+ (Xmax, Ymax, Zmax) = (+6.200e-03, -4.250e-03, +2.529e-03) m
+
+Parallel Mesh Stats:
+
+                minimum     average     maximum       total
+ vertices         52050       56677       59670      226710
+ edges           341848      355943      365371     1423774
+ faces           571613      580618      587168     2322472
+ elements        280971      281343      281801     1125372
+ neighbors            2           2           3
+
+            minimum     maximum
+ h       0.00119713    0.624677
+ kappa      1.04118     10511.1
+
+Configuring Robin absorbing BC (order 1) at attributes:
+ 1000001
+
+Configuring Robin impedance BC for lumped ports at attributes:
+ 100001: Rs = 1.526e+01 Ω/sq, n = (+0.0,+0.0,+1.0)
+ 100002: Rs = 3.022e+01 Ω/sq, n = (+0.0,+0.0,+1.0)
+ 100003: Rs = 7.909e+00 Ω/sq, n = (+0.0,+0.0,+1.0)
+ 100004: Rs = 3.022e+01 Ω/sq, n = (+0.0,+0.0,+1.0)
+
+Configuring lumped port circuit properties:
+ Index = 1: R = 5.000e+01 Ω
+ Index = 2: R = 5.000e+01 Ω
+ Index = 3: R = 5.000e+01 Ω
+ Index = 4: R = 5.000e+01 Ω
+
+Configuring lumped port excitation source term at attributes:
+ 100001: Index = 1
+
+Configuring Dirichlet PEC BC at attributes:
+ 1000000
+
+Computing frequency response for:
+Excitation with index 1 has contributions from:
+ Lumped port  1
+
+Assembling system matrices, number of global unknowns:
+ H1 (p = 1): 226710, ND (p = 1): 1423774, RT (p = 1): 2322472
+ Operator assembly level: Partial
+ Mesh geometries:
+  Tetrahedron: P = 6, Q = 4 (quadrature order = 2)
+
+Assembling multigrid hierarchy:
+ Level 0 (p = 1): 1423774 unknowns
+ Level 0 (auxiliary) (p = 1): 226710 unknowns
+
+It 1/1: ω/2π = 4.000e-01 GHz (total elapsed time = 3.30e+01 s)
+
+  Residual norms for GMRES solve
+  0 (restart 0) KSP residual norm 2.657167e-02
+  1 (restart 0) KSP residual norm 1.302943e-02
+  2 (restart 0) KSP residual norm 4.785446e-03
+  3 (restart 0) KSP residual norm 4.684390e-03
+  4 (restart 0) KSP residual norm 4.436001e-04
+  5 (restart 0) KSP residual norm 1.731020e-04
+  6 (restart 0) KSP residual norm 6.083016e-05
+  7 (restart 0) KSP residual norm 2.510076e-05
+  8 (restart 0) KSP residual norm 1.593675e-05
+  9 (restart 0) KSP residual norm 4.791761e-06
+ 10 (restart 0) KSP residual norm 1.541912e-06
+ 11 (restart 0) KSP residual norm 6.024094e-07
+ 12 (restart 0) KSP residual norm 5.202061e-07
+ 13 (restart 0) KSP residual norm 1.434559e-07
+ 14 (restart 0) KSP residual norm 6.140463e-08
+ 15 (restart 0) KSP residual norm 3.624251e-08
+ 16 (restart 0) KSP residual norm 2.155331e-08
+ 17 (restart 0) KSP residual norm 6.445508e-09
+ 18 (restart 0) KSP residual norm 2.498810e-09
+ 19 (restart 0) KSP residual norm 1.688754e-09
+ 20 (restart 0) KSP residual norm 7.119022e-10
+ 21 (restart 0) KSP residual norm 9.902531e-11
+GMRES solver converged in 21 iterations (avg. reduction factor: 3.969e-01)
+ Sol. ||E|| = 2.520208e+01 (||RHS|| = 2.657167e-02)
+ Field energy E (1.763e-01 J) + H (1.309e-01 J) = 3.072e-01 J
+ S[1][1] = -1.609e-01-1.140e-01i, |S[1][1]| = -1.410e+01, arg(S[1][1]) = -1.447e+02
+ S[2][1] = +6.408e-01-6.916e-01i, |S[2][1]| = -5.110e-01, arg(S[2][1]) = -4.718e+01
+ S[3][1] = +1.763e-01+1.247e-01i, |S[3][1]| = -1.332e+01, arg(S[3][1]) = +3.528e+01
+ S[4][1] = +8.699e-02+1.645e-02i, |S[4][1]| = -2.106e+01, arg(S[4][1]) = +1.071e+01
+ Updating solution error estimates
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   PID 23 RUNNING AT 92a246a3fa08
+=   EXIT CODE: 9
+=   CLEANING UP REMAINING PROCESSES
+=   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
+===================================================================================
+YOUR APPLICATION TERMINATED WITH THE EXIT STRING: Killed (signal 9)
+This typically refers to a problem with your application.
+Please see the FAQ page for debugging suggestions

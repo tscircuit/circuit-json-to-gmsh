@@ -38,9 +38,28 @@ export async function exportGmsh(options: {
   threads?: number
   /** Apply native Netgen tetrahedron optimization before saving. */
   optimizeNetgen?: boolean
+  /** Native Gmsh tetrahedralizer; default Delaunay. CAD is unchanged. */
+  tetrahedralAlgorithm?: "delaunay" | "hxt"
   /** Partition adjacent z slabs in smaller OCC batches. Saved-mesh validation
    * still rejects any lost/shared interface, regardless of strategy. */
-  fragmentStrategy?: "global" | "slab"
+  fragmentStrategy?: "global" | "slab" | "tiled"
+  /** XY CAD batch width for tiled partition; default 2 mm. Not a mesh size. */
+  tileSizeMm?: number
+  /** Isolated native CAD processes, default 1. */
+  tileWorkers?: number
+  /** Reuse hash-verified CAD batches across mesh refinements. */
+  tileCacheDirectory?: string
+  /** Remesh a complete conformal CAD checkpoint with matching geometry and ports.
+   * Checks content/geometry hashes; saved-mesh validation is always rerun. */
+  cadCheckpointDirectory?: string
+  /** Enclose the cropped PCB in air, including physical drill/cutout voids. */
+  airPaddingMm?: number
+  /** Explicit coplanar outer-pad ports; requires an air enclosure. Frequency belongs to the EM solver. */
+  lumpedPorts?: {
+    terminal: MeshValidationRequirements["terminals"][number]
+    referenceNetId: string
+    widthMm?: number
+  }[]
   /** Optional contour approximation in mm; 0 preserves contours. Physical
    * drills/cutouts, polygon topology and net separation remain checked.
    * Displacement and added/removed copper are recorded in the report. */
@@ -50,8 +69,21 @@ export async function exportGmsh(options: {
   routeCorridor?: { netIds: string[]; marginMm: number }
 }): Promise<GmshResult> {
   const output = resolve(options.outputDirectory)
+  if (
+    options.cadCheckpointDirectory &&
+    (!options.conformal || resolve(options.cadCheckpointDirectory) === output)
+  )
+    throw new Error(
+      "CAD checkpoint requires conformal export to a different output directory",
+    )
   const meshSize = options.meshSizeMm ?? 0.5
   const repairRadius = options.repairRadiusMm ?? 0.0001
+  if (
+    options.tetrahedralAlgorithm !== undefined &&
+    options.tetrahedralAlgorithm !== "delaunay" &&
+    options.tetrahedralAlgorithm !== "hxt"
+  )
+    throw new Error("tetrahedralAlgorithm must be delaunay or hxt")
   if (
     options.minimumTetQuality !== undefined &&
     (!Number.isFinite(options.minimumTetQuality) ||
@@ -104,6 +136,16 @@ export async function exportGmsh(options: {
     throw new Error(
       "boundsMm must contain finite minX, minY, maxX, maxY with positive area",
     )
+  if (
+    options.tileSizeMm !== undefined &&
+    (!Number.isFinite(options.tileSizeMm) || options.tileSizeMm <= 0)
+  )
+    throw new Error("tileSizeMm must be positive")
+  if (
+    options.airPaddingMm !== undefined &&
+    (!Number.isFinite(options.airPaddingMm) || options.airPaddingMm <= 0)
+  )
+    throw new Error("airPaddingMm must be positive")
   await mkdir(output, { recursive: true })
   const failurePath = join(output, "failure.json")
   await rm(failurePath, { force: true })
@@ -114,6 +156,24 @@ export async function exportGmsh(options: {
     "python",
     "export.py",
   )
+  if (options.lumpedPorts?.length) {
+    if (!options.airPaddingMm || !options.conformal)
+      throw new Error("Lumped ports require conformal mesh and airPaddingMm")
+    for (const port of options.lumpedPorts) {
+      if (
+        !port.referenceNetId ||
+        (port.widthMm !== undefined &&
+          (!Number.isFinite(port.widthMm) || port.widthMm <= 0))
+      )
+        throw new Error(
+          "Lumped ports require referenceNetId and positive widthMm",
+        )
+    }
+    await writeFile(
+      join(output, "port-requirements.json"),
+      JSON.stringify(options.lumpedPorts),
+    )
+  }
   const command = [
     options.python ?? process.env.GMSH_PYTHON ?? "python3",
     script,
@@ -126,10 +186,20 @@ export async function exportGmsh(options: {
     "--repair-radius",
     String(repairRadius),
   ]
+  if (options.tileWorkers !== undefined)
+    command.push("--tile-workers", String(options.tileWorkers))
+  if (options.tileCacheDirectory)
+    command.push("--tile-cache", resolve(options.tileCacheDirectory))
+  if (options.cadCheckpointDirectory)
+    command.push("--cad-checkpoint", resolve(options.cadCheckpointDirectory))
   if (options.conformal) command.push("--conformal")
+  if (options.lumpedPorts?.length)
+    command.push("--port-requirements", join(output, "port-requirements.json"))
   if (options.cadOnly) command.push("--cad-only")
   if (options.step) command.push("--step")
   if (options.optimizeNetgen) command.push("--optimize-netgen")
+  if (options.tetrahedralAlgorithm)
+    command.push("--tetrahedral-algorithm", options.tetrahedralAlgorithm)
   if (options.routeCorridor)
     command.push(
       "--corridor-nets",
@@ -139,8 +209,19 @@ export async function exportGmsh(options: {
     )
   if (options.fragmentStrategy)
     command.push("--fragment-strategy", options.fragmentStrategy)
+  if (options.tileSizeMm !== undefined)
+    command.push("--tile-size", String(options.tileSizeMm))
   if (options.simplifyToleranceMm !== undefined)
     command.push("--simplify-tolerance", String(options.simplifyToleranceMm))
+  if (
+    options.tileWorkers !== undefined &&
+    (!Number.isInteger(options.tileWorkers) ||
+      options.tileWorkers < 1 ||
+      options.tileWorkers > 8)
+  )
+    throw new Error("tileWorkers must be an integer from 1 to 8")
+  if (options.airPaddingMm !== undefined)
+    command.push("--air-padding", String(options.airPaddingMm))
   if (options.threads !== undefined)
     command.push("--threads", String(options.threads))
   if (options.boundsMm)
@@ -191,12 +272,61 @@ export async function exportGmsh(options: {
   const manifestPath = options.conformal
     ? join(output, "mesh-manifest.json")
     : undefined
+  let requirements = options.validationRequirements
+  if (options.lumpedPorts?.length) {
+    const ports: {
+      name: string
+      signalNetId: string
+      positionMm: [number, number, number]
+      referenceNetId: string
+      referencePositionMm: [number, number, number]
+    }[] = JSON.parse(await readFile(join(output, "ports.json"), "utf8"))
+    requirements = {
+      terminals: [...(requirements?.terminals ?? [])],
+      connections: [...(requirements?.connections ?? [])],
+    }
+    const byNet = new Map<string, string[]>()
+    for (const port of ports) {
+      for (const terminal of [
+        {
+          name: port.name,
+          netId: port.signalNetId,
+          positionMm: port.positionMm,
+        },
+        {
+          name: `${port.name}.reference`,
+          netId: port.referenceNetId,
+          positionMm: port.referencePositionMm,
+        },
+      ]) {
+        const existing = requirements.terminals.find(
+          (t) => t.name === terminal.name,
+        )
+        if (!existing) requirements.terminals.push(terminal)
+        else if (
+          existing.netId !== terminal.netId ||
+          existing.positionMm.some(
+            (v, i) => Math.abs(v - terminal.positionMm[i]) > 1e-8,
+          )
+        )
+          throw new Error(
+            "Port terminal conflicts with validation requirements",
+          )
+        const names = byNet.get(terminal.netId) ?? []
+        names.push(terminal.name)
+        byNet.set(terminal.netId, names)
+      }
+    }
+    for (const names of byNet.values())
+      for (const name of names.slice(1))
+        requirements.connections.push({ from: names[0], to: name })
+  }
   const validation = meshPath
     ? await validateMesh({
         meshPath,
         manifestPath,
         model: options.model,
-        requirements: options.validationRequirements,
+        requirements,
         minimumTetQuality: options.minimumTetQuality,
         outputDirectory: output,
         python: options.python,

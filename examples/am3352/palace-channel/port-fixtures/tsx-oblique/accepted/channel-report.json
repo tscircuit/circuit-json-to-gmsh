@@ -1,0 +1,54 @@
+{
+  "ports": [
+    "U1.OUT",
+    "U2.IN"
+  ],
+  "referenceImpedanceOhms": 50,
+  "portGeometrySha256": "9b4baa9c9e6ee53ca9271e5d25c72555df49acb58d73c6751ebc271a1b04cce0",
+  "frequenciesHz": [
+    400000000.0
+  ],
+  "order": 1,
+  "sourceMeshSha256": "485452405e84a2450d954a9e2cbbb4cae94e2298787430ccc0dea00f81a9f5f1",
+  "modelSha256": "d7d123dc78a5feaa4abafbd5818a7947c90050aa0fc1d486197763a1515c5233",
+  "sourceManifestSha256": "46fd694eb1f1a2a0d9f3e0d8a802dd4d40679e5ce4340a60de85326e5f13cae5",
+  "tetrahedra": 79397,
+  "palaceMeshSha256": "5f9b97afd728613aa176b2c712504c6bce902c8b571280608c3362f67815225a",
+  "copperModel": "PEC cavities, no copper loss",
+  "nativeRuns": [
+    {
+      "excitedPort": 1,
+      "wallSecondsMeanRank": 28.912,
+      "gmresIterations": [
+        88
+      ],
+      "logSha256": "14408968b79b0864f1da15eaaffa52f84ab45eb829d431aed79b12c2fea419b4",
+      "csvSha256": "6dcbbca761d802e02e2b33c0568e203373424bf5760b38d993b06c743df20764"
+    },
+    {
+      "excitedPort": 2,
+      "wallSecondsMeanRank": 29.874,
+      "gmresIterations": [
+        89
+      ],
+      "logSha256": "ade7024d8ad9c7f7273c2bcbfc6e54846f92e48e59dbc5c02093aeba14398499",
+      "csvSha256": "c272da9020c65accaaac9988e779bd48b83f27574cbff844f71a01b21aba3ca9"
+    }
+  ],
+  "maximumReciprocityError": 1.2458093302380236e-07,
+  "maximumScatteringSingularValue": 0.9999101498825282,
+  "reciprocityErrors": [
+    1.2458093302380236e-07
+  ],
+  "scatteringSingularValues": [
+    0.9999101498825282
+  ],
+  "numericalConsistencyPassed": true,
+  "convergenceProven": false,
+  "limitations": [
+    "Port references are explicit geometry assumptions, not inferred power/ground AC impedance.",
+    "Dielectric material assumptions and crop/enclosure sensitivity require independent checks.",
+    "Ideal PEC contact extensions alter near-port fields; fixture-size sensitivity and de-embedding are unproven."
+  ],
+  "touchstoneSha256": "25f184cb738799190edf749d4bf7b328fe631dd2e844b55cfb33dc917baa7165"
+}

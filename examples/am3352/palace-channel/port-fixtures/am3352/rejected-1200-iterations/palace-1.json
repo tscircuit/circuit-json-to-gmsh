@@ -1,0 +1,139 @@
+{
+  "Problem": {
+    "Type": "Driven",
+    "Verbose": 2,
+    "Output": "postpro/port-1"
+  },
+  "Model": {
+    "Mesh": "palace.msh",
+    "L0": 0.001,
+    "Lc": 1,
+    "CrackInternalBoundaryElements": false
+  },
+  "Domains": {
+    "Materials": [
+      {
+        "Attributes": [
+          1
+        ],
+        "Permittivity": 1,
+        "Permeability": 1,
+        "LossTan": 0
+      },
+      {
+        "Attributes": [
+          30
+        ],
+        "Permittivity": 4.1,
+        "Permeability": 1,
+        "LossTan": 0.02
+      },
+      {
+        "Attributes": [
+          31
+        ],
+        "Permittivity": 4.42,
+        "Permeability": 1,
+        "LossTan": 0.02
+      },
+      {
+        "Attributes": [
+          32
+        ],
+        "Permittivity": 4.1,
+        "Permeability": 1,
+        "LossTan": 0.02
+      }
+    ]
+  },
+  "Boundaries": {
+    "PEC": {
+      "Attributes": [
+        1000000
+      ]
+    },
+    "Absorbing": {
+      "Attributes": [
+        1000001
+      ],
+      "Order": 1
+    },
+    "LumpedPort": [
+      {
+        "Index": 1,
+        "Attributes": [
+          100001
+        ],
+        "Direction": [
+          -0.28081698938035765,
+          0.9597613341218493,
+          0
+        ],
+        "R": 50,
+        "Excitation": true
+      },
+      {
+        "Index": 2,
+        "Attributes": [
+          100002
+        ],
+        "Direction": [
+          -0.09803194532476932,
+          0.9951832683962494,
+          0
+        ],
+        "R": 50,
+        "Excitation": false
+      },
+      {
+        "Index": 3,
+        "Attributes": [
+          100003
+        ],
+        "Direction": [
+          -0.9116315133104859,
+          0.4110084961886231,
+          0
+        ],
+        "R": 50,
+        "Excitation": false
+      },
+      {
+        "Index": 4,
+        "Attributes": [
+          100004
+        ],
+        "Direction": [
+          0.0980232281638725,
+          0.9951841270540509,
+          0
+        ],
+        "R": 50,
+        "Excitation": false
+      }
+    ]
+  },
+  "Solver": {
+    "Order": 1,
+    "Device": "CPU",
+    "Driven": {
+      "Samples": [
+        {
+          "Type": "Point",
+          "Freq": [
+            0.4
+          ]
+        }
+      ]
+    },
+    "Linear": {
+      "Type": "AMS",
+      "KSPType": "GMRES",
+      "Tol": 1e-08,
+      "MaxIts": 1200,
+      "MaxSize": 200,
+      "AMSVectorInterpolation": true,
+      "MGSmoothIts": 2
+    }
+  }
+}

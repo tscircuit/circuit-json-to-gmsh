@@ -1,0 +1,54 @@
+{
+  "ports": [
+    "U1.OUT",
+    "U2.IN"
+  ],
+  "referenceImpedanceOhms": 50,
+  "portGeometrySha256": "6151854bef07b5d4599855bfd81f4789bfb05f90790b85183680b75e76ad6ff2",
+  "frequenciesHz": [
+    400000000.0
+  ],
+  "order": 1,
+  "sourceMeshSha256": "d77ee50b85c8de90fa4b293a6c2e1c8aa48b069afc2290eadf21b5efe50809ec",
+  "modelSha256": "d7d123dc78a5feaa4abafbd5818a7947c90050aa0fc1d486197763a1515c5233",
+  "sourceManifestSha256": "e531092ddd68dcc1e71bf5dd259a0e3a5cf021198b0ced546ca1855f18a6a840",
+  "tetrahedra": 79429,
+  "palaceMeshSha256": "30b1e06d1662aca7613918c1bde89d31561a42983245fd9c4b62c121ea0ce037",
+  "copperModel": "PEC cavities, no copper loss",
+  "nativeRuns": [
+    {
+      "excitedPort": 1,
+      "wallSecondsMeanRank": 12.319,
+      "gmresIterations": [
+        12
+      ],
+      "logSha256": "4c775fc63b47404ca7131db5f2c63f3ab9deb805994cff302186b99aafc4b799",
+      "csvSha256": "78ac224f5f9edbdecf9c9c3db66e5d44b8f7dbf30156a3b6cac0b214d5535bf8"
+    },
+    {
+      "excitedPort": 2,
+      "wallSecondsMeanRank": 12.391,
+      "gmresIterations": [
+        12
+      ],
+      "logSha256": "85dfadba67acdee5be9a9cc635fe2ba1d8c92c6cb8d85216e32124d1d1606c49",
+      "csvSha256": "294c041dbe42194b24ff00166f3bfac0913c5baaf74c27b96930783df5eed802"
+    }
+  ],
+  "maximumReciprocityError": 2.415211525978653e-10,
+  "maximumScatteringSingularValue": 0.9999112448511643,
+  "reciprocityErrors": [
+    2.415211525978653e-10
+  ],
+  "scatteringSingularValues": [
+    0.9999112448511643
+  ],
+  "numericalConsistencyPassed": true,
+  "convergenceProven": false,
+  "limitations": [
+    "Port references are explicit geometry assumptions, not inferred power/ground AC impedance.",
+    "Dielectric material assumptions and crop/enclosure sensitivity require independent checks.",
+    "Ideal PEC contact extensions alter near-port fields; fixture-size sensitivity and de-embedding are unproven."
+  ],
+  "touchstoneSha256": "dba466e4c47fad502bbb4d0db8c15552f8028d15565935b435870788dd89ea65"
+}

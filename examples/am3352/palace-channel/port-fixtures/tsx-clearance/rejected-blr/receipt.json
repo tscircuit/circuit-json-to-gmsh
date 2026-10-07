@@ -1,0 +1,9 @@
+{
+  "case": "Oblique TSX control, BLR compression at 0.001 on real preconditioner",
+  "validChannel": false,
+  "relativeResidual": 9.946e-07,
+  "requiredTolerance": 1e-08,
+  "gmresIterations": 500,
+  "scatteringValuesRejected": true,
+  "logSha256": "9ab60979e9bdfa91b66f2523979d2ab817d453480911108a609288b6f97d68fa"
+}

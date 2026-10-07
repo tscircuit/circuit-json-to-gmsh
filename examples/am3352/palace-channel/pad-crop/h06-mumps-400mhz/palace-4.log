@@ -1,0 +1,125 @@
+>> /usr/bin/mpirun -n 4 /opt/palace/bin/palace-x86_64.bin palace-4.json
+
+_____________     _______
+_____   __   \____ __   /____ ____________
+____   /_/  /  __ ` /  /  __ ` /  ___/  _ \
+___   _____/  /_/  /  /  /_/  /  /__/  ___/
+  /__/     \___,__/__/\___,__/\_____\_____/
+
+Git changeset ID: v0.14.0
+Running with 4 MPI processes, 1 OpenMP thread
+Device configuration: omp,cpu
+Memory configuration: host-std
+libCEED backend: /cpu/self/xsmm/blocked
+
+Added 24948 boundary elements for material interfaces to the mesh
+Finished partitioning mesh into 4 subdomains
+
+Characteristic length and time scales:
+ L₀ = 1.000e-03 m, t₀ = 3.336e-03 ns
+
+Mesh curvature order: 1
+Mesh bounding box:
+ (Xmin, Ymin, Zmin) = (-1.055e-02, -3.305e-02, -1.035e-03) m
+ (Xmax, Ymax, Zmax) = (+6.200e-03, -4.250e-03, +2.529e-03) m
+
+Parallel Mesh Stats:
+
+                minimum     average     maximum       total
+ vertices         26980       29409       31457      117636
+ edges           171070      179248      185647      716995
+ faces           281287      287030      291224     1148123
+ elements        137011      137182      137499      548728
+ neighbors            2           2           3
+
+            minimum     maximum
+ h       0.00133915     1.09545
+ kappa      1.06204     16360.2
+
+Configuring Robin absorbing BC (order 1) at attributes:
+ 1000001
+
+Configuring Robin impedance BC for lumped ports at attributes:
+ 100001: Rs = 1.526e+01 Ω/sq, n = (+0.0,+0.0,+1.0)
+ 100002: Rs = 3.022e+01 Ω/sq, n = (+0.0,+0.0,+1.0)
+ 100003: Rs = 7.909e+00 Ω/sq, n = (+0.0,+0.0,+1.0)
+ 100004: Rs = 3.022e+01 Ω/sq, n = (+0.0,+0.0,+1.0)
+
+Configuring lumped port circuit properties:
+ Index = 1: R = 5.000e+01 Ω
+ Index = 2: R = 5.000e+01 Ω
+ Index = 3: R = 5.000e+01 Ω
+ Index = 4: R = 5.000e+01 Ω
+
+Configuring lumped port excitation source term at attributes:
+ 100004: Index = 4
+
+Configuring Dirichlet PEC BC at attributes:
+ 1000000
+
+Computing frequency response for:
+Excitation with index 4 has contributions from:
+ Lumped port  4
+
+Assembling system matrices, number of global unknowns:
+ H1 (p = 1): 117636, ND (p = 1): 716995, RT (p = 1): 1148123
+ Operator assembly level: Partial
+ Mesh geometries:
+  Tetrahedron: P = 6, Q = 4 (quadrature order = 2)
+
+Assembling multigrid hierarchy:
+ Level 0 (p = 1): 716995 unknowns
+ Level 0 (auxiliary) (p = 1): 117636 unknowns
+
+It 1/1: ω/2π = 4.000e-01 GHz (total elapsed time = 1.69e+01 s)
+
+  Residual norms for GMRES solve
+  0 (restart 0) KSP residual norm 3.254351e-02
+  1 (restart 0) KSP residual norm 1.108361e-02
+  2 (restart 0) KSP residual norm 4.532391e-03
+  3 (restart 0) KSP residual norm 4.309325e-03
+  4 (restart 0) KSP residual norm 4.640606e-04
+  5 (restart 0) KSP residual norm 2.397960e-04
+  6 (restart 0) KSP residual norm 6.103510e-05
+  7 (restart 0) KSP residual norm 3.183470e-05
+  8 (restart 0) KSP residual norm 1.852409e-05
+  9 (restart 0) KSP residual norm 6.137649e-06
+ 10 (restart 0) KSP residual norm 2.087618e-06
+ 11 (restart 0) KSP residual norm 3.659657e-07
+ 12 (restart 0) KSP residual norm 3.068977e-07
+ 13 (restart 0) KSP residual norm 2.235034e-07
+ 14 (restart 0) KSP residual norm 6.656606e-08
+ 15 (restart 0) KSP residual norm 3.348802e-08
+ 16 (restart 0) KSP residual norm 7.665419e-09
+ 17 (restart 0) KSP residual norm 5.271439e-09
+ 18 (restart 0) KSP residual norm 2.648291e-09
+ 19 (restart 0) KSP residual norm 3.178865e-10
+GMRES solver converged in 19 iterations (avg. reduction factor: 3.788e-01)
+ Sol. ||E|| = 2.149585e+01 (||RHS|| = 3.254351e-02)
+ Field energy E (1.889e-01 J) + H (1.227e-01 J) = 3.116e-01 J
+ S[1][4] = +1.345e-01+3.151e-03i, |S[1][4]| = -1.742e+01, arg(S[1][4]) = +1.342e+00
+ S[2][4] = +2.095e-01+1.293e-01i, |S[2][4]| = -1.217e+01, arg(S[2][4]) = +3.169e+01
+ S[3][4] = +5.700e-01-6.965e-01i, |S[3][4]| = -9.151e-01, arg(S[3][4]) = -5.070e+01
+ S[4][4] = -2.542e-01-1.664e-01i, |S[4][4]| = -1.035e+01, arg(S[4][4]) = -1.468e+02
+ Updating solution error estimates
+
+Completed 0 iterations of adaptive mesh refinement (AMR):
+ Indicator norm = 6.645e-01, global unknowns = 716995
+ Max. iterations = 0, tol. = 1.000e-02
+
+Elapsed Time Report (s)           Min.        Max.        Avg.
+==============================================================
+Initialization                   0.325       0.338       0.334
+  Mesh Preprocessing             6.554       6.555       6.555
+Operator Construction            0.862       0.878       0.867
+Linear Solve                     8.669       8.701       8.685
+  Setup                         16.824      16.828      16.826
+  Preconditioner                 6.087       6.117       6.103
+Estimation                       0.347       0.363       0.353
+  Construction                  19.245      19.249      19.247
+  Solve                        143.841     143.865     143.858
+Postprocessing                   0.418       0.430       0.423
+Disk IO                          2.703       2.703       2.703
+--------------------------------------------------------------
+Total                          206.051     206.060     206.055
+

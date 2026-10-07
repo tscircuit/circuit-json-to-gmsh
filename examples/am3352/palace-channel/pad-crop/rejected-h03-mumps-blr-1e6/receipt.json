@@ -1,0 +1,32 @@
+{
+  "case": "Finer AM3352 shifted MUMPS BLR at 1e-6, eight ranks, Krylov size 40",
+  "validChannel": false,
+  "scatteringValuesRejected": true,
+  "nativeError": "DMUMPS INFOG(1)=-40, numerical factorization failed",
+  "resourceResult": {
+    "elapsedSeconds": 197.3120480600046,
+    "exitCode": 1,
+    "memoryLimitGiB": 14,
+    "containerState": {
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 1,
+      "Error": "",
+      "StartedAt": "2026-10-07T16:16:38.903152529Z",
+      "FinishedAt": "2026-10-07T16:19:52.986905366Z"
+    }
+  },
+  "mpiProcesses": 8,
+  "filesSha256": {
+    "palace-1-resources.json": "cac648bc30cd06b3da1169efbb0abd3bd9ec8e6ad93ad8ec91f47e372f194bc6",
+    "palace-1.json": "86620da92045a1f06ebb92fb547ae9ae162f8d4e6ee9d71124bd05448db11a30",
+    "palace-1.log": "8ccdcbd83459f02a89b98a617a8e0b5e414655b96d7bee5b4b4359fc86923e8b",
+    "solver-input.json": "f749a96908ea1cbdbfbc222299dee2abaca7e171d05910422a4109f47dfde8b6",
+    "status.json": "dfd48935205d960b56e5d7e6a47348019da303fd6ae9dfc993726eab7843cbb7"
+  }
+}

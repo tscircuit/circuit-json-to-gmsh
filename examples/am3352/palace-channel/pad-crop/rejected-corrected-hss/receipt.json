@@ -1,0 +1,18 @@
+{
+  "case": "Corrected AM3352 DQS0/DQSn0 with complex HSS preconditioner",
+  "validChannel": false,
+  "scatteringValuesRejected": true,
+  "frequencyHz": 400000000,
+  "nativeExitCode": 9,
+  "containerOOMKilled": true,
+  "elapsedSeconds": 179.15489031700417,
+  "memoryLimitGiB": 12,
+  "mpiProcesses": 4,
+  "filesSha256": {
+    "palace-1-resources.json": "d6145105e7cd579223ae991f5c5b913b7835612e22b7918bd4b87dcb3478aaef",
+    "palace-1.json": "8db2c6ffa45b52c32a01d12f5aca10d85f59e3222c2896485378ec5996626d2e",
+    "palace-1.log": "c20cfcf754df8974ec6f6fa993536a7c73e27c14f0488507f73f170b7bc5b3fb",
+    "solver-input.json": "5639f20042b6fe0db1b5d96361371eed8efacf3218df987f9944499515f84211",
+    "status.json": "6510a4d267c61994ce300f9a14297b8223a3d5cbd1f72b0de2b849888ca025ca"
+  }
+}

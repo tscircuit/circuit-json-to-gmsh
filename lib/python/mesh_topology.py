@@ -72,7 +72,7 @@ def physical_ownership(manifest):
             )
             continue
         name = names[0]
-        if not name.startswith(("copper:", "dielectric:")):
+        if name != "air" and not name.startswith(("copper:", "dielectric:")):
             errors.append(
                 {"volume": volume, "name": name, "reason": "unknown material"}
             )

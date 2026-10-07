@@ -20,23 +20,39 @@ const { values } = parseArgs({
     stackup: { type: "string" },
     output: { type: "string", default: "work/am3352-dqs" },
     "mesh-size": { type: "string", default: "0.6" },
+    "minimum-tet-quality": { type: "string", default: "0" },
     margin: { type: "string", default: "2" },
     threads: { type: "string", default: "1" },
     "source-vias": { type: "boolean", default: false },
     "cad-only": { type: "boolean", default: false },
     "optimize-netgen": { type: "boolean", default: false },
+    "tetrahedral-algorithm": { type: "string", default: "delaunay" },
     "fragment-strategy": { type: "string", default: "global" },
+    "tile-size": { type: "string", default: "2" },
+    "tile-workers": { type: "string", default: "1" },
+    "tile-cache": { type: "string" },
+    "cad-checkpoint": { type: "string" },
+    "air-padding": { type: "string" },
+    "palace-ports": { type: "boolean", default: false },
     "simplify-tolerance": { type: "string", default: "0" },
     "corridor-margin": { type: "string" },
   },
 })
 if (!values.board || !values.stackup)
   throw new Error("Supply --board circuit.json --stackup stackup.json")
+const tetrahedralAlgorithm = values["tetrahedral-algorithm"]
+if (tetrahedralAlgorithm !== "delaunay" && tetrahedralAlgorithm !== "hxt")
+  throw new Error("tetrahedral-algorithm must be delaunay or hxt")
 if (
   values["fragment-strategy"] !== "global" &&
-  values["fragment-strategy"] !== "slab"
+  values["fragment-strategy"] !== "slab" &&
+  values["fragment-strategy"] !== "tiled"
 )
-  throw new Error("fragment-strategy must be global or slab")
+  throw new Error("fragment-strategy must be global, slab or tiled")
+if (values["palace-ports"] && values["source-vias"])
+  throw new Error(
+    "Palace ports require the complete route, not source-via stubs",
+  )
 const boardText = values.board.endsWith(".gz")
   ? gunzipSync(await Bun.file(values.board).arrayBuffer()).toString("utf8")
   : await Bun.file(values.board).text()
@@ -125,11 +141,25 @@ await Bun.write(
       cropAdjustments: expanded.adjustments,
       marginMm: margin,
       meshSizeMm: Number(values["mesh-size"]),
+      minimumTetQuality: Number(values["minimum-tet-quality"]),
       scope: values["source-vias"] ? "source_vias" : "full_route",
       mode: values["cad-only"] ? "cad_assembly" : "conformal_mesh",
       threads: Number(values.threads),
       optimizeNetgen: values["optimize-netgen"],
       fragmentStrategy: values["fragment-strategy"],
+      tileSizeMm: Number(values["tile-size"]),
+      tileWorkers: Number(values["tile-workers"]),
+      airPaddingMm:
+        values["air-padding"] === undefined
+          ? undefined
+          : Number(values["air-padding"]),
+      palacePorts: values["palace-ports"]
+        ? {
+            referenceNetId: "source_net_93",
+            referenceName: "DDR_1V5",
+            widthMm: 0.08,
+          }
+        : undefined,
       simplifyToleranceMm: Number(values["simplify-tolerance"]),
       corridorMarginMm:
         values["corridor-margin"] === undefined
@@ -153,11 +183,28 @@ const result = await exportGmsh({
   conformal: !values["cad-only"],
   cadOnly: values["cad-only"],
   meshSizeMm: Number(values["mesh-size"]),
+  minimumTetQuality: Number(values["minimum-tet-quality"]),
   validationRequirements: requirements,
   threads: Number(values.threads),
   optimizeNetgen: values["optimize-netgen"],
   fragmentStrategy: values["fragment-strategy"],
+  tileSizeMm: Number(values["tile-size"]),
+  tileWorkers: Number(values["tile-workers"]),
+  tileCacheDirectory: values["tile-cache"],
+  cadCheckpointDirectory: values["cad-checkpoint"],
+  airPaddingMm:
+    values["air-padding"] === undefined
+      ? undefined
+      : Number(values["air-padding"]),
+  lumpedPorts: values["palace-ports"]
+    ? requirements.terminals.map((terminal) => ({
+        terminal,
+        referenceNetId: "source_net_93",
+        widthMm: 0.08,
+      }))
+    : undefined,
   simplifyToleranceMm: Number(values["simplify-tolerance"]),
+  tetrahedralAlgorithm,
   routeCorridor:
     values["corridor-margin"] === undefined
       ? undefined
@@ -220,6 +267,7 @@ if (values["source-vias"]) {
     outputDirectory: join(values.output, "section"),
     conformal: true,
     meshSizeMm: Number(values["mesh-size"]),
+    minimumTetQuality: Number(values["minimum-tet-quality"]),
     threads: Number(values.threads),
   })
   const yMm = (boundsMm[1] + boundsMm[3]) / 2

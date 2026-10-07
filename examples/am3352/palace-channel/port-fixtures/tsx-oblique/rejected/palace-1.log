@@ -1,0 +1,61 @@
+>> /usr/bin/mpirun -n 2 /opt/palace/bin/palace-x86_64.bin palace-1.json
+
+_____________     _______
+_____   __   \____ __   /____ ____________
+____   /_/  /  __ ` /  /  __ ` /  ___/  _ \
+___   _____/  /_/  /  /  /_/  /  /__/  ___/
+  /__/     \___,__/__/\___,__/\_____\_____/
+
+Git changeset ID: v0.14.0
+Running with 2 MPI processes, 1 OpenMP thread
+Device configuration: omp,cpu
+Memory configuration: host-std
+libCEED backend: /cpu/self/xsmm/blocked
+
+Added 2012 boundary elements for material interfaces to the mesh
+Finished partitioning mesh into 2 subdomains
+
+Characteristic length and time scales:
+ L₀ = 1.000e-03 m, t₀ = 3.336e-03 ns
+
+Mesh curvature order: 1
+Mesh bounding box:
+ (Xmin, Ymin, Zmin) = (-5.000e-03, -4.000e-03, -1.035e-03) m
+ (Xmax, Ymax, Zmax) = (+5.000e-03, +4.000e-03, +1.940e-03) m
+
+Parallel Mesh Stats:
+
+                minimum     average     maximum       total
+ vertices          4052        4210        4368        8420
+ edges            23537       24029       24521       48058
+ faces            36412       36885       37359       73771
+ elements         16927       17067       17208       34135
+ neighbors            1           1           1
+
+            minimum     maximum
+ h        0.0153052    0.920063
+ kappa      1.00557     180.559
+
+Configuring Robin absorbing BC (order 1) at attributes:
+ 1000001
+
+[38;2;255;255;000m--> Warning![0m
+User specified direction [-0.2631174057921088, -0.9647638212377322, 0] does not align with either bounding box axis up to 1.000e-01 degrees!
+Axis 1: [0.28435658515386886, 0.9587185887838154, 0] (1.265e+00 degrees)
+Axis 2: [-0.965175352085726, 0.26160378385297656, 0] (8.991e+01 degrees)
+Axis 3: [0, 0, 0] (9.000e+01 degrees)!
+
+
+
+MFEM abort: Specified direction does not align sufficiently with bounding box axes (1.2652737314850713e+00, 8.9910127601628062e+01, 9.0000000000000000e+01 vs. tolerance 1.0000000000000000e+00)!
+ ... in function: palace::UniformElementData::UniformElementData(const std::array<double, 3>&, const mfem::Array<int>&, const mfem::ParMesh&)
+ ... in file: /opt/palace-src/palace/fem/lumpedelement.cpp:44
+
+Abort(1) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 1) - process 0
+
+
+MFEM abort: Specified direction does not align sufficiently with bounding box axes (1.2652737314850713e+00, 8.9910127601628062e+01, 9.0000000000000000e+01 vs. tolerance 1.0000000000000000e+00)!
+ ... in function: palace::UniformElementData::UniformElementData(const std::array<double, 3>&, const mfem::Array<int>&, const mfem::ParMesh&)
+ ... in file: /opt/palace-src/palace/fem/lumpedelement.cpp:44
+
+Abort(1) on node 1 (rank 1 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 1) - process 1

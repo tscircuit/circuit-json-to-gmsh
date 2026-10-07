@@ -1,0 +1,40 @@
+{
+  "ports": ["U1.OUT", "U2.IN"],
+  "referenceImpedanceOhms": 50,
+  "portGeometrySha256": "fb54cad47a0742b1d2d4f2f1e2aec1db231caed7ac5c4c1649da263f0ada3f0c",
+  "frequenciesHz": [400000000.0],
+  "order": 2,
+  "sourceMeshSha256": "8fdaedca4790686d465ad51aba4d2e5b815323756d2a276d49b8dfed6c29c88c",
+  "modelSha256": "9525bb1844baac801e6b406ea0ba649e962da24b58ff210d2bf4ea8f12abb15e",
+  "sourceManifestSha256": "7929cbd58ad842259df7bb0344565e3c06ef1705efc04821b76df317e9c27ce4",
+  "tetrahedra": 36313,
+  "palaceMeshSha256": "8938a0038b51cd9b1c37be634e23f6a0438827f887d77cff37a2a3f2c42c3153",
+  "copperModel": "PEC cavities, no copper loss",
+  "nativeRuns": [
+    {
+      "excitedPort": 1,
+      "wallSecondsMeanRank": 99.734,
+      "gmresIterations": [70],
+      "logSha256": "9190b59e946a338c958311643e0e4e99b2d0127ab8af07b8e7aaee9e01df6356",
+      "csvSha256": "3ba55b6ca884f5795236f71ec9a113d53ccb3c59365036a28e3e476d20348494"
+    },
+    {
+      "excitedPort": 2,
+      "wallSecondsMeanRank": 106.202,
+      "gmresIterations": [70],
+      "logSha256": "5c55a954f3a1765c9aa75302acd8720a58f2ee91ae388d3f270ca6d2043ad10c",
+      "csvSha256": "cdde4e5073021d135ed2f6e640f5d05e9634c9212ffc64714dfbcec0aa7d6886"
+    }
+  ],
+  "maximumReciprocityError": 3.087058419922322e-8,
+  "maximumScatteringSingularValue": 0.9998995242103562,
+  "reciprocityErrors": [3.087058419922322e-8],
+  "scatteringSingularValues": [0.9998995242103562],
+  "numericalConsistencyPassed": true,
+  "convergenceProven": false,
+  "limitations": [
+    "Port references are explicit geometry assumptions, not inferred power/ground AC impedance.",
+    "Dielectric material assumptions and crop/enclosure sensitivity require independent checks."
+  ],
+  "touchstoneSha256": "796659a51a54e7059fca81c6639250d0a9b61894d76301ee1c20c2d08e7bde74"
+}

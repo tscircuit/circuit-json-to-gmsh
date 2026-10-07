@@ -1,0 +1,107 @@
+{
+  "sourceMeshSha256": "9402d4ccd2889ef56657e6ea7bdcf9f6f9cfa8feabcb65d02fc8873a14c4bd54",
+  "modelSha256": "9b220b873cccba0c01611f044dcd102ea53b2feca5bc6dce0592ed59a24da242",
+  "palaceMeshSha256": "56d28bc37fbf6231be8de5443737afdc282b7a3bc8a8503bae5c14d2467925e2",
+  "sourcePortsSha256": "ffeb7317577d867d2be8661921eebf0c1e245cee3a92743fcd3be71cbe3e9c03",
+  "sourceManifestSha256": "ec3218669352fa1309ada86ab05c82b5c34c4eea2f06eade1d7fd33b8d009874",
+  "tetrahedra": 32287,
+  "ports": [
+    {
+      "name": "U1.OUT",
+      "signalNetId": "source_trace_0",
+      "referenceNetId": "source_net_0",
+      "positionMm": [-1.5, 0.55, 0.9225000000000001],
+      "referencePositionMm": [-1.5, 1.013693, 0.9225000000000001],
+      "widthMm": 0.08,
+      "direction": [-0.0, -1.0, 0],
+      "zMm": 0.9400000000000001,
+      "faces": [1614],
+      "attribute": 100001,
+      "outlineMm": [
+        [-1.46, 0.7],
+        [-1.54, 0.7],
+        [-1.54, 1.0],
+        [-1.5, 1.0],
+        [-1.46, 1.0],
+        [-1.46, 0.7]
+      ]
+    },
+    {
+      "name": "U2.IN",
+      "signalNetId": "source_trace_0",
+      "referenceNetId": "source_net_0",
+      "positionMm": [1.5, 0.55, 0.9225000000000001],
+      "referencePositionMm": [1.5, 1.013693, 0.9225000000000001],
+      "widthMm": 0.08,
+      "direction": [-0.0, -1.0, 0],
+      "zMm": 0.9400000000000001,
+      "faces": [1630],
+      "attribute": 100002,
+      "outlineMm": [
+        [1.54, 0.7],
+        [1.46, 0.7],
+        [1.46, 1.0],
+        [1.5, 1.0],
+        [1.54, 1.0],
+        [1.54, 0.7]
+      ]
+    },
+    {
+      "name": "U3.OUT",
+      "signalNetId": "source_trace_1",
+      "referenceNetId": "source_net_0",
+      "positionMm": [-1.5, -0.55, 0.9225000000000001],
+      "referencePositionMm": [-1.5, -1.013693, 0.9225000000000001],
+      "widthMm": 0.08,
+      "direction": [-0.0, 1.0, 0],
+      "zMm": 0.9400000000000001,
+      "faces": [1646],
+      "attribute": 100003,
+      "outlineMm": [
+        [-1.54, -0.7],
+        [-1.46, -0.7],
+        [-1.46, -1.0],
+        [-1.5, -1.0],
+        [-1.54, -1.0],
+        [-1.54, -0.7]
+      ]
+    },
+    {
+      "name": "U4.IN",
+      "signalNetId": "source_trace_1",
+      "referenceNetId": "source_net_0",
+      "positionMm": [1.5, -0.55, 0.9225000000000001],
+      "referencePositionMm": [1.5, -1.013693, 0.9225000000000001],
+      "widthMm": 0.08,
+      "direction": [-0.0, 1.0, 0],
+      "zMm": 0.9400000000000001,
+      "faces": [1662],
+      "attribute": 100004,
+      "outlineMm": [
+        [1.46, -0.7],
+        [1.54, -0.7],
+        [1.54, -1.0],
+        [1.5, -1.0],
+        [1.46, -1.0],
+        [1.46, -0.7]
+      ]
+    }
+  ],
+  "frequenciesHz": [
+    100000000.0, 400000000.0, 1000000000.0, 2000000000.0, 5000000000.0
+  ],
+  "referenceImpedanceOhms": 50,
+  "order": 1,
+  "copperModel": "PEC cavities, no copper loss",
+  "configurations": [
+    "palace-1.json",
+    "palace-2.json",
+    "palace-3.json",
+    "palace-4.json"
+  ],
+  "convergenceProven": false,
+  "limitations": [
+    "Port references are explicit geometry assumptions, not inferred power/ground AC impedance.",
+    "Dielectric material assumptions and crop/enclosure sensitivity require independent checks."
+  ]
+}
