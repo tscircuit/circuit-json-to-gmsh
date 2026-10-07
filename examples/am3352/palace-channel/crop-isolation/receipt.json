@@ -1,0 +1,324 @@
+{
+  "sourceCircuitJsonSha256": "c9d7059fe536865784f175855e0dcc76510972319eec848c18b0ef6dcd2adb40",
+  "originalWholeAssembly": {
+    "cadSeconds": 4218.855401723995,
+    "nativeVolumes": 1725,
+    "meshCompleted": false,
+    "error": "Invalid boundary mesh (overlapping facets) on surface 4702 surface 4593",
+    "faces": [
+      {
+        "tag": 4593,
+        "volumes": [273, 279],
+        "name": "interface:copper:source_trace_2|dielectric:103"
+      },
+      {
+        "tag": 4702,
+        "volumes": [279, 280],
+        "name": "interface:air|dielectric:103"
+      }
+    ],
+    "sharedVolume": {
+      "name": "dielectric:103",
+      "material": "dielectric",
+      "layer": "NP-155F core",
+      "zMin": 0.0994,
+      "zMax": 0.11460000000000001,
+      "tag": 279,
+      "volumeMm3": 4.273556736227485e-9
+    }
+  },
+  "isolatedBoundaryIntersection": {
+    "error": "HXT 3D mesh failed",
+    "entities": [],
+    "nodes": [],
+    "coordinates": {
+      "368": [-7.069709, -30.269638, 0.0994],
+      "367": [-7.069737, -30.269615, 0.0994],
+      "1265": [-7.409319, -30.25, 0.0994],
+      "371": [-7.069759, -30.269588, 0.0994]
+    },
+    "faces": [
+      {
+        "tag": 228,
+        "bbox": [
+          -7.950000809231295, -30.350000809231297, 0.09939919076870521,
+          -6.989339190768706, -29.680442190768705, 0.0994008092312948
+        ],
+        "volumes": [10, 13]
+      },
+      {
+        "tag": 235,
+        "bbox": [
+          -8.050231809231295, -30.350000809231297, 0.09939919076870521,
+          -5.550230190768706, -28.049999190768705, 0.0994008092312948
+        ],
+        "volumes": [11, 18]
+      }
+    ]
+  },
+  "correctedIsolatedTile": {
+    "brepValidation": {
+      "valid": true,
+      "solids": 44,
+      "invalidSolidIndices": [],
+      "ocpVersion": "7.8.1.1",
+      "vtkVersion": "9.3.1"
+    },
+    "meshGenerationSeconds": 3.6437789810006507,
+    "meshValidation": {
+      "schemaVersion": 1,
+      "passed": true,
+      "pcbChecksComplete": false,
+      "gmshVersion": "4.13.1",
+      "units": "mm",
+      "wallSeconds": 0.7218449969950598,
+      "meshSha256": "2e274b9b9726b3544a14e35b97dd35b759904fbddc1890371b9050682bbdc113",
+      "manifestSha256": "6de45acef4677198152e0658f85eedc3a6c6ceaff8ce216c5b507147df25473c",
+      "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+      "requirementsSha256": null,
+      "tetrahedra": 25589,
+      "nodes": 4837,
+      "quality": {
+        "minimum": 4.1201922903185536e-8,
+        "percentile01": 0.05095578761295326,
+        "median": 0.5210428093161766,
+        "threshold": 0,
+        "worstElements": [
+          {
+            "tag": 17699,
+            "volume": 18,
+            "material": "air",
+            "minSICN": 4.1201922903185536e-8,
+            "coordinatesMm": [
+              [-8.050161, -29.654976, 0.1146],
+              [-8.052001, -29.3341264, 0.0994],
+              [-8.050051, -29.654965, 0.1146],
+              [-8.05012, -29.654972, 0.1146]
+            ]
+          },
+          {
+            "tag": 17815,
+            "volume": 18,
+            "material": "air",
+            "minSICN": 7.752637024312595e-8,
+            "coordinatesMm": [
+              [-8.050037, -29.654964, 0.1146],
+              [-8.04461419622838, -29.33952138766786, 0.1070426284031347],
+              [-8.050051, -29.654965, 0.1146],
+              [-8.05, -29.65496, 0.1146]
+            ]
+          },
+          {
+            "tag": 13954,
+            "volume": 10,
+            "material": "dielectric:105",
+            "minSICN": 1.7355833879140062e-7,
+            "coordinatesMm": [
+              [-7.089237, -30.250112, 0.0994],
+              [-7.151234, -30.1881625, 0.0],
+              [-7.089259, -30.25009, 0.0994],
+              [-7.069793, -30.269547, 0.0]
+            ]
+          },
+          {
+            "tag": 20159,
+            "volume": 21,
+            "material": "dielectric:103",
+            "minSICN": 4.431661557419285e-7,
+            "coordinatesMm": [
+              [-8.050037, -29.654964, 0.1146],
+              [-8.050161, -29.654976, 0.1146],
+              [-7.927143500000001, -29.6572425, 0.272725],
+              [-8.05012, -29.654972, 0.1146]
+            ]
+          },
+          {
+            "tag": 13958,
+            "volume": 10,
+            "material": "dielectric:105",
+            "minSICN": 7.101075473787202e-7,
+            "coordinatesMm": [
+              [-7.089259, -30.25009, 0.0994],
+              [-7.151234, -30.1881625, 0.0],
+              [-7.089349, -30.25, 0.0994],
+              [-7.069793, -30.269547, 0.0]
+            ]
+          }
+        ]
+      },
+      "copperComponents": {
+        "source_net_56": 1,
+        "source_net_93": 1,
+        "source_trace_12": 1,
+        "source_trace_13": 2,
+        "source_trace_14": 2,
+        "source_trace_15": 1,
+        "source_trace_2": 1,
+        "source_trace_3": 1,
+        "source_trace_39": 1
+      },
+      "terminals": {},
+      "connections": [],
+      "checks": [
+        {
+          "name": "linear_tetrahedra",
+          "passed": true,
+          "tetrahedra": 25589,
+          "unsupportedTypes": []
+        },
+        {
+          "name": "material_ownership",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "name": "positive_tetrahedra",
+          "passed": true,
+          "minimum": 4.1201922903185536e-8,
+          "percentile01": 0.05095578761295326,
+          "median": 0.5210428093161766,
+          "threshold": 0,
+          "worstElements": [
+            {
+              "tag": 17699,
+              "volume": 18,
+              "material": "air",
+              "minSICN": 4.1201922903185536e-8,
+              "coordinatesMm": [
+                [-8.050161, -29.654976, 0.1146],
+                [-8.052001, -29.3341264, 0.0994],
+                [-8.050051, -29.654965, 0.1146],
+                [-8.05012, -29.654972, 0.1146]
+              ]
+            },
+            {
+              "tag": 17815,
+              "volume": 18,
+              "material": "air",
+              "minSICN": 7.752637024312595e-8,
+              "coordinatesMm": [
+                [-8.050037, -29.654964, 0.1146],
+                [-8.04461419622838, -29.33952138766786, 0.1070426284031347],
+                [-8.050051, -29.654965, 0.1146],
+                [-8.05, -29.65496, 0.1146]
+              ]
+            },
+            {
+              "tag": 13954,
+              "volume": 10,
+              "material": "dielectric:105",
+              "minSICN": 1.7355833879140062e-7,
+              "coordinatesMm": [
+                [-7.089237, -30.250112, 0.0994],
+                [-7.151234, -30.1881625, 0.0],
+                [-7.089259, -30.25009, 0.0994],
+                [-7.069793, -30.269547, 0.0]
+              ]
+            },
+            {
+              "tag": 20159,
+              "volume": 21,
+              "material": "dielectric:103",
+              "minSICN": 4.431661557419285e-7,
+              "coordinatesMm": [
+                [-8.050037, -29.654964, 0.1146],
+                [-8.050161, -29.654976, 0.1146],
+                [-7.927143500000001, -29.6572425, 0.272725],
+                [-8.05012, -29.654972, 0.1146]
+              ]
+            },
+            {
+              "tag": 13958,
+              "volume": 10,
+              "material": "dielectric:105",
+              "minSICN": 7.101075473787202e-7,
+              "coordinatesMm": [
+                [-7.089259, -30.25009, 0.0994],
+                [-7.151234, -30.1881625, 0.0],
+                [-7.089349, -30.25, 0.0994],
+                [-7.069793, -30.269547, 0.0]
+              ]
+            }
+          ],
+          "invertedOrDegenerate": 0,
+          "belowQualityThreshold": 0
+        },
+        {
+          "name": "cad_volume_coverage",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "name": "manifold_tetrahedron_faces",
+          "passed": true,
+          "nonmanifoldFaces": 0
+        },
+        {
+          "name": "conformal_interfaces",
+          "passed": true,
+          "cadOwnershipChecked": true,
+          "errors": []
+        },
+        {
+          "name": "copper_net_separation",
+          "passed": true,
+          "shortedNodes": 0,
+          "coordinateToleranceMm": 1e-7,
+          "errors": []
+        },
+        {
+          "name": "drill_and_cutout_voids",
+          "passed": true,
+          "errors": []
+        },
+        {
+          "name": "terminal_connectivity",
+          "passed": null,
+          "errors": []
+        }
+      ],
+      "limitations": [
+        "Mesh validation is not EM convergence or solver validation.",
+        "Void checks exclude a 2e-6 mm boundary tolerance; projection overlap tolerance is 1e-10 mm\u00b2. Errors are capped at 20 examples.",
+        "Only linear tetrahedra and triangular boundaries are supported."
+      ]
+    },
+    "sliverRepairs": [
+      {
+        "netId": "source_trace_2",
+        "areaMm2": 3.6203850011223143e-7,
+        "volumeMm3": 5.502985201033541e-9,
+        "copperAddedAreaMm2": 3.62038500067996e-7,
+        "dielectricRemovedAreaMm2": 3.620385001790183e-7,
+        "snappingAddedAreaMm2": 0.0,
+        "snappingRemovedAreaMm2": 0.0,
+        "snappingBoundaryDisplacementMm": 0.0,
+        "boundsMm": [-7.089237, -30.35, -6.98934, -30.250112],
+        "zMin": 0.0994,
+        "zMax": 0.11460000000000001,
+        "maximumAreaMm2": 1e-6,
+        "insetTestMm": 1e-5
+      },
+      {
+        "netId": "source_trace_39",
+        "areaMm2": 1.1959999999229447e-8,
+        "volumeMm3": 1.8661799997612977e-10,
+        "copperAddedAreaMm2": 1.2277499998429586e-8,
+        "dielectricRemovedAreaMm2": 1.1960000101396417e-8,
+        "snappingAddedAreaMm2": 0.0,
+        "snappingRemovedAreaMm2": 0.0,
+        "snappingBoundaryDisplacementMm": 0.0,
+        "boundsMm": [-8.052001, -29.655171, -8.050161, -29.654976],
+        "zMin": 0.0994,
+        "zMax": 0.11460000000000001,
+        "maximumAreaMm2": 1e-6,
+        "insetTestMm": 1e-5
+      }
+    ]
+  },
+  "limitations": [
+    "The isolated tile omits full-route terminals; pcbChecksComplete is false.",
+    "The minimum tet quality is about 4e-8; a successful mesh is not evidence of solver convergence.",
+    "This receipt does not establish that the complete AM3352 route mesh or EM extraction has passed."
+  ]
+}

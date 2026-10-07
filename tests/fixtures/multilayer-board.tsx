@@ -34,6 +34,7 @@ export function MultilayerBoard({
   referenceLayer = "top",
   cutout = false,
   portObstruction = false,
+  cropBoundaryCopper = false,
 }: {
   innerPlane?: boolean
   layers?: 4 | 6
@@ -41,6 +42,7 @@ export function MultilayerBoard({
   sourceLayer?: "top" | "bottom"
   cutout?: boolean
   portObstruction?: boolean
+  cropBoundaryCopper?: boolean
 }) {
   return (
     <board
@@ -51,6 +53,31 @@ export function MultilayerBoard({
       schematicDisabled
     >
       <net name="GND" />
+      {cropBoundaryCopper && (
+        <>
+          <net name="FLOAT" />
+          {[
+            [0, -1.5, 0.1, -1.4],
+            [3, -1.5, 3.2, -1.4],
+          ].map(([x0, y0, x1, y1], index) => (
+            <Fragment key={index}>
+              <copperpour
+                layer="top"
+                connectsTo="net.FLOAT"
+                outline={[
+                  { x: x0!, y: y0! },
+                  { x: x1!, y: y0! },
+                  { x: x1!, y: y1! },
+                  { x: x0!, y: y1! },
+                ]}
+                boardEdgeMargin={0}
+                traceMargin={0}
+                padMargin={0}
+              />
+            </Fragment>
+          ))}
+        </>
+      )}
       {portObstruction && (
         <chip
           name="U3"

@@ -8,6 +8,7 @@ import gmsh
 import json
 import time
 from pathlib import Path
+from shapely import set_precision
 from shapely.geometry import Polygon, box
 from shapely.geometry.polygon import orient
 from shapely.ops import unary_union
@@ -52,8 +53,8 @@ def repair_crop_slivers(substrate, merged, board, voids, lower, upper):
     forbidden = unary_union(voids)
     for polygon in nonempty_polygons(substrate):
         if (
-            polygon.area > 1e-8
-            or not polygon.buffer(-2e-6).is_empty
+            polygon.area > 1e-6
+            or not polygon.buffer(-1e-5).is_empty
             or polygon.distance(board.boundary) > 1e-8
             or polygon.distance(forbidden) < 2e-6
         ):
@@ -66,22 +67,47 @@ def repair_crop_slivers(substrate, merged, board, voids, lower, upper):
                 "Sub-kernel crop sliver cannot be assigned to one copper net"
             )
         net = neighbors[0]
-        joined = clean(unary_union([merged[net], polygon]))
-        added = joined.area - merged[net].area
-        if abs(added - polygon.area) > 1e-10:
-            raise ValueError("Crop sliver repair changed geometry beyond the wedge")
+        original = merged[net]
+        exact = set_precision(original, 0).union(set_precision(polygon, 0), grid_size=0)
+        joined = clean(exact)
+        snapped = joined.symmetric_difference(exact, grid_size=0)
+        displacement = exact.boundary.hausdorff_distance(joined.boundary)
+        if (
+            displacement > 1.5e-6
+            or (not snapped.is_empty and not polygon.buffer(2e-6).covers(snapped))
+            or snapped.area > polygon.length * 2e-6 + 1e-12
+        ):
+            raise ValueError("Crop sliver snapping exceeded its local 2 nm bound")
+        if any(
+            joined.intersection(shape, grid_size=0).area > 1e-10
+            for other, shape in merged.items()
+            if other != net
+        ):
+            raise ValueError("Crop sliver snapping would overlap another copper net")
+        added = joined.area - original.area
+        previous_area = substrate.area
         merged[net] = joined
-        substrate = clean(substrate.difference(polygon))
+        substrate = clean(substrate.difference(joined))
+        removed = previous_area - substrate.area
         receipts.append(
             {
                 "netId": net,
                 "areaMm2": polygon.area,
-                "volumeMm3": polygon.area * (upper - lower),
+                "volumeMm3": added * (upper - lower),
+                "copperAddedAreaMm2": added,
+                "dielectricRemovedAreaMm2": removed,
+                "snappingAddedAreaMm2": float(
+                    joined.difference(exact, grid_size=0).area
+                ),
+                "snappingRemovedAreaMm2": float(
+                    exact.difference(joined, grid_size=0).area
+                ),
+                "snappingBoundaryDisplacementMm": displacement,
                 "boundsMm": list(polygon.bounds),
                 "zMin": lower,
                 "zMax": upper,
-                "maximumAreaMm2": 1e-8,
-                "insetTestMm": 2e-6,
+                "maximumAreaMm2": 1e-6,
+                "insetTestMm": 1e-5,
             }
         )
     return substrate, receipts

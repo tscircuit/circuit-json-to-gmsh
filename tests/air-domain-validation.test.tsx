@@ -30,6 +30,37 @@ test("a connected port gap touching a third TSX conductor is rejected", async ()
   ).rejects.toThrow("third conductor")
 })
 
+test("a TSX crop discards zero-area copper contact beside a retained island on the same net", async () => {
+  const board = await renderBoard({ cropBoundaryCopper: true })
+  const requirements = createMeshRequirements({
+    ...board,
+    connections: [
+      { from: "U1.OUT", to: "U2.IN" },
+      { from: "U1.GND", to: "U2.GND" },
+    ],
+  })
+  const referenceNetId = requirements.terminals.find(
+    (t) => t.name === "U1.GND",
+  )!.netId
+  const result = await exportGmsh({
+    model: board.model,
+    outputDirectory: await mkdtemp(join(tmpdir(), "gmsh-crop-line-contact-")),
+    conformal: true,
+    meshSizeMm: 0.8,
+    boundsMm: [-3, -2, 3, 2],
+    simplifyToleranceMm: 0.001,
+    airPaddingMm: 1,
+    validationRequirements: requirements,
+    lumpedPorts: [
+      { terminal: requirements.terminals[0], referenceNetId, widthMm: 0.08 },
+    ],
+  })
+  expect(result.validation?.pcbChecksComplete).toBe(true)
+  expect(result.validation?.checks.every((c) => c.passed === true)).toBe(true)
+  const ports = await Bun.file(join(result.brepPath, "..", "ports.json")).json()
+  expect(ports).toHaveLength(1)
+}, 120_000)
+
 test("a field mesh can fill a TSX cutout with air while the same laminate cell is rejected", async () => {
   const board = await renderBoard({ cutout: true })
   const requirements = createMeshRequirements({

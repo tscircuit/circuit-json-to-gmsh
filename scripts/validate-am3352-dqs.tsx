@@ -20,6 +20,7 @@ const { values } = parseArgs({
     stackup: { type: "string" },
     output: { type: "string", default: "work/am3352-dqs" },
     "mesh-size": { type: "string", default: "0.6" },
+    "minimum-tet-quality": { type: "string", default: "0" },
     margin: { type: "string", default: "2" },
     threads: { type: "string", default: "1" },
     "source-vias": { type: "boolean", default: false },
@@ -136,6 +137,7 @@ await Bun.write(
       cropAdjustments: expanded.adjustments,
       marginMm: margin,
       meshSizeMm: Number(values["mesh-size"]),
+      minimumTetQuality: Number(values["minimum-tet-quality"]),
       scope: values["source-vias"] ? "source_vias" : "full_route",
       mode: values["cad-only"] ? "cad_assembly" : "conformal_mesh",
       threads: Number(values.threads),
@@ -177,6 +179,7 @@ const result = await exportGmsh({
   conformal: !values["cad-only"],
   cadOnly: values["cad-only"],
   meshSizeMm: Number(values["mesh-size"]),
+  minimumTetQuality: Number(values["minimum-tet-quality"]),
   validationRequirements: requirements,
   threads: Number(values.threads),
   optimizeNetgen: values["optimize-netgen"],
@@ -259,6 +262,7 @@ if (values["source-vias"]) {
     outputDirectory: join(values.output, "section"),
     conformal: true,
     meshSizeMm: Number(values["mesh-size"]),
+    minimumTetQuality: Number(values["minimum-tet-quality"]),
     threads: Number(values.threads),
   })
   const yMm = (boundsMm[1] + boundsMm[3]) / 2

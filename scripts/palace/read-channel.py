@@ -29,7 +29,7 @@ def read_channel(directory, pairs=None):
         if re.search(r"(?:solver|KSP).*(?:did not|failed to).*converge", log, re.I):
             raise ValueError(f"Palace port {excited} did not converge")
         iterations = list(
-            map(int, re.findall(r"GMRES solver converged in (\d+) iterations", log))
+            map(int, re.findall(r"GMRES solver converged in (\d+) iterations?", log))
         )
         if len(iterations) != len(expected):
             raise ValueError(
@@ -72,6 +72,15 @@ def read_channel(directory, pairs=None):
     report = {
         "ports": [p["name"] for p in receipt["ports"]],
         "referenceImpedanceOhms": receipt["referenceImpedanceOhms"],
+        "portGeometrySha256": hashlib.sha256(
+            json.dumps(
+                [
+                    {k: v for k, v in p.items() if k != "referencePositionMm"}
+                    for p in receipt["ports"]
+                ],
+                sort_keys=True,
+            ).encode()
+        ).hexdigest(),
         "frequenciesHz": expected.tolist(),
         "order": receipt["order"],
         "sourceMeshSha256": receipt["sourceMeshSha256"],
@@ -160,6 +169,7 @@ def compare(runs, output, tolerance):
             "ports",
             "frequenciesHz",
             "referenceImpedanceOhms",
+            "portGeometrySha256",
             "modelSha256",
             "sourceManifestSha256",
             "copperModel",

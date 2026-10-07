@@ -3,7 +3,11 @@ import { createGeometryModel, parseCircuitJson } from "lib/index"
 import { MultilayerBoard, fourLayerStackup } from "./multilayer-board"
 
 export async function renderBoard(
-  options: { cutout?: boolean; portObstruction?: boolean } = {},
+  options: {
+    cutout?: boolean
+    portObstruction?: boolean
+    cropBoundaryCopper?: boolean
+  } = {},
 ) {
   const circuit = new Circuit()
   circuit.add(
@@ -11,6 +15,7 @@ export async function renderBoard(
       innerPlane
       cutout={options.cutout}
       portObstruction={options.portObstruction}
+      cropBoundaryCopper={options.cropBoundaryCopper}
     />,
   )
   await circuit.renderUntilSettled()

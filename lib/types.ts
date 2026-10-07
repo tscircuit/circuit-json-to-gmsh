@@ -106,6 +106,11 @@ export interface GeometryReport {
     zMax: number
     maximumAreaMm2: number
     insetTestMm: number
+    copperAddedAreaMm2?: number
+    dielectricRemovedAreaMm2?: number
+    snappingAddedAreaMm2?: number
+    snappingRemovedAreaMm2?: number
+    snappingBoundaryDisplacementMm?: number
   }[]
   repairs: {
     solid: {

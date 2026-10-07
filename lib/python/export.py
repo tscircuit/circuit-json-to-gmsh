@@ -10,9 +10,10 @@ import sys
 from pathlib import Path
 import gmsh
 from cad import build_cad
-from planar import layer_copper
+from planar import layer_copper, nonempty_polygons
 from topology import TopologyError
 from mesh_manifest import mesh_manifest
+from shapely.ops import unary_union
 from shapely.geometry import box
 from planar import clean
 from partition import partition
@@ -74,40 +75,9 @@ def export(options):
             )
         )
         board, copper = layer_copper(model)
-        if options.corridor_nets:
-            region, expansions = route_corridor(
-                {
-                    "model": model,
-                    "netIds": options.corridor_nets.split(","),
-                    "marginMm": options.corridor_margin,
-                }
-            )
-            board = clean(board.intersection(region))
-            (destination / "route-corridor.json").write_text(
-                json.dumps(
-                    {
-                        "netIds": options.corridor_nets.split(","),
-                        "marginMm": options.corridor_margin,
-                        "expandedBarrelIndices": expansions,
-                        "region": mapping(board),
-                    },
-                    indent=2,
-                )
-            )
-            copper = {
-                layer: {
-                    net: clean(shape.intersection(board)) for net, shape in nets.items()
-                }
-                for layer, nets in copper.items()
-            }
-        if options.bounds:
-            board = clean(board.intersection(box(*options.bounds)))
-            copper = {
-                layer: {
-                    net: clean(shape.intersection(board)) for net, shape in nets.items()
-                }
-                for layer, nets in copper.items()
-            }
+        # Approximate physical contours before clipping the analysis domain.
+        # Simplifying a clipped edge and clipping it again creates sub-kernel
+        # wedges where the copper nearly follows a curved crop boundary.
         copper, simplifications = simplify_copper(
             {
                 "model": model,
@@ -125,6 +95,43 @@ def export(options):
                 indent=2,
             )
         )
+        if options.corridor_nets:
+            region, expansions, crop_regularization = route_corridor(
+                {
+                    "model": model,
+                    "netIds": options.corridor_nets.split(","),
+                    "marginMm": options.corridor_margin,
+                }
+            )
+            board = clean(board.intersection(region))
+            (destination / "route-corridor.json").write_text(
+                json.dumps(
+                    {
+                        "netIds": options.corridor_nets.split(","),
+                        "marginMm": options.corridor_margin,
+                        "expandedBarrelIndices": expansions,
+                        "regularization": crop_regularization,
+                        "region": mapping(board),
+                    },
+                    indent=2,
+                )
+            )
+            copper = {
+                layer: {
+                    net: clean(unary_union(nonempty_polygons(shape.intersection(board))))
+                    for net, shape in nets.items()
+                }
+                for layer, nets in copper.items()
+            }
+        if options.bounds:
+            board = clean(board.intersection(box(*options.bounds)))
+            copper = {
+                layer: {
+                    net: clean(unary_union(nonempty_polygons(shape.intersection(board))))
+                    for net, shape in nets.items()
+                }
+                for layer, nets in copper.items()
+            }
         (destination / "progress.json").write_text(
             json.dumps(
                 {"stage": "cad_slabs", "elapsedSeconds": time.monotonic() - started}
@@ -177,6 +184,7 @@ def export(options):
                                 "topology.py",
                                 "partition.py",
                                 "tiled.py",
+                                "tile_axes.py",
                                 "tile_worker.py",
                                 "lumped_ports.py",
                                 "simplify_copper.py",

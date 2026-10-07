@@ -41,11 +41,39 @@ The first-order extraction used 29,521 full-material tetrahedra, 50 Ω per port 
 
 Both second-order excitation directions also completed. The [second-order report and raw results](tsx-control/p2/channel-report.json) have a maximum reciprocity error of `4.60e-7`, but the maximum change from first order is **0.199** in a complex S entry. The first-order PCB result is therefore **not converged** under the 0.01 criterion. This is precisely why consistency checks alone are insufficient for judging routing. One second-order direction used the default polynomial multigrid preconditioner (378 s); the other used a full-order complex SuperLU preconditioner (131 s). Their preserved configs show those linear-solver settings; both used residual tolerance `1e-8`.
 
+Both [third-order excitation directions](tsx-control/p3/channel-report.json) completed using polynomial multigrid (1,960 s and 2,044 s). Maximum reciprocity error is `9.66e-7` and maximum scattering singular value is `0.999994`. The [three-order comparison](tsx-control/refinement.json) reports maximum complex changes of **0.199** from order 1 → 2 and **0.0362** from order 2 → 3. This control **still fails** the 0.01 discretization criterion. A full-order direct third-order attempt ended with SIGKILL under the workspace's 16 GiB memory limit; its [incomplete log](tsx-control/p3-direct-incomplete.log) is retained and is excluded from channel results.
+
+![Native polynomial-order comparison, not converged](tsx-control/refinement.png)
+
+The [per-frequency comparison values](tsx-control/refinement-samples.csv) preserve the raw sample differences; a clock-frequency point cannot establish an eye model over the edge-transition bandwidth.
+
+At **400 MHz only**, a separate second-order spatial-refinement study used target mesh sizes 0.8, 0.6 and 0.4 mm (29,521, 36,313 and 61,340 full-material tetrahedra). Both directions completed on each mesh. The maximum complex S changes were **0.00290** and **0.00204**, passing the 0.01 discretization comparison. [Raw results and comparison](tsx-control/400mhz/refinement.json) are retained. This is a validated numerical comparison for the control at one frequency; it does not establish broadband eye accuracy or the AM3352 physical model. Repeat `generate-palace-control.tsx --mesh-size SIZE` at each size, prepare with `--order 2 --frequency-hz 400000000`, run both columns, then compare all three directories.
+
+A symmetric [four-port TSX control](../../../tests/fixtures/differential-board.tsx) also completed all four native Palace excitations on 32,287 full-material tetrahedra. Its maximum reciprocity error is `4.66e-9` and maximum scattering singular value is `0.999999609`. Each excitation took 11.3–12.6 s (mean MPI-rank wall time). These are complete raw solver samples; discretization convergence is not established. At 5 GHz, the differential-to-common transmission magnitude is 0.00854; this coarse symmetric control must not be treated as an exact zero-conversion reference.
+
+![Raw mixed-mode samples from the four-port TSX control](tsx-fourport-control/channel.png)
+
+[Touchstone](tsx-fourport-control/channel.s4p), [mixed-mode CSV](tsx-fourport-control/mixed-mode.csv), [report](tsx-fourport-control/channel-report.json), [solver receipt](tsx-fourport-control/solver-input.json) and [native reader fixture](../../../tests/fixtures/palace-differential-channel) are retained. The explicit port order is `U1.OUT, U2.IN, U3.OUT, U4.IN`, with `--pairs '1,3;2,4'`. Reproduce it with:
+
+```sh
+bun scripts/generate-palace-control.tsx --differential --mesh-size 0.5 --output work/fourport
+"$GMSH_PYTHON" scripts/palace/prepare-channel.py --mesh-directory work/fourport --output work/fourport-channel \
+  --frequency-hz 100000000 400000000 1000000000 2000000000 5000000000
+# Run every palace-N.json, saving palace-N.log.
+"$GMSH_PYTHON" scripts/palace/read-channel.py work/fourport-channel --pairs '1,3;2,4'
+```
+
 Reproduction commands are in the [root README](../../../README.md#palace-channel-extraction).
 
 ## Actual AM3352 DQS0 case
 
-**Status: the complete-route assembly/mesh run is still in progress. No actual-board Palace S-matrix or eye is claimed by the current evidence.** The completed source-via crop remains a separate geometry-validation case.
+**Status: a corrected complete-route rebuild is running. No actual-board Palace S-matrix or eye is claimed.** The source-via crop remains a separate geometry-validation case. The first whole-route assembly failed on a 4.27e-9 mm³ resin wedge and an almost-collinear crop edge; [the original isolation receipt](crop-isolation/receipt.json) records bounded repairs and their isolated validation.
+
+A subsequent whole-route CAD build took 4,200 s. All 1,722 native solids passed BRep validity, but tetrahedral meshing rejected overlapping facets 9802 and 9904. [The failure and repair receipt](crop-isolation/whole-route-failure.json) records actual intersecting surface triangles at `(-0.819905, -18.352059, 0.1146)` mm. Simplifying copper after cropping, then clipping again, had created tiny false edges. Moving the physical-contour approximation before the analysis crop produces a valid isolated BRep and **17,742 tetrahedra in 1.88 s**, with minimum quality **0.0119**. All eight available saved-mesh checks pass at a stricter 0.001 quality threshold. This tile lacks complete-route endpoint checks, so it does not establish whole-board validity.
+
+![Rejected native boundary triangles at the artificial DQS crop, magnified to nanometres](crop-isolation/overlapping-facets.png)
+
+The TSX regression checks that a crop leaves physical-contour simplification receipts unchanged and independently verifies material interfaces, physical voids and terminal paths. The full corrected route still must pass those gates before Palace runs.
 
 The input is the [pinned circuit-json](../mesh-validation/am3352.circuit.json.gz) with [its stackup](../mesh-validation/stackup.json). The expanded JSON SHA-256 is `c9d7059fe536865784f175855e0dcc76510972319eec848c18b0ef6dcd2adb40`.
 

@@ -3,6 +3,7 @@
 from shapely.geometry import LineString, Polygon
 from shapely.ops import unary_union
 from planar import points, clean
+from simplify_copper import vertices, topology
 
 
 def route_corridor(options):
@@ -28,4 +29,29 @@ def route_corridor(options):
         if region.intersects(outer) and not region.covers(outer):
             additions.append(outer.buffer(0.05, quad_segs=8))
             barrels.append(index)
-    return clean(unary_union([region, *additions])), barrels
+    original = clean(unary_union([region, *additions]))
+    # Rounded buffer unions can leave almost-collinear, tens-of-nanometres
+    # crop edges. These are artificial domain boundaries, not PCB outlines.
+    tolerance = 1e-5
+    candidate = clean(original.simplify(tolerance, preserve_topology=True))
+    displacement = original.boundary.hausdorff_distance(candidate.boundary)
+    if topology(candidate) != topology(original) or displacement > tolerance + 2e-6:
+        raise ValueError("Route corridor regularization exceeded its bounds")
+    for index in barrels:
+        barrel = model["multilayer"]["barrels"][index]
+        outer = clean(
+            Polygon(points(barrel["hole"])).buffer(
+                barrel["platingThickness"], join_style="mitre"
+            )
+        )
+        if not candidate.covers(outer):
+            raise ValueError("Route corridor regularization clipped a protected barrel")
+    receipt = {
+        "toleranceMm": tolerance,
+        "boundaryDisplacementMm": displacement,
+        "verticesBefore": vertices(original),
+        "verticesAfter": vertices(candidate),
+        "addedAreaMm2": float(candidate.difference(original).area),
+        "removedAreaMm2": float(original.difference(candidate).area),
+    }
+    return candidate, barrels, receipt

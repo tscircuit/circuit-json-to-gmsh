@@ -1,6 +1,7 @@
 {
   "ports": ["U1.OUT", "U2.IN"],
   "referenceImpedanceOhms": 50,
+  "portGeometrySha256": "fb54cad47a0742b1d2d4f2f1e2aec1db231caed7ac5c4c1649da263f0ada3f0c",
   "frequenciesHz": [
     100000000.0, 400000000.0, 1000000000.0, 2000000000.0, 5000000000.0
   ],

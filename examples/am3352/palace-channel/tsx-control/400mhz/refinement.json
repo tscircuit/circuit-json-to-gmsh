@@ -1,0 +1,14 @@
+{
+  "runDirectories": [
+    "/workspace/work/dqs-channel/tsx-400mhz-h08",
+    "/workspace/work/dqs-channel/tsx-400mhz-h06",
+    "/workspace/work/dqs-channel/tsx-400mhz-h04"
+  ],
+  "maximumComplexDifferences": [0.002899803987785113, 0.0020414316978965277],
+  "absolutePowerWaveTolerance": 0.01,
+  "convergenceProven": true,
+  "limitations": [
+    "This compares supplied discretizations; it does not establish material, port or enclosure accuracy.",
+    "Run directories must be ordered coarse to fine and their refinement settings reviewed."
+  ]
+}

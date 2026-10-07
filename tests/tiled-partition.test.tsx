@@ -84,3 +84,53 @@ test("XY batches join into a conformal TSX DQS mesh with both through-via paths 
     }),
   ).rejects.toThrow("checkpoint geometry")
 }, 360_000)
+
+test("a partition plane avoids grazing a TSX copper edge without changing physical volume", async () => {
+  const circuit = new Circuit()
+  circuit.add(
+    <board width={4} height={4} layers={4} schematicDisabled>
+      <net name="GND" />
+      <copperpour
+        layer="inner2"
+        connectsTo="net.GND"
+        boardEdgeMargin={0}
+        outline={[
+          { x: -0.000231, y: -2 },
+          { x: 2, y: -2 },
+          { x: 2, y: 2 },
+          { x: -0.000231, y: 2 },
+        ]}
+      />
+    </board>,
+  )
+  await circuit.renderUntilSettled()
+  const model = createGeometryModel({
+    circuitJson: parseCircuitJson(circuit.getCircuitJson()),
+    stackup: fourLayerStackup,
+  })
+  const directory = await mkdtemp(join(tmpdir(), "gmsh-grazing-tile-"))
+  const result = await exportGmsh({
+    model,
+    outputDirectory: directory,
+    conformal: true,
+    fragmentStrategy: "tiled",
+    tileSizeMm: 2,
+    meshSizeMm: 0.2,
+    minimumTetQuality: 0.001,
+  })
+  const partition = await Bun.file(
+    join(directory, "tile-partition.json"),
+  ).json()
+  expect(partition.physicalGeometryChanged).toBe(false)
+  expect(partition.adjustments).toHaveLength(1)
+  expect(partition.adjustments[0].axis).toBe("x")
+  expect(partition.adjustments[0].nominalMm).toBe(0)
+  expect(
+    Math.abs(partition.adjustments[0].actualMm + 0.000231),
+  ).toBeGreaterThanOrEqual(0.002)
+  expect(
+    result.validation?.checks.every((check) => check.passed !== false),
+  ).toBe(true)
+  expect(result.report.minimumTetQuality).toBeGreaterThan(0.001)
+  expect(result.report.actualVolumeMm3).toBeCloseTo(16 * (0.975 - 0.07), 7)
+}, 120_000)

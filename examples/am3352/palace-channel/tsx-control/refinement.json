@@ -1,0 +1,14 @@
+{
+  "runDirectories": [
+    "/workspace/work/dqs-channel/tsx-channel",
+    "/workspace/work/dqs-channel/tsx-channel-p2",
+    "/workspace/work/dqs-channel/tsx-channel-p3-mg"
+  ],
+  "maximumComplexDifferences": [0.19903364490492145, 0.03623670049240724],
+  "absolutePowerWaveTolerance": 0.01,
+  "convergenceProven": false,
+  "limitations": [
+    "This compares supplied discretizations; it does not establish material, port or enclosure accuracy.",
+    "Run directories must be ordered coarse to fine and their refinement settings reviewed."
+  ]
+}

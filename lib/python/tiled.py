@@ -19,19 +19,13 @@ from shapely.geometry import box, Polygon
 from planar import clean, points
 from partition import fragment
 from tile_worker import fingerprint
+from tile_axes import safe_axes
 
 
 def build_tiled_cad(options):
     board, copper = options["board"], options["copper"]
     bounds = options.get("airBoundsMm") or board.bounds
     size = options["tileSizeMm"]
-    axes = []
-    for low, high in [(bounds[0], bounds[2]), (bounds[1], bounds[3])]:
-        values = [low]
-        while values[-1] + size < high - 1e-8:
-            values.append(values[-1] + size)
-        values.append(high)
-        axes.append(values)
     root = Path(
         options.get("tileCacheDirectory")
         or Path(options["progressPath"]).parent / "tile-cache"
@@ -63,6 +57,11 @@ def build_tiled_cad(options):
         for b in layered["barrels"]
     ]
     drills = [(d, Polygon(points(d["hole"]))) for d in layered["drills"]]
+
+    axes, partition_receipt = safe_axes(bounds, size, copper, barrels, drills)
+    Path(options["progressPath"]).with_name("tile-partition.json").write_text(
+        json.dumps(partition_receipt, indent=2)
+    )
 
     def progress(stage, **extra):
         Path(options["progressPath"]).write_text(

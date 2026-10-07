@@ -146,3 +146,73 @@ test("nonpassive solver data is reported without silently repairing the network"
   expect(report.numericalConsistencyPassed).toBe(false)
   expect(report.maximumScatteringSingularValue).toBeGreaterThan(1)
 })
+
+test("native four-port TSX results retain every column and the explicit mixed-mode pairing", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "palace-fourport-reader-"))
+  await cp(
+    join(import.meta.dir, "fixtures/palace-differential-channel"),
+    directory,
+    { recursive: true },
+  )
+  const result = await read(directory, ["--pairs", "1,3;2,4"])
+  if (result.code) throw new Error(result.error)
+  const report = await Bun.file(join(directory, "channel-report.json")).json()
+  expect(report.ports).toEqual(["U1.OUT", "U2.IN", "U3.OUT", "U4.IN"])
+  expect(report.nativeRuns).toHaveLength(4)
+  expect(
+    report.nativeRuns.every(
+      (run: { gmresIterations: number[] }) => run.gmresIterations.length === 5,
+    ),
+  ).toBe(true)
+  expect(report.maximumReciprocityError).toBeLessThan(1e-8)
+  expect(report.maximumScatteringSingularValue).toBeLessThan(1)
+  expect(report.mixedMode.pairIndicesOneBased).toEqual([
+    [1, 3],
+    [2, 4],
+  ])
+  expect(report.mixedMode.differentialReferenceOhms).toBe(100)
+  expect(report.mixedMode.commonReferenceOhms).toBe(25)
+  expect(report.convergenceProven).toBe(false)
+})
+
+test("convergence comparisons reject changed port geometry even when scattering columns are unchanged", async () => {
+  const root = await mkdtemp(join(tmpdir(), "palace-port-provenance-"))
+  const directories = [join(root, "p1"), join(root, "p2"), join(root, "p3")]
+  await cp(join(import.meta.dir, "fixtures/palace-channel"), directories[0], {
+    recursive: true,
+  })
+  for (const order of [2, 3]) {
+    await cp(
+      join(
+        import.meta.dir,
+        `../examples/am3352/palace-channel/tsx-control/p${order}`,
+      ),
+      directories[order - 1],
+      { recursive: true },
+    )
+  }
+  for (const directory of directories) {
+    const result = await read(directory)
+    if (result.code) throw new Error(result.error)
+  }
+  const p2 = await Bun.file(join(directories[1], "channel-report.json")).json()
+  expect(p2.nativeRuns[1].gmresIterations).toEqual([2, 1, 1, 1, 1])
+  const args = [
+    "--compare",
+    ...directories,
+    "--output",
+    join(root, "comparison.json"),
+  ]
+  expect((await read(root, args)).code).toBe(0)
+  const report = await Bun.file(join(root, "comparison.json")).json()
+  expect(report.convergenceProven).toBe(false)
+  expect(report.maximumComplexDifferences[1]).toBeCloseTo(0.0362367, 6)
+  const inputPath = join(directories[2], "solver-input.json")
+  const input = await Bun.file(inputPath).json()
+  input.ports[0].widthMm = 0.1
+  await Bun.write(inputPath, JSON.stringify(input))
+  expect((await read(directories[2])).code).toBe(0)
+  const invalid = await read(root, args)
+  expect(invalid.code).not.toBe(0)
+  expect(invalid.error).toContain("changed portGeometrySha256")
+})
