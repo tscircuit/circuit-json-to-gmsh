@@ -76,11 +76,13 @@ bun scripts/generate-palace-control.tsx --differential --mesh-size 0.5 --output 
 "$GMSH_PYTHON" scripts/palace/read-channel.py work/fourport-channel --pairs '1,3;2,4'
 ```
 
+To reproduce the oblique control, run `generate-palace-control.tsx --oblique --mesh-size 0.6`, then the same `rectangularize-ports.py` and Palace preparation steps. Its recorded solver control uses order 1 and AMS at 400 MHz; it is not a broadband convergence result.
+
 Reproduction commands are in the [root README](../../../README.md#palace-channel-extraction).
 
 ## Actual AM3352 DQS0 case
 
-**Status: a corrected complete-route rebuild is running. No actual-board Palace S-matrix or eye is claimed.** The source-via crop remains a separate geometry-validation case. The first whole-route assembly failed on a 4.27e-9 mm³ resin wedge and an almost-collinear crop edge; [the original isolation receipt](crop-isolation/receipt.json) records bounded repairs and their isolated validation.
+**Status: the complete route and its explicit port-fixture mesh pass all native PCB checks. The actual-board 400 MHz Palace pilot is running; no actual-board S-matrix or eye is claimed yet.** The source-via crop remains a separate geometry-validation case. The first whole-route assembly failed on a 4.27e-9 mm³ resin wedge and an almost-collinear crop edge; [the original isolation receipt](crop-isolation/receipt.json) records bounded repairs and their isolated validation.
 
 A subsequent whole-route CAD build took 4,200 s. All 1,722 native solids passed BRep validity, but tetrahedral meshing rejected overlapping facets 9802 and 9904. [The failure and repair receipt](crop-isolation/whole-route-failure.json) records actual intersecting surface triangles at `(-0.819905, -18.352059, 0.1146)` mm. Simplifying copper after cropping, then clipping again, had created tiny false edges. Moving the physical-contour approximation before the analysis crop produces a valid isolated BRep and **17,742 tetrahedra in 1.88 s**, with minimum quality **0.0119**. All eight available saved-mesh checks pass at a stricter 0.001 quality threshold. This tile lacks complete-route endpoint checks, so it does not establish whole-board validity.
 
@@ -90,9 +92,19 @@ A subsequent whole-route CAD build took 4,200 s. All 1,722 native solids passed 
 
 This PoppyGL view shows the **isolated neighbouring copper tile**, at physical scale with substrate hidden: bottom GND is blue, top DDR_1V5 is green, and inner2 traces are orange/purple. It is a CAD inspection view, not an EM field plot or the complete DQS route.
 
-The TSX regression checks that a crop leaves physical-contour simplification receipts unchanged and independently verifies material interfaces, physical voids and terminal paths. The full corrected route still must pass those gates before Palace runs. A separate [84-tile preflight](tile-preflight/results.json) completed in **225 s with two workers**, checking 1,007,863 isolated tetrahedra. Every BRep and all eight available saved-mesh checks passed. The minimum element quality is **3.77e-6**, so passing positivity does not establish discretization accuracy. The preflight uses the same total-volume criterion as the exporter on each tile, records per-solid differences and explicitly leaves complete-route connectivity unvalidated.
+The TSX regression checks that a crop leaves physical-contour simplification receipts unchanged and independently verifies material interfaces, physical voids and terminal paths. The corrected complete route now passes those gates. A separate [84-tile preflight](tile-preflight/results.json) completed in **225 s with two workers**, checking 1,007,863 isolated tetrahedra. Every BRep and all eight available saved-mesh checks passed. The minimum element quality is **3.77e-6**, so passing positivity does not establish discretization accuracy. The preflight uses the same total-volume criterion as the exporter on each tile, records per-solid differences and explicitly leaves complete-route connectivity unvalidated.
 
 Use `scripts/validate-cached-tile.py --tile CACHE_ENTRY --model SOURCE_MODEL --output OUTPUT --mesh-size 0.4 --check-brep` for any completed cache entry. The TSX tiled regression checks a valid entry and rejects a corrupted BRep receipt before meshing.
+
+The [complete-route receipt](complete-mesh/receipt.json) records **1,008,943 tetrahedra, 183,087 nodes and 1,692 valid BRep solids**. All nine [saved-mesh checks](complete-mesh/validation.json), including both DQS paths and all four shared DDR_1V5 reference probes, pass. Export took **5,018 s** (CAD 4,875 s; meshing/preview 141 s), followed by **19.5 s** independent validation. Minimum quality is **3.82e-6**; strict positivity does not establish EM accuracy.
+
+Palace loaded that mesh but rejected the original irregular coplanar apertures: the excitation direction was 13.9° from its inferred bounding axis at `U1.P1`. The [unmodified native rejection](complete-mesh/palace-1.log) is preserved. No alignment tolerance was relaxed.
+
+An explicit ideal PEC contact fixture now straightens each port aperture while retaining every PCB material volume. Its two conductor-connected end contacts leave a **0.076 mm-wide rectangular opening**, with lengths **0.128–0.482 mm**. These are additional ideal solver contacts, not manufactured copper or a demonstrated de-embedding model. Native CAD checks require each contact to touch only its intended net; contacts cannot short the opening. The [fixture receipt](port-fixtures/am3352/port-fixtures.json) and [new complete validation](port-fixtures/am3352/validation.json) record **1,009,454 tetrahedra**, 1,692 valid solids and all nine passing checks. Reimprinting the saved CAD and remeshing took **264 s**, with no repeated tile joins.
+
+![Explicit AM3352 port geometry; not an EM field plot](port-fixtures/am3352/am3352-port-fixtures.png)
+
+A separate oblique **TSX-generated control** reproduces the same native Palace rejection. With the explicit fixtures, both 400 MHz excitations completed in **28.9/29.9 s**; maximum reciprocity error is **1.25e-7**, maximum scattering singular value **0.999910**. [Raw before/after native evidence](port-fixtures/tsx-oblique/accepted/channel-report.json) is retained. This proves that the fixture is accepted and the control is numerically consistent, not that fixture sensitivity or actual-board accuracy is established. The native TSX regression also checks unchanged PCB material volumes, full endpoint connectivity and rejection of a modified fixture receipt.
 
 The input is the [pinned circuit-json](../mesh-validation/am3352.circuit.json.gz) with [its stackup](../mesh-validation/stackup.json). The expanded JSON SHA-256 is `c9d7059fe536865784f175855e0dcc76510972319eec848c18b0ef6dcd2adb40`.
 
@@ -103,7 +115,7 @@ The requested port order is:
 3. `U1.P2` — DQSn0 source negative
 4. `U3.G3` — DQSn0 load negative
 
-Each aperture references nearby **top DDR_1V5 copper (`source_net_93`)**, not an inferred ideal ground. Reference copper continuity is required. Discrete bypass capacitors and PDN impedance are omitted from this baseline and must be addressed before judging the actual board. The mixed-mode mapping is `--pairs '1,3;2,4'`.
+Each aperture references nearby **top DDR_1V5 copper (`source_net_93`)**, not an inferred ideal ground. Reference copper continuity is required. Discrete bypass capacitors and PDN impedance are omitted from this baseline and must be addressed before judging the actual board. Other signal nets in the corridor are passive, with no modeled IC terminations or switching aggressors; their continuation outside the crop is also omitted. The mixed-mode mapping is `--pairs '1,3;2,4'`.
 
 Generate the complete routes, including all neighbouring copper in the selected corridor:
 
@@ -119,11 +131,21 @@ bun scripts/validate-am3352-dqs.tsx \
 
 The 0.75 mm corridor, 1 mm air enclosure, 1 µm contour approximation, assumed dielectric loss tangent 0.02 and PEC copper are **sensitivity-study inputs**, not validated board physics. An operating DDR clock near 400 MHz does not define the required bandwidth: edge transitions excite higher harmonics. The five-frequency sweep above is a diagnostic and cannot support a reliable transient eye on its own.
 
-Once the complete route mesh passes, prepare all four excitation configs and run every column:
+For this irregular-pad case, reimprint and remesh from the hash-verified saved CAD before preparing Palace. This does not repeat tile joins. `--width-fraction` changes the explicit fixture aperture and must be studied separately from mesh refinement:
+
+```sh
+"$GMSH_PYTHON" scripts/palace/rectangularize-ports.py \
+  --mesh-directory work/am3352-dqs --output work/am3352-fixtures \
+  --mesh-size 0.4 --threads 4 --width-fraction 0.95
+"$GMSH_PYTHON" scripts/palace/plot-port-fixtures.py \
+  --mesh-directory work/am3352-fixtures --output work/port-fixtures.png
+```
+
+Prepare all four excitation configs and run every column:
 
 ```sh
 "$GMSH_PYTHON" scripts/palace/prepare-channel.py \
-  --mesh-directory work/am3352-dqs --output work/am3352-channel \
+  --mesh-directory work/am3352-fixtures --output work/am3352-channel \
   --frequency-hz 100000000 400000000 1000000000 2000000000 5000000000
 # Run palace-1.json through palace-4.json, retaining palace-N.log.
 "$GMSH_PYTHON" scripts/palace/read-channel.py work/am3352-channel --pairs '1,3;2,4'

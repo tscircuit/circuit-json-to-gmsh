@@ -180,6 +180,17 @@ const result = await exportGmsh({
 
 The port builder checks native aperture area, signal/reference contacts and reference copper continuity. It writes `ports.json`; it rejects apertures spanning multiple gaps or overlapping another port. Ports still require impedance and placement sensitivity checks.
 
+Palace's uniform port also requires a rectangular aperture aligned with its excitation; an irregular gap around curved pads can fail that native check. For such a case, export with `fragmentStrategy: "tiled"` to retain a hash-verified CAD checkpoint, then add **explicit ideal PEC end-contact fixtures**:
+
+```sh
+"$GMSH_PYTHON" scripts/palace/rectangularize-ports.py \
+  --mesh-directory work/channel-mesh --output work/channel-fixtures \
+  --mesh-size 0.4 --width-fraction 0.95
+```
+
+Use `work/channel-fixtures` as the preparation input. This preserves every PCB material volume, verifies intended contact nets and repeats all saved-mesh checks. It records the added ideal contacts in `ports.json` and `port-fixtures.json`; modified receipts are rejected. The contacts alter near-port fields and require fixture-size sensitivity/de-embedding before routing-quality claims. [AM3352 and oblique TSX native evidence](examples/am3352/palace-channel/README.md#actual-am3352-dqs0-case) includes geometry plots and Palace's original rejection.
+
+
 Reproduce the small TSX control and prepare a sweep (frequency arguments are **Hz**):
 
 ```sh

@@ -6,7 +6,7 @@ Apertures must connect the intended copper and cannot cross other conductors.
 
 import gmsh
 from shapely.geometry import Point, LineString, Polygon
-from shapely.ops import unary_union, nearest_points
+from shapely.ops import unary_union, nearest_points, polygonize
 from planar import nonempty_polygons
 from cad import ring
 
@@ -122,24 +122,54 @@ def imprint_ports(solids, ports):
     return resolve_ports(ports)
 
 
+def planar_face_shape(face):
+    """Reconstruct linear CAD loops; a concave face centroid may lie outside it."""
+    lines = []
+    for _, edge in gmsh.model.getBoundary([(2, face)], oriented=False):
+        if gmsh.model.getType(1, edge) != "Line":
+            raise ValueError("Require linear planar port boundaries")
+        ends = gmsh.model.getBoundary([(1, edge)], oriented=False)
+        if len(ends) != 2:
+            raise ValueError("Require two endpoints per port boundary edge")
+        lines.append(
+            LineString([gmsh.model.getValue(0, tag, [])[:2] for _, tag in ends])
+        )
+    pieces = list(polygonize(lines))
+    if not pieces:
+        raise ValueError("Cannot reconstruct native planar face")
+    shape = max(pieces, key=lambda p: p.area)
+    actual = gmsh.model.occ.getMass(2, face)
+    if abs(shape.area - actual) > max(1e-8, actual * 1e-5):
+        raise ValueError("Native planar face loops do not cover its area")
+    return shape
+
+
 def resolve_ports(ports):
     for index, port in enumerate(ports):
         # Later imprints may replace a coplanar face. Resolve final topology by
         # containment and area, rather than trusting stale OCC face tags.
         tags = []
         for _, face in gmsh.model.getEntities(2):
-            x, y, z = gmsh.model.occ.getCenterOfMass(2, face)
-            if abs(z - port["zMm"]) > 1e-8 or not port["shape"].buffer(1e-6).covers(
-                Point(x, y)
+            bounds = gmsh.model.getBoundingBox(2, face)
+            x0, y0, x1, y1 = port["shape"].bounds
+            if (
+                abs(bounds[2] - port["zMm"]) > 1e-6
+                or bounds[5] - bounds[2] > 1e-6
+                or bounds[0] < x0 - 2e-6
+                or bounds[1] < y0 - 2e-6
+                or bounds[3] > x1 + 2e-6
+                or bounds[4] > y1 + 2e-6
             ):
                 continue
-            lower = gmsh.model.getBoundingBox(2, face)
-            if lower[5] - lower[2] > 1e-6:
+            shape = planar_face_shape(face)
+            if shape.difference(port["shape"].buffer(1e-6)).area > 1e-10:
                 continue
             tags.append(face)
         area = sum(gmsh.model.occ.getMass(2, t) for t in tags)
         if abs(area - port["shape"].area) > max(1e-8, port["shape"].area * 1e-5):
-            raise ValueError("Native port surface coverage changed")
+            raise ValueError(
+                f"Native port {port['name']} surface coverage changed: {area} vs {port['shape'].area}"
+            )
         port["faces"] = tags
         port["attribute"] = 100001 + index
         gmsh.model.addPhysicalGroup(2, tags, port["attribute"], "port:" + port["name"])

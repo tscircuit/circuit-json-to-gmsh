@@ -49,6 +49,25 @@ def prepare(source, output, frequencies, order, impedance, linear_solver):
             pec.append(face["tag"])
         if materials == ["air"]:
             absorbing.append(face["tag"])
+    fixture_faces = [f for p in ports for f in p.get("fixturePecFaces", [])]
+    if fixture_faces:
+        fixture = json.loads((source / "port-fixtures.json").read_text())
+        if (
+            not fixture.get("materialVolumesUnchanged")
+            or not fixture.get("nativeContactNetsValidated")
+            or fixture["meshSha256"] != validation["meshSha256"]
+            or fixture["portsSha256"] != sha(source / "ports.json")
+        ):
+            raise ValueError("Require unchanged native-validated PEC contact fixtures")
+        face_lookup = {f["tag"]: f for f in manifest["faces"]}
+        if set(fixture_faces) & {f for p in ports for f in p["faces"]}:
+            raise ValueError("PEC fixture overlaps a port aperture")
+        for face in fixture_faces:
+            if face not in face_lookup or any(
+                owners[v]["material"] == "copper" for v in face_lookup[face]["volumes"]
+            ):
+                raise ValueError("PEC fixture must occupy the original non-copper gap")
+        pec.extend(fixture_faces)
     if not pec or not absorbing:
         raise ValueError("Require conductor cavities and an exterior air enclosure")
     output.mkdir(parents=True, exist_ok=True)
@@ -165,6 +184,9 @@ def prepare(source, output, frequencies, order, impedance, linear_solver):
         "modelSha256": validation["modelSha256"],
         "palaceMeshSha256": sha(output / "palace.msh"),
         "sourcePortsSha256": sha(source / "ports.json"),
+        "portFixtureReceiptSha256": sha(source / "port-fixtures.json")
+        if fixture_faces
+        else None,
         "sourceManifestSha256": validation["manifestSha256"],
         "tetrahedra": validation["tetrahedra"],
         "ports": ports,
@@ -172,11 +194,21 @@ def prepare(source, output, frequencies, order, impedance, linear_solver):
         "referenceImpedanceOhms": impedance,
         "order": order,
         "copperModel": "PEC cavities, no copper loss",
+        "portFixtureModel": "ideal PEC end-contact extensions"
+        if fixture_faces
+        else None,
         "configurations": configs,
         "convergenceProven": False,
         "limitations": [
             "Port references are explicit geometry assumptions, not inferred power/ground AC impedance.",
             "Dielectric material assumptions and crop/enclosure sensitivity require independent checks.",
+            *(
+                [
+                    "Ideal PEC contact extensions alter near-port fields; fixture-size sensitivity and de-embedding are unproven."
+                ]
+                if fixture_faces
+                else []
+            ),
         ],
     }
     (output / "solver-input.json").write_text(json.dumps(receipt, indent=2) + "\n")

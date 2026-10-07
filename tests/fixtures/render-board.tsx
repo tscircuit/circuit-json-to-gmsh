@@ -7,6 +7,7 @@ export async function renderBoard(
     cutout?: boolean
     portObstruction?: boolean
     cropBoundaryCopper?: boolean
+    referenceOffsetXMm?: number
   } = {},
 ) {
   const circuit = new Circuit()
@@ -16,6 +17,7 @@ export async function renderBoard(
       cutout={options.cutout}
       portObstruction={options.portObstruction}
       cropBoundaryCopper={options.cropBoundaryCopper}
+      referenceOffsetXMm={options.referenceOffsetXMm}
     />,
   )
   await circuit.renderUntilSettled()

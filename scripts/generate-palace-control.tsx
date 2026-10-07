@@ -7,13 +7,14 @@ import { renderBoard } from "../tests/fixtures/render-board"
 const { values } = parseArgs({
   options: {
     differential: { type: "boolean", default: false },
+    oblique: { type: "boolean", default: false },
     output: { type: "string", default: "work/palace-control" },
     "mesh-size": { type: "string", default: "0.8" },
   },
 })
 const board = values.differential
   ? await renderDifferentialBoard()
-  : await renderBoard()
+  : await renderBoard({ referenceOffsetXMm: values.oblique ? 0.7 : 0 })
 const requirements = createMeshRequirements({
   ...board,
   connections: [
@@ -35,6 +36,8 @@ const result = await exportGmsh({
   model: board.model,
   outputDirectory: values.output,
   conformal: true,
+  fragmentStrategy: values.oblique ? "tiled" : "global",
+  tileSizeMm: 2.5,
   airPaddingMm: 1,
   meshSizeMm: Number(values["mesh-size"]),
   validationRequirements: requirements,

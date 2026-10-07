@@ -19,7 +19,9 @@
       "!**/package.json",
       "!examples/am3352/mesh-validation/stackup.json",
       "!work/**",
-      "!.venv/**"
+      "!.venv/**",
+      "!examples/am3352/palace-channel/complete-mesh/**",
+      "!examples/am3352/palace-channel/port-fixtures/**"
     ]
   },
   "javascript": {

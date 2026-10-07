@@ -1,0 +1,14 @@
+{
+  "sourceMeshSha256": "a89f07498e9eb77ff521b2d283540adfc75666007cf304302a43e30331902b12",
+  "sourceCadSha256": "e9dcbea54485b6a20d914ff71b9f85e49ad48c733c533a690128a17dfb14e07b",
+  "sourcePortsSha256": "8138e9e2c170f8b8f0b4892af7e71ab22351881fd688ead0264836927b114582",
+  "meshSha256": "87bf7bc70ae3e8b4e73f601fa3a1f133bdb54edfe3434c124c711ef365eb2438",
+  "portsSha256": "9ea0dfa57718ffa9bc0d8148ac13fa86703d455b99a5f6925b2879955ad979e1",
+  "widthFraction": 0.95,
+  "meshSizeMm": 0.4,
+  "wallSeconds": 264.4945538640022,
+  "materialVolumesUnchanged": true,
+  "nativeContactNetsValidated": true,
+  "pcbChecksComplete": true,
+  "limitation": "Ideal PEC end-contact fixtures alter near-port fields; fixture-size and enclosure sensitivity remain unproven."
+}

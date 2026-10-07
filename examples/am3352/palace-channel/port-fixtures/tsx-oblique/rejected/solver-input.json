@@ -1,0 +1,148 @@
+{
+  "sourceMeshSha256": "e220fbacbf22f56919e359351d857f837f3dc0a107465cac8241f0bb8359e220",
+  "modelSha256": "d7d123dc78a5feaa4abafbd5818a7947c90050aa0fc1d486197763a1515c5233",
+  "palaceMeshSha256": "5d15f44728cb940741285a90cda1a01325191449ce657a82830115768d0a5f46",
+  "sourcePortsSha256": "b7ba5ab912e456fd0198e4b3f0b5cc32c15bbd0f1ab5cd39685ab0c0c67d3776",
+  "portFixtureReceiptSha256": null,
+  "sourceManifestSha256": "9ce8dc2cc17ff4aa35bd50dc70298a36e15f3669298b17ac9239e04a24a51a81",
+  "tetrahedra": 47746,
+  "ports": [
+    {
+      "name": "U1.OUT",
+      "signalNetId": "source_trace_0",
+      "referenceNetId": "source_net_0",
+      "positionMm": [
+        -2,
+        0,
+        0.9225000000000001
+      ],
+      "referencePositionMm": [
+        -1.688577,
+        1.113693,
+        0.9225000000000001
+      ],
+      "widthMm": 0.08,
+      "direction": [
+        -0.2631174057921088,
+        -0.9647638212377322,
+        0
+      ],
+      "zMm": 0.9400000000000001,
+      "faces": [
+        539,
+        961
+      ],
+      "attribute": 100001,
+      "outlineMm": [
+        [
+          -1.7,
+          1.1829218490981193
+        ],
+        [
+          -1.7,
+          1.1
+        ],
+        [
+          -1.6585390754509404,
+          1.1
+        ],
+        [
+          -1.8569250285061363,
+          0.3725848387976155
+        ],
+        [
+          -1.921964,
+          0.392314
+        ],
+        [
+          -1.9341391516621567,
+          0.39351316725197777
+        ],
+        [
+          -1.7175411603861404,
+          1.187705801930703
+        ],
+        [
+          -1.7,
+          1.1829218490981193
+        ]
+      ]
+    },
+    {
+      "name": "U2.IN",
+      "signalNetId": "source_trace_0",
+      "referenceNetId": "source_net_0",
+      "positionMm": [
+        2,
+        0,
+        0.9225000000000001
+      ],
+      "referencePositionMm": [
+        2.311423,
+        1.113693,
+        0.9225000000000001
+      ],
+      "widthMm": 0.08,
+      "direction": [
+        -0.26311740579210857,
+        -0.9647638212377322,
+        0
+      ],
+      "zMm": 0.9400000000000001,
+      "faces": [
+        1298,
+        1368
+      ],
+      "attribute": 100002,
+      "outlineMm": [
+        [
+          2.3,
+          1.182921849098119
+        ],
+        [
+          2.3,
+          1.1
+        ],
+        [
+          2.341460924549059,
+          1.1
+        ],
+        [
+          2.143074971493864,
+          0.37258483879761545
+        ],
+        [
+          2.078036,
+          0.392314
+        ],
+        [
+          2.0658608483378433,
+          0.39351316725197777
+        ],
+        [
+          2.282458839613859,
+          1.187705801930703
+        ],
+        [
+          2.3,
+          1.182921849098119
+        ]
+      ]
+    }
+  ],
+  "frequenciesHz": [
+    400000000.0
+  ],
+  "referenceImpedanceOhms": 50,
+  "order": 1,
+  "copperModel": "PEC cavities, no copper loss",
+  "configurations": [
+    "palace-1.json",
+    "palace-2.json"
+  ],
+  "convergenceProven": false,
+  "limitations": [
+    "Port references are explicit geometry assumptions, not inferred power/ground AC impedance.",
+    "Dielectric material assumptions and crop/enclosure sensitivity require independent checks."
+  ]
+}

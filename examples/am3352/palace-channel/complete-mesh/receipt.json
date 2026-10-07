@@ -1,0 +1,19 @@
+{
+  "gmshVersion": "4.13.1",
+  "wallSeconds": 5017.714205533004,
+  "cadSeconds": 4874.946659123001,
+  "meshSeconds": 140.9653216539882,
+  "volumeCount": 1692,
+  "tetrahedra": 1008943,
+  "expectedVolumeMm3": 1719.393791909761,
+  "actualVolumeMm3": 1719.3937920962048,
+  "minimumTetQuality": 3.820517195432164e-06,
+  "peakRssMiB": 1189.5,
+  "case": "Complete AM3352 DQS0 and DQSn0 corridors including neighbouring copper",
+  "exportAndValidationSeconds": 5041.941341468,
+  "pcbChecksComplete": true,
+  "allSavedMeshChecksPassed": true,
+  "meshSha256": "a89f07498e9eb77ff521b2d283540adfc75666007cf304302a43e30331902b12",
+  "modelSha256": "12cd4e002bf7ec4ec96c296aafc431670a4223d46d01d7f3e16bb516a162dbbf",
+  "convergenceProven": false
+}

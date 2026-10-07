@@ -35,6 +35,7 @@ export function MultilayerBoard({
   cutout = false,
   portObstruction = false,
   cropBoundaryCopper = false,
+  referenceOffsetXMm = 0,
 }: {
   innerPlane?: boolean
   layers?: 4 | 6
@@ -43,6 +44,7 @@ export function MultilayerBoard({
   cutout?: boolean
   portObstruction?: boolean
   cropBoundaryCopper?: boolean
+  referenceOffsetXMm?: number
 }) {
   return (
     <board
@@ -118,7 +120,7 @@ export function MultilayerBoard({
               />
               <smtpad
                 portHints={["pin2"]}
-                pcbX={0}
+                pcbX={referenceOffsetXMm}
                 pcbY={1.5}
                 layer={referenceLayer}
                 width={0.8}
@@ -147,7 +149,7 @@ export function MultilayerBoard({
         <Fragment key={index}>
           <via
             name={`GV${index + 1}`}
-            pcbX={x}
+            pcbX={x + referenceOffsetXMm}
             pcbY={referenceLayer === "inner2" ? 1.8 : 1.5}
             fromLayer="top"
             toLayer="bottom"
