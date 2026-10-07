@@ -17,8 +17,8 @@
       "!**/cosmos-export",
       "!**/dist",
       "!**/package.json",
-      "!**/work",
-      "!**/.venv"
+      "!work/**",
+      "!.venv/**"
     ]
   },
   "javascript": {
