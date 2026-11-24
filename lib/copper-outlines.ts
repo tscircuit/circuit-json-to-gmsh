@@ -55,15 +55,38 @@ export function roundedOutline(options: {
     translate(options.x, options.y),
     rotateDEG(options.ccwRotationDegrees ?? 0),
   )
-  return Array.from({ length: 32 }, (_, index) => {
-    const angle = (index * 2 * Math.PI) / 32
-    const x = Math.cos(angle),
-      y = Math.sin(angle)
-    return applyToPoint(transform, {
-      x: Math.sign(x) * (options.width / 2 - radius) + radius * x,
-      y: Math.sign(y) * (options.height / 2 - radius) + radius * y,
-    })
-  })
+  const cornerX = options.width / 2 - radius
+  const cornerY = options.height / 2 - radius
+  const corners = [
+    { x: cornerX, y: cornerY, startAngle: 0 },
+    { x: -cornerX, y: cornerY, startAngle: Math.PI / 2 },
+    { x: -cornerX, y: -cornerY, startAngle: Math.PI },
+    { x: cornerX, y: -cornerY, startAngle: (3 * Math.PI) / 2 },
+  ]
+  const localPoints = corners.flatMap((corner) =>
+    Array.from({ length: 9 }, (_, index) => {
+      const angle = corner.startAngle + (index * Math.PI) / 16
+      return {
+        x: corner.x + radius * Math.cos(angle),
+        y: corner.y + radius * Math.sin(angle),
+      }
+    }),
+  )
+  const tolerance = Math.max(options.width, options.height) * 1e-12
+  const deduplicated: Point[] = []
+  for (const point of localPoints) {
+    const previous = deduplicated.at(-1)
+    if (
+      !previous ||
+      Math.hypot(point.x - previous.x, point.y - previous.y) > tolerance
+    )
+      deduplicated.push(point)
+  }
+  const first = deduplicated[0],
+    last = deduplicated.at(-1)
+  if (last && Math.hypot(first.x - last.x, first.y - last.y) <= tolerance)
+    deduplicated.pop()
+  return deduplicated.map((point) => applyToPoint(transform, point))
 }
 
 export function smtPadOutline(pad: PcbSmtPad): Point[] {
